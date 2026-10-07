@@ -1,0 +1,135 @@
+---
+sidebar: sidebar 
+permalink: fsx-eda/task-use-project-dashboard.html 
+keywords: dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization, filter dashboard 
+summary: 使用 Projects 儀表板監控儲存使用情況，按專案或團隊篩選資料，並分析磁碟區效能以最佳化資源分配。 
+---
+= 使用 Workload Factory 中的 Projects 儀表板進行 EDA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用「專案」儀表板追蹤 FSx for ONTAP 檔案系統和磁碟區的儲存使用情況。按專案、團隊或應用程式篩選資料。查看整體效能和每個磁碟區的效能，以協助規劃容量並更有效地運用資源。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+您應該擁有 link:task-configure-project-dashboard.html["已設定的自訂篩選器"] 以使用 Projects 儀表板。如果您尚未設定自訂篩選條件，仍可使用預設篩選條件（檔案系統、磁碟區類型和時間範圍）。
+
+
+
+[[filter-the-dashboard]]
+== 篩選儀表板
+
+篩選功能可讓您專注於特定的儲存資源群組。這有助於您發現趨勢、尋找問題並為利害關係人建立報告。透過結合使用多個篩選器，您可以回答諸如「ASIC 專案團隊使用了多少儲存空間？」或「US-West 地區哪些磁碟區的 IOPS 最高？」之類的針對性問題。
+
+.關於此任務
+您可以使用預設篩選器和您配置的任何自訂篩選器的組合來篩選儀表板上顯示的資訊。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *Projects*。
+. 請從可用選項中選擇您要套用的篩選條件：
++
+** 預設篩選條件（檔案系統、Volume 類型、時間範圍）
+** 您設定的任何自訂篩選器
+
+
+. 選取重新整理圖示，根據您的篩選選項更新儀表板資訊。
+. 如需卡片上顯示資訊的說明，請選取該卡片的資訊圖示。
+
+
+
+
+[[view-volume-details]]
+== 檢視磁碟區詳細資料
+
+同時查看整體磁碟區效能和個別磁碟區的效能，有助於您規劃容量並提升效能。「總體」視圖顯示整體趨勢。「磁碟區」視圖則可協助您找到可能需要關注、調整或增加資源的特定磁碟區。
+
+
+
+[[view-aggregated-volume-metrics]]
+=== 檢視彙總磁碟區指標
+
+「總計」檢視顯示符合您篩選條件的所有磁碟區的綜合指標。
+
+.步驟
+. 開啟 **專案** 索引標籤，並確定已選取 **總計** 索引標籤。這是預設檢視。
+. 檢閱顯示的指標：
++
+** 所有磁碟區的總容量
+** 彙總 IOPS
+** 彙總處理量
+
+
+. 利用此檢視畫面查看趨勢並規劃未來所需的容量。
+
+
+
+
+[[view-individual-volume-performance]]
+=== 檢視個別 Volume 效能
+
+Volume 檢視顯示每個磁碟區隨時間的效能表現。它會針對每個指標，標示出前 10 個磁碟區。
+
+.步驟
+. 在 **專案** 標籤中，選擇 **Volume** 標籤。
+. 檢閱磁碟區指標：
++
+** *磁碟區已使用容量*：顯示目前已使用容量最高的磁碟區
+** *IOPS*：顯示所選時間內平均 IOPS 最高的磁碟區
+** *處理量*：顯示所選時間段內平均處理量最高的磁碟區
++
+
+NOTE: 如果您擁有超過 10 個磁碟區，其餘磁碟區將不會顯示在詳細檢視中。
+
+
+
+. 將滑鼠游標暫留在圖表中的任何磁碟區線上，即可檢視詳細資訊：
++
+** *磁碟區已使用容量*：磁碟區名稱、該時間點的已使用容量及已分配容量
+** *IOPS*：磁碟區名稱、該時間範圍內的平均 IOPS 和該時間範圍內的最大 IOPS
+** *處理量*：Volume 名稱、時間範圍的平均處理量，以及時間範圍的最大處理量
+
+
+. 使用圖例來識別每個磁碟區。相同的磁碟區在所有指標中都使用相同的顏色，以便您輕鬆追蹤它們。
+
+
+.結果
+利用這些資料可以：
+
+* 分析使用模式
+* 找出可能的瓶頸
+* 找出可能需要調整大小的磁碟區
+* 查看哪些專案或工作負載使用的資源最多
+
+
+
+
+[[best-practices]]
+== 最佳實務
+
+使用 Projects 儀表板時，請參考以下建議：
+
+* 定期查看儀表板，以便在問題出現之前發現規律。
+* 同時使用多個篩選條件來回答有關資源使用的具體問題。
+* 兩種視圖都要看：使用「總計」視圖來規劃容量，使用「磁碟區」視圖來尋找和解決問題。
+* 變更時間範圍，以查看這些變更是否屬於正常現象或成長趨勢的一部分。
+* 記錄正常效能水準，以便日後更容易發現異常行為。
+* 利用從資料中了解到的資訊，在工作負載受到影響之前調整資源、調整磁碟區大小或提高效能。
+
+
+
+
+[[related-information]]
+== 相關資訊
+
+* link:learn-project-dashboard.html["了解專案儀表板"]
+* link:task-configure-project-dashboard.html["設定專案儀表板"]
+* link:learn-latency-monitoring.html["了解延遲監控"]
+

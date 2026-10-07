@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/deploy-fsx-file-system.html 
+keywords: vm workloads, deploy fsx, deploy storage for vms 
+summary: 在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。 
+---
+= 部署建議的 FSx for ONTAP 檔案系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的多個檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。
+
+根據您新增至 Workload Factory 帳戶的原則和權限，您可以使用 Workload Factory 完全部署 FSx for ONTAP 檔案系統（使用讀寫模式）。如果您權限較少（唯讀模式）或沒有權限（基本模式），則需要使用 Codebox 中的 CloudFormation 資訊，並在 AWS 中自行部署 FSx for ONTAP 檔案系統。
+
+.部署到 VMware Cloud on AWS 的要求
+* 若要部署 FSx for ONTAP 檔案系統，您必須使用 VMware Cloud on AWS 軟體定義資料中心（SDDC）版本 1.20 或更高版本。
+* 您不得將 FSx for ONTAP 檔案系統部署在 SDDC 部署期間使用的相同 VPC 中。相反地，您必須將其部署在您擁有的新 Amazon VPC 中，才能實現 VMware Cloud on AWS 與 Amazon FSx for NetApp ONTAP 的整合。
+* 您必須將 FSx for ONTAP 檔案系統部署在與 SDDC 相同的 AWS 區域內。
+
+
+.步驟
+. 在 *審查計畫* 頁面的底部，選取 *部署*，隨即顯示建立 FSx for ONTAP 檔案系統頁面。
++
+根據您提供的資訊，定義 FSx for ONTAP 檔案系統的大部分欄位都已填寫完畢，但此頁面上還有一些欄位需要您填寫。
+
++
+您可以選擇快速建立或進階建立選項。進階建立提供了一些額外儲存容量參數，您可以進行自訂。link:../fsx-storage/create-discover-systems.html["了解這兩個選項提供的內容"]。
+
+. *AWS 憑證*：選擇或新增憑證，以便 Workload Factory 擁有直接建立 FSx for ONTAP 檔案系統所需的權限。您也可以從 Codebox 中選擇 CloudFormation 程式碼，並在 AWS 中自行部署 FSx for ONTAP 檔案系統。
+. *檔案系統名稱*：輸入您要用於此 FSx for ONTAP 檔案系統的名稱。
+. *標籤*：您可以選擇新增標籤來對此 FSx for ONTAP 檔案系統進行分類。
+. 在「網路與安全性」部分，輸入以下資訊：
++
+.. *區域和 VPC*：選擇要部署 FSx for ONTAP 檔案系統的區域和 VPC。
++
+如果您要部署到 VMware Cloud on AWS，請確保將其部署在與 VMware Cloud on AWS 部署所在的 VPC 不同的 VPC 中。
+
+.. *安全群組*：使用*進階建立*選項時，您可以為 FSx for ONTAP VPC 選擇預設安全群組，以便所有流量都可以存取 FSx for ONTAP 檔案系統。
++
+您可以新增一條傳入規則，限制其他 AWS 服務可以存取 FSx for ONTAP 檔案系統。這將區塊開啟的服務數量。這些是最低要求的連接埠和協定：
+
++
+[cols="15,10,55"]
+|===
+| 傳輸協定 | 連接埠 | 目的 
+
+
+| TCP、UDP | 111 | Portmapper （用於協商 NFS 請求中使用的連接埠） 
+
+
+| TCP、UDP | 635 | NFS mountd（接收 NFS 裝載請求） 
+
+
+| TCP、UDP | 2049 | NFS 網路流量 
+
+
+| TCP、UDP | 4045 | 網路鎖定管理器（NLM, lockd）- 處理鎖定要求。 
+
+
+| TCP、UDP | 4046 | 網路狀態監視器（NSM，statd）- 通知 NFS 用戶端有關伺服器重新啟動以進行鎖定管理的資訊。 
+|===
+.. *可用區*：選擇可用區和子網路。
++
+如果要避免產生跨 AZ 流量費用，應選擇與 VMware SDDC 部署位置相同的可用度區。
+
+.. *加密*：使用*進階建立*選項時，您可以從下拉清單中選擇 AWS 加密金鑰名稱。
+.. *資料存放區存取控制*：使用*進階建立*選項時，您可以選擇是否所有主機都可以存取資料存放區，或者是否只有特定子網路上的某些 vSphere 叢集節點可以存取資料存放區。
+
+
+. 在「檔案系統詳細資料」部分，輸入以下資訊：
++
+.. *ONTAP 憑證*：輸入並確認 ONTAP 密碼。
+.. *儲存虛擬機器憑證*（僅限進階建立）：輸入並確認儲存虛擬機器密碼。密碼可以專用於此檔案系統，也可以使用與 ONTAP 憑證相同的密碼。
+
+
+. 在「摘要」部分，您可以檢視 VMware 移轉顧問根據您的資訊設計的 FSx for ONTAP 檔案系統和資料儲存組態。
+. 選擇 *建立* 以部署 FSx for ONTAP 檔案系統。此程序可能需要長達 2 小時。
++
+您也可以在 Codebox 視窗中選取 *重新導向至 CloudFormation*，以使用 CloudFormation 堆疊建立檔案系統。
+
++
+無論哪種情況，您都可以在 CloudFormation 中監控建立進度。
+
+
+
+.結果
+FSx for ONTAP 檔案系統已部署。

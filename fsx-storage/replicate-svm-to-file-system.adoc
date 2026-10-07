@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/replicate-svm-to-file-system.html 
+keywords: storage VM, SVM, replication, FSx for ONTAP, Workload Factory 
+summary: 將儲存設備虛擬機器複寫到另一個 FSx for ONTAP 檔案系統，可在資料遺失時提供資料存取的保護階層。 
+---
+= 將儲存設備虛擬機器複寫到另一個 FSx for ONTAP 檔案系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中將儲存設備 VM 複寫到另一個 FSx for ONTAP 檔案系統，可在資料遺失時提供資料存取的保護階層。此操作會將一個儲存設備 VM 中的所有 Volume 複寫到另一個 FSx for ONTAP 檔案系統。
+
+.開始之前
+若要將儲存設備虛擬機器複寫到另一個 FSx for ONTAP 檔案系統，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選擇包含要複寫之儲存設備 VM 的檔案系統的行動選單，然後選擇 *管理*。
+. 在 Storage VMs 下的檔案系統總覽中，選擇 *管理*。
+. 在「管理儲存設備 VM」畫面上，選擇要為其複寫 SVM 的儲存設備 VM 的行動選單，然後選擇 *進階行動* > *複寫儲存設備 VM*。
+. 在「複寫資料」頁面的「複寫目標」下，提供以下內容：
++
+.. *FSx for ONTAP 檔案系統*：選擇目標 FSx for ONTAP 檔案系統的憑證、區域和 FSx for ONTAP 檔案系統名稱。
+.. *Storage VM 名稱*：從下拉式選單中選擇 Storage VM。
+.. *Volume 名稱*：目標 Volume 名稱會依下列格式自動產生 `{OriginalVolumeName}_copy`。
+.. *分層原則*：選擇儲存在目標 Volume 中的資料的分層原則。
++
+使用 Workload Factory FSx for ONTAP 使用者介面建立 Volume 時，_Auto_ 是預設的分層原則。如需有關 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。
+
+.. *最大傳輸率*：選擇*有限制*並輸入最大傳輸限制（單位為 MB/s）。或者，選擇*無限制*。
++
+如果沒有限制，網路和應用程式效能可能會下降。或者，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
+
+
+
+. 在複寫設定中，提供以下內容：
++
+.. *複寫間隔*：選擇快照從來源 Volume 傳送到目標 Volume 的頻率。
+.. *長期保留*：可以選擇啟用快照以進行長期保留。
++
+如果啟用長期保留，請選擇現有原則或建立新原則，以定義要複寫的快照和要保留的數量。
+
++
+... 對於 *選擇現有原則*，請從下拉式選單中選擇現有原則。
+... 針對 *建立新原則*，請提供下列資訊：
++
+.... *原則名稱*：請輸入原則名稱。
+.... *Snapshot 快照技術原則*：在表格中，選擇 Snapshot 快照技術原則頻率和要保留的複本數。您可以選擇多個 Snapshot 快照技術原則。
+
+
+
+
+
+
+. 選擇 *Create*。
+
+
+.結果
+儲存設備虛擬機器中的所有 Volume 都複寫到目標檔案系統。

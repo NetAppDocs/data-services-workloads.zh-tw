@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: oci/learn-about-oci.html 
+keywords: Oracle Cloud Infrastructure NetApp Storage Service, OCI NetApp Storage Service, Oracle Cloud storage, storage, oci nss 
+summary: OCI NetApp 儲存服務是一項完全代管服務，可讓客戶在 Workload Factory 中建立和管理儲存資源池，作為工作負載的儲存設備後端。 
+---
+= 了解 OCI NetApp 儲存服務（在 NetApp Workload Factory 中）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Oracle Cloud Infrastructure NetApp Storage Service （OCI NSS）是一項完全代管的雲端型資料儲存設備服務，提供進階資料管理員功能和易擴充的效能。OCI NSS 可讓您建立及管理儲存資源池，作為 NetApp Workload Factory 中所有工作負載的儲存設備後端。
+
+OCI NSS 提供 NetApp 客戶目前在內部部署使用的相同功能、效能和管理能力，同時具備原生 Oracle 雲端服務的簡單性、敏捷度、安全性和擴充性。
+
+OCI NSS 是 Workload Factory 中的 _儲存設備_ 元件。
+
+
+
+[[features]]
+== 功能
+
+OCI NSS 提供以下功能：
+
+* *完全代管服務*：提供與 Workload Factory 控制台整合的完全代管服務。
+* *高可用度*：為每個 OCI NSS 儲存資源池提供高可用度，支援單一可用區和多可用區部署。
+* *自動快照*：透過自動、高效率的快照來保護資料，這些快照是儲存資源池或磁碟區近乎即時、節省空間的時間點唯讀複本。
+* *磁碟區複寫*：透過 Oracle Cloud Infrastructure 的跨區域複寫提供災難恢復。
+* *有效率的備份*：在另一個區域保留資料複本以備不時之需，藉此增加額外的保護階層。
+* *快速複製*：透過快速複製加速應用程式開發。
+* *多傳輸協定支援*：支援網路檔案系統（NFS）、伺服器訊息區塊（SMB）和網際網路小型電腦系統介面（iSCSI）協定。
+* *高處理量*：提供高處理量效能，確保在 OCI NSS 檔案系統上執行的工作負載具有低延遲。
+* *記憶體快取和 NVMe 快取*：包含獨特的記憶體快取和 NVMe 快取，可提高頻繁存取資料的效能。
+* *數十萬 IOPS*：採用 SSD 磁碟，提供數十萬 IOPS，確保您的儲存設備和工作負載能及時獲得結果。
+* *精簡配置*：允許預先配置容量，從而節省成本，直到需要更多容量時才進行配置。
+* *資料重複刪除與壓縮*：移除複製資料並壓縮資料，以減少 OCI NSS 檔案系統所需的實體儲存設備，進而帶來成本節約效益。
+* *資料分層*：將存取頻率較低的資料從主要、高效能的 SSD 儲存層移至次要的容量資源池儲存層，可降低儲存設備成本。
+
+
+
+
+[[tools-to-use-netapp-workload-factory]]
+== 使用 NetApp Workload Factory 的工具
+
+您可以將 NetApp Workload Factory 與下列工具搭配使用：
+
+* *NetApp Console*：NetApp Console 提供混合介面體驗，以便您可以將 Workload Factory 與其他 NetApp 資料服務一起使用。
+* *Ask Me*：使用 Ask Me AI 助理，無需離開 Workload Factory 主控台即可提問並了解更多關於 Workload Factory 的資訊。從 Workload Factory 使用者介面存取 Ask Me。
+* *CloudShell CLI*：Workload Factory 包含一個 CloudShell CLI，可透過單一、以瀏覽器為基礎的 CLI，跨帳戶管理及操作 AWS 與 NetApp 環境。從 Workload Factory 主控台的頂部列存取 CloudShell。
+* *REST API*：使用 Workload Factory REST API 部署和管理您的 OCI NSS 系統和資源。
+* *Oracle Cloud Infrastructure (OCI) Resource Manager*：使用 OCI Resource Manager 執行您在 Workload Factory 主控台中定義的動作，以從您 OCI 帳戶中的 Resource Manager 堆疊對 OCI 和第三方資源進行建模、資源配置與管理。
+* *NetApp Terraform 供應商*：使用 Terraform 建置和管理在 Workload Factory 主控台中產生的基礎架構工作流程。
+
+
+
+
+[[getting-help]]
+== 尋求協助
+
+有關 Workload Factory 或 Workload Factory 應用程式和服務的一般問題，請參閱link:../get-help.html["取得 OCI NSS for Workload Factory 的協助"]。

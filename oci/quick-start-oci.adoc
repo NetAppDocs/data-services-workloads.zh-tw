@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: oci/quick-start-oci.html 
+keywords: Oracle Cloud Infrastructure NetApp Storage Service, oci nss, netapp, quick, get started, install, deploy, setup, launch, requirements, prerequisites, credentials, permissions, policy 
+summary: 您只需幾個步驟，即可開始使用 Oracle Cloud Infrastructure NetApp 儲存服務於 NetApp Workload Factory 中。 
+---
+= NetApp Workload Factory 中的 Oracle Cloud Infrastructure NetApp 儲存服務快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過新增憑證與權限、視需要建立連結，以及建立或探索儲存系統，開始使用 Oracle Cloud Infrastructure NetApp Storage Service （OCI NSS）。
+
+請依照以下步驟開始。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 新增憑證和權限
+[role="quick-margin-para"]
+link:add-credentials.html["新增憑證至帳戶"].這包括選擇工作負載功能和建立所需權限的 IAM 原則。
+
+[role="quick-margin-para"]
+選擇預設link:permissions-oci.html["檢視、規劃與分析"]權限原則。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 建立連結
+[role="quick-margin-para"]
+此步驟為選用。若要從 NetApp Console 執行某些管理工作，您需要 NetApp Workload Factory 連結。_連結_會運用 OCI Functions 建立信任關係，並連線至您的 OCI NSS 系統。
+
+[role="quick-margin-list"]
+* link:../setup/links-overview.html["了解何時需要控制台代理程式或連結來進行 OCI NSS 管理"]
+* link:create-link.html["學習如何建立連結"^]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 探索或新增 OCI NetApp 儲存服務系統
+[role="quick-margin-para"]
+您將探索儲存資源池，以開始在 Workload Factory 中管理您的 OCI NSS 資源。在 link:https://console.netapp.com["NetApp Console"^] 中，選擇 *儲存設備*，然後選擇 *管理*，接著選擇 *Discoverable systems*。link:create-discover-systems.html["了解如何探索 OCI NSS 儲存系統"]。
+
+.接下來
+在儲存清單中新增儲存資源池後，即可開始管理 OCI NSS 資源。

@@ -1,0 +1,219 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-replication.html 
+keywords: replication management, manage replication, pause replication, stop replication, break replication, delete replication, track replication, change replication schedule, limit replication transfer rate, reverse replication 
+summary: 在 NetApp Workload Factory 中管理複製關係。 
+---
+= 在 NetApp Workload Factory 中管理您的複寫關係
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中管理複製關係。您可以暫停、繼續、反轉、停止和刪除來源磁碟區和目標磁碟區之間的複製關係。您也可以變更來源磁碟區的複製排程，並限制複製關係的最大傳輸速率。
+
+
+
+[[change-the-replication-schedule-of-a-source-volume]]
+== 變更來源 Volume 的複寫排程
+
+在 NetApp Workload Factory 的複寫關係中，變更來源 Volume 的複寫排程。
+
+選擇從來源 Volume 將快照傳輸至複寫 Volume 的頻率，以符合您所需的復原點目標（RPO）。
+
+當內部部署 ONTAP 叢集是複寫關係的目標時，不支援變更複寫排程。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選取要變更的複寫關係排程的動作選單。
+. 選擇 *編輯複寫間隔*。
+. 在「編輯複寫間隔」對話方塊中，選擇從來源 Volume 傳送快照的頻率。您可以從以下頻率中進行選擇：
++
+** 每隔 5 分鐘
+** 按小時
+** 每隔 8 小時
+** 每日
+** 每週
+
+
+. 選擇 *Apply*。
+
+
+
+
+[[limit-the-max-transfer-rate-of-a-replication-relationship]]
+== 限制複寫關係的最大傳輸率
+
+限制最大傳輸率為選用，但建議設定。若不限制，網路與應用程式效能可能會下降。
+
+或者，我們建議對 FSx for ONTAP 檔案系統採用無限傳輸率，以用於關鍵工作負載，例如主要用於災難恢復的工作負載。
+
+.開始之前
+考慮為複寫分配多少頻寬。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要限制最大傳輸率的複寫關係的操作選單。
+. 選擇 *編輯最高傳輸率*。
+. 在編輯最大傳輸率對話方塊中，選擇 *受限* 並以 MB/s 為單位輸入最大傳輸限制。
++
+或者，選擇 *無限制*。
+
+. 選擇 *Apply*。
+
+
+
+
+[[manually-update-snapshot-data-in-a-replication-relationship]]
+== 手動更新複製關係中的快照資料
+
+複寫關係有固定的複寫排程，但您可以隨時在 NetApp Workload Factory 中手動更新在來源與目標 Volume 之間傳輸的快照資料。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要更新的複寫關係的操作選單。
+. 選擇 *Update* 。
+. 在「更新」對話方塊中，選擇 *Update*。
+
+
+
+
+[[pause-a-replication-relationship]]
+== 暫停複寫關係
+
+暫停複寫關係，以停止從來源 Volume 到目標 Volume 的排程複寫更新。目標 Volume 將從唯讀轉換為讀寫。兩個 Volume 將繼續共享最新的複寫快照，作為後續重新同步的新基準。
+
+.開始之前
+如果在傳輸進行中暫停，傳輸不會受到影響，且關係會變成「Quiescing」，直到傳輸完成。如果目前的傳輸中止，它現在將成為未來的傳輸，且不會重新啟動。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要暫停的複寫關係的操作選單。
+. 選擇 *暫停（靜默）*。
+. 在 *靜止關係* 對話方塊中，選取 *靜止*。
+
+
+.結果
+關係暫停，狀態顯示為「已暫停」。
+
+
+
+[[resume-a-paused-replication-relationship]]
+== 恢復已暫停的複寫關係
+
+恢復複製關係後，複製停止期間對目標磁碟區所做的任何變更都將被刪除。目標磁碟區將從讀寫狀態轉換為唯讀狀態，並再次依照計畫的複製間隔接收來自來源磁碟區的更新。
+
+
+NOTE: 在上次資料複寫和來源 Volume 停用之間寫入原始來源 Volume 的任何資料都不會保留。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要繼續的複寫關係的操作選單。
+. 選擇 *恢復*。
+. 在「恢復關係」對話方塊中，選擇 *恢復*。
+
+
+.結果
+關係恢復，其狀態顯示為「已複寫」。
+
+
+
+[[reverse-a-replication-relationship]]
+== 逆轉複寫關係
+
+反轉複寫關係，使目標 Volume 成為來源 Volume。
+
+以下項目支援反向操作：
+
+* 兩個 FSx for ONTAP 檔案系統
+* 一個 FSx for ONTAP 檔案系統和一個內部部署的 ONTAP 系統
+
+
+停止複寫並對目標 Volume 進行變更後，您可以將這些變更複寫回來源 Volume。此過程常見於災難恢復情境中，您會在目標 Volume 上操作一段時間，然後想要切換 Volume 的角色。
+
+當您反向並恢復複寫時，它會切換 Volume 的來源和目標角色；目標 Volume 會變成新的來源 Volume，而來源 Volume 會變成新的目標 Volume。反向操作也會以新來源 Volume 的內容覆寫新目標 Volume 的內容。如果您將複寫反向兩次，則會重新建立原始的複寫方向。
+
+[]
+====
+注意：
+
+* 在上次資料複寫和來源 Volume 停用之間寫入原始來源 Volume 的任何資料都不會保留。
+* 複製儲存 VM 資料和組態設定時，無法使用反向複製。
+
+
+====
+.開始之前
+請務必了解來源和目標 Volume 的目前和未來角色，因為新目標 Volume 上的變更會被新來源 Volume 覆寫。如果使用不當，可能會導致意外的資料遺失。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選取要反轉的複寫關係的操作選單。
+. 選擇 *反向關係*。
+. 在「反向關係」對話方塊中，選擇 *反向*。
+
+
+
+
+[[stop-a-replication-relationship]]
+== 停止複寫關係
+
+在 NetApp Workload Factory 中停止複寫關係。當您停止複寫關係時，從來源 Volume 到目標 Volume 的排程複寫更新將暫停。目標 Volume 將從唯讀轉換為讀寫。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要停止的複寫關係的操作選單。
+. 選擇 *中斷*。
+. 在「中斷複寫」對話方塊中，選擇 *中斷*。
+
+
+.結果
+Volume 的複寫狀態變為 *已損壞*。目標 Volume 變為可寫入的。
+
+
+
+[[delete-a-replication-relationship]]
+== 刪除複寫關係
+
+在 NetApp Workload Factory 中刪除複寫關係。刪除複寫關係時，會移除來源和目標 Volume 之間的複寫關係。複寫關係刪除後，兩個 Volume 將繼續獨立存在，並保留其目前的資料。
+
+刪除複寫關係時，FSx for ONTAP 也會刪除來源和目標 Volume 的通用複寫快照。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要更新的檔案系統的動作選單，然後選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選擇要刪除的複寫關係的操作選單。
+. 選擇 *Delete*。
+. 在「刪除關係」對話方塊中，選擇 *刪除*。
+

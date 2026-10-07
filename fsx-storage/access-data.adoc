@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/access-data.html 
+keywords: access data, mount point, mount volumes, mount clients, on-premises 
+summary: 您可以從內部部署存取您的 FSx for ONTAP 檔案系統，方法是為 NAS 用戶端裝載 Volume，以及為 SAN 用戶端裝載 iSCSI LUN。 
+---
+= 存取您的 FSx for ONTAP 檔案系統資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以從內部部署存取您的 FSx for ONTAP 檔案系統，方法是為 NAS 用戶端裝載 Volume，以及為 SAN 用戶端裝載 iSCSI LUN。
+
+link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html["存取資料"^] Amazon FSx for NetApp ONTAP 文件提供了有關如何存取資料的主題，供您參考。
+
+您也可以在 NetApp Workload Factory 中取得 Volume 的安裝點。
+
+
+
+[[get-mount-point-for-volumes-in-netapp-workload-factory]]
+== 取得 NetApp Workload Factory 中 Volume 的安裝點
+
+取得 Volume 的安裝點，以便在 CIFS 共用區或 NFS 用戶端上裝載共享。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器* > *FSx for ONTAP*。
+. 選擇 Volume 的操作選單，然後選擇 *基本操作*，再選擇 *檢視裝載命令*。
+. 在「裝載命令」對話方塊中，選擇 *複製* 來複製 NFS 安裝點或 CIFS 共用區的命令。您將在終端機中輸入複製的命令。
+. 選擇*關閉*。
+
+
+
+
+[[connect-to-nas-clients]]
+== 連接到 NAS 用戶端
+
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/attach-linux-client.html["在 Linux 用戶端上裝載 Volume"^]
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/attach-windows-client.html["在 Windows 用戶端上裝載 Volume"^]
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/attach-mac-client.html["在 macOS 用戶端上裝載 Volume"^]
+
+
+
+
+[[connect-to-san-clients]]
+== 連線到 SAN 用戶端
+
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/mount-iscsi-luns-linux.html["在 Linux 用戶端上裝載 iSCSI LUN"^]
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/mount-iscsi-windows.html["在 Windows 用戶端上裝載 iSCSI LUN"^]
+

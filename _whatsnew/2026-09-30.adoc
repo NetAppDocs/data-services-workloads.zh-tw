@@ -1,0 +1,17 @@
+= Oracle Cloud Infrastructure NetApp Storage Service for Workload Factory 的初始版本
+:allow-uri-read: 
+
+
+
+
+[[initial-release-of-oracle-cloud-infrastructure-netapp-storage-service-for-workload-factory]]
+=== Oracle Cloud Infrastructure NetApp Storage Service for Workload Factory 的初始版本
+
+適用於 Workload Factory 的 OCI NetApp Storage Service（OCI NSS）初始版本提供上線、系統探索、認證資料管理，以及連結建立與關聯。如需申請存取 OCI NSS，請向 Oracle 開啟支援工單。
+
+
+
+[[workload-factory-documentation-for-netapp-console-users]]
+=== 適用於 NetApp Console 使用者的 Workload Factory 文件
+
+您可以在 NetApp Console 中找到有關 Workload Factory 的詳細文件，包括入門、系統探索、認證資料管理，以及連結建立與關聯的指南。

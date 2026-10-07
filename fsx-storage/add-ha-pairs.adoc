@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/add-ha-pairs.html 
+keywords: add high-availability pairs, add HA pairs, add HA pair, add high-availability pair, scale out, file system, fsx for ontap 
+summary: 為 NetApp Workload Factory 中的檔案系統新增高可用度配對，以橫向擴充檔案系統。 
+---
+= 在 NetApp Workload Factory 中將 HA 配對新增至檔案系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中新增高可用性（HA）配對，以橫向擴充 FSx for ONTAP 第二代單可用區檔案系統，從而提升效能和容量。與第一代檔案系統相比，此擴充方式可提供更高的效能擴充性和靈活度。
+
+.關於此任務
+新增的 HA 配對使用相同的 SKU 和相同的每個 HA 配對容量。
+
+以下情況不支援新增 HA 配對：
+
+* 多可用區 HA 部署或第一代 FSx for ONTAP 檔案系統
+* 擁有超過 5 個儲存設備 VM 的 FSx for ONTAP 檔案系統
+* 具有 iSCSI LUN 的 FSx for ONTAP 檔案系統
+* 具有最大或接近最大 SSD 容量，或已達到 IO 分配限制的組態
+
+
+關於新增 HA 配對，請考慮下列事項：
+
+* HA 配對移除：HA 配對一旦新增至檔案系統就無法移除。
+* 操作時間與限制：新增 HA 配對大約需要 30 分鐘。建議在維護所需時間或低活動時段新增 HA 配對。此外，新增 HA 配對會限制其他操作，例如新增更多 HA 配對、資源配置 IOPS、增加 SSD 容量及更新處理量容量。
+* IO 分配：自動 IO 分配取決於總儲存容量。使用者設定的 IO 分配會乘以新增的 HA 配對數量。
+* NVMe 快取：新增 HA 配對時，NVMe 快取預設為啟用。我們建議針對繁重的工作負載關閉 NVMe 快取。
+* HA 配對數量：我們建議將您的檔案系統擴充至偶數個 HA 配對，以便在 HA 配對之間均衡地經銷資料。
+* LUN 建立：只有在新增 HA 配對時，檔案系統上尚不存在 LUN，才能在第二代 Single-AZ 檔案系統上建立 LUN。LUN 建立僅支援包含 6 個或更少 HA 配對的檔案系統。
+
+
+.開始之前
+在將 HA 配對新增至檔案系統之前，請執行以下操作：
+
+* 移除所有 iSCSI LUN 以橫向擴充檔案系統。
+* 請確保檔案系統的儲存設備 VM 不超過 5 個。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 在 FSx for ONTAP 頁面上，選擇 *清單*。
+. 選擇要新增 HA 配對的檔案系統。
+. 在 *資訊* 下，選擇 *HA 配對* 旁邊的鉛筆圖示。
+. 在 *新增 HA 配對* 對話方塊中，選擇要新增至檔案系統的 HA 配對數量。
+. 選擇 *新增* 以確認新增 HA 配對。
+
+
+.結果
+Workload Factory 會啟動將 HA 配對加入檔案系統的程序。在新增 HA 配對之前，檔案系統將無法用於其他作業，例如建立 Volume。您可以在 *Tracker* 中監控作業的進度。

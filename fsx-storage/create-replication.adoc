@@ -1,0 +1,434 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/create-replication.html 
+keywords: replication, replicate, data protection, disaster recovery, data loss, initialize, cut over, cutover, data transfer, sync, replicate, cascade, cascade replication, cascade deployment, data protection, volume replication, replicate data protection volume 
+summary: 使用複寫可在發生意外災難時保護您的資料免於資料遺失、移轉您的資料，或在 Amazon FSx for NetApp ONTAP 檔案系統中為資料保護 Volume 進行級聯複寫 
+---
+= 在 NetApp Workload Factory 中將資料複製到 FSx for ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中複寫資料，以避免資料所在區域發生災難時造成資料遺失。支援在 FSx for ONTAP 檔案系統與內部部署 ONTAP 系統或 Cloud Volumes ONTAP 之間進行資料複寫。Workload Factory 也支援串聯複寫，以將資料保護延伸至第三系統或移轉您的資料。
+
+複製儲存 VM 資料和組態設定時，您必須先建立並初始化複寫關係，然後等待資料至少同步一次，才能完成切換作業。
+
+
+
+[[standard-replication]]
+== 標準複寫
+
+如果您的地區發生災難，複寫功能可以保護您的資料；它還可以用於移轉目的。
+
+複寫包括建立和初始化複寫關係。若要設定複寫，請建立複寫關係。若要在來源儲存系統和目標儲存系統之間傳輸資料，請初始化複寫關係。遷移儲存 VM 資料和組態設定時，也必須完成轉換作業。
+
+目標檔案系統中的複製磁碟區是資料保護（DP）磁碟區，並遵循命名格式： `{OriginalVolumeName}_copy`。
+
+如果複製的來源磁碟區包含不可變檔案，則目標磁碟區和檔案系統將保持鎖定狀態，直到來源磁碟區的保留期結束。當您link:create-volume.html["建立磁碟區"] FSx for ONTAP 檔案系統時，不可變檔案功能可用。
+
+[NOTE]
+====
+您可以複製一個來源（讀 / 寫）磁碟區或一個資料保護（DP）磁碟區。支援級聯複製，但不支援第三跳。深入瞭解link:https://docs.netapp.com/us-en/workload-fsx-ontap/cascade-replication.html["級聯複寫"]。
+
+====
+
+
+[[migration-use-cases]]
+=== 遷移使用案例
+
+遷移時，您可以選擇複製單一儲存 VM 的資料和組態設定。如果同時遷移資料和組態設定，請確保磁碟區的最後一次複寫在過去 24 小時內完成。若要使用此功能，您必須選取同一儲存 VM 中的所有磁碟區。所有磁碟區的分層原則預設為來源磁碟區的分層原則，建議用於遷移使用案例。
+
+Workload Factory 支援在下列儲存系統之間對儲存 VM 進行移轉複寫。
+
+* 內部部署 ONTAP 系統和 FSx for ONTAP 檔案系統
+* Cloud Volumes ONTAP 和 FSx for ONTAP 檔案系統
+* FSx for ONTAP 和 FSx for ONTAP 檔案系統
++
+** 第一代到第一代
+** 第二代至第二代
+
+
+
+
+若要遷移儲存 VM 資料和組態設定，必須完成以下三個操作。
+
+. <<步驟 1：建立複寫關係,建立複寫關係>>，選擇 *Migration* 作為使用案例，然後選擇 *Replicate storage VM configuration*。
+. <<步驟 2：初始化複寫關係,初始化複寫關係>> 將資料從來源儲存系統傳輸到目標儲存系統。
+. <<步驟 3：針對移轉使用案例切換複寫,切換複寫以適應移轉使用案例>> 將資料和組態設定從來源檔案系統永久遷移到目標 FSx for ONTAP 檔案系統。
+
+
+
+
+[[step-1-create-the-replication-relationship]]
+== 步驟 1：建立複寫關係
+
+在兩個 FSx for ONTAP 檔案系統之間、內部部署 ONTAP 系統和 FSx for ONTAP 檔案系統之間，或在 Cloud Volumes ONTAP 和 FSx for ONTAP 檔案系統之間複寫資料。
+
+.開始之前
+開始之前、請先檢閱這些需求。
+
+* 確保複製關係中的目標可以使用一個 FSx for ONTAP 檔案系統。
+* 開放 TCP 連接埠 11104 和 11105，以便在儲存系統之間進行安全的資料傳輸和管理。ICMP 是可選的，但有助於網路檢查和故障排除。
+* 您用於複寫關係的 FSx for ONTAP 檔案系統必須具備相關聯的連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
+* 若要從內部部署 ONTAP 系統複寫到 FSx for ONTAP 檔案系統，請確保您已探索內部部署 ONTAP 系統。
+* 對於處於可用、已建立或配置錯誤以外狀態的磁碟區，以及 ONTAP 版本不相容時，不支援複寫。
+* 對於遷移使用案例，請確保在使用儲存 VM 資料和組態設定建立複寫關係之前，磁碟區的最後一次複寫已在過去 24 小時內完成。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 在 FSx for ONTAP 頁面中，選擇包含要複寫的 Volume 的檔案系統。
+. 複寫檔案系統中的所有 Volume，或複寫選定的 Volume。
++
+** 若要複寫檔案系統中的所有 Volume：從檔案系統總覽中，選擇 *複寫資料*。
+** 若要複寫選定的 Volume：從檔案系統總覽中，選擇 *Volumes* 標籤。
++
+在 Volumes 表格中，選擇一個或多個 Volume，然後選擇 *複寫資料*。
+
+
+
+. 在「複寫資料」頁面的「複寫目標」下，提供以下內容：
++
+.. *使用案例*：請選擇下列其中一個複寫使用案例。根據所選的使用案例，Workload Factory 會按照最佳實務做法在表單中填入建議值。您可以接受建議值，或在完成表單時進行變更。
++
+*** 人工智慧（AI）和機器學習（ML）：將內部部署 ONTAP 資料複寫到 FSx for ONTAP，並建立 S3 存取點以支援雲端 AI 和 ML 訓練
+*** 移轉：將您的資料傳輸到目標 FSx for ONTAP 檔案系統
++
+*複製儲存 VM 設定*：您可以選擇複製單一儲存 VM 的資料和組態設定。遷移資料和設定時，所有磁碟區必須在過去 24 小時內完成複製，然後同時切換。
+
++
+所有磁碟區的分層原則預設為來源磁碟區的分層原則，建議用於遷移使用案例。
+
++
+遷移期間，用戶端從來源 ONTAP 檔案系統存取資料。切換完成後，磁碟區可透過目標 FSx for ONTAP 檔案系統的 IP 位址存取。請更新所有仍在使用舊 IP 位址的用戶端或資源。
+
+*** 熱災難恢復：確保關鍵工作負載的高可用度和快速災難恢復
+*** 冷或歸檔災難恢復：
++
+**** 冷災難恢復：採用更長的恢復時間目標（RTO）和恢復點目標（RPO）來降低成本
+**** 歸檔：複寫資料以進行長期儲存設備和法規遵循
+
+
+*** 其他
++
+此外，使用案例選擇決定了複寫原則，或 SnapMirror 原則（ONTAP）。用於描述複寫原則的術語來自 link:https://docs.netapp.com/us-en/ontap/data-protection/default-protection-policies-concept.html["ONTAP 9 文件"^]。
+
++
+**** 對於移轉和其他操作，複寫原則稱為 _MirrorAllSnapshots_。_MirrorAllSnapshots_ 是一種非同步原則，用於鏡射所有快照和最新的作用中檔案系統。
+**** 對於熱恢復、冷恢復或歸檔災難恢復，複寫原則稱為 _MirrorAndVault_。_MirrorAndVault_ 是一種非同步和保存庫原則，用於鏡射最新的作用中檔案系統以及每日和每週 Snapshot 快照技術。
++
+對於所有使用案例，如果您啟用快照以進行長期保留，則預設複寫原則為 _MirrorAndVault_。
+
+
+
+
+
+.. *FSx for ONTAP 檔案系統*：選擇目標 FSx for ONTAP 檔案系統的憑證、區域和 FSx for ONTAP 檔案系統名稱。
+.. *儲存虛擬機器名稱*：選擇儲存虛擬機器。您選擇的儲存虛擬機器將成為此複製關係中所有選定磁碟區的目標。
++
+當來源儲存 VM 和目標儲存 VM 名稱相同時，我們會為目標儲存 VM 名稱建立檔案系統別名，以避免對等衝突。
+
+.. *Volume 名稱*：目標 Volume 名稱會以下列格式自動產生 `{OriginalVolumeName}_copy`。您可以使用自動產生的 Volume 名稱，也可以輸入其他 Volume 名稱。
+.. *分層原則*：選擇目標 Volume 中儲存資料的分層原則。分層原則預設為您所選使用案例的建議分層原則。
++
+使用 Workload Factory 主控台建立 Volume 時，預設分層原則為 _Balanced (Auto)_。如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。請注意，Workload Factory 在 Workload Factory 主控台中針對分層原則使用以使用案例為基礎的名稱，並將 FSx for ONTAP 分層原則名稱包含在括號中。
+
++
+如果您選擇了移轉使用案例，Workload Factory 會自動選擇將來源 Volume 的分層原則建立複本到目標 Volume。您可以取消選擇為分層原則建立複本，並選擇適用於所選複寫 Volume 的分層原則。
+
+.. *最大傳輸率*：選擇*有限制*並輸入最大傳輸限制（單位為 MB/s）。或者，選擇*無限制*。
++
+如果沒有限制，網路和應用程式效能可能會下降。或者，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
+
+
+
+. 在複寫設定中，提供以下內容：
++
+.. *初始化複製關係*：您可以選擇在建立複製關係後立即初始化複製關係，也可以稍後初始化。請注意，初始化過程可能比較耗時，建議您在非尖峰時段執行基準傳輸。
++
+若要稍後手動初始化，請參閱 <<步驟 2：初始化複寫關係,步驟 2：初始化複寫關係>> 中的說明。
+
+.. *複寫間隔*：選擇快照從來源 Volume 傳送到目標 Volume 的頻率。
+.. *長期保留*：您可以選擇啟用快照以進行長期保留。長期保留可讓業務服務即使在完全站台故障的情況下也能繼續運作，支援應用程式使用次要複本透明地進行容錯移轉。
++
+沒有長期保留的複寫使用 _MirrorAllSnapshots_ 原則。啟用長期保留會將 _MirrorAndVault_ 原則指派給複寫。
+
++
+如果啟用長期保留，請選擇現有原則或建立新原則，以定義要複寫的快照和要保留的數量。
+
++
+
+NOTE: 為了確保長期資料保留，來源標籤和目標標籤必須相符。如有需要，Workload Factory 可以為您建立缺少的標籤。
+
++
+*** *選擇現有原則*：選取現有原則。
+*** *建立新原則*：輸入 *原則名稱*。
+
+
+.. *不可變的 Snapshot 快照技術*：選用。選取 *啟用不可變的 Snapshot 快照技術* 以防止在此原則中建立的 Snapshot 快照技術在保留期間被刪除。
++
+*** 設定*保留期間*，單位可以是小時、天、月或年。
+*** *Snapshot 快照技術原則*：在表格中，選擇 Snapshot 快照技術原則頻率和要保留的複本數。您可以選擇多個 Snapshot 快照技術原則。
+
+
+.. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。提供以下詳細資訊：
++
+*** *S3 存取點名稱*：輸入 S3 存取點的名稱。
+*** *User*：選擇具有磁碟區存取權限的現有使用者或建立新使用者。
+*** *使用者類型*：選取 *UNIX* 或 *Windows* 作為使用者類型。
+*** *網路組態*：選取 *Internet* 或 *Virtual private cloud (VPC)*。您選擇的網路類型決定了存取點是可從網際網路存取、還是僅限於特定 VPC。
+*** *啟用清單表*：在磁碟區啟用清單表後，系統會為所有可透過 S3 存取點存取的物件產生元數據，並產生 AWS S3 請求費用。如需詳細資訊，請參閱 link:https://aws.amazon.com/s3/pricing/["Amazon S3 定價文件"^]。
+
+
+.. *S3 存取點標籤*：您可以選擇新增最多 50 個標籤。
+
+
+
+
+. 選擇 *Create*。
+
+
+.結果
+複寫關係會顯示在目標 FSx for ONTAP 檔案系統的 *複寫關係* 索引標籤中。
+
+如果您為了遷移目的建立了複製關係，則必須切換所有磁碟區及其關聯的儲存 VM，才能完成將儲存 VM 資料和組態設定遷移到目標 FSx for ONTAP 檔案系統。
+
+
+
+[[step-2-initialize-the-replication-relationship]]
+== 步驟 2：初始化複寫關係
+
+初始化來源磁碟區和目標磁碟區之間的複寫關係，以傳輸 NetApp Workload Factory 中的快照和所有資料區塊。
+
+初始化執行 _baseline_ 傳輸：它建立來源磁碟區的快照，然後將快照及其引用的所有資料區塊傳輸到目標磁碟區。
+
+.開始之前
+請考慮何時完成此操作。初始化過程可能耗時較長。您不妨選擇在非尖峰時段執行基線傳輸。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選擇要更新的檔案系統的動作功能表，然後選擇 *管理* 。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」索引標籤中、選取要初始化的複寫關係的動作功能表。
+. 選擇 *Initialize* 。
+. 在「初始化關係」對話方塊中、選取 *Initialize* 。
++
+當複寫狀態顯示為 *Idle* 時，資料傳輸已完成。
+
+
+
+
+
+[[step-3-cut-over-replication-for-migration-use-cases]]
+== 步驟 3：針對移轉使用案例切換複寫
+
+建立遷移使用案例的複寫關係後，您必須切換複寫，以完成將儲存 VM 資料和組態設定遷移至目標 FSx for ONTAP 檔案系統。切換複寫會將資料和儲存 VM 組態設定從來源檔案系統永久遷移至目標 FSx for ONTAP 檔案系統。在切換期間，資料會進行最後一次複寫。當切換開始時，來源儲存 VM 會離線。
+
+
+
+[[plan-for-the-cutover-operation]]
+=== 規劃轉換作業
+
+在規劃遷移使用案例的轉換作業時，請考慮以下事項。
+
+* *複寫版本支援*：來源儲存系統和目標儲存系統必須具有相同的 ONTAP 主版本。例如，如果來源系統執行的是 ONTAP 9.18.1 版，則目標系統也必須執行 9.18.1 版。
+* *儲存 VM 組態設定*：
++
+** 切換操作不會將所有儲存 VM 組態設定遷移到目標儲存 VM。例如，iSCSI、廣播網域 MTU 和 DNS 設定不會遷移。切換後，請在目標儲存 VM 上手動更新這些設定。如需更多詳細資料，請參閱 <<切換後更新組態設定,切換後更新組態設定>> 章節。
+** 如果您的儲存 VM 使用網域通道驗證，請在開始移轉之前在目標檔案系統上設定並啟用網域通道。
+
+
+* *複製磁碟區*：複製磁碟區將作為獨立磁碟區進行遷移，因此會佔用目標 FSx for ONTAP 檔案系統的更多空間。建議在切換之前刪除複製磁碟區，以避免目標系統容量增加。
+* *快取磁碟區*：適用於 ONTAP FlexCache 9.17.x 或更低版本。包含快取磁碟區的來源儲存 VM 不支援轉換。轉換前請移除 ONTAP FlexCache 關係，以避免移轉失敗。
+* *AWS S3 存取點*：對於包含 S3 存取點的磁碟區，不支援遷移使用案例的轉換複寫。請從來源磁碟區中刪除 S3 存取點，以避免遷移失敗。
+* *ONTAP S3 組態*：具有 ONTAP S3 組態的 vserver 不支援移轉使用案例的完全移轉複寫。請移除 vserver 上的 ONTAP S3 組態，包括 object-store-server、bucket、使用者、群組或原則，以避免移轉失敗。
+* *LUN 序號和 iSCSI 目標 IQN*：LUN 序號和 iSCSI 目標 IQN 會在轉換期間變更。
+
+
+.開始之前
+開始之前、請先檢閱這些需求。
+
+* 在切換複寫之前，請停止所有用戶端對儲存 VM 的存取。
+* 在切換複寫之前，請確保所有來源磁碟區均未承載任何資料。
+* 在切換複製之前、請確保來源磁碟區和目標磁碟區之間的資料已同步。
+* 您用於複寫關係的 FSx for ONTAP 檔案系統必須具備相關聯的連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
++
+** 若要實現連結連線，與 FSx for ONTAP 檔案系統關聯的安全性群組中必須開啟下列連接埠：連接埠 443（HTTPS）和連接埠 22（SSH）。
+
+
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中、選取包含要複寫之磁碟區的檔案系統。
+. 選擇 *Replication relationships* 標籤。
+. 在複製關係表中、選取要切換的複製關係、然後選取 *Cut over replication* 。
+. 查看「切換複製」對話方塊中的資訊，然後輸入 _cut over_ 進行確認。
+
+
+. 選擇 *Cut over* 。
+
+
+.結果
+啟動轉換後，來源儲存 VM 會離線。
+
+
+
+[[update-configuration-settings-after-cutover]]
+=== 切換後更新組態設定
+
+在遷移使用案例中切換複寫後，請更新目標儲存 VM 上的下列儲存 VM 組態設定。
+
+* 對於 iSCSI：
++
+** 重新建立 igroup
+** 更新 LUN 對應
+** 登入每個 SAN 用戶端，更新新目標的 iSCSI/MPIO 設定，並移除舊的 vserver 目標 IP
+
+
+* 驗證廣播網域 MTU 設定是否符合預期
+* 驗證 DNS 設定是否符合預期
+* 如果來源儲存 VM 中存在快取磁碟區，請重新建立快取關係（ONTAP FlexCache 關係）。
+
+
+如有需要，請在切換後針對目標 Volume（s）link:change-tiering-policy.html["修改分層原則"]。
+
+
+
+[[cascade-replication-for-data-protection-volumes]]
+== 資料保護 Volume 的級聯複寫
+
+NetApp Workload Factory 支援複寫資料保護 Volume，也稱為_級聯部署_。_級聯部署_由一系列關係組成，其中來源 Volume 鏡射到次要 Volume（第一跳），而次要 Volume 鏡射到第三 Volume（第二跳）。如果次要 Volume 無法使用，您可以同步主要與第三 Volume 之間的關係，而無需執行新的基礎傳輸。
+
+此功能支援 ONTAP 版本 9.6 及更高版本的 FSx for ONTAP 檔案系統。請參閱 link:https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html#snapmirror-disaster-recovery-relationships["相容 ONTAP 版本的 ONTAP 文件"^]。
+
+深入瞭解link:https://docs.netapp.com/us-en/ontap/data-protection/supported-deployment-config-concept.html#how-cascade-deployments-work["級聯部署的工作原理"^]。
+
+.開始之前
+開始之前請考慮以下事項：
+
+* 請感知，級聯組態中的 Volume 可能需要更長時間才能重新同步。
+* 如果關係的來源 Volume 是資料保護 Volume，並且是另一個關係的目標，則不支援反轉複寫關係。
+* 僅支援一個資料保護 Volume 副本（或第二跳）。建立第二個資料保護 Volume 副本（或第三跳）並非最佳實務做法。
+* 開放 TCP 連接埠 11104 和 11105，以便在儲存系統之間進行安全的資料傳輸和管理。ICMP 是可選的，但有助於網路檢查和故障排除。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取包含要複寫之 Volume 的檔案系統的動作選單，然後選取 *管理*。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 在 Volume 表格中，選取一個或多個資料保護 Volume（DP/複寫 Volume），然後選取 *複寫資料*。
+. 在「複寫資料」頁面的「複寫目標」下，提供以下內容：
++
+.. *使用案例*：請選擇下列其中一個複寫使用案例。根據所選的使用案例，Workload Factory 會按照最佳實務做法在表單中填入建議值。您可以接受建議值，或在完成表單時進行變更。
++
+*** 人工智慧（AI）和機器學習（ML）：將內部部署 ONTAP 資料複寫到 FSx for ONTAP，並建立 S3 存取點以支援雲端 AI 和 ML 訓練
+*** 移轉：將您的資料傳輸到目標 FSx for ONTAP 檔案系統
++
+*複製儲存 VM 設定*：您可以選擇複製單一儲存 VM 的資料和組態設定。遷移資料和設定時，所有磁碟區必須在過去 24 小時內完成複製，然後同時切換。
+
++
+所有磁碟區的分層原則預設為來源磁碟區的分層原則，建議用於遷移使用案例。
+
++
+遷移期間，用戶端從來源 ONTAP 檔案系統存取資料。切換完成後，磁碟區可透過目標 FSx for ONTAP 檔案系統的 IP 位址存取。請更新所有仍在使用舊 IP 位址的用戶端或資源。
+
+*** 熱災難恢復：確保關鍵工作負載的高可用度和快速災難恢復
+*** 冷或歸檔災難恢復：
++
+**** 冷災難恢復：採用更長的恢復時間目標（RTO）和恢復點目標（RPO）來降低成本
+**** 歸檔：複寫資料以進行長期儲存設備和法規遵循
+
+
+*** 其他
++
+此外，使用案例選擇決定了複寫原則，或 SnapMirror 原則（ONTAP）。用於描述複寫原則的術語來自 link:https://docs.netapp.com/us-en/ontap/data-protection/default-protection-policies-concept.html["ONTAP 9 文件"^]。
+
++
+**** 對於移轉和其他操作，複寫原則稱為 _MirrorAllSnapshots_。_MirrorAllSnapshots_ 是一種非同步原則，用於鏡射所有快照和最新的作用中檔案系統。
+**** 對於熱恢復、冷恢復或歸檔災難恢復，複寫原則稱為 _MirrorAndVault_。_MirrorAndVault_ 是一種非同步和保存庫原則，用於鏡射最新的作用中檔案系統以及每日和每週 Snapshot 快照技術。
++
+對於所有使用案例，如果您啟用快照以進行長期保留，則預設複寫原則為 _MirrorAndVault_。
+
+
+
+
+
+.. *FSx for ONTAP 檔案系統*：選擇目標 FSx for ONTAP 檔案系統的憑證、區域和 FSx for ONTAP 檔案系統名稱。
+.. *儲存虛擬機器名稱*：選擇儲存虛擬機器。您選擇的儲存虛擬機器將成為此複製關係中所有選定磁碟區的目標。
++
+當來源儲存 VM 和目標儲存 VM 名稱相同時，我們會為目標儲存 VM 名稱建立檔案系統別名，以避免對等衝突。
+
+.. *Volume 名稱*：目標 Volume 名稱會以下列格式自動產生 `{OriginalVolumeName}_copy`。您可以使用自動產生的 Volume 名稱，也可以輸入其他 Volume 名稱。
+.. *分層原則*：選擇目標 Volume 中儲存資料的分層原則。分層原則預設為您所選使用案例的建議分層原則。
++
+使用 Workload Factory 主控台建立 Volume 時，預設分層原則為 _Balanced (Auto)_。如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。請注意，Workload Factory 在 Workload Factory 主控台中針對分層原則使用以使用案例為基礎的名稱，並將 FSx for ONTAP 分層原則名稱包含在括號中。
+
++
+如果您選擇了移轉使用案例，Workload Factory 會自動選擇將來源 Volume 的分層原則建立複本到目標 Volume。您可以取消選擇為分層原則建立複本，並選擇適用於所選複寫 Volume 的分層原則。
+
+.. *最大傳輸率*：選擇*有限制*並輸入最大傳輸限制（單位為 MB/s）。或者，選擇*無限制*。
++
+如果沒有限制，網路和應用程式效能可能會下降。或者，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
+
+
+
+. 在複寫設定中，提供以下內容：
++
+.. *初始化複製關係*：您可以選擇在建立複製關係後立即初始化複製關係，也可以稍後初始化。請注意，初始化過程可能比較耗時，建議您在非尖峰時段執行基準傳輸。
++
+若要稍後手動初始化，請參閱 <<步驟 2：初始化複寫關係,步驟 2：初始化複寫關係>> 中的說明。
+
+.. *複寫間隔*：選擇快照從來源 Volume 傳送到目標 Volume 的頻率。
+.. *長期保留*：您可以選擇啟用快照以進行長期保留。長期保留可讓業務服務即使在完全站台故障的情況下也能繼續運作，支援應用程式使用次要複本透明地進行容錯移轉。
++
+沒有長期保留的複寫使用 _MirrorAllSnapshots_ 原則。啟用長期保留會將 _MirrorAndVault_ 原則指派給複寫。
+
++
+如果啟用長期保留，請選擇現有原則或建立新原則，以定義要複寫的快照和要保留的數量。
+
++
+
+NOTE: 為了確保長期資料保留，來源標籤和目標標籤必須相符。如有需要，Workload Factory 可以為您建立缺少的標籤。
+
++
+*** *選擇現有原則*：選取現有原則。
+*** *建立新原則*：輸入 *原則名稱*。
+
+
+.. *不可變的 Snapshot 快照技術*：選用。選取 *啟用不可變的 Snapshot 快照技術* 以防止在此原則中建立的 Snapshot 快照技術在保留期間被刪除。
++
+*** 設定*保留期間*，單位可以是小時、天、月或年。
+*** *Snapshot 快照技術原則*：在表格中，選擇 Snapshot 快照技術原則頻率和要保留的複本數。您可以選擇多個 Snapshot 快照技術原則。
+
+
+.. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。提供以下詳細資訊：
++
+*** *S3 存取點名稱*：輸入 S3 存取點的名稱。
+*** *User*：選擇具有磁碟區存取權限的現有使用者或建立新使用者。
+*** *使用者類型*：選取 *UNIX* 或 *Windows* 作為使用者類型。
+*** *網路組態*：選取 *Internet* 或 *Virtual private cloud (VPC)*。您選擇的網路類型決定了存取點是可從網際網路存取、還是僅限於特定 VPC。
+*** *啟用清單表*：在磁碟區啟用清單表後，系統會為所有可透過 S3 存取點存取的物件產生元數據，並產生 AWS S3 請求費用。如需詳細資訊，請參閱 link:https://aws.amazon.com/s3/pricing/["Amazon S3 定價文件"^]。
+
+
+.. *S3 存取點標籤*：您可以選擇新增最多 50 個標籤。
+
+
+. 選擇 *Create*。
+
+
+.結果
+複寫的 Volume 或多個 Volume 會進行複寫，並顯示在目標 FSx for ONTAP 檔案系統的 *複寫關係* 索引標籤中。
+
+
+
+[[related-information]]
+== 相關資訊
+
+link:change-tiering-policy.html["修改分層原則"]針對轉換後的目標磁碟區。

@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/change-tiering-policy.html 
+keywords: tiering policy, change tier, change tiers, tier policy update 
+summary: 變更 NetApp Workload Factory 中的分層原則，將資料從高效能主儲存設備層重新分配到次要容量資源池儲存層。 
+---
+= 在 NetApp Workload Factory 中變更 Volume 的分層原則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中，您可以變更分層原則，自動將資料從高效能主儲存設備層重新分配到次要容量資源池儲存層。
+
+.關於此任務
+您可以隨時變更 Volume 的分層原則。分層原則是按 Volume 定義的。
+
+決定資料儲存位置會對您的成本節約效益產生影響。
+
+FSx for ONTAP 具有兩個用於儲存 Volume 資料的分層：
+
+* *SSD 儲存層*：此主儲存設備分層用於儲存您最常存取的資料，也稱為 _熱_ 資料。將資料儲存在主儲存設備分層比儲存在次要儲存設備分層的成本更高。
+* *容量資源池儲存層*：此次要儲存設備分層用於歸檔資料或不經常存取的資料，也稱為_冷_資料。
+
+
+如需有關儲存層的詳細資訊，請參閱 AWS 的 FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html#storage-tiers["管理儲存容量"^]。
+
+.開始之前
+在變更分層原則之前，請先查看可用的分層原則。
+
+* *平衡（自動）*：使用使用者介面建立 Volume 時的預設分層原則。將頻繁存取的資料保留在 SSD 儲存層，並在冷卻期結束後，將不常存取的資料與快照分層至容量資源池儲存層。建議用於一般主要工作負載。
+* *成本最佳化（全部）*：將所有快照和資料分層至容量資源池儲存層。建議用於次要目標。
+* *效能最佳化的（僅限 Snapshot 快照技術）*：僅將 Snapshot 快照技術資料分層至容量資源池儲存層。建議用於低延遲工作負載，例如關鍵任務資料庫。
+* *無*：將 Volume 資料保留在 SSD 儲存層中，防止其移至容量資源池儲存層。
+
+
+請注意，某些分層原則具有相關聯的最短冷卻期，該冷卻期設定了 Volume 中的使用者資料必須保持非作用中狀態的時間（或 _冷卻天數_），以便將資料視為「冷」並移至容量資源池儲存層。冷卻期從資料寫入磁碟時開始。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器* > *FSx for ONTAP*。
+. 選擇要變更分層原則的 Volume 的動作選單。
+. 選擇 *進階操作*，然後選擇 *變更分層原則*。
+. 在「變更分層原則」頁面上，選擇複製來源 Volume 的分層原則，或選擇下列分層原則之一：
++
+** *平衡（自動）*：輸入冷卻天數。
+** *成本最佳化的（全部）*
+** *效能最佳化（僅限 Snapshot 快照技術）*：輸入冷卻天數。
+** *無*
+
+
+. 選擇 *Apply*。
+

@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: fsx-eda/manage-projects.html 
+keywords: EDA, electronic design automation, project, projects, manage project, create project, edit project, delete project 
+summary: 在 NetApp Workload Factory for EDA 中管理 EDA 專案。 
+---
+= 在 Workload Factory 中管理 EDA 專案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以管理 EDA 專案，以控制在 NetApp Workload Factory for EDA 中每個專案的程式碼與產物的代管方式。
+
+
+
+[[create-a-project]]
+== 建立專案
+
+您可以建立新的 EDA 專案、以便針對程式碼和成品運用 FSx for ONTAP 檔案系統的資料保護功能。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *CI/CD*。
+. 選擇 *Add project* 。
+. 在「建立專案」頁面上，提供以下資訊：
++
+.. *專案名稱*：請輸入專案名稱。
+.. *執行摘要*：輸入專案的執行摘要。
+.. *檔案系統*：請提供以下資訊：
++
+... *憑證*：選擇要使用的 Amazon AWS 憑證。EDA 使用這些憑證來發現可用於此專案的 FSx for ONTAP 檔案系統，並建立專案的複製和快照。
+... *區域*：選擇此 FSx for ONTAP 檔案系統所在的區域。
+... *FSx for ONTAP 檔案系統*：選擇要與此專案一起使用的 FSx for ONTAP 檔案系統。
++
+您只能選擇已設定連結的檔案系統。link:../setup/links-overview.html["深入瞭解連結"^]。
+
+... *選擇一個 Volume*：選擇一個 Volume 來儲存專案；EDA 使用此 Volume 作為軟體儲存庫。
++
+您只能選擇配置為 NFS 共享的 Volume。
+
+
+
+.. *營運原則*：提供專案 Clone 的限制：
++
+... *最大保留天數*：輸入 Clone 應保留的最大天數。超過此天數後，Workload Factory 將移除該 Clone。
+... *每個使用者或群組的最大 Clone 數*：輸入可以為使用者或群組配置的最大 Clone 數。
+... *最大 Clone 大小（GiB）*：輸入專案 Clone 的最大大小（GiB）。
+
+
+.. *存取原則*：明確授予特定使用者或群組專案存取：
++
+... *原則執行範圍*：輸入單一 IP 位址或 IP 位址範圍，以將專案存取限制為僅允許這些 IP 位址或範圍。
++
+例如： `172.16.0.0/24`
+
+... *使用者或群組識別碼*：輸入使用者或群組識別碼，以將專案存取限制為僅限這些使用者或群組。
++
+例如： `User1234`
+
+
+
+
+
+. 選擇 *Create*。
+
+
+.結果
+專案已建立，並顯示在「專案」頁面的專案清單中。
+
+
+
+[[view-existing-projects]]
+== 檢視現有專案
+
+您可以按照下列步驟檢視在 NetApp Workload Factory for EDA 中建立的現有專案。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *CI/CD*。
+. 選取 *前往專案頁面*。
+. 檢視「專案」頁面上列出的現有專案。
+
+
+
+
+[[edit-a-project]]
+== 編輯專案
+
+您可以隨時編輯專案的設定。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *CI/CD*。
+. 選取 *前往專案頁面*。
+. 在「專案」頁面上，針對您要編輯的專案選取 image:icon-action.png["選項按鈕"]，然後選取 *編輯*。
+. 對專案組態進行任何必要的變更。
+. 選擇 *Save*。
+
+
+
+
+[[view-a-projects-workspaces]]
+== 檢視專案的工作區
+
+專案的 Clone 或快照稱為工作區。建立工作區後，只要專案的作業原則允許，就會保留該工作區。您可以按照下列步驟檢視專案的現有工作區。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *CI/CD*。
+. 選取 *前往專案頁面*。
+. 在「專案」頁面上，選擇一個專案，然後選取 *檢視*。
+. 檢視此專案所有工作區的狀態和詳細資訊。
+. 如果看到工作區的警報或警告，請將滑鼠停留在警報或警告圖示上以查看原因。
+
+
+
+
+[[delete-a-project]]
+== 刪除專案
+
+請依照以下步驟，即可在不再需要時刪除專案。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選擇 *CI/CD*。
+. 選取 *前往專案頁面*。
+. 在「專案」頁面上，針對您要刪除的專案選取 image:icon-action.png["選項按鈕"]。
+. 選擇 *Delete*。
+. 在確認對話方塊中，選擇 *刪除*。
+
+
+.結果
+專案將被刪除，與該專案關聯的所有程式碼或工件也將從 Volume 中刪除。專案的快照和 Clone 將被保留。

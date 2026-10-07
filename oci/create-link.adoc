@@ -1,0 +1,255 @@
+---
+sidebar: sidebar 
+permalink: oci/create-link.html 
+keywords: connect, connection, link, associate link, create link, authenticate link, oci nss 
+summary: 您可以建立和關聯連結，以在 NetApp Workload Factory 帳戶和 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統之間提供信任關係和連線。 
+---
+= 透過連結連接至 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要執行進階儲存管理操作，請在您的 NetApp Workload Factory 帳戶與 Oracle Cloud Infrastructure NetApp Storage Service（OCI NSS）系統之間建立連線。此程序涉及建立連結並將其與您的儲存系統建立關聯。連結關聯可讓您直接從 OCI NSS 系統監控和管理某些無法透過 OCI API 使用的功能。
+
+link:../setup/links-overview.html["深入瞭解連結"]。
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+Workload Factory 中的 _連結_ 是您租用戶中的 OCI Functions 應用程式。Workload Factory 使用它與 OCI NSS 儲存資源池上的 ONTAP 系統進行通訊（HTTPS 443 和 SSH 22）。
+
+連結使用 OCI Functions 來回應事件執行程式碼，並自動管理該程式碼所需的運算資源。您建立的連結是您 NetApp 帳戶的一部分，並且與 Oracle Cloud Infrastructure 帳戶相關聯。
+
+您使用 Terraform 部署連結或函數，然後在 Workload Factory 中註冊函數 OCID。
+
+此堆疊在您的租用戶中使用您的 OCI 使用者執行。它不是跨租用戶憑證原則。當您新增憑證時，該原則屬於租用戶根目錄；您無需為了建立連結而再次建立它。
+
+
+
+[[what-terraform-creates]]
+=== Terraform 建立的內容
+
+[cols="1,1"]
+|===
+| 資源 | 範例名稱 
+
+
+| 函數應用程式 | `netapp-wf-app-<suffix>` 
+
+
+| 功能 | `netapp-wf-function-<suffix>` 
+
+
+| 日誌組 + 函數呼叫日誌 | `netapp-wf-link-logs-<suffix>` 
+
+
+| 動態群組 + 保存庫讀取原則 | 僅當您啟用 *Local OCI Vault Authentication* (`netapp-functions-dg`，在租用戶中共享） 
+|===
+
+
+[[create-a-new-link]]
+== 建立新連結
+
+在定義 OCI NSS 系統時，您可以在帳戶中建立連結。此連結可用於此儲存系統，也可用於其他 OCI NSS 系統。您也可以稍後為儲存系統關聯連結。
+
+連結需要驗證。您可以使用儲存在 Workload Factory 憑證服務中的憑證或儲存在 OCI Vault 中的憑證對連結進行驗證。每個連結僅支援一種身分驗證方法。例如，如果您選擇使用 OCI Vault 進行連結驗證，則之後無法變更身分驗證方法。
+
+
+NOTE: 使用控制台代理程式時不支援 OCI Vault。
+
+.開始之前
+* 您已為租用戶新增了 Workload Factory 憑證。
+* 您可以登入儲存資源池所在租用戶和區域的 OCI Console。
+* 網路：
++
+** VCN 中可存取 ONTAP 管理 LIF 的**私有子網路**
+** 一個**服務閘道**，具有指向 Oracle Services Network 中所有 \<Region\> 服務的路由（需要拉取函數映像）
+
+
+* 為將要部署堆疊的群組建立 IAM 原則。深入瞭解 link:permissions-oci.html["OCI NSS 權限"]。
++
+授予群組建立堆疊與函數的權限。將 `<deploy-group>`與 `<compartment-name>`替換為您的值。請使用命名群組，而不是 `any-user`。
+
++
+[listing]
+----
+Allow group <deploy-group> to manage orm-stacks in compartment <compartment-name>
+Allow group <deploy-group> to manage orm-jobs in compartment <compartment-name>
+Allow group <deploy-group> to manage functions-family in compartment <compartment-name>
+Allow group <deploy-group> to manage log-groups in compartment <compartment-name>
+Allow group <deploy-group> to use virtual-network-family in compartment <compartment-name>
+----
++
+如果啟用**本機 OCI Vault 驗證**，請新增：
+
++
+[listing]
+----
+Allow group <deploy-group> to manage dynamic-groups in tenancy
+Allow group <deploy-group> to manage policies in compartment <compartment-name>
+----
++
+然後，堆疊會建立（或重複使用）動態群組 `netapp-functions-dg`，以便函數可以讀取 Vault 機密。比對規則：
+
++
+[listing]
+----
+ALL {resource.type = 'fnfunc', resource.compartment.id = '<compartment-ocid>'}
+----
++
+函數和機密所在區間內的保存庫原則：
+
++
+[listing]
+----
+Allow dynamic-group netapp-functions-dg to read secret-bundles in compartment <compartment-name>
+Allow dynamic-group netapp-functions-dg to use keys in compartment <compartment-name>
+----
+
+
+.步驟
+使用 OCI CLI 或 OCI Terraform 在 Workload Factory 中建立和註冊連結。
+
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*管理* > *連結*。
+. 在「連結」頁面上，選擇 *建立並關聯連結* > *OCI NetApp 儲存服務*。
+. 在新增連結對話方塊的 *詳細資料* 下，提供以下資訊：
++
+.. *連結名稱*：請輸入您要用於此連結的名稱。該名稱在您的帳戶中必須是唯一的。
+.. *OCI Vault*：選用。允許 Workload Factory 從您的 OCI Vault 安全地取得 ONTAP 存取憑證。
++
+連結部署堆疊將下列預設 OCI Vault 金鑰 OCID 正規表示式新增至 OCI Functions 權限原則： `ocid1.vaultsecret.oc1.iad.<unique_id>.ONTAPSecret*`。
+
++
+您可以建立符合預設正規表示式的機密，也可以更新 Terraform 組態檔案中的正規表示式，以符合您的機密 OCID。
+
+.. *標籤*：您可以選擇新增最多 50 個標籤來關聯此連結，以便更輕鬆地對資源進行分類。例如，您可以新增一個標籤來識別此連結是由 OCI NSS 儲存系統所使用。
+.. *連結註冊*：請依照 Workload Factory 控制台中的說明註冊連結。連結註冊將在您的 OCI Terraform 環境中進行。請從 Codebox 中選擇 OCI Terraform 以取得說明。
+.. *連結關聯*：選擇要與此連結關聯的 OCI NSS 儲存系統，並輸入使用者名稱和密碼。
+.. *連結權限*：指定建立連結所需的使用者群組權限。
++
+.連結所需的權限
+[source, text]
+----
+Allow group to manage orm-stacks in compartment id
+Allow group to manage orm-jobs in compartment id
+Allow group to manage dynamic-groups in tenancy
+Allow group to manage policies in compartment id
+Allow group to manage functions-family in compartment id
+Allow group to manage log-groups in compartment id
+Allow group to use virtual-network-family in compartment id
+----
+
+
+. 在「新增連結」對話方塊的「位置」下，提供以下資訊：
++
+.. *OCI tenancy*：輸入 OCI 租約。
+.. *區間*：輸入區間。
+.. *地區*：選擇地區。
+.. *子網路*：選擇子網路。
+.. *網路安全性群組*：輸入安全性群組。
++
+Workload Factory 會根據所選的 OCI NSS 系統自動擷取 OCI 帳戶、位置和安全性群組。
+
+
+
+. 選擇 *Add* 。
++
+您可以在「事件」頁面上監控連結建立狀態。此過程通常不超過五分鐘。
+
+. 返回 Workload Factory 介面，您將看到該連結與 OCI NSS 儲存系統相關聯。
+
+
+
+
+[[deploy-the-terraform-stack-in-oci-resource-manager]]
+== 在 OCI Resource Manager 中部署 Terraform 堆疊
+
+.步驟
+. 在 Codebox 中，選擇 *OCI Terraform*。
+. 選取 *重新導向至 OCI Resource Manager*。
+. 在對話方塊中，選擇 *繼續*。
+. 登入包含儲存資源池的 OCI 租用戶。
+. 檢閱區間、區域和變數（由 Workload Factory 預先填入）。
+. 選取 *建立*。等待套用作業成功。
+. 開啟作業 *輸出* 並複製 `function_ocid`。
+
+
+
+
+[[register-the-function-in-workload-factory]]
+== 在 Workload Factory 中註冊該功能
+
+.步驟
+. 返回 *新增連結* 頁面。
+. 在 *連結註冊* 下，貼上函數 OCID (`ocid1.fnfunc.oc1...`）。
+. 選擇 *Add* 。
+
+
+
+
+[[other-ways-to-apply-the-same-template]]
+== 套用相同範本的其他方法
+
+只有在您不使用 Codebox 中的 Resource Manager 時，才使用這些。
+
+**Terraform CLI**
+
+. 建立資料夾。
+. 從 Codebox (`main.tf`）複製或下載 **OCI Terraform** 到該資料夾。
+. 來自該資料夾：
++
+[listing]
+----
+terraform init
+terraform plan
+terraform apply
+----
+. 從 apply 輸出複製 `function_ocid`，然後繼續執行 [註冊函數](#3-register-the-function-in-workload-factory)。
+
+
+**OCI CLI**
+
+使用 Codebox 中的 **OCI CLI** 標籤下載 zip 檔案，建立 Resource Manager 堆疊，然後執行 plan 與 apply 作業。
+
+.結果
+連結顯示在您的 *連結* 清單中。
+
+若要移除該功能，請刪除 Workload Factory 中的連結，然後毀損 Resource Manager 堆疊（或執行 `terraform destroy`）。
+
+.結果
+連結顯示在您的 *連結* 清單中。
+
+若要移除該功能，請刪除 Workload Factory 中的連結，然後毀損 Resource Manager 堆疊（或執行 `terraform destroy`）。
+
+
+
+[[associate-an-existing-link-with-an-oci-netapp-storage-service-system]]
+== 將現有連結與 OCI NetApp 儲存服務系統關聯
+
+建立連結後，將其與一個或多個 OCI NetApp Storage Service 系統關聯。
+
+.步驟
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 選擇 *OCI NetApp 儲存服務* > *清單*。
+. 選取要關聯連結的儲存資源池的動作選單，然後選取 *關聯連結*。
+. 驗證網路識別碼（子網路名稱或 OCID 和 CIDR）。
+. 選擇 *關聯現有連結*。
+. 選擇連結名稱。
+. 選擇身分驗證方法：
++
+** *Workload Factory*：輸入 ONTAP 管理員使用者名稱和密碼。
+** *OCI 機密管理 - OCI Vault 金鑰*：當連結功能部署時啟用 Vault 支援，請使用此選項。輸入保存庫機密 OCID。
+
+
+. 選擇 *Apply*。
+
+
+.結果
+Workload Factory 將連結與 OCI NSS 系統建立關聯。您可以執行進階 ONTAP 操作。
+
+.相關資訊
+link:../setup/links-overview.html#when-a-link-is-required["深入瞭解連結"]。

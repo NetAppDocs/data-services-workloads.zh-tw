@@ -1,0 +1,1696 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/permissions-reference-fsx.html 
+keywords: permissions, actions 
+summary: 若要使用 NetApp Workload Factory 的功能和服務，您需要提供權限，以便 Workload Factory 可以在您的雲端環境中執行作業。 
+---
+= 適用於 NetApp Workload Factory 的 Amazon FSx for ONTAP 權限
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+審查使用 NetApp Workload Factory 管理 Amazon FSx for ONTAP 資源所需的權限。
+
+
+
+[[permissions-by-workload]]
+== 依工作負載的權限
+
+每個工作負載都使用權限在 Workload Factory 中執行特定任務。權限會被封裝成一組權限原則。捲動至您使用的工作負載，以了解權限原則、可複製的權限原則 JSON，以及列出所有權限、其用途、使用位置及支援這些權限的權限原則表格。
+
+
+
+[[permissions-for-storage]]
+=== 儲存權限
+
+Storage 可用的 IAM 原則提供 Workload Factory 管理公有雲環境中資源與程序所需的權限。
+
+儲存功能提供以下權限原則供您選擇：
+
+* *檢視、規劃與分析*：檢視 FSx for ONTAP 檔案系統，了解系統健全狀況，取得系統架構完善的分析，並探索節省成本的方法。
++
+
+NOTE: AWS GovCloud 不支援 AWS Cost Explorer，因此您不需要這些權限： `ce:GetCostAndUsage` 和 `ce:GetTags`。如果您包含這些權限，則該原則仍然有效。
+
+* *操作與修復*：執行操作任務，例如調整檔案系統容量和修復檔案系統設定問題。
+* *檔案系統建立和刪除*：建立和刪除 FSx for ONTAP 檔案系統和儲存設備虛擬機器。
+
+
+檢視所需的 IAM 原則：
+
+.儲存設備的 IAM 原則
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.檢視、規劃與分析
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "fsx:DescribeFileSystems",
+        "fsx:DescribeStorageVirtualMachines",
+        "fsx:DescribeVolumes",
+        "fsx:ListTagsForResource",
+        "fsx:DescribeBackups",
+        "fsx:DescribeSharedVpcConfiguration",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes",
+        "elasticfilesystem:DescribeFileSystems",
+        "ce:GetCostAndUsage",
+        "ce:GetTags",
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+.營運和補救
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "fsx:CreateVolume",
+        "fsx:DeleteVolume",
+        "fsx:UpdateFileSystem",
+        "fsx:UpdateStorageVirtualMachine",
+        "fsx:UpdateVolume",
+        "fsx:CreateBackup",
+        "fsx:CreateVolumeFromBackup",
+        "fsx:DeleteBackup",
+        "fsx:TagResource",
+        "fsx:UntagResource",
+        "fsx:CreateAndAttachS3AccessPoint",
+        "fsx:DetachAndDeleteS3AccessPoint",
+        "s3:CreateAccessPoint",
+        "s3:DeleteAccessPoint",
+        "s3:TagResource",
+        "s3:UntagResource",
+        "s3:ListTagsForResource",
+        "s3:GetObjectTagging",
+        "bedrock:InvokeModelWithResponseStream",
+        "bedrock:InvokeModel",
+        "bedrock:ListInferenceProfiles",
+        "bedrock:GetInferenceProfile",
+        "s3tables:CreateTableBucket",
+        "s3tables:ListTables",
+        "s3tables:GetTable",
+        "s3tables:GetTableMetadataLocation",
+        "s3tables:CreateTable",
+        "s3tables:GetNamespace",
+        "s3tables:PutTableData",
+        "s3tables:CreateNamespace",
+        "s3tables:GetTableData",
+        "s3tables:ListNamespaces",
+        "s3tables:ListTableBuckets",
+        "s3tables:GetTableBucket",
+        "s3tables:UpdateTableMetadataLocation",
+        "s3tables:ListTagsForResource",
+        "s3tables:TagResource",
+        "s3:GetObjectTagging",
+        "s3:ListBucket"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudtrail:PutEventSelectors",
+        "cloudtrail:GetEventSelectors"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/netapp-fsx-s3-metadata": "journal"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+.檔案系統的建立和刪除
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "fsx:CreateFileSystem",
+        "fsx:CreateStorageVirtualMachine",
+        "fsx:DeleteFileSystem",
+        "fsx:DeleteStorageVirtualMachine",
+        "fsx:TagResource",
+        "fsx:UntagResource",
+        "kms:CreateGrant",
+        "iam:CreateServiceLinkedRole",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateTags",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeVolumeStatus",
+        "kms:DescribeKey",
+        "kms:ListKeys",
+        "kms:ListAliases"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:DeleteSecurityGroup"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "ec2:ResourceTag/AppCreator": "NetappFSxWF"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+=====
+====
+下表顯示儲存設備的權限。
+
+.儲存設備權限表
+[%collapsible]
+====
+[cols="2, 2, 1, 1"]
+|===
+| 目的 | 行動 | 適用範圍 | 權限原則 
+
+
+| 建立 FSx for ONTAP 檔案系統 | fsx:CreateFileSystem | 部署 | 檔案系統的建立和刪除 
+
+
+| 為 FSx for ONTAP 檔案系統建立安全性群組 | ec2:CreateSecurityGroup | 部署 | 檔案系統的建立和刪除 
+
+
+| 為 FSx for ONTAP 檔案系統的安全性群組新增標籤 | ec2:CreateTags | 部署 | 檔案系統的建立和刪除 
+
+
+.2+| 授權 FSx for ONTAP 檔案系統的安全性群組出入權限 | ec2:AuthorizeSecurityGroupEgress | 部署 | 檔案系統的建立和刪除 
+
+
+| ec2:AuthorizeSecurityGroupIngress | 部署 | 檔案系統的建立和刪除 
+
+
+| 授予的角色提供 FSx for ONTAP 與其他 AWS 服務之間的通訊 | iam:CreateServiceLinkedRole | 部署 | 檔案系統的建立和刪除 
+
+
+.6+| 取得填寫 FSx for ONTAP 檔案系統部署表單的詳細資料 | ec2:DescribeVpcs  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+| ec2:DescribeSubnets  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+| ec2:DescribeSecurityGroups  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+| ec2:DescribeRouteTables  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+| ec2:DescribeNetworkInterfaces  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+| ec2:DescribeVolumeStatus  a| 
+* 部署
+* 探索節省成本
+
+| 檔案系統的建立和刪除 
+
+
+.4+| 取得 KMS 金鑰詳細資訊並用於 FSx for ONTAP 加密 | kms:CreateGrant | 部署 | 檔案系統的建立和刪除 
+
+
+| kms:DescribeKey | 部署 | 檔案系統的建立和刪除 
+
+
+| kms:ListKeys | 部署 | 檔案系統的建立和刪除 
+
+
+| kms:ListAliases | 部署 | 檔案系統的建立和刪除 
+
+
+| 取得 EC2 執行個體的 Volume 詳細資料 | ec2:DescribeVolumes  a| 
+* 庫存
+* 探索節省成本
+
+| 檢視、規劃與分析 
+
+
+| 取得 EC2 執行個體的詳細資料 | ec2:DescribeInstances | 探索節省成本 | 檢視、規劃與分析 
+
+
+| 描述節省計算機中的 Elastic File System | Elasticfilesystem:DescribeFileSystems | 探索節省成本 | 檢視、規劃與分析 
+
+
+| 列出 FSx for ONTAP 資源的標籤 | fsx:ListTagsForResource | 庫存 | 檢視、規劃與分析 
+
+
+.3+| 管理 FSx for ONTAP 檔案系統的安全性群組傳出與傳入 | ec2:RevokeSecurityGroupIngress | 管理作業 | 檔案系統的建立和刪除 
+
+
+| ec2：RevokeSecurityGroupEgress | 管理作業 | 檔案系統的建立和刪除 
+
+
+| ec2:DeleteSecurityGroup | 管理作業 | 檔案系統的建立和刪除 
+
+
+.18+| 建立、檢視和管理 FSx for ONTAP 檔案系統資源 | fsx:CreateVolume | 管理作業 | 營運和補救 
+
+
+| fsx:TagResource | 管理作業 | 營運和補救 
+
+
+| fsx:CreateStorageVirtualMachine | 管理作業 | 檔案系統的建立和刪除 
+
+
+| fsx:DeleteFileSystem | 管理作業 | 檔案系統的建立和刪除 
+
+
+| fsx:DeleteStorageVirtualMachine | 管理作業 | 檢視、規劃與分析 
+
+
+| fsx:DescribeFileSystems | 庫存 | 檢視、規劃與分析 
+
+
+| fsx:DescribeStorageVirtualMachines | 庫存 | 檢視、規劃與分析 
+
+
+| fsx:DescribeSharedVpcConfiguration | 庫存 | 檢視、規劃與分析 
+
+
+| fsx:UpdateFileSystem | 管理作業 | 營運和補救 
+
+
+| fsx:UpdateStorageVirtualMachine | 管理作業 | 營運和補救 
+
+
+| fsx:DescribeVolumes | 庫存 | 檢視、規劃與分析 
+
+
+| fsx:UpdateVolume | 管理作業 | 營運和補救 
+
+
+| fsx:DeleteVolume | 管理作業 | 營運和補救 
+
+
+| fsx:UntagResource | 管理作業 | 營運和補救 
+
+
+| fsx:DescribeBackups | 管理作業 | 檢視、規劃與分析 
+
+
+| fsx:CreateBackup | 管理作業 | 營運和補救 
+
+
+| fsx:CreateVolumeFromBackup | 管理作業 | 營運和補救 
+
+
+| fsx:DeleteBackup | 管理作業 | 營運和補救 
+
+
+.2+| 取得檔案系統和 Volume 計量 | cloudwatch:GetMetricData | 管理作業 | 檢視、規劃與分析 
+
+
+| cloudwatch:GetMetricStatistics | 管理作業 | 檢視、規劃與分析 
+
+
+| 模擬工作負載操作，以驗證可用權限並與所需的 AWS 帳戶權限進行比較 | iam:SimulatePrincipalPolicy | 部署 | 全部 
+
+
+.4+| 為 FSx for ONTAP EMS 事件提供基於人工智慧的洞察 | bedrock:ListInferenceProfiles | FSx for ONTAP EMS 分析 | 營運和補救 
+
+
+| bedrock:GetInferenceProfile | FSx for ONTAP EMS 分析 | 營運和補救 
+
+
+| bedrock:InvokeModelWihResponseStream | FSx for ONTAP EMS 分析 | 營運和補救 
+
+
+| bedrock:InvokeModel | FSx for ONTAP EMS 分析 | 營運和補救 
+
+
+.2+| 從 AWS Cost Explorer 取得 FSx for ONTAP 檔案系統的成本和使用量資料 | ce:GetCostAndUsage | 成本和使用分析 | 檢視、規劃與分析 
+
+
+| ce:GetTags | 成本和使用分析 | 檢視、規劃與分析 
+
+
+| 建立 S3 存取點並將其連接到 Amazon FSx for NetApp ONTAP 檔案系統 | fsx:CreateAndAttachS3AccessPoint | S3 存取點管理 | 營運和補救 
+
+
+| 從 FSx for ONTAP 檔案系統中分離 S3 存取點並將其刪除 | fsx:DetachAndDeleteS3AccessPoint | S3 存取點管理 | 營運和補救 
+
+
+| 建立 S3 存取點，以簡化儲存區存取管理 | s3：CreateAccessPoint | S3 存取點管理 | 營運和補救 
+
+
+| 刪除 S3 存取點 | s3：DeleteAccessPoint | S3 存取點管理 | 營運和補救 
+
+
+| 在 S3 存取點新增標籤 | s3：TagResource | S3 存取點管理 | 營運和補救 
+
+
+| 在 S3 存取點上列出並檢視標籤 | s3：ListTagsForResource | S3 存取點管理 | 營運和補救 
+
+
+| 從 S3 存取點移除標籤 | s3：UntagResource | S3 存取點管理 | 營運和補救 
+
+
+| 在 S3 存取點儲存貯體中探索物件 | s3：ListBucket | S3 儲存貯體作業 | 營運和補救 
+
+
+| 列出、建立和描述 S3 表儲存貯體 | s3tables：ListTableBuckets s3tables：CreateTableBucket s3tables：GetTableBucket | S3 表儲存貯體管理 | 營運和補救 
+
+
+| 列出、建立和擷取 S3 表 | s3tables：ListTables s3tables：CreateTable s3tables：GetTable | S3 表格操作 | 營運和補救 
+
+
+| 讀取表格中繼資料位置 | s3tables：GetTableMetadataLocation | S3 表格中繼資料操作 | 營運和補救 
+
+
+| 更新表中繼資料位置 | s3tables：UpdateTableMetadataLocation | S3 表格中繼資料操作 | 營運和補救 
+
+
+| 列出、建立和擷取表命名空間 | s3tables：ListNamespaces s3tables：CreateNamespace s3tables：GetNamespace | S3 命名空間作業 | 營運和補救 
+
+
+| 讀取表格資料（select、scan） | s3tables：GetTableData | S3 表格資料操作 | 營運和補救 
+
+
+| 寫入表格資料（插入） | s3tables：PutTableData | S3 表格資料操作 | 營運和補救 
+
+
+| 列出庫存表中的標籤（取得 FSx for ONTAP、儲存 VM、磁碟區 ID） | s3tables：ListTagsForResource | S3 表格標籤操作 | 營運和補救 
+
+
+| 為 Workload Factory 查詢標記庫存表 | s3tables：TagResource | S3 表格標籤操作 | 營運和補救 
+
+
+| 透過存取點擷取物件標記 | s3：GetObjectTagging | S3 物件操作 | 營運和補救 
+
+
+| 取得 AWS CloudTrail 追蹤的目前事件選擇器組態 | cloudtrail:GetEventSelectors | S3 存取點日誌操作 | 營運和補救 
+
+
+| 透過啟用或停用 FSx for ONTAP S3 存取點與 CloudTrail 追蹤之間的關聯，設定或更新 AWS CloudTrail 事件選擇器 | cloudtrail：PutEventSelectors | S3 存取點日誌操作 | 營運和補救 
+|===
+====
+
+
+[[permissions-for-database-workloads]]
+=== 資料庫工作負載的權限
+
+資料庫工作負載可用的 IAM 原則提供了 Workload Factory 管理公有雲環境中的資源和程序所需的權限。
+
+資料庫提供以下權限原則供您選擇：
+
+* *檢視、規劃與分析*：檢視資料庫資源清單，了解資源的健全狀況，並審查資料庫組態的架構完善分析。
+* *操作與修復*：對資料庫資源執行操作任務、取得錯誤日誌分析、探索節省空間，並修復資料庫配置和底層 FSx for ONTAP 檔案系統儲存設備的問題。
+* *資料庫主機建立*：根據最佳實務部署資料庫主機和底層 FSx for ONTAP 檔案系統儲存設備。
+
+
+選擇您的操作模式以檢視所需的 IAM 原則：
+
+.資料庫工作負載的 IAM 原則
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.檢視、規劃與分析
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CommonGroup",
+      "Effect": "Allow",
+      "Action": [
+        "sns:ListTopics",
+        "ec2:DescribeInstances",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeImages",
+        "ec2:DescribeRegions",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeKeyPairs",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeInstanceTypeOfferings",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeAddresses",
+        "kms:ListAliases",
+        "kms:ListKeys",
+        "kms:DescribeKey",
+        "cloudformation:ListStacks",
+        "cloudformation:DescribeAccountLimits",
+        "ds:DescribeDirectories",
+        "fsx:DescribeVolumes",
+        "fsx:DescribeBackups",
+        "fsx:DescribeStorageVirtualMachines",
+        "fsx:DescribeFileSystems",
+        "servicequotas:ListServiceQuotas",
+        "ssm:GetParametersByPath",
+        "ssm:GetCommandInvocation",
+        "ssm:GetConnectionStatus",
+        "ssm:DescribeInstancePatches",
+        "ssm:DescribePatchBaselines",
+        "ssm:DescribeInstancePatchStates",
+        "ssm:DescribeAvailablePatches",
+        "ssm:ListCommands",
+        "ssm:GetInventory",
+        "ssm:ListInventoryEntries",
+        "ssm:DescribeInstanceInformation",
+        "fsx:ListTagsForResource",
+        "logs:DescribeLogGroups"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "AllowSpecificSSMDocuments",
+      "Effect": "Allow",
+      "Action": "ssm:SendCommand",
+      "Resource": [
+        "arn:aws:ssm:*::document/AWSFleetManager-GetWindowsRegistryContent",
+        "arn:aws:ssm:*::document/AWSFleetManager-GetFileSystemContent"
+      ]
+    },
+    {
+      "Sid": "AllowAllEC2InstancesForSendCommand",
+      "Effect": "Allow",
+      "Action": "ssm:SendCommand",
+      "Resource": [
+        "arn:aws:ec2:*:*:instance/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+.營運和補救
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ExtendedCommonGroup",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:GetMetricData",
+        "bedrock:GetFoundationModelAvailability",
+        "bedrock:ListInferenceProfiles"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Sid": "AllowPSSSMDocuments",
+      "Effect": "Allow",
+      "Action": "ssm:SendCommand",
+      "Resource": [
+        "arn:aws:ssm:*::document/AWS-RunPowerShellScript",
+        "arn:aws:ssm:*::document/AWS-RunShellScript",
+        "arn:aws:ssm:*::document/AWS-RunPatchBaseline"
+      ]
+    },
+    {
+      "Sid": "SSMParameterStore",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:PutParameter",
+        "ssm:DeleteParameters"
+      ],
+      "Resource": "arn:aws:ssm:*:*:parameter/netapp/wlmdb/*"
+    },
+    {
+      "Sid": "SSMResponseCloudWatch",
+      "Effect": "Allow",
+      "Action": [
+        "logs:GetLogEvents",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:netapp/wlmdb/*"
+    },
+    {
+      "Sid": "FSxRemediation",
+      "Effect": "Allow",
+      "Action": [
+        "fsx:UpdateFileSystem",
+        "fsx:UpdateVolume"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "EC2Remediation",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:StopInstances"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "ec2:ResourceTag/aws:cloudformation:stack-name": "WLMDB*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+.建立資料庫主機
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EC2TagGroup",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AllocateAddress",
+                "ec2:AllocateHosts",
+                "ec2:AssignPrivateIpAddresses",
+                "ec2:AssociateAddress",
+                "ec2:AssociateRouteTable",
+                "ec2:AssociateSubnetCidrBlock",
+                "ec2:AssociateVpcCidrBlock",
+                "ec2:AttachInternetGateway",
+                "ec2:AttachNetworkInterface",
+                "ec2:AttachVolume",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateVolume",
+                "ec2:DeleteNetworkInterface",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DeleteTags",
+                "ec2:DeleteVolume",
+                "ec2:DetachNetworkInterface",
+                "ec2:DetachVolume",
+                "ec2:DisassociateAddress",
+                "ec2:DisassociateIamInstanceProfile",
+                "ec2:DisassociateRouteTable",
+                "ec2:DisassociateSubnetCidrBlock",
+                "ec2:DisassociateVpcCidrBlock",
+                "ec2:ModifyInstancePlacement",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:ModifySubnetAttribute",
+                "ec2:ModifyVolume",
+                "ec2:ModifyVolumeAttribute",
+                "ec2:ReleaseAddress",
+                "ec2:ReplaceRoute",
+                "ec2:ReplaceRouteTableAssociation",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/aws:cloudformation:stack-name": "WLMDB*"
+                }
+            }
+        },
+        {
+            "Sid": "FSxNGroup",
+            "Effect": "Allow",
+            "Action": [
+                "fsx:TagResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "aws:ResourceTag/aws:cloudformation:stack-name": "WLMDB*"
+                }
+            }
+        },
+        {
+            "Sid": "CreationGroup",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:CreateStack",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStacks",
+                "cloudformation:ValidateTemplate",
+                "ec2:CreateLaunchTemplate",
+                "ec2:CreateLaunchTemplateVersion",
+                "ec2:CreateNetworkInterface",
+                "ec2:CreateSecurityGroup",
+                "ec2:CreateTags",
+                "ec2:CreateVpcEndpoint",
+                "ec2:RunInstances",
+                "ec2:DescribeTags",
+                "ec2:DescribeLaunchTemplates",
+                "ec2:ModifyVpcAttribute",
+                "fsx:CreateFileSystem",
+                "fsx:CreateStorageVirtualMachine",
+                "fsx:CreateVolume",
+                "fsx:DescribeFileSystemAliases",
+                "kms:CreateGrant",
+                "kms:DescribeCustomKeyStores",
+                "kms:GenerateDataKey",
+                "kms:Decrypt",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:GetLogGroupFields",
+                "logs:GetLogRecord",
+                "logs:ListLogDeliveries",
+                "logs:PutLogEvents",
+                "logs:TagResource",
+                "sns:Publish",
+                "ssm:PutComplianceItems",
+                "ssm:PutConfigurePackageResult",
+                "ssm:PutInventory",
+                "ssm:UpdateAssociationStatus",
+                "ssm:UpdateInstanceAssociationStatus",
+                "ssm:UpdateInstanceInformation",
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:OpenDataChannel",
+                "compute-optimizer:GetEnrollmentStatus",
+                "compute-optimizer:PutRecommendationPreferences",
+                "compute-optimizer:GetEffectiveRecommendationPreferences",
+                "compute-optimizer:GetEC2InstanceRecommendations",
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAutoScalingInstances",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:GetUser"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ArnGroup",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:SignalResource"
+            ],
+            "Resource": [
+                "arn:aws:cloudformation:*:*:stack/WLMDB*",
+                "arn:aws:logs:*:*:log-group:WLMDB*"
+            ]
+        },
+        {
+            "Sid": "IAMGroup1",
+            "Effect": "Allow",
+            "Action": [
+                "iam:AddRoleToInstanceProfile",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:PutRolePolicy",
+                "iam:RemoveRoleFromInstanceProfile"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:instance-profile/*",
+                "arn:aws:iam::*:role/WLMDB*"
+            ]
+        },
+        {
+            "Sid": "IAMGroup2",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": [
+                "arn:aws:iam::*:instance-profile/*",
+                "arn:aws:iam::*:role/WLMDB*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "ec2.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "IAMGroup3",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::*:instance-profile/*",
+                "arn:aws:iam::*:role/WLMDB*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ec2.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "IAMGroup4",
+            "Effect": "Allow",
+            "Action": "iam:CreateRole",
+            "Resource": "arn:aws:iam::*:role/WLMDB*"
+        }
+    ]
+}
+----
+--
+=====
+====
+下表顯示資料庫工作負載的權限。
+
+.資料庫工作負載權限表
+[%collapsible]
+====
+[cols="2, 2, 1, 1"]
+|===
+| 目的 | 行動 | 適用範圍 | 權限原則 
+
+
+| 取得 FSx for ONTAP、EBS 和 FSx for Windows File Server 的計量統計資料，以及運算最佳化建議 | cloudwatch:GetMetricStatistics  a| 
+* 庫存
+* 探索節省成本
+
+| 營運和補救 
+
+
+| 從已註冊的 SQL 節點收集儲存至 Amazon CloudWatch 的效能計量。資料會在已註冊 SQL 執行個體的管理執行個體畫面上的效能趨勢圖表中產生。 | cloudwatch:GetMetricData | 庫存 | 營運和補救 
+
+
+.4+| 取得 EC2 執行個體的詳細資料 | ec2:DescribeInstances  a| 
+* 庫存
+* 探索節省成本
+
+| 檢視、規劃與分析 
+
+
+| ec2:DescribeKeyPairs | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeNetworkInterfaces | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeInstanceTypes  a| 
+* 部署
+* 探索節省成本
+
+| 檢視、規劃與分析 
+
+
+.6+| 取得填寫 FSx for ONTAP 部署表單的詳細資料 | ec2:DescribeVpcs  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| ec2:DescribeSubnets  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| ec2:DescribeSecurityGroups | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeImages | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeRegions | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeRouteTables  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 取得所有現有的 VPC 端點，以確定部署前是否需要建立新的端點 | ec2:DescribeVpcEndpoints  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 無論 EC2 執行個體上的公共網路連線為何，如果所需服務的 VPC 端點不存在，請建立 VPC 端點 | ec2:CreateVpcEndpoint | 部署 | 建立資料庫主機 
+
+
+| 取得區域中可用於驗證節點（t2.micro/t3.micro）的執行個體類型 | ec2:DescribeInstanceTypeOfferings | 部署 | 檢視、規劃與分析 
+
+
+| 取得每個已連接 EBS 磁碟區的快照詳細資訊，以進行定價與節省估算 | ec2:DescribeSnapshots | 探索節省成本 | 檢視、規劃與分析 
+
+
+| 取得每個附加 EBS 磁碟區的詳細資料，以進行定價和節省估算 | ec2:DescribeVolumes  a| 
+* 庫存
+* 探索節省成本
+
+| 檢視、規劃與分析 
+
+
+.3+| 取得 FSx for ONTAP 檔案系統加密的 KMS 金鑰詳細資料 | kms:ListAliases | 部署 | 檢視、規劃與分析 
+
+
+| kms:ListKeys | 部署 | 檢視、規劃與分析 
+
+
+| kms:DescribeKey | 部署 | 檢視、規劃與分析 
+
+
+| 取得環境中正在執行的 CloudFormation 堆疊清單，以檢查配額上限 | cloudformation：ListStacks | 部署 | 檢視、規劃與分析 
+
+
+| 觸發部署前檢查資源的帳戶限制 | cloudformation:DescribeAccountLimits | 部署 | 檢視、規劃與分析 
+
+
+| 取得區域中 AWS 代管的 Active Directory 列表 | ds:DescribeDirectories | 部署 | 檢視、規劃與分析 
+
+
+.5+| 取得 FSx for ONTAP 檔案系統的磁碟區、備份、SVM、可用區中的檔案系統及標籤的清單與詳細資料 | fsx:DescribeVolumes  a| 
+* 庫存
+* 探索節省
+
+| 檢視、規劃與分析 
+
+
+| fsx:DescribeBackups  a| 
+* 庫存
+* 探索節省
+
+| 檢視、規劃與分析 
+
+
+| fsx:DescribeStorageVirtualMachines  a| 
+* 部署
+* 管理作業
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| fsx:DescribeFileSystems  a| 
+* 部署
+* 管理作業
+* 庫存
+* 探索節省成本
+
+| 檢視、規劃與分析 
+
+
+| fsx:ListTagsForResource | 管理作業 | 檢視、規劃與分析 
+
+
+| 取得 CloudFormation 和 VPC 的服務配額上限 / 在使用者帳戶中為提供的 SQL、網域和 FSx for ONTAP 憑證建立機密 | servicequotas:ListServiceQuotas | 部署 | 檢視、規劃與分析 
+
+
+| 使用基於 SSM 的查詢取得 FSx for ONTAP 支援區域的更新清單 | ssm:GetParametersByPath | 部署 | 檢視、規劃與分析 
+
+
+| 部署後發送管理操作命令後，輪詢 SSM 回應 | ssm:GetCommandInvocation  a| 
+* 管理作業
+* 庫存
+* 探索節省成本
+* 最佳化
+
+| 檢視、規劃與分析 
+
+
+| 透過 SSM 向 EC2 執行個體傳送命令以進行探索和管理 | ssm:SendCommand  a| 
+* 管理作業
+* 庫存
+* 探索節省成本
+* 最佳化
+
+| 檢視、規劃與分析；營運與補救 
+
+
+| 取得部署後執行個體的 SSM 連線狀態 | ssm:GetConnectionStatus  a| 
+* 管理作業
+* 庫存
+* 最佳化
+
+| 檢視、規劃與分析 
+
+
+| 取得一組代管 EC2 執行個體（SQL 節點）的 SSM 關聯狀態 | ssm:DescribeInstanceInformation | 庫存 | 檢視、規劃與分析 
+
+
+| 取得可用於作業系統修補程式評估的修補程式基準清單 | ssm:DescribePatchBaselines | 最佳化 | 檢視、規劃與分析 
+
+
+| 取得 Windows EC2 執行個體的修補程式清單詳細資訊，以進行評估和修復工作流程。 | ssm:DescribeInstancePatches | 最佳化 | 檢視、規劃與分析 
+
+
+| 取得可用於作業系統修補程式評估的修補程式清單 | ssm:DescribeAvailablePatches | 最佳化 | 檢視、規劃與分析 
+
+
+| 從代管 SQL 節點擷取收集的庫存中繼資料 | ssm:GetInventory | 庫存 | 檢視、規劃與分析 
+
+
+| 列出從代管 SQL 節點收集的庫存條目 | ssm:ListInventoryEntries | 庫存 | 檢視、規劃與分析 
+
+
+| 取得 Windows EC2 執行個體的修補程式狀態，以進行作業系統修補程式評估 | ssm:DescribeInstancePatchStates | 最佳化 | 檢視、規劃與分析 
+
+
+| 列出 AWS Patch Manager 在 EC2 執行個體上執行的用於作業系統修補程式管理的命令 | ssm:ListCommands | 最佳化 | 檢視、規劃與分析 
+
+
+| 檢查帳戶是否已註冊 AWS Compute Optimizer | compute-optimizer:GetEnrollmentStatus  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+| 更新 AWS Compute Optimizer 中現有的建議偏好設定，以針對 SQL server 工作負載自訂建議 | compute-optimizer:PutRecommendationPreferences  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+| 從 AWS Compute Optimizer 取得針對給定資源生效的建議偏好設定 | compute-optimizer:GetEffectiveRecommendationPreferences  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+| 取得 AWS Compute Optimizer 為 Amazon Elastic Compute Cloud （Amazon EC2） 執行個體產生的建議 | compute-optimizer:GetEC2InstanceRecommendations  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+.2+| 檢查執行個體是否與自動擴充群組關聯 | autoscaling:DescribeAutoScalingGroups  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+| autoscaling:DescribeAutoScalingInstances  a| 
+* 探索節省成本
+* 最佳化
+
+| 建立資料庫主機 
+
+
+.4+| 取得、列出、建立和刪除在部署期間使用或在您的 AWS 帳戶中代管的 AD、FSx for ONTAP 和 SQL 使用者憑證的 SSM 參數 | ssm:GetParameter ^1^  a| 
+* 部署
+* 管理作業
+* 庫存
+
+| 營運和補救 
+
+
+| ssm:GetParameters ^1^  a| 
+* 部署
+* 管理作業
+* 庫存
+
+| 營運和補救 
+
+
+| ssm:PutParameter ^1^  a| 
+* 部署
+* 管理作業
+
+| 營運和補救 
+
+
+| ssm:DeleteParameters ^1^  a| 
+* 部署
+* 管理作業
+
+| 營運和補救 
+
+
+.9+| 將網路資源關聯至 SQL 節點和驗證節點，並在 SQL 節點新增額外的次要 IP | ec2:AllocateAddress ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AllocateHosts ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AssignPrivateIpAddresses ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AssociateAddress ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AssociateRouteTable ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AssociateSubnetCidrBlock ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AssociateVpcCidrBlock ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AttachInternetGateway ^1^ | 部署 | 建立資料庫主機 
+
+
+| ec2:AttachNetworkInterface ^1^ | 部署 | 建立資料庫主機 
+
+
+| 將部署所需的 EBS 磁碟區附加到 SQL 節點 | ec2:AttachVolume | 部署 | 建立資料庫主機 
+
+
+.2+| 將安全性群組附加到已配置的 EC2 執行個體並修改規則 | ec2:AuthorizeSecurityGroupEgress | 部署 | 建立資料庫主機 
+
+
+| ec2:AuthorizeSecurityGroupIngress | 部署 | 建立資料庫主機 
+
+
+| 建立 SQL 節點部署所需的 EBS 磁碟區 | ec2:CreateVolume | 部署 | 建立資料庫主機 
+
+
+.11+| 移除所建立之 t2.micro 類型的暫時驗證節點，以及用於回溯或重試失敗的 EC2 SQL 節點 | ec2:DeleteNetworkInterface | 部署 | 建立資料庫主機 
+
+
+| ec2:DeleteSecurityGroup | 部署 | 建立資料庫主機 
+
+
+| ec2:DeleteTags | 部署 | 建立資料庫主機 
+
+
+| ec2:DeleteVolume | 部署 | 建立資料庫主機 
+
+
+| ec2:DetachNetworkInterface | 部署 | 建立資料庫主機 
+
+
+| ec2:DetachVolume | 部署 | 建立資料庫主機 
+
+
+| ec2:DisassociateAddress | 部署 | 建立資料庫主機 
+
+
+| ec2:DisassociateIamInstanceProfile | 部署 | 建立資料庫主機 
+
+
+| ec2:DisassociateRouteTable | 部署 | 建立資料庫主機 
+
+
+| ec2:DisassociateSubnetCidrBlock | 部署 | 建立資料庫主機 
+
+
+| ec2:DisassociateVpcCidrBlock | 部署 | 建立資料庫主機 
+
+
+.7+| 修改已建立 SQL 執行個體的屬性。僅適用於以 WLMDB 開頭的名稱。 | ec2:ModifyInstanceAttribute | 部署 | 營運和補救 
+
+
+| ec2:ModifyInstancePlacement | 部署 | 建立資料庫主機 
+
+
+| ec2:ModifyNetworkInterfaceAttribute | 部署 | 建立資料庫主機 
+
+
+| ec2:ModifySubnetAttribute | 部署 | 建立資料庫主機 
+
+
+| ec2:ModifyVolume | 部署 | 建立資料庫主機 
+
+
+| ec2:ModifyVolumeAttribute | 部署 | 建立資料庫主機 
+
+
+| ec2:ModifyVpcAttribute | 部署 | 建立資料庫主機 
+
+
+.5+| 取消關聯並毀損驗證執行個體 | ec2:ReleaseAddress | 部署 | 建立資料庫主機 
+
+
+| ec2:ReplaceRoute | 部署 | 建立資料庫主機 
+
+
+| ec2:ReplaceRouteTableAssociation | 部署 | 建立資料庫主機 
+
+
+| ec2:RevokeSecurityGroupEgress | 部署 | 建立資料庫主機 
+
+
+| ec2:RevokeSecurityGroupIngress | 部署 | 建立資料庫主機 
+
+
+| 啟動已部署的執行個體 | ec2:StartInstances | 部署 | 營運和補救 
+
+
+| 停止已部署的執行個體 | ec2:StopInstances | 部署 | 營運和補救 
+
+
+| 為 WLMDB 建立的 Amazon FSx for NetApp ONTAP 資源標記自訂值，以便在資源管理期間取得計費詳細資料 | fsx:TagResource ^1^  a| 
+* 部署
+* 管理作業
+
+| 建立資料庫主機 
+
+
+.5+| 建立並驗證 CloudFormation 部署範本 | cloudformation：CreateStack | 部署 | 建立資料庫主機 
+
+
+| cloudformation：DescribeStackEvents | 部署 | 建立資料庫主機 
+
+
+| cloudformation：DescribeStacks | 部署 | 建立資料庫主機 
+
+
+| cloudformation：ListStacks | 部署 | 檢視、規劃與分析 
+
+
+| cloudformation:ValidateTemplate | 部署 | 建立資料庫主機 
+
+
+.2+| 建立巢狀 stack 範本以進行重試和回滾 | ec2:CreateLaunchTemplate | 部署 | 建立資料庫主機 
+
+
+| ec2:CreateLaunchTemplateVersion | 部署 | 建立資料庫主機 
+
+
+.3+| 管理已建立執行個體的標籤和網路安全性 | ec2:CreateNetworkInterface | 部署 | 建立資料庫主機 
+
+
+| ec2:CreateSecurityGroup | 部署 | 建立資料庫主機 
+
+
+| ec2:CreateTags | 部署 | 建立資料庫主機 
+
+
+.2+| 取得執行個體詳細資訊以進行配置 | ec2:DescribeAddresses | 部署 | 檢視、規劃與分析 
+
+
+| ec2:DescribeLaunchTemplates | 部署 | 檢視、規劃與分析 
+
+
+| 啟動已建立的執行個體 | ec2:RunInstances | 部署 | 建立資料庫主機 
+
+
+.3+| 建立資源配置所需的 FSx for ONTAP 資源。對於現有的 FSx for ONTAP 系統，會建立新的 SVM 來做為 SQL 磁碟區的主機。 | fsx:CreateFileSystem | 部署 | 建立資料庫主機 
+
+
+| fsx:CreateStorageVirtualMachine | 部署 | 建立資料庫主機 
+
+
+| fsx:CreateVolume  a| 
+* 部署
+* 管理作業
+
+| 建立資料庫主機 
+
+
+| 取得 FSx for ONTAP 詳細資料 | fsx:DescribeFileSystemAliases | 部署 | 建立資料庫主機 
+
+
+| 調整 FSx for ONTAP 檔案系統的大小，以彌補檔案系統的冗餘空間 | fsx:UpdateFilesystem | 最佳化 | 營運和補救 
+
+
+| 調整磁碟區大小以解決日誌和 TempDB 磁碟機大小問題 | fsx:UpdateVolume | 最佳化 | 營運和補救 
+
+
+.3+| 取得 KMS 金鑰詳細資訊並用於 FSx for ONTAP 加密 | kms:CreateGrant | 部署 | 建立資料庫主機 
+
+
+| kms:DescribeCustomKeyStores | 部署 | 建立資料庫主機 
+
+
+| kms:GenerateDataKey | 部署 | 建立資料庫主機 
+
+
+.7+| 為在 EC2 執行個體上執行的驗證與配置指令碼建立 CloudWatch 日誌 | 日誌：CreateLogGroup | 部署 | 建立資料庫主機 
+
+
+| logs:CreateLogStream | 部署 | 建立資料庫主機 
+
+
+| 日誌：GetLogGroupFields | 部署 | 建立資料庫主機 
+
+
+| logs:GetLogRecord | 部署 | 建立資料庫主機 
+
+
+| logs:ListLogDeliveries | 部署 | 建立資料庫主機 
+
+
+| logs:PutLogEvents  a| 
+* 部署
+* 管理作業
+
+| 建立資料庫主機 
+
+
+| 日誌：TagResource | 部署 | 建立資料庫主機 
+
+
+| 遇到 SSM 輸出截斷時，Workload Factory 會將 SQL 執行個體的日誌切換至 Amazon CloudWatch 日誌 | logs:GetLogEvents  a| 
+* 儲存評估（最佳化）
+* 庫存
+
+| 營運和補救 
+
+
+| 允許 Workload Factory 取得目前的日誌群組，並檢查 Workload Factory 建立的日誌群組是否已設定保留 | 日誌：DescribeLogGroups  a| 
+* 儲存評估（最佳化）
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 允許 Workload Factory 為 Workload Factory 建立的日誌群組設定一天的保留政策，以避免 SSM 命令輸出的日誌串流不必要地累積 | 日誌：PutRetentionPolicy  a| 
+* 儲存評估（最佳化）
+* 庫存
+
+| 營運和補救 
+
+
+.2+| 列出客戶的 SNS 主題，並發佈到 WLMDB 後端 SNS 以及客戶 SNS（如果已選擇） | sns:ListTopics | 部署 | 檢視、規劃與分析 
+
+
+| sns:Publish | 部署 | 建立資料庫主機 
+
+
+.10+| 需要 SSM 權限才能在已配置的 SQL 執行個體上執行探索指令碼，並取得 FSx for ONTAP 支援的 AWS 區域最新清單。 | ssm:PutComplianceItems | 部署 | 建立資料庫主機 
+
+
+| ssm:PutConfigurePackageResult | 部署 | 建立資料庫主機 
+
+
+| ssm:PutInventory | 部署 | 建立資料庫主機 
+
+
+| ssm:UpdateAssociationStatus | 部署 | 建立資料庫主機 
+
+
+| ssm:UpdateInstanceAssociationStatus | 部署 | 建立資料庫主機 
+
+
+| ssm:UpdateInstanceInformation | 部署 | 建立資料庫主機 
+
+
+| ssmmessages:CreateControlChannel | 部署 | 建立資料庫主機 
+
+
+| ssmmessages:CreateDataChannel | 部署 | 建立資料庫主機 
+
+
+| ssmmessages:OpenControlChannel | 部署 | 建立資料庫主機 
+
+
+| ssmmessages:OpenDataChannel | 部署 | 建立資料庫主機 
+
+
+| 在成功或故障時向 CloudFormation 堆疊發出訊號。 | cloudformation:SignalResource ^1^ | 部署 | 建立資料庫主機 
+
+
+| 將範本建立的 EC2 角色新增至 EC2 執行個體設定檔中，以允許 EC2 上的指令碼存取部署所需的資源。 | iam:AddRoleToInstanceProfile | 部署 | 建立資料庫主機 
+
+
+| 為 EC2 建立執行個體設定檔並附加已建立的 EC2 角色。 | iam:CreateInstanceProfile | 部署 | 建立資料庫主機 
+
+
+| 透過範本建立具有下列權限的 EC2 角色 | iam：CreateRole | 部署 | 建立資料庫主機 
+
+
+| 建立連結至 EC2 服務的角色 | iam:CreateServiceLinkedRole ^2^ | 部署 | 建立資料庫主機 
+
+
+| 刪除部署期間專門為驗證節點建立的執行個體設定檔 | iam:DeleteInstanceProfile | 部署 | 建立資料庫主機 
+
+
+.5+| 取得角色和原則詳情，以確定權限是否有任何漏洞並進行部署驗證 | iam:GetPolicy | 部署 | 建立資料庫主機 
+
+
+| iam:GetPolicyVersion | 部署 | 建立資料庫主機 
+
+
+| iam：GetRole | 部署 | 建立資料庫主機 
+
+
+| iam:GetRolePolicy | 部署 | 建立資料庫主機 
+
+
+| iam:GetUser | 部署 | 建立資料庫主機 
+
+
+| 將建立的角色傳遞給 EC2 執行個體 | iam:PassRole ^3^ | 部署 | 建立資料庫主機 
+
+
+| 將具有所需權限的原則新增至已建立的 EC2 角色 | iam：PutRolePolicy | 部署 | 建立資料庫主機 
+
+
+| 從已配置的 EC2 執行個體設定檔中分離角色 | iam:RemoveRoleFromInstanceProfile | 部署 | 建立資料庫主機 
+
+
+| 模擬工作負載操作，以驗證可用權限並與所需的 AWS 帳戶權限進行比較 | iam:SimulatePrincipalPolicy | 部署 | 全部 
+
+
+| 取得可用於錯誤日誌分析的基礎模型 | bedrock:GetFoundationModelAvailability | 錯誤日誌分析 | 營運和補救 
+
+
+| 列出 Amazon Bedrock 中可用於錯誤日誌分析的介面設定檔 | bedrock:ListInferenceProfiles | 錯誤日誌分析 | 營運和補救 
+|===
+. 權限僅限於以 WLMDB 開頭的資源。
+. "iam:CreateServiceLinkedRole" 受限於 "iam:AWSServiceName": "ec2.amazonaws.com"*
+. "iam:PassRole" 受限於 "iam:PassedToService": "ec2.amazonaws.com"*
+
+
+====
+
+
+[[permissions-for-vmware-workloads]]
+=== VMware 工作負載的權限
+
+VMware 工作負載有以下權限原則可供選擇：
+
+* *檢視、規劃與分析*：檢視 EVS 虛擬化環境的清單，取得系統架構完善的分析，並探索節省成本的方法。
+* *資料存放區部署與連線*：將建議的 VM 佈局部署至 Amazon EVS、Amazon EC2 或 VMware Cloud on AWS vSphere 叢集，並使用自訂的 Amazon FSx for NetApp ONTAP 檔案系統作為外部資料存放區。
+
+
+選擇權限原則以檢視所需的 IAM 原則：
+
+.VMware 工作負載的 IAM 原則
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.檢視、規劃與分析
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeRegions",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeDhcpOptions",
+        "kms:DescribeKey",
+        "kms:ListKeys",
+        "kms:ListAliases",
+        "secretsmanager:ListSecrets",
+        "evs:ListEnvironments",
+        "evs:GetEnvironment",
+        "evs:ListEnvironmentVlans"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+.資料儲存部署與連線
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "fsx:CreateFileSystem",
+        "fsx:DescribeFileSystems",
+        "fsx:CreateStorageVirtualMachine",
+        "fsx:DescribeStorageVirtualMachines",
+        "fsx:CreateVolume",
+        "fsx:DescribeVolumes",
+        "fsx:TagResource",
+        "sns:Publish",
+        "kms:GenerateDataKey",
+        "kms:Decrypt",
+        "kms:CreateGrant"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:RunInstances",
+        "ec2:DescribeInstances",
+        "ec2:CreateSecurityGroup",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:DescribeImages"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+----
+--
+=====
+====
+下表提供了有關 VMware 工作負載權限的詳細資訊。
+
+.VMware 工作負載權限表
+[%collapsible]
+====
+[cols="2, 2, 1, 1"]
+|===
+| 目的 | 行動 | 適用範圍 | 權限原則 
+
+
+| 為已配置的節點附加安全性群組並修改規則 | ec2:AuthorizeSecurityGroupIngress | 部署 | 資料儲存部署與連線 
+
+
+| 建立 EBS 磁碟區 | fsx:CreateVolume | 部署 | 資料儲存部署與連線 
+
+
+| 為 VMware 工作負載所建立的 FSx for NetApp ONTAP 資源標記自訂值 | fsx:TagResource | 部署 | 資料儲存部署與連線 
+
+
+| 建立並驗證 CloudFormation 範本 | cloudformation：CreateStack | 部署 | 資料儲存部署與連線 
+
+
+| 管理已建立執行個體的標籤和網路安全性 | ec2:CreateSecurityGroup | 部署 | 資料儲存部署與連線 
+
+
+| 啟動已建立的執行個體 | ec2:RunInstances | 部署 | 資料儲存部署與連線 
+
+
+| 取得 EC2 執行個體詳細資料 | ec2:DescribeInstances | 庫存 | 資料儲存部署與連線 
+
+
+| 在部署和重新建置作業期間，列出堆疊建立過程中的映像 | ec2:DescribeImages | 庫存 | 資料儲存部署與連線 
+
+
+| 檢視與 VPC 關聯的 DHCP 選項集的組態詳細資料 | ec2:DescribeDhcpOptions | 庫存 | 檢視、規劃與分析 
+
+
+| 取得所選環境中的 VPC 以完成部署表單 | ec2:DescribeVpcs  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 取得所選環境中的子網路以完成部署表單 | ec2:DescribeSubnets  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 取得所選環境中的安全性群組以完成部署表單 | ec2:DescribeSecurityGroups | 部署 | 檢視、規劃與分析 
+
+
+| 取得所選環境中的可用度區 | ec2:DescribeAvailabilityZones  a| 
+* 部署
+* 庫存
+
+| 檢視、規劃與分析 
+
+
+| 取得支援 Amazon FSx for NetApp ONTAP 的區域 | ec2:DescribeRegions | 部署 | 檢視、規劃與分析 
+
+
+| 取得用於 Amazon FSx for NetApp ONTAP 加密的 KMS 金鑰別名 | kms:ListAliases | 部署 | 檢視、規劃與分析 
+
+
+| 取得用於 Amazon FSx for NetApp ONTAP 加密的 KMS 金鑰 | kms:ListKeys | 部署 | 檢視、規劃與分析 
+
+
+| 取得用於 Amazon FSx for NetApp ONTAP 加密的 KMS 金鑰到期詳細資料 | kms:DescribeKey | 部署 | 檢視、規劃與分析 
+
+
+| 列出 AWS Secrets Manager 中的機密 | secretsmanager:ListSecrets | 庫存 | 檢視、規劃與分析 
+
+
+| 從 Amazon EVS 取得環境清單 | evs:ListEnvironments | 庫存 | 檢視、規劃與分析 
+
+
+| 取得有關特定 Amazon EVS 環境的詳細資訊 | evs:GetEnvironment | 庫存 | 檢視、規劃與分析 
+
+
+| 列出與 Amazon EVS 環境關聯的 VLAN | evs:ListEnvironmentVlans | 庫存 | 檢視、規劃與分析 
+
+
+.3+| 建立配置所需的 Amazon FSx for NetApp ONTAP 資源 | fsx:CreateFileSystem | 部署 | 資料儲存部署與連線 
+
+
+| fsx:CreateStorageVirtualMachine | 部署 | 資料儲存部署與連線 
+
+
+| fsx:CreateVolume  a| 
+* 部署
+* 管理作業
+
+| 資料儲存部署與連線 
+
+
+| 取得 Amazon FSx for NetApp ONTAP 詳細資料 | fsx:Describe*  a| 
+* 部署
+* 庫存
+* 管理作業
+* 探索節省成本
+
+| 資料儲存部署與連線 
+
+
+.5+| 取得 KMS 金鑰詳細資訊並用於 Amazon FSx for NetApp ONTAP 加密 | kms:CreateGrant | 部署 | 資料儲存部署與連線 
+
+
+| kms:Describe* | 部署 | 檢視、規劃與分析 
+
+
+| kms:List* | 部署 | 檢視、規劃與分析 
+
+
+| kms:Decrypt | 部署 | 資料儲存部署與連線 
+
+
+| kms:GenerateDataKey | 部署 | 資料儲存部署與連線 
+
+
+| 列出客戶的 SNS 主題，並發佈到 WLMVMC 後端 SNS 以及客戶 SNS（如果已選擇） | sns:Publish | 部署 | 資料儲存部署與連線 
+
+
+| 模擬工作負載操作，以驗證可用權限並與所需的 AWS 帳戶權限進行比較 | iam:SimulatePrincipalPolicy | 部署  a| 
+* 資料儲存部署與連線
+* 檢視、規劃與分析
+
+
+|===
+====

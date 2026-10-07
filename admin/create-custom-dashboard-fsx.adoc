@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: admin/create-custom-dashboard-fsx.html 
+keywords: create dashboard, custom dashboard, AI dashboard, dashboard creation, personalized dashboard 
+summary: 使用 AI 引導提示建立自訂儀表板，以監控對您的工作負載和營運優先順序最重要的內容。 
+---
+= 在 NetApp Workload Factory 中建立自訂儀表板
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+用簡單易懂的語言描述您想要監控的內容，即可建立自訂儀表板。AI 會引導您完成設定，確保您的儀表板與您的工作負載和優先順序相符。
+
+.關於此任務
+自訂儀錶板利用人工智慧引導的對話來理解您想要視覺化的內容。您可以用自然語言描述您的監控需求，系統會提出一些澄清問題，以確保儀錶板符合您的要求。
+
+建立完成後，您可以重新整理儀表板以查看更新後的資料。
+
+請記住，自訂儀表板在設計上為唯讀，無法變更您的儲存或工作負載組態。
+
+
+NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立儀表板。請聯絡您的系統管理員或link:manage-genai-features.html["了解 AI 管理"]。
+
+
+
+[[create-a-dashboard]]
+== 建立儀表板
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *工作負載概覽* > *自訂儀表板*。
++
+如果這是您第一次使用控制面板，您將看到一個空白螢幕，其中包含一些範例提示，幫助您快速入門。您可以選擇 *Copy prompt* 將範例提示複製到 AI 對話方塊文字方塊中。
+
+. 選擇 *Create new dashboard*。
+. 在 AI 對話方塊中，描述您想要監控的內容。
++
+請用簡單易懂的語言描述您的需求。AI 會詢問幾個問題，以便更好地了解您的需求。
+
+. 選擇 image:arrow.png["選單圖示用於開始產生儀表板。, width=18"]。
+. 回答人工智慧提出的澄清問題。
++
+AI 可能會要求您從幾個選項中進行選擇，以便更清楚地了解您的需求。請回答每個問題並選取 *Continue*，或選取 *Skip* 以略過選用問題。
+
+. 回答完所有問題後，選擇「繼續」以建立您的儀表板。
+
+
+您的儀表板正在建立中。這可能需要一些時間。
+
+.結果
+您的自訂儀表板已建立並新增至儀表板目錄。預設情況下，儀表板為私有，僅您可見。如果您想與 Workload Factory 帳戶中的其他使用者共享，可以將其可見度變更為公開。link:manage-custom-dashboards-fsx.html#change-dashboard-visibility["了解如何變更儀表板可見度"]。
+
+儀表板準備就緒後，您會收到通知。如果建立失敗，您會收到一條包含重試連結的通知。link:configure-notifications.html["了解如何設定通知"]。
+
+.接下來
+建立完成後，您可以：
+
+* 更改儀表板可見度，以便與您的團隊共享
+* 重新整理儀表板資料以查看最新資訊
+* 刪除不再需要的儀表板
+* 檢視儀表板詳細資訊，包括建立者及上次更新時間。
+
+
+
+
+[[related-information]]
+== 相關資訊
+
+* link:manage-custom-dashboards-fsx.html["管理您的自訂儀表板"]
+* link:troubleshoot-custom-dashboards-fsx.html["疑難排解自訂儀表板"]
+

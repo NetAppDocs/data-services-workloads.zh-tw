@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/create-storage-vm.html 
+keywords: create storage VM, create svm 
+summary: 您可以建立 FSx for ONTAP 儲存設備 VM （SVM），以便在 NetApp Workload Factory 中為您的工作負載提供儲存設備和資料服務。 
+---
+= 為 FSx for ONTAP 檔案系統建立儲存 VM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中為 FSx for ONTAP 檔案系統建立儲存設備 VM （SVM），以便為您的工作負載虛擬存取儲存設備和資料服務。
+
+.關於此任務
+Storage VM 是隔離的檔案伺服器，可用於存取 Workload Factory 儲存設備中每個工作負載的資料。每個 SVM 都有自己的管理憑證和端點，用於管理和存取資料。
+
+使用 SVM 時，當您在 FSx for ONTAP 中存取資料時，您的用戶端和工作站會使用 SVM 的端點（IP 位址）裝載由 SVM 託管的 Volume、CIFS/SMB 共享或 iSCSI LUN。
+
+.開始之前
+確認每個檔案系統支援的儲存 VM 數量。請參閱 AWS 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html#max-svms["管理 FSx for ONTAP 儲存設備虛擬機器"^]，以了解每個檔案系統的最大 SVM 數量。
+
+
+
+[[create-a-storage-vm]]
+== 建立儲存設備 VM
+
+您可以從 Workload Factory 主控台建立儲存設備虛擬機器。您也可以使用 Codebox 中提供的下列工具：REST API、CloudFormation 和 Terraform。link:../admin/use-codebox.html#how-to-use-codebox["了解如何使用 Codebox 進行自動化"^]。
+
+
+NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏 `fsxadmin` 和  `vsadmin` 密碼。執行程式碼時，您需要重新輸入密碼。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中選擇檔案系統的操作選單，然後選擇 *管理*。
+. 在檔案系統總覽的 Storage VM 下，選擇 *建立 Storage VM*。
+. 在「建立儲存設備 VM」頁面的「儲存設備 VM 組態」下，提供下列資訊：
++
+.. *名稱*：輸入儲存設備虛擬機器的名稱。
+.. *儲存 VM 憑證*：提供此儲存 VM 的 `vsadmin`使用者密碼，或使用檔案系統的 `fsxadmin`使用者憑證。
+.. *根 Volume 安全樣式*：根據存取您資料的用戶端類型選擇根 Volume 安全樣式 - UNIX（Linux 用戶端）、NTFS（Windows 用戶端）或混合式。
+.. *標籤*：您可以選擇新增最多 50 個標籤。
+
+
+. 選擇 *Create*。
+

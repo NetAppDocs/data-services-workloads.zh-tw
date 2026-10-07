@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: admin/well-architected-workloads.html 
+keywords: well-architected, best practices, well-architected file system, Amazon FSx for NetApp ONTAP, FSx for ONTAP 
+summary: Workload Factory 會掃描工作負載組態的可靠性、安全性、卓越營運績效、成本最佳化和效能與效率，並提供見解和建議，協助您達成卓越營運績效。 
+---
+= NetApp Workload Factory 如何支援架構良好的工作負載
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Workload Factory 可協助您維護和運作可靠、安全的、高效且具成本效益的工作負載組態，使其遵守雲端供應商的良好架構框架。Workload Factory 提供每日的工作負載分析、建議和自動修復，以促進健全的工作負載運作。透過自動化此流程，Workload Factory 可將人為錯誤降至最低，並確保工作負載管理的一致性。
+
+
+
+[[how-it-works]]
+== 運作方式
+
+Workload Factory 每日分析您在支援的雲端儲存系統部署上執行的工作負載。分析結果提供架構完善的狀態資訊、洞察與建議。
+
+每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以按類別查看組態問題，以及組態問題清單和建議。您可以審查針對組態問題的建議。部分問題可由 Workload Factory 自動修復，而其他問題則需要手動介入。在這種情況下，Workload Factory 會提供詳細說明，幫助您實作建議的變更。
+
+您可以忽略不適用於您環境的組態分析。這樣可以避免不必要的警示和不準確的最佳化結果。
+
+您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。link:https://docs.netapp.com/us-en/console-well-architected/learn-custom-rules.html["深入瞭解自訂規則"^]。
+
+
+
+[[why-it-matters]]
+== 為什麼這很重要
+
+Workload Factory 藉由結合後續評估與建議洞察和修復，將最佳實務做法應用於大型儲存設備、資料庫和 VMware 環境。在 NetApp Console 中套用的自動化修復程序可減少人為錯誤、確保統一管理，並維護工作負載基礎架構的效能和可靠性。
+
+
+
+[[get-started-with-workload-factory-to-detect-and-fix-workload-misconfigurations]]
+== 開始使用 Workload Factory 來偵測和修復工作負載配置錯誤
+
+若要開始使用 Workload Factory、請註冊、新增認證資料並建立連線、以使用 Amazon FSx for NetApp ONTAP 來管理 AWS 資源並最佳化工作負載。
+
+link:../fsx-storage/quick-start-fsx.html["快速入門"]
+
+.相關資訊
+以下頁面提供在不同的 NetApp 儲存設備解決方案中實作架構良好組態的指引：
+
+* link:../fsx-storage/improve-configurations.html["為 ONTAP 檔案系統實作架構良好的 FSx"]
+* link:../fsx-databases/optimize-configurations.html["實作架構良好的資料庫組態"]
+* link:../fsx-vmware/view-evs-well-architected.html["實作架構良好的 EVS 配置"]
+* link:../gcnv/improve-configurations.html["實作架構良好的 NetApp 磁碟區組態"]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["在 Microsoft Azure 中實作架構良好的 Cloud Volumes ONTAP 系統組態"^]
+

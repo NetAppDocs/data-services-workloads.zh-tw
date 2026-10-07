@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/data-protection-overview.html 
+keywords: overview 
+summary: FSx for ONTAP 支援快照、NetApp 具有 AI 的自主勒索軟體、Volume 複寫和 NetApp Workload Factory 中的備份。 
+---
+= NetApp Workload Factory 中的資料保護類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FSx for ONTAP 支援快照、NetApp 基於 AI 的自主勒索軟體防護、複寫和備份等資料保護。我們建議您結合多種資料保護類型，以應對不可避免的情況並保護您的資料。
+
+
+
+[[types-of-data-protection]]
+== 資料保護類型
+
+為您的工作負載提供資料保護，有助於確保您在任何時候都能從任何資料遺失中恢復。在選擇要使用的功能之前，請先了解各種資料保護類型。
+
+.快照
+快照會在來源 Volume 內建立 Volume 的唯讀時間點映像，作為快照複本。您可以使用快照複本恢復單一檔案，或還原整個 Volume 的內容。快照是所有備份方法的基礎。在您的 Volume 上建立的快照複本，是用來讓複寫的 Volume 和備份檔案與對來源 Volume 所做的變更保持同步。
+
+.NetApp 結合人工智慧的自主勒索軟體防護
+NetApp 具備 AI 的自主勒索軟體保護（ARP/AI）利用 NAS（NFS/SMB）環境中的工作負載分析來偵測並警告可能是勒索軟體攻擊的異常活動。當懷疑發生攻擊時，除了排程快照所提供的現有保護之外，ARP/AI 也會建立新的不可變快照。
+
+.複寫
+複寫會在另一個 FSx for ONTAP 檔案系統上建立資料的次要複本，並持續更新次要資料。您的資料會保持在最新狀態，並在您需要時隨時可用，例如用於災難恢復。
+
+您可以選擇在另一個 FSx for ONTAP 檔案系統上建立複寫 Volume，以及在雲端建立備份檔案。或者，您也可以選擇只建立複寫 Volume 或備份檔案—這完全取決於您的選擇。
+
+.備份
+您可以將資料備份到雲端，以保護並進行長期保留。如有必要，您可以將備份中的Volume、資料夾或單一檔案還原到相同或不同的工作檔案系統。
+
+下圖以視覺化的方式展示了使用快照、跨區域複寫和備份至物件儲存的 FSx for ONTAP 儲存設備資料保護。
+
+image:diagram-fsx-data-protection.png["螢幕截圖顯示使用快照、跨區域複寫和備份至物件儲存的 FSx for ONTAP 儲存設備資料保護。"]
+
+
+
+[[best-practices-for-protecting-your-workload-data]]
+== 保護工作負載資料的最佳實務
+
+FSx for ONTAP 提供多種資料保護選項，您可以組合使用這些選項來實現您選擇的恢復點和復原時間目標。為了獲得最佳保護，我們建議您同時使用 Volume 快照和 Volume 備份。
+
+復原點目標 （RPO） 描述了最新資料副本的保證時長，這取決於資料副本的建立頻率。復原時間目標 （RTO） 定義了復原資料所需的時間。
+
+
+
+[[protect-your-workload-data-with-snapshots]]
+== 使用快照保護您的工作負載資料
+
+快照是 Volume 在時間點的虛擬版本，會按計畫定期建立。您可以使用標準檔案系統命令存取快照。快照的復原點目標（RPO）最短可達一小時。復原時間目標（RTO）取決於要還原的資料量，主要受 Volume 處理量限制。快照還允許使用者還原特定檔案和目錄，從而進一步縮短 RTO。快照僅在對 Volume 進行變更時使用額外的 Volume 空間。
+
+
+
+[[protect-your-workload-data-with-netapp-autonomous-ransomware-protection-with-ai]]
+== 使用具備 AI 的 NetApp 自主勒索軟體防護功能來保護您的工作負載資料
+
+NetApp 具備 AI 功能的自主勒索軟體保護（ARP/AI）在防毒軟體未能偵測到入侵時，可作為重要的額外防禦階層。設定 ARP/AI 原則可為所有儲存設備 VM 以及所有現有和新建的 Volume 啟用此功能。啟用後，ARP/AI 將偵測並保護所有 Volume 和儲存設備 VM。如果檔案副檔名被標記為異常，您應該評估該警示。
+
+
+
+[[protect-your-workload-data-with-volume-replication]]
+== 使用 Volume 複寫保護您的工作負載資料
+
+Volume 複寫會在另一個區域建立 Volume 的最新資料複本，包括其所有快照。如果您無法承受從 Volume 備份執行完整 Volume 還原作業所需的數小時 RTO，請考慮執行 Volume 複寫。雖然 Volume 複寫可確保您在另一個區域可以使用最新資料，但您需要調整用戶端以使用另一個區域中的 Volume。
+
+
+
+[[protect-your-workload-data-with-backups]]
+== 使用備份保護您的工作負載資料
+
+Volume 備份提供 Volume 的獨立時間點複本。它們可用於儲存舊備份，並提供必要的第二份資料複本。每日、每週和每月備份排程允許從一天開始的 RPO。Volume 備份只能整體還原。從備份建立 Volume（RTO）可能需要數小時到數天不等，具體取決於備份的大小。
+
+
+
+[[recommendations-for-protecting-your-workload-data]]
+== 保護工作負載資料的建議
+
+請參考以下建議來保護您的工作負載資料。
+
+* 使用 Volume 複寫進行災難恢復：如果您的應用程式需要較低的 RTO，請考慮使用 Volume 複寫將資料複寫到另一個區域。
+* 將 Volume 備份與快照結合使用：將這兩個功能結合使用，可確保您能夠從快照還原檔案，並在 Volume 遺失時使用備份執行完整還原。
+* 定義 Volume 備份原則：確保備份原則符合公司對備份時效性和頻率的要求。我們建議每個 Volume 至少保留兩次每日備份。
+* 定義快照排程：較舊的快照較不可能用於還原資料。我們建議您定義快照排程，將保留較舊快照的遞減效益與額外快照容量的成本納入考量。
+* 為您的檔案系統或單一 Volume 啟用 ARP/AI 原則，以增加額外的保護階層，保護您的資料免受勒索軟體攻擊。
+

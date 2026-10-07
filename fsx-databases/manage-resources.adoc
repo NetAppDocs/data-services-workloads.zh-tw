@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/manage-resources.html 
+keywords: instance, instance management, FSx for ONTAP, instance, manage host, view host, database host, database instance, manage 
+summary: 了解 NetApp Workload Factory for Databases 中的執行個體和資料庫管理。 
+---
+= 適用於資料庫的 NetApp Workload Factory 中的資源管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory for Databases 中管理資源可讓您使用進階功能，包括資料庫與 Clone 建立、資源使用率及監控。此外，您還可以分析資料庫組態的架構完善狀態，並實作組態最佳實務做法，以提高效能並降低營運成本。資源管理僅適用於在 FSx for ONTAP 檔案系統儲存設備上執行的 Microsoft SQL Server 和 Oracle 環境。
+
+您必須link:register-instance.html["註冊資源"]才能執行下列任何管理工作。
+
+管理任務包括：
+
+* 從庫存檢視資料庫
+* link:create-sql-database.html["建立資料庫"]
+* link:create-sandbox-clone.html["建立資料庫 Clone（沙箱）"]
+* link:optimize-configurations.html["實作架構良好的資料庫組態"]
+

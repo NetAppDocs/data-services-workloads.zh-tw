@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/quick-start-gcve.html 
+keywords: quick start, gcve, google cloud vmware engine, gcnv, google cloud netapp volumes 
+summary: 使用 VMware 遷移顧問，將您目前的基礎架構遷移到 Google Cloud VMware Engine，並使用 Google Cloud NetApp Volumes 作為外部 NFS 資料儲存。 
+---
+= 使用 VMware 工作負載遷移顧問快速入門遷移至 Google Cloud VMware Engine
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 VMware 遷移顧問，將您目前的基礎架構遷移到 Google Cloud VMware Engine，並使用 Google Cloud NetApp Volumes 作為外部 NFS 資料儲存。
+
+在開始之前，您應該先了解link:../fsx-storage/permissions-reference-fsx.html["適用於 NetApp Workload Factory 的 FSx for ONTAP 權限"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 登入 Workload Factory
+[role="quick-margin-para"]
+您需要link:../setup/sign-up-and-log-in.html["在 Workload Factory 設定帳戶"^]並登入 NetApp Console。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 新增憑證和權限
+[role="quick-margin-para"]
+選擇 link:../fsx-storage/permissions-reference-fsx.html["權限原則"] 以滿足您的需求。
+
+[role="quick-margin-para"]
+如果您選擇不授予權限，則可以開始使用 Workload Factory for VMware 來複製部分完成的程式碼範例。
+
+[role="quick-margin-para"]
+如果您選擇授予權限，您將需要link:../fsx-storage/add-credentials.html["手動向帳戶新增憑證"]，這包括提供一個具有檢視和管理 Google Cloud NetApp Volumes 資源、VPC 組態以及 Google Cloud VMware Engine 資料儲存連線所需權限的 GCP 服務帳戶。
+
+[role="quick-margin-para"]
+link:../fsx-storage/add-credentials.html["了解如何新增憑證和權限"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]上傳虛擬機器清單資料
+[role="quick-margin-para"]
+您可以使用規劃中心上傳目前虛擬機器環境的清單詳細資訊。使用資料收集指令碼、RVTools 或 NetApp Data Infrastructure Insights 來擷取目前的虛擬機器組態，並將資料上傳到規劃中心。
+
+[role="quick-margin-para"]
+link:upload-vm-inventory.html["了解如何上傳虛擬機器清單資料"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"] 使用 VMware 移轉顧問建立部署計畫
+[role="quick-margin-para"]
+啟動 VMware migration advisor，並使用 Google Cloud NetApp Volumes 作為外部 NFS 資料存放區，配置您想要在 Google Cloud VMware Engine 基礎架構上建立的 VM 環境。
+
+[role="quick-margin-para"]
+link:launch-migration-advisor-gcve.html["了解如何使用 VMware 移轉顧問建立部署計畫"]。

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/quick-start-fsx.html 
+keywords: Amazon FSx for NetApp ONTAP, fsx, netapp, quick, get started, install, deploy, setup, launch, requirements, prerequisites, credentials, permissions, policy 
+summary: 您只需幾個步驟，即可在 NetApp Workload Factory 中開始使用 FSx for ONTAP。 
+---
+= NetApp Workload Factory 中的 Amazon FSx for NetApp ONTAP 快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過新增憑證和權限、在需要時建立連結，以及建立或探索儲存系統，即可開始使用 Amazon FSx for NetApp ONTAP。
+
+請依照以下步驟開始。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 新增憑證和權限
+[role="quick-margin-para"]
+link:add-credentials.html["手動向帳戶新增憑證"^]這包括選擇工作負載功能（例如資料庫和 EDA），以及建立所需權限的 IAM 原則。
+
+[role="quick-margin-para"]
+選擇 link:permissions-reference-fsx.html["權限原則"^] 以滿足您的需求。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 選用：建立 Console 代理程式或連結
+[role="quick-margin-para"]
+要透過 NetApp Console 執行某些管理任務，您需要 Console 代理程式或 NetApp Workload Factory 連結。_Console 代理程式_ 是一台虛擬機器，您可以將其部署在 VPC 中，用於管理您的 FSx for ONTAP 檔案系統。_連結_ 則利用 AWS Lambda 建立信任關係，並連接到您的 FSx for ONTAP 檔案系統。
+
+[role="quick-margin-list"]
+* link:../setup/links-overview.html["了解何時需要控制台代理程式或連結才能進行 FSx for ONTAP 管理"]
+* https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html["了解如何在 AWS 中建立 Console 代理程式"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["了解如何在內部部署建立 Console 代理程式"^]
+* link:create-link.html["學習如何建立連結"^]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 建立檔案系統
+[role="quick-margin-para"]
+直接從 NetApp Console 建立您的 FSx for ONTAP 檔案系統，或探索您已在 AWS 環境中建立的檔案系統。link:create-discover-systems.html["了解如何建立檔案系統或探索現有檔案系統。"]
+
+[role="quick-margin-para"]
+您也可以使用儲存設備節省計算器，將您的 Amazon Elastic Block Store、Elastic File System 和 FSx for Windows File Server 儲存設備環境的成本與 FSx for ONTAP 的成本進行比較。link:explore-savings.html["使用儲存設備節省計算器，探索節省方案。"]
+
+.接下來
+在您的儲存設備清單中有了檔案系統後，您可以 link:create-volume.html["建立 Volume"]、管理您的 FSx for ONTAP 檔案系統，並為您的資源設定資料保護。

@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/create-sandbox-clone.html 
+keywords: create, clone, sandbox 
+summary: 在 NetApp Workload Factory for Databases 中建立沙箱 Clone。 
+---
+= 在 NetApp Workload Factory for Databases 中建立沙箱 Clone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory for Databases 中建立資料庫的沙箱 Clone，可讓您使用 Clone 進行開發、測試、整合、分析、訓練、品質保證等操作，而無需變更來源資料庫。
+
+.關於此任務
+沙箱 Clone 是從來源資料庫上的最新快照建立的。它可以 Clone 到與來源資料庫相同的 Microsoft SQL Server 中，也可以 Clone 到另一個 Microsoft SQL Server 中，只要它們共享相同的 FSx for ONTAP 檔案系統即可。
+
+.開始之前
+在建立沙盒 Clone 之前，請確保完成以下先決條件。
+
+* *憑證和權限*：您必須link:../fsx-storage/add-credentials.html["AWS 帳戶憑證和 _operations and remediation_ 權限"^]才能在 Workload Factory 中建立沙盒 Clone。
++
+或者，您可以使用 Codebox 取得部分完成範本的複本，或建立已完成的範本，以便使用 REST API 在 Workload Factory 之外建立沙箱 Clonelink:../admin/codebox-automation.html["了解更多關於 Codebox 自動化"^]。
+
+* *Microsoft SQL Server*：您必須在 Workload Factory for Databases 中擁有代管的 Microsoft SQL Server，以裝載新的沙箱 Clone。
+* *AWS Systems Manager*：確保透過 AWS Systems Manager 在 Microsoft SQL 主機上啟用 `NT Authority\SYSTEM`使用者權限。
+* *來源資料庫*：您需要一個可用於 Clone 的來源資料庫。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 在資料庫中，選擇 *沙盒* 標籤。
+. 在「沙盒」標籤中，選擇 *建立新沙盒*。
+. 在「建立新沙盒」頁面上的「資料庫來源」下，提供以下內容：
++
+.. *來源資料庫主機*：選擇來源資料庫主機。
+.. *來源資料庫執行個體*：選擇來源資料庫執行個體。
+.. *來源資料庫*：選擇要從中 Clone 的來源資料庫。
+
+
+. 在「資料庫目標」下，提供以下內容：
++
+.. *目標資料庫主機*：為沙箱 Clone 選擇與來源主機位於同一 VPC 中且具有相同 FSx for ONTAP 檔案系統的目標資料庫主機。
+.. *目標資料庫執行個體*：選擇沙箱 Clone 的目標資料庫執行個體。
+.. *目標資料庫*：輸入沙盒 Clone 的名稱。
+
+
+. *掛載*：當 Clone 具有多個資料和/或日誌檔的 SQL 資料庫時，Workload Factory 會將所有檔案 Clone 到自動指派或定義的磁碟機代號下。
++
+請選擇下列選項之一：
+
++
+.. *自動分配安裝點*
+.. *定義安裝點路徑*
++
+請提供以下內容以定義安裝點路徑：
+
++
+*** 請輸入資料檔案路徑對應的磁碟機代號。
+*** 輸入日誌檔路徑的磁碟機代號。
+
+
+
+
+. *定義標籤*：選擇一個標籤來定義沙箱 Clone。
+. 按一下 *Create* 。
+
+
+若要查看作業進度，請前往 *作業監控* 標籤。

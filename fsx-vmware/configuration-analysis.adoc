@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/configuration-analysis.html 
+keywords: evs, well-architected, configuration analysis, best practices, recommendations 
+summary: 了解 Workload Factory 如何分析 Amazon Elastic VMware Service 配置，以識別問題並提供最佳實務建議。 
+---
+= EVS 組態的組態分析
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Workload Factory 會定期分析 Amazon Elastic VMware Service (EVS) 配置，以識別與最佳實務不符之處。使用結果來改善效能、成本效益和合規性。
+
+主要功能包括：
+
+* 每日配置分析
+* 自動最佳實務驗證
+* 主動可觀測性
+* 洞察化為行動
+
+
+
+
+[[how-it-works]]
+== 運作方式
+
+Workload Factory 每日分析您在支援的雲端儲存系統部署上執行的工作負載。分析結果提供架構完善的狀態資訊、洞察與建議。
+
+每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以按類別查看組態問題，以及組態問題清單和建議。您可以審查針對組態問題的建議。部分問題可由 Workload Factory 自動修復，而其他問題則需要手動介入。在這種情況下，Workload Factory 會提供詳細說明，幫助您實作建議的變更。
+
+您可以忽略不適用於您環境的組態分析。這樣可以避免不必要的警示和不準確的最佳化結果。
+
+您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。link:https://docs.netapp.com/us-en/console-well-architected/learn-custom-rules.html["深入瞭解自訂規則"^]。
+
+
+
+[[why-it-matters]]
+== 為什麼這很重要
+
+Workload Factory 藉由結合後續評估與建議洞察和修復，將最佳實務做法應用於大型儲存設備、資料庫和 VMware 環境。在 NetApp Console 中套用的自動化修復程序可減少人為錯誤、確保統一管理，並維護工作負載基礎架構的效能和可靠性。
+
+
+
+[[analysis-requirements]]
+== 分析要求
+
+要進行完整的組態分析、您必須執行以下操作：
+
+* 關聯連結。連結連線功能可讓 Workload Factory 分析所有檔案系統組態，例如資料保護和效能。
++
+link:../fsx-storage/create-link.html["了解如何關聯現有連結或建立並關聯新連結"]。
+
+* 授予 VMware 工作負載的 _view、planning 和 analysis_ 權限。
++
+link:../fsx-storage/add-credentials.html["了解如何授予 AWS 帳戶權限"^]
+
+* 您的 AWS 帳戶中必須至少有一個已發現的 Amazon Elastic VMware Service 環境。
+
+
+
+
+[[best-practices-and-recommendations-for-evs-workloads]]
+== EVS 工作負載的最佳實務與建議
+
+Workload Factory 提供運作架構完善的 Amazon Elastic VMware Service（EVS）工作負載的最佳實務和建議。架構完善分析會評估 EVS 配置，以協助確保您的 VMware 環境在可靠性、安全性、卓越營運、成本最佳化和效能效率方面都達到最佳狀態。在 VMware 的「架構完善狀態」標籤中，您可以找到相關洞察和建議，協助您為 EVS 環境實施架構完善的最佳實務。
+
+精心設計的分析將組態按以下架構支柱進行分類：_可靠性_ 和 _安全性_。
+
+
+
+[[reliability]]
+=== 可靠性
+
+可靠性確保工作負載即使在出現中斷的情況下也能正確、持續地執行其預期功能。
+
+* *EVS 環境彈性*
++
+確保您的 EVS 叢集節點已正確分佈在分割區放置群組中。所有節點都應屬於單一分割區放置群組成員，且該群組設定為四個或更多分割區。正確的分割區放置可確保您的 EVS 叢集節點分佈在 AWS 可用區域內多個故障隔離的硬體分割區中。如果分割區放置不當，一旦某個分割區發生故障，可能會導致處理能力大幅下降或停機。
+
+
+
+
+
+[[security]]
+=== 安全性
+
+安全重點在於透過風險評估和緩解策略來保護資料、系統和資產。
+
+* * 叢集節點管理 *
++
+請確保您的 EVS 叢集節點已配置適當的 EC2 停止和終止保護。EVS ESXi 節點應僅使用 vCenter 或其他 VMware 層級管理工具進行管理。如果沒有適當的 EC2 層級保護，節點可能會意外地從 EC2 主控台停止或終止，這可能導致虛擬機器資料無法使用或資料遺失。
+
+
+
+.接下來
+link:view-evs-well-architected.html["實作架構良好的配置"]

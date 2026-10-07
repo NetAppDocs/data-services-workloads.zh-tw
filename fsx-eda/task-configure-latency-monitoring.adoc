@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: fsx-eda/task-configure-latency-monitoring.html 
+keywords: latency analysis, configure thresholds, CloudWatch alarms, latency monitoring, FSx for ONTAP, warning events, critical events, latency notifications, email notifications, SNS notifications, latency configuration 
+summary: 配置延遲監控閾值和通知設定，以偵測和回應 FSx for ONTAP 磁碟區的效能問題。 
+---
+= 在 Workload Factory 中設定 EDA 的延遲監控
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定讀寫延遲的警告和嚴重限值，以追蹤 FSx for ONTAP 磁碟區的效能。您也可以啟用電子郵件或 Amazon SNS 警報，以便在出現延遲問題時收到即時通知。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+在設定延遲監控之前，請確保符合下列需求。
+
+
+
+[[aws-credentials-and-permissions]]
+=== AWS 憑證和權限
+
+您必須將具有讀取 / 寫入權限的 AWS 憑證新增至 Workload Factory 。延遲監控功能需要存取與您的 AWS 憑證關聯的所有 FSx for ONTAP 磁碟區的 CloudWatch 指標。
+
+延遲監控不支援 _檢視、規劃和分析_ 權限。
+
+如果您尚未設定 AWS 憑證，請參閱 link:../fsx-storage/add-credentials.html["新增 AWS 憑證"^]。
+
+
+
+[[fsx-for-ontap-file-system]]
+=== FSx for ONTAP 檔案系統
+
+您的 AWS 環境中至少需要一個 FSx for ONTAP 檔案系統及其磁碟區。
+
+
+
+[[link-to-fsx-for-ontap]]
+=== 連結至 FSx for ONTAP
+
+若要在基本分析中檢視元件細分，您必須將連結與 FSx for ONTAP 檔案系統建立關聯。若沒有連結，您仍然可以檢視延遲、IOPS 和吞吐量圖表。如果尚未關聯任何連結，請在 EDA 中選取 *Associate link*，選擇是建立新連結還是關聯現有連結，然後選取 *Continue* 以自動前往 Storage workloads 中的連結建立頁面。
+
+有關建立和關聯連結的說明，請參閱link:../fsx-storage/create-link.html["建立連結"^]。
+
+
+
+[[turn-on-ai-settings]]
+=== 開啟 AI 設定
+
+如果您的帳戶管理員已關閉 AI 功能，您將看到一則訊息，並且無法使用 AI 分析。請聯絡您的系統管理員或參閱 link:../admin/manage-genai-features.html["了解 AI 管理"^]。
+
+
+
+[[notification-configuration-optional]]
+=== 通知組態（選用）
+
+若要在偵測到延遲事件時接收電子郵件或 Amazon SNS 通知，請在 Workload Factory 設定中設定通知偏好設定。如需詳細資訊，請參閱 <<設定延遲通知>>。
+
+
+
+[[configure-latency-thresholds]]
+== 設定延遲臨界值
+
+設定讀寫操作的警告限值和臨界值。系統會持續檢查這些限值，並在達到限值時發出警報。
+
+
+NOTE: 將嚴重事件閾值設定得高於警告閾值。否則，您將無法儲存組態。
+
+
+NOTE: 您在 EDA 中設定的延遲臨界值預設會套用到整個帳戶。您也可以在 General Storage 工作負載中設定個別 Volume 延遲臨界值，這些 Volume 設定對該 Volume 具有優先權。在 EDA 中更新帳戶層級臨界值不會變更任何 Volume 層級設定。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *EDA*。
+. 選取 *Latency* 標籤。
+. 在 EDA 延遲組態頁面中，設定下列臨界值：
++
+** 讀取延遲（警告和嚴重）
+** 寫入延遲（警告和嚴重）
+** 每個的 IOPS 臨界值
+** 評估時間範圍
+
+
+. 選取 *Apply* 以儲存您的組態。
+
+
+.結果
+Workload Factory 會收集與您的 AWS 憑證關聯的所有 FSx for ONTAP 磁碟區的延遲指標。超出您設定閾值的磁碟區會出現在延遲事件表中。
+
+
+
+[[configure-latency-notifications]]
+== 設定延遲通知
+
+設定電子郵件或 Amazon SNS 通知，以便在偵測到高延遲時收到警報。您可以透過以下兩種選項控制通知頻率：
+
+* *每日提醒（建議）*：當任何檔案系統發生新的安全漏洞時，您將收到通知。發送一次檔案系統安全漏洞通知後，請等待 24 小時再發送相同檔案系統的安全漏洞通知。
+* *Notify on any latency breach (every 20 minutes)*：偵測到違規情況時，最多每 20 分鐘收到一次通知。
+
+
+延遲通知是按檔案系統發送的。當檔案系統中的一個或多個磁碟區違反延遲臨界值時，您會收到一則列出所有受影響磁碟區的通知。
+
+
+NOTE: 如果受影響的磁碟區超過 10 個，電子郵件將顯示前 10 個磁碟區，並顯示受影響的其他磁碟區數量。您可以在 Workload Factory 主控台中檢視所有受影響的磁碟區。
+
+通知管道：
+
+* *電子郵件*：傳送至您在 Workload Factory 通知設定中設定的電子郵件地址
+* *Amazon SNS*：發佈到您配置的 SNS 主題，以便與其他系統整合
+
+
+若要啟用通知，請參閱link:../admin/configure-notifications.html#wf-console-email-notifications["設定通知設定"]。
+
+
+
+[[manage-latency-configuration]]
+== 管理延遲組態
+
+設定完成後，您可以隨時變更閾值。
+
+.步驟
+. 在 *Latency* 頁面中，選擇 *Edit*。
+. 根據需要修改任何臨界值。
++
+
+NOTE: 將臨界閾值設定得高於警告閾值。如果將臨界閾值設定得低於警告閾值，系統將顯示錯誤。
+
+. 選擇 *Apply* 以儲存變更。
+
+
+
+
+[[best-practices]]
+== 最佳實務
+
+設定延遲監控時，請考慮以下建議：
+
+* *設定合理的閾值*：根據您的工作負載設定閾值。預設值僅供參考，您可能需要根據自身環境進行調整。
+* *從警告閾值開始*：首先查看警告警示以了解正常效能，然後設定關鍵限制。
+* *請仔細考慮時間範圍*：較短的時間範圍（5-10 分鐘）能更快發現問題，但可能會觸發更多警報。較長的時間範圍（15-20 分鐘）能減少誤報，但可能會延遲發現問題。
+* *協調 IOPS 和延遲閾值*：兩個條件必須同時滿足。如果 IOPS 限制設定過高，即使延遲很高，系統也可能不會發出警報。
+* *審查被駁回的事件*：定期審查事件被駁回的原因，以確定是否需要調整閾值或改進系統。
+
+
+
+
+[[related-information]]
+== 相關資訊
+
+* link:learn-latency-monitoring.html["了解延遲監控"]
+* link:task-analyze-latency-issues.html["分析延遲問題"]
+* link:task-analyze-latency-trends.html["分析延遲趨勢"]
+

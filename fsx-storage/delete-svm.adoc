@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/delete-svm.html 
+keywords: delete storage vm, delete svm, remove svm 
+summary: 從 FSx for ONTAP 檔案系統組態中刪除不再需要的儲存設備虛擬機器（SVM）。 
+---
+= 在 NetApp Workload Factory 中刪除儲存 VM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+從 FSx for ONTAP 檔案系統組態中刪除不再需要的儲存設備虛擬機器（SVM）。
+
+.開始之前
+刪除儲存設備 VM 之前，請先查看以下內容：
+
+* 確保沒有任何應用程式正在存取 SVM 中的資料。
+* 刪除附加到 SVM 的所有非根 Volume。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選擇要更新的檔案系統的動作功能表，然後選擇 *管理* 。
+. 在 Storage VMs 下的檔案系統總覽中，選擇 *管理*。
+. 在「管理儲存設備 VM」畫面上，選取要刪除的儲存設備 VM 的動作選單。
+. 選擇 *刪除儲存設備 VM*。
+. 在「刪除儲存設備虛擬機器」對話方塊中，輸入「delete」以刪除儲存設備虛擬機器。
+. 選取 *刪除* 以確認。
+

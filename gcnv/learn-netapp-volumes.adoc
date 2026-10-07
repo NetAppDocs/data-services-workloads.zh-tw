@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: gcnv/learn-netapp-volumes.html 
+keywords: google cloud netapp volumes, cost, price, features, google cloud netapp volumes features, gcnv, supported regions, google regions, google cloud netapp volumes regions 
+summary: Google Cloud NetApp Volumes 讓企業能夠將效能密集且對延遲敏感的核心、業務關鍵應用程式移轉到 Google 並執行，而無需針對雲端進行重構。 
+---
+= 了解 Google Cloud NetApp Volumes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Google Cloud NetApp Volumes 是一項完全代管的雲端型資料儲存設備服務，提供進階資料管理員功能和易擴充的高效能。
+
+NetApp Volumes 有助於加快部署速度、管理工作負載和應用程式，並將工作負載移轉至雲端，同時保持內部部署儲存設備的效能和功能。
+
+
+
+[[features]]
+== 功能
+
+* 執行企業應用程式更快、更有效率。
+* 可降低高達 90% 的雲端儲存成本。
+* 滿足正常運作時間、可用度和安全性方面的要求。
+* 支援 NFS、SMB 和多協定環境。
+
+
+
+
+[[cost]]
+== 成本
+
+由 Google Cloud NetApp Volumes 建立的 Volume 費用會計入您的服務訂閱，而不是透過 NetApp Console 收取。
+
+探索 Google Cloud NetApp Volumes 區域或 Volume，透過 NetApp Console 進行不需收費。
+
+
+
+[[supported-regions]]
+== 支援的地區
+
+https://cloud.google.com/netapp/volumes/docs/discover/service-levels#supported_regions["查看支援的 Google Cloud NetApp Volumes 區域"^]
+
+
+
+[[getting-help]]
+== 尋求協助
+
+如需技術支援，請透過 Google Cloud 入口網站提交請求。選擇您的 Google Cloud 訂閱以及 *儲存設備* 下的 *Google Cloud NetApp Volumes* 服務。填寫所需資訊。
+
+如需有關 Google Cloud NetApp Volumes 的一般問題，請將電子郵件傳送至 gcinfo@netapp.com，與 NetApp 的 Google Cloud 團隊聯絡。
+
+如果您遇到與雲端 Volume 相關的技術問題，可以透過 Google Cloud Console 建立技術支援案例。詳情請參閱 link:https://cloud.google.com/netapp/volumes/docs/support["獲得支援"^]。
+
+
+
+[[related-links]]
+== 相關連結
+
+* https://cloud.google.com/netapp/volumes/docs/discover/overview["Google Cloud NetApp Volumes 說明文件"^]
+* https://docs.netapp.com/us-en/data-services-copy-sync/index.html["NetApp Console 複製與同步文件"^]
+

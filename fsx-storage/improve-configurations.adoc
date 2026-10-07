@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/improve-configurations.html 
+keywords: implement best practices, well-architected file system, Amazon FSx for NetApp ONTAP, FSx for ONTAP 
+summary: Workload Factory 掃描 Amazon FSx for NetApp ONTAP 組態，提供見解和建議，協助您實現卓越營運績效。 
+---
+= 為 ONTAP 檔案系統組態實作架構良好的 FSx
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 Workload Factory 為您的 FSx for ONTAP 檔案系統實作最佳實務。您可以輕鬆審查架構良好的狀態，了解組態的問題，並修復問題，以改善任何未針對可靠性、安全性、效率、效能和成本進行最佳化的系統架構。
+
+link:configuration-analysis.html["了解組態分析和架構良好狀態。"]
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+Workload Factory 每日分析 Amazon FSx for NetApp ONTAP 檔案系統部署組態。
+
+由於儲存組態的要求各不相同，您可以忽略不適用於您儲存環境的特定組態分析。
+
+連結連線可讓 Workload Factory 掃描效能、資料保護與組態方面的問題。link:create-link.html["使用連結連線至 FSx for ONTAP 檔案系統"] 以對您的檔案系統資源進行最全面的分析。
+
+.分析的內容
+Workload Factory 分析以下 FSx for ONTAP 檔案系統組態的良好架構狀態：
+
+* 可靠性：Volume 備份、快照原則、跨區域複寫、SSD 容量餘裕、複寫原則標籤和檔案物件容量
+* 安全性：勒索軟體防護（ARP/AI）和未經授權的 iSCSI Volume 存取
+* 營運卓越：自動容量管理、Volume 檔案容量預留空間、FlexCache® 寫入模式、FlexCache® 複本大小、主機可見的容量報告、OS 類型、區塊裝置空間管理及資源隨需配置
+* 成本最佳化：冷資料分層、儲存效率、備份到期、快照到期、非使用中區塊裝置、過度配置的 SSD 容量，以及非使用中 NAS Volume
+* 效能效率：FlexGroup Volume 重新平衡與 FlexVol® Volume 重新平衡
+
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+* 您必須在 AWS 帳戶中link:add-credentials.html["授予 _operations and remediation_ 權限"]。
+* link:create-link.html["使用連結連線至 FSx for ONTAP 檔案系統"] 以對您的檔案系統資源進行最全面的分析。
+
+
+
+
+[[fix-a-configuration-issue]]
+== 修復組態問題
+
+您可以修正 FSx for ONTAP 檔案系統或檔案系統中選定 Volume 的組態問題。您可以選擇一個或多個組態進行修正。
+
+修復操作可能會導致執行個體停機或服務中斷。在修復組態問題之前，請仔細審查每項建議。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *架構良好* > *FSx for ONTAP*。
+. 選取任何組態的 *View and fix*。請務必仔細審查建議。
++
+此建議說明最佳實務，以及未最佳化組態的潛在問題。
+
+. 選擇資源，然後點選「修復」。
++
+某些修復操作僅適用於特定操作，並非總是適用於多個資源。例如，您可能可以修復單一 Volume 的組態，但無法修復多個 Volume 的組態。
+
+. 審查行動項目，了解此修復措施的後果，例如執行個體停機或服務中斷。
+. 如果您希望 Workload Factory 套用建議的變更，請選擇「修復」。
+
+
+.結果
+修復過程開始。請選擇帳戶設定選單，然後選擇 *Tracker* 以檢視操作狀態。
+
+
+
+[[dismiss-a-configuration-analysis]]
+== 駁回組態分析
+
+無限期停止對一個或多個資源的組態分析。您可以在需要時重新啟動分析。
+
+點選「關閉」按鈕可停止對一個或多個 FSx for ONTAP 檔案系統或 Volume 的組態分析。您可以隨時重新啟動分析。
+
+[role="tabbed-block"]
+====
+.駁回組態的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *架構良好* > *FSx for ONTAP*。
+. 在「組態」下，找出不適用於您環境的組態。
+. 選取 image:icon-action.png["行動選單圖示"] ，然後選取 *Dismiss* 。
+. 在「取消組態」對話方塊中、選取 *取消* 以停止分析組態。
+
+
+--
+.忽略資源組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *架構良好* > *FSx for ONTAP*。
+. 在 FSx for ONTAP 架構完善的儀表板中，在「組態」下，選擇不適用於您環境的組態。
+. 在組態頁面上，選擇要從組態分析中排除的資源。
++
+** 對於一個資源：選擇 image:icon-action.png["行動選單圖示"]，然後選擇 *Dismiss*。
+** 對於多個資源：選取資源，然後選取「批次行動」旁邊的 *Dismiss*。
+
+
+. 在「關閉資源」對話方塊中，選取 *關閉* 以停止分析。
+
+
+--
+====
+.結果
+Workload Factory 停止對所選組態的組態分析。
+
+
+
+[[reactivate-a-dismissed-configuration-analysis]]
+== 重新啟動已關閉的組態分析
+
+隨時重新啟用已關閉的組態分析。您可以選擇一個或多個組態或資源來重新啟用。
+
+[role="tabbed-block"]
+====
+.重新啟動組態的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *架構良好* > *FSx for ONTAP*。
+. 選擇 *Dismissed configurations* 。
+. 確定要重新啟用的組態，然後選擇 *Reactivate*。
+
+
+--
+.重新啟動資源組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *架構良好* > *FSx for ONTAP*。
+. 在 FSx for ONTAP 架構完善的儀表板中，在「組態」下，選擇不適用於您環境的組態。
+. 在組態頁面上，選取 * 已關閉的組態 *。
+. 選擇要重新啟動的資源。
++
+** 對於一個資源：選擇 image:icon-action.png["行動選單圖示"] ，然後選擇 *Reactivate*。
+** 對於多個資源：選擇資源，然後選擇「批次行動」旁邊的 *Reactivate*。
+
+
+
+
+--
+====
+.結果
+Workload Factory 會重新啟動組態分析，每天都會執行新的分析。

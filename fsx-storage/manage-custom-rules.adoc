@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-custom-rules.html 
+keywords: manage custom rules, disable rules, delete rules, rule catalog, byor 
+summary: 從規則目錄中檢視、啟用、停用和刪除自訂架構規則。 
+---
+= 管理 NetApp Workload Factory 的自訂規則
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+規則目錄是管理所有自訂規則的單一位置。您可以查看每條規則的詳細資訊、檢查其結果，以及啟用或停用規則。
+
+
+
+[[view-the-rules-catalog]]
+== 檢視規則目錄
+
+規則目錄顯示您建立的所有規則、其狀態、排程和最新結果。
+
+.步驟
+. 使用以下任一方式登入link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["主控台體驗"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示"]，然後選擇 *Rule builder*。
+. 點選「檢視您的規則」開啟規則目錄。
+
+
+
+
+[[view-rule-results]]
+== 檢視規則結果
+
+結果顯示哪些資源符合您的規則，哪些不符合。
+
+.步驟
+. 在規則目錄中，按一下要審查的規則。
+. 選取「所有執行結果」索引標籤。
+. 選取 **View details** 以查看每次執行的結果。
+
+
+如果某些項目的檢查失敗，請讀取錯誤訊息以了解原因。常見原因包括連線問題、權限不足或連結尚未設定。
+
+
+
+[[edit-a-custom-rule]]
+== 編輯自訂規則
+
+您可以隨時變更規則的邏輯、排程或其他設定。編輯規則時，規則建構者會開啟並顯示規則的目前設定。
+
+.步驟
+. 在規則目錄中，按一下要編輯的規則。
+. 點選 *編輯*。
++
+規則切換到草稿模式，規則建構者開啟。
+
+. 編輯規則提示或利用對話來改進規則。
+. 檢閱 AI 更新後的解釋和規則定義。
++
+系統會顯示與目前規則相比發生了哪些變化，包括任何 API 呼叫或邏輯。
+
+. 根據所做的變更，執行下列其中一項操作：
++
+** 如果進行了細微的變更，請按一下 *儲存* 以更新規則。
+** 如果進行了重大變更，請點擊 *驗證規則* 來測試變更，然後點擊 *排程* 來儲存並排程規則，或點擊 *儲存為草稿* 以儲存而不排程。
+** 若要放棄變更，請按一下 *還原到先前版本*。規則將恢復到其原始定義並退出編輯模式。
+
+
+

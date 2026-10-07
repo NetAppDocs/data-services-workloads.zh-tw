@@ -1,0 +1,372 @@
+---
+settings:
+  name: Workload Factory for NetApp Console
+  internal:
+    pdf_enabled: true
+    termcheck_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  release_notes_autogen:
+    release_notes_repo: console-relnotes
+  langs: zh-tw,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn
+sidebar:
+  entries:
+  - title: 適用於 NetApp Console 的 Workload Factory
+    url: "/index.html"
+  - title: 版本資訊
+    entries:
+    - title: 新增功能
+      url: "/whats-new.html"
+    - title: Workload Factory 中 FSx for ONTAP 的已知限制
+      url: "/known-limitations.html"
+  - title: 開始使用
+    entries:
+    - title: 了解 NetApp Console 中的 Workload Factory
+      url: "/setup/learn-about-workload-factory.html"
+    - title: 快速入門
+      url: "/setup/quick-start.html"
+    - title: 註冊並登入 Workload Factory
+      url: "/setup/sign-up-and-log-in.html"
+    - title: 了解連結
+      url: "/setup/links-overview.html"
+    - title: 了解權限
+      url: "/setup/learn-about-permissions.html"
+  - title: Amazon FSx for NetApp ONTAP
+    entries:
+    - title: 使用 FSx for ONTAP 處理儲存設備工作負載
+      entries:
+      - title: 了解適用於 ONTAP 的 FSx
+        url: "/fsx-storage/learn-fsx-ontap.html"
+      - title: 探索節省成本
+        url: "/fsx-storage/explore-savings.html"
+      - title: 建立儲存資源
+        entries:
+        - title: 建立或探索 FSx for ONTAP 檔案系統
+          url: "/fsx-storage/create-discover-systems.html"
+        - title: 建立儲存設備 VM
+          url: "/fsx-storage/create-storage-vm.html"
+        - title: 建立磁碟區
+          url: "/fsx-storage/create-volume.html"
+        - title: 建立 igroup
+          url: "/fsx-storage/create-igroup.html"
+        - title: 建立區塊裝置
+          url: "/fsx-storage/create-block-device.html"
+      - title: 使用連結連接到檔案系統
+        url: "/fsx-storage/create-link.html"
+      - title: 探索並檢視快取 Volume
+        url: "/fsx-storage/discover-cache-volumes.html"
+      - title: 存取您的資料
+        url: "/fsx-storage/access-data.html"
+    - title: 保護您的資料
+      entries:
+      - title: 資料保護總覽
+        url: "/fsx-storage/data-protection-overview.html"
+      - title: 使用快照來保護資料
+        entries:
+        - title: 使用快照來保護資料
+          url: "/fsx-storage/use-snapshots.html"
+        - title: 管理快照原則
+          url: "/fsx-storage/manage-snapshot-policy.html"
+        - title: 管理快照
+          url: "/fsx-storage/manage-snapshots.html"
+      - title: 使用備份到物件儲存
+        url: "/fsx-storage/use-backups.html"
+      - title: 使用複寫保護資料
+        entries:
+        - title: 複寫資料
+          url: "/fsx-storage/create-replication.html"
+        - title: 將內部部署 ONTAP 資料複寫到 FSx for ONTAP
+          url: "/fsx-storage/use-onprem-data.html"
+        - title: 將儲存設備虛擬機器複製到另一個檔案系統
+          url: "/fsx-storage/replicate-svm-to-file-system.html"
+        - title: 追蹤複寫延遲
+          url: "/fsx-storage/track-replication-delays.html"
+        - title: 管理複製關係
+          url: "/fsx-storage/manage-replication.html"
+      - title: 使用自主勒索軟體防護保護資料
+        url: "/fsx-storage/ransomware-protection.html"
+      - title: 複製磁碟區
+        url: "/fsx-storage/clone-volume.html"
+      - title: 建立網路保存庫以保護資料
+        url: "/fsx-storage/create-cyber-vault.html"
+    - title: 在 Workload Factory 中管理 FSx for ONTAP
+      entries:
+      - title: 分析 FSx for ONTAP EMS 事件
+        url: "/fsx-storage/analyze-events.html"
+      - title: 實作檔案系統最佳實務
+        entries:
+        - title: FSx for ONTAP 的組態分析
+          url: "/fsx-storage/configuration-analysis.html"
+        - title: 實作架構良好的檔案系統組態
+          url: "/fsx-storage/improve-configurations.html"
+        - title: 自訂規則
+          entries:
+          - title: 了解自訂規則
+            url: "/fsx-storage/learn-custom-rules.html"
+          - title: 建立自訂規則
+            url: "/fsx-storage/create-custom-rule.html"
+          - title: 管理自訂規則
+            url: "/fsx-storage/manage-custom-rules.html"
+      - title: 追蹤與分析 FSx for ONTAP 成本
+        url: "/fsx-storage/track-costs.html"
+      - title: 管理磁碟區
+        entries:
+        - title: 管理 Volume 容量
+          url: "/fsx-storage/manage-volume-capacity.html"
+        - title: 設定磁碟區延遲臨界值
+          url: "/fsx-storage/set-volume-latency-thresholds.html"
+        - title: 管理 Volume 設定
+          url: "/fsx-storage/manage-volume-settings.html"
+        - title: 管理快取 Volume
+          url: "/fsx-storage/manage-cache-volumes.html"
+        - title: 更改分層原則
+          url: "/fsx-storage/change-tiering-policy.html"
+        - title: 管理 NFS 匯出原則
+          url: "/fsx-storage/manage-nfs-export-policy.html"
+        - title: 管理 SMB/CIFS 共用
+          url: "/fsx-storage/manage-cifs-share.html"
+        - title: 管理 S3 存取點
+          entries:
+          - title: 建立並連接 S3 存取點
+            url: "/fsx-storage/create-s3-access-points.html"
+          - title: 管理 S3 存取點
+            url: "/fsx-storage/manage-s3-access-points.html"
+          - title: 設定日誌表基礎架構
+            url: "/fsx-storage/setup-journal-table.html"
+        - title: 分割 Clone Volume
+          url: "/fsx-storage/split-cloned-volume.html"
+        - title: 刪除磁碟區
+          url: "/fsx-storage/delete-volume.html"
+      - title: 管理區塊儲存設備
+        entries:
+        - title: 管理區塊儲存設備
+          url: "/fsx-storage/manage-block-storage.html"
+        - title: 將標籤套用至區塊裝置
+          url: "/fsx-storage/apply-block-device-tags.html"
+      - title: 管理檔案系統
+        entries:
+        - title: 調整檔案系統容量
+          url: "/fsx-storage/adjust-file-system-capacity.html"
+        - title: 管理檔案系統設定
+          url: "/fsx-storage/manage-file-system-settings.html"
+        - title: 為檔案系統配置 IOPS
+          url: "/fsx-storage/provision-iops.html"
+        - title: 刪除檔案系統
+          url: "/fsx-storage/delete-file-system.html"
+      - title: 管理儲存設備 VMs
+        entries:
+        - title: 管理儲存設備 VM 設定
+          url: "/fsx-storage/manage-svm-settings.html"
+        - title: 刪除儲存設備 VM
+          url: "/fsx-storage/delete-svm.html"
+    - title: 使用 FSx for ONTAP 處理資料庫工作負載
+      entries:
+      - title: 了解適用於資料庫的 Workload Factory
+        url: "/fsx-databases/learn-about-databases.html"
+      - title: Workload Factory for Databases 快速入門
+        url: "/fsx-databases/quick-start-databases.html"
+      - title: 探索節省成本
+        url: "/fsx-databases/explore-savings-databases.html"
+      - title: 建立資料庫資源
+        entries:
+        - title: 建立 Microsoft SQL Server
+          url: "/fsx-databases/create-sql-database-server.html"
+        - title: 建立 PostgreSQL 伺服器
+          url: "/fsx-databases/create-postgresql-server.html"
+        - title: 建立資料庫
+          url: "/fsx-databases/create-sql-database.html"
+        - title: 建立沙盒 Clone
+          url: "/fsx-databases/create-sandbox-clone.html"
+      - title: 管理資源
+        entries:
+        - title: 資源管理
+          url: "/fsx-databases/manage-resources.html"
+        - title: 註冊資源
+          url: "/fsx-databases/register-instance.html"
+        - title: 管理資料庫 Clone
+          url: "/fsx-databases/manage-clones.html"
+        - title: 註銷資源
+          url: "/fsx-databases/deregister-instance.html"
+      - title: 保護、監控和最佳化資料庫資源
+        entries:
+        - title: 分析錯誤日誌
+          url: "/fsx-databases/analyze-error-logs.html"
+        - title: 實作組態最佳實務
+          entries:
+          - title: 資料庫組態分析
+            url: "/fsx-databases/optimize-overview.html"
+          - title: 實作架構良好的資料庫組態
+            url: "/fsx-databases/optimize-configurations.html"
+        - title: 保護 SQL Server 資料庫資源
+          url: "/fsx-databases/protect-sql-server.html"
+    - title: 使用 FSx for ONTAP 處理 EDA 工作負載
+      entries:
+      - title: 了解適用於 EDA 的 NetApp Workload Factory
+        url: "/fsx-eda/learn-eda.html"
+      - title: 快速入門
+        url: "/fsx-eda/quick-start-eda.html"
+      - title: 需求
+        url: "/fsx-eda/requirements.html"
+      - title: EDA 儲存概述
+        entries:
+        - title: 了解概覽儀表板
+          url: "/fsx-eda/learn-overview-dashboard.html"
+        - title: 啟動 Overview 儀表板
+          url: "/fsx-eda/task-activate-overview-dashboard.html"
+        - title: 使用概覽儀表板
+          url: "/fsx-eda/task-use-overview-dashboard.html"
+      - title: 專案使用分析
+        entries:
+        - title: 了解專案儀表板
+          url: "/fsx-eda/learn-project-dashboard.html"
+        - title: 設定專案儀表板
+          url: "/fsx-eda/task-configure-project-dashboard.html"
+        - title: 使用 Projects 儀表板
+          url: "/fsx-eda/task-use-project-dashboard.html"
+      - title: 使用 Perforce 整合
+        entries:
+        - title: 了解 Perforce 整合
+          url: "/fsx-eda/learn-eda-workloads.html"
+        - title: 管理專案
+          url: "/fsx-eda/manage-projects.html"
+        - title: 管理專案版本
+          url: "/fsx-eda/version-projects.html"
+        - title: 建立工作區
+          url: "/fsx-eda/create-workspaces.html"
+        - title: 與 Perforce 整合
+          url: "/fsx-eda/integrate-perforce.html"
+    - title: 使用 FSx for ONTAP 處理 VMware 工作負載
+      entries:
+      - title: 了解 NetApp Workload Factory for VMware
+        url: "/fsx-vmware/learn-about-vmware-workloads.html"
+      - title: 移轉到 Amazon EVS 的快速入門
+        url: "/fsx-vmware/quick-start-evs.html"
+      - title: 移轉到 Amazon EC2 的快速入門
+        url: "/fsx-vmware/quick-start-native.html"
+      - title: 移轉至 VMware Cloud on AWS 快速入門
+        url: "/fsx-vmware/quick-start-vmware.html"
+      - title: 遷移至 Google Cloud VMware Engine 的快速入門
+        url: "/fsx-vmware/quick-start-gcve.html"
+      - title: 探索 VMware 規劃中心
+        url: "/fsx-vmware/explore-planning-center.html"
+      - title: 使用 VMware 規劃中心
+        entries:
+        - title: 上傳虛擬機器清單資料
+          url: "/fsx-vmware/upload-vm-inventory.html"
+        - title: 移轉到 Amazon Elastic VMware Service
+          entries:
+          - title: 探索節省成本
+            url: "/fsx-vmware/calculate-evs-savings.html"
+          - title: 手動建立部署計劃
+            url: "/fsx-vmware/launch-migration-advisor-evs-manual.html"
+          - title: 使用移轉顧問建立部署計畫
+            url: "/fsx-vmware/launch-migration-advisor-evs.html"
+          - title: 部署建議的 FSx for ONTAP 檔案系統
+            url: "/fsx-vmware/deploy-fsx-file-system-evs.html"
+        - title: 遷移至 Google Cloud VMware Engine
+          entries:
+          - title: 使用移轉顧問建立部署計畫
+            url: "/fsx-vmware/launch-migration-advisor-gcve.html"
+        - title: 移轉到 Amazon EC2
+          entries:
+          - title: 使用移轉顧問建立部署計畫
+            url: "/fsx-vmware/launch-onboarding-advisor-native.html"
+          - title: 部署建議的 FSx for ONTAP 檔案系統
+            url: "/fsx-vmware/deploy-fsx-file-system-native.html"
+        - title: 移轉至 VMware Cloud on AWS
+          entries:
+          - title: 使用移轉顧問建立部署計畫
+            url: "/fsx-vmware/launch-onboarding-advisor.html"
+          - title: 部署建議的 FSx for ONTAP 檔案系統
+            url: "/fsx-vmware/deploy-fsx-file-system.html"
+          - title: 將 FSx for ONTAP 連接到 AWS 上的 VMware Cloud
+            url: "/fsx-vmware/connect-sddc-to-fsx.html"
+          - title: 將您的資料移轉到新的基礎架構
+            url: "/fsx-vmware/migrate-data.html"
+        - title: 最佳化 FSx for ONTAP 上的 VMware 工作負載
+          entries:
+          - title: EVS 組態的組態分析
+            url: "/fsx-vmware/configuration-analysis.html"
+          - title: 實作架構良好的 EVS 配置
+            url: "/fsx-vmware/view-evs-well-architected.html"
+    - title: 參考
+      entries:
+      - title: FSx for ONTAP 的效能
+        url: "/fsx-storage/performance-reference.html"
+      - title: FSx for ONTAP 的安全性
+        url: "/fsx-storage/security-reference.html"
+  - title: Google Cloud NetApp Volumes
+    entries:
+    - title: 了解 Google Cloud NetApp Volumes
+      url: "/gcnv/learn-netapp-volumes.html"
+    - title: Google Cloud NetApp Volumes 快速入門
+      url: "/gcnv/quick-start-gcnv.html"
+    - title: 設定 Google Cloud NetApp Volumes
+      url: "/gcnv/set-up.html"
+    - title: 指派 Google Cloud NetApp Volumes 角色
+      url: "/gcnv/add-roles.html"
+    - title: 新增 Google Cloud NetApp Volumes 憑證
+      url: "/gcnv/add-credentials.html"
+    - title: Google Cloud NetApp Volumes 組態分析
+      url: "/gcnv/configuration-analysis.html"
+    - title: 改善儲存資源池組態
+      url: "/gcnv/improve-configurations.html"
+  - title: OCI NetApp 儲存服務
+    entries:
+    - title: 了解 OCI NetApp 儲存服務
+      url: "/oci/learn-about-oci.html"
+    - title: OCI NetApp 儲存服務快速入門
+      url: "/oci/quick-start-oci.html"
+    - title: 新增 OCI 憑證
+      url: "/oci/add-credentials.html"
+    - title: 探索 OCI 儲存系統
+      url: "/oci/create-discover-systems.html"
+    - title: 連接到 OCI 儲存系統
+      url: "/oci/create-link.html"
+    - title: OCI NetApp 儲存服務的權限參考
+      url: "/oci/permissions-oci.html"
+  - title: 管理 Workload Factory
+    entries:
+    - title: 建置和運行架構良好的工作負載
+      url: "/admin/well-architected-workloads.html"
+    - title: 設定通知
+      url: "/admin/configure-notifications.html"
+    - title: 使用 Tracker 監控作業
+      url: "/admin/monitor-operations.html"
+    - title: 管理連結
+      url: "/admin/manage-links.html"
+    - title: 管理 FSx for ONTAP 的 AI 功能
+      url: "/admin/manage-genai-features.html"
+    - title: 適用於 ONTAP 的 FSx 自訂儀表板
+      entries:
+      - title: 了解適用於 ONTAP 的 FSx 自訂儀表板
+        url: "/admin/learn-custom-dashboards-fsx.html"
+      - title: 為 FSx for ONTAP 建立自訂儀表板
+        url: "/admin/create-custom-dashboard-fsx.html"
+      - title: 管理適用於 ONTAP 的 FSx 自訂儀表板
+        url: "/admin/manage-custom-dashboards-fsx.html"
+      - title: 疑難排解 FSx for ONTAP 的自訂儀表板
+        url: "/admin/troubleshoot-custom-dashboards-fsx.html"
+    - title: 使用 Codebox 實現任務自動化
+      entries:
+      - title: 了解 Codebox
+        url: "/admin/codebox-automation.html"
+      - title: 使用 Codebox 產生程式碼
+        url: "/admin/use-codebox.html"
+    - title: 使用 CloudShell
+      url: "/admin/use-cloudshell.html"
+    - title: 移除憑證
+      url: "/admin/manage-credentials.html"
+  - title: 知識與支援
+    entries:
+    - title: 註冊以取得支援
+      url: "/register-support.html"
+    - title: 取得協助
+      url: "/get-help.html"
+  - title: 法律聲明
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp Data Services
+  repo: data-services-family

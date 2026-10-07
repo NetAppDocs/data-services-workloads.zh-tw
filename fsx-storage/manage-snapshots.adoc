@@ -1,0 +1,101 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-snapshots.html 
+keywords: snapshot, snapshots, manage snapshots, edit snapshots, access snapshots, delete snapshots, remove snapshots 
+summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workload Factory 中管理您的快照和資料保護。 
+---
+= 管理 FSx for ONTAP Volume 的快照
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+編輯快照設定、啟用目錄存取和刪除快照，以在 Workload Factory 中管理您的快照和資料保護。
+
+
+
+[[edit-a-snapshot]]
+== 編輯 Snapshot 快照技術
+
+編輯快照的名稱、標籤和保留期間。如果快照尚未設定為不可變，您可以將快照設為不可變。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要編輯快照之 Volume 的動作選單。
+. 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
+. 在「管理快照」頁面中，選擇要編輯的快照的操作選單，然後選擇 *編輯*。
+. 在「編輯 Snapshot 快照技術」對話方塊中，您可以編輯以下內容：
++
+.. 更改名稱。
+.. 更改標籤。
+.. 更改保留期間。
+.. 選用：*將此 Snapshot 快照技術設為不可變*，以防止 Snapshot 快照技術在保留期間被刪除。
++
+如果快照已經是不可變的，則無法編輯此設定。
+
++
+接受關於不可變 Snapshot 快照技術的聲明。
+
+
+
+. 選擇 *Apply*。
+
+
+
+
+[[access-a-snapshot]]
+== 存取 Snapshot 快照技術
+
+啟用快照目錄存取，讓使用者能夠自主存取快照。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要存取的快照所在 Volume 的動作選單。
+. 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
+. 在「管理快照」頁面中，選擇要存取之快照的操作選單，然後選擇 *存取*。
+. 在「存取快照」對話方塊中，選擇 *啟用快照目錄存取* 以存取此 Volume 快照和該 Volume 的所有快照。
++
+** 對於 NFS Volume：選擇 *NFS 存取路徑* 以檢視快照的 NFS 路徑。
+** 對於 SMB/CIFS Volume：選擇 *SMB 存取路徑* 以檢視快照的 SMB 路徑。
+
+
+. 複製存取路徑。
+. 選擇 *Apply*。
+
+
+
+
+[[restore-data-from-a-snapshot]]
+== 從 Snapshot 快照技術還原資料
+
+您可以選擇將快照中的資料還原到現有 Volume 或新 Volume。
+
+link:use-snapshots.html["從快照還原 Volume"]
+
+
+
+[[delete-a-snapshot]]
+== 刪除快照
+
+刪除快照以釋放空間。
+
+不可變的 Snapshot 快照技術在保留期間結束前無法刪除。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選取含有要刪除快照之 Volume 的動作選單。
+. 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
+. 在「管理快照」頁面中，選擇要刪除的快照的操作選單，然後選擇 *刪除*。
+. 在「刪除快照」對話方塊中，輸入「delete」。
+. 選取 *刪除* 以確認刪除。
+
+
+.相關資訊
+* link:use-snapshots.html["建立快照"]
+* link:use-snapshots.html["建立 Snapshot 原則"]
+* link:use-snapshots.html["從快照還原 Volume"]
+

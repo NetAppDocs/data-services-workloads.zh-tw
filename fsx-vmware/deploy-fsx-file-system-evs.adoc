@@ -1,0 +1,133 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/deploy-fsx-file-system-evs.html 
+keywords: vm workloads, deploy fsx, deploy storage for vms, evs, elastic vmware service 
+summary: 在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。 
+---
+= 部署建議的 FSx for ONTAP 檔案系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的多個檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。
+
+根據您新增至 Workload Factory 帳戶的原則和權限，您可以使用 Workload Factory 完全部署 FSx for ONTAP 檔案系統（使用讀寫模式）。如果您權限較少（唯讀模式）或沒有權限（基本模式），則需要使用 Codebox 中的 CloudFormation 範本，並在 AWS 中自行部署 FSx for ONTAP 檔案系統。
+
+
+
+[[requirements]]
+== 需求
+
+* 您必須擁有 Amazon Elastic VMware Service 訂閱。
+* 您必須擁有在 AWS 帳戶中建立 FSx for ONTAP 檔案系統的必要權限。
+
+
+
+
+[[considerations]]
+== 考量事項
+
+* 您可以選擇快速建立或進階建立選項。進階建立提供了一些額外儲存容量參數，您可以進行自訂。link:../fsx-storage/create-discover-systems.html["了解這兩個選項提供的內容"]。
+* 在「Amazon Elastic VMware Service 偏好設定」區段中，您可以選擇要連線至外部資料儲存的 EVS 虛擬化環境。這會自動以部署的最佳實務做法選項填入部分欄位。您可以視需要變更這些選項。
+
+
+
+
+[[steps]]
+== 步驟
+
+. 在 *審查計畫* 頁面的底部，選取 *部署*，隨即顯示建立 FSx for ONTAP 檔案系統頁面。
++
+根據您提供的資訊，定義 FSx for ONTAP 檔案系統的大部分欄位都已填寫完畢，但此頁面上還有一些欄位需要您填寫。
+
+. 在「檔案系統常規組態」部分，輸入以下資訊：
++
+.. *AWS 憑證*：選擇或新增憑證，以便 Workload Factory 擁有直接建立 FSx for ONTAP 檔案系統所需的權限。您也可以從 Codebox 中選擇 CloudFormation 程式碼，並在 AWS 中自行部署 FSx for ONTAP 檔案系統。
+.. *檔案系統名稱*：輸入您要用於此 FSx for ONTAP 檔案系統的名稱。
+.. *標籤*：您可以選擇新增標籤來對此 FSx for ONTAP 檔案系統進行分類。
+
+
+. 在「Amazon Elastic VMware Service 偏好設定」區段中，從「環境 ID」清單中選取資料存放區將連接的 EVS 環境。
++
+此功能會自動填入以下欄位：
+
++
+** *VPC*
+** *可用區域*
+** *子網路*
+** 在 *NFS 資料儲存區存取* 部分，如果您選擇了 *僅 EVS 主機管理* 選項，*EVS 主機管理 (CIDR)* 欄位將自動填入。
+** 在 *資料存放區裝載選項* 區段中，如果您選擇將資料存放區裝載到 EVS 叢集，則 *EVS 叢集 VMware vCenter 位址* 和 *vSphere 系統管理員憑證機密 ARN* 欄位將自動填入。
+
+
+. 在「網路與安全性」部分，輸入以下資訊：
++
+.. *區域和 VPC*：選擇要部署 FSx for ONTAP 檔案系統的區域和 VPC。
+.. *安全性群組*（僅限進階建立）：使用*進階建立*選項時，您可以為 FSx for ONTAP VPC 選擇預設安全性群組，以便所有流量都可以存取 FSx for ONTAP 檔案系統。您可以建立新的安全性群組，也可以選擇現有的安全性群組。
++
+如果啟用 *調整安全性群組組態以適應 EVS NFS 資料儲存* 選項，Workload Factory 將根據 EVS NFS 資料儲存的設定來設定安全性群組。
+
++
+您可以為安全性群組新增傳入規則，限制哪些其他 AWS 服務可以存取 FSx for ONTAP 檔案系統。這將減少開啟的服務數量。以下是所需的最小連接埠和協定：
+
++
+[cols="15,10,55"]
+|===
+| 傳輸協定 | 連接埠 | 目的 
+
+
+| TCP、UDP | 111 | Portmapper （用於協商 NFS 請求中使用的連接埠） 
+
+
+| TCP、UDP | 635 | NFS mountd（接收 NFS 裝載請求） 
+
+
+| TCP、UDP | 2049 | NFS 網路流量 
+
+
+| TCP、UDP | 4045 | 網路鎖定管理器（NLM, lockd）- 處理鎖定要求。 
+
+
+| TCP、UDP | 4046 | 網路狀態監視器（NSM，statd）- 通知 NFS 用戶端有關伺服器重新啟動以進行鎖定管理的資訊。 
+|===
+.. *可用度區*：選擇可用度區和子網路。
++
+如果要避免產生跨 AZ 流量費用，應選擇與 VMware SDDC 部署位置相同的可用度區。
+
+.. *加密*（僅限進階建立）：使用 *進階建立* 選項時，您可以從下拉清單中選擇 AWS 加密金鑰名稱。
+.. *NFS 資料儲存存取*（僅限進階建立）：使用 *進階建立* 選項時，您可以選擇是否所有主機都能存取資料儲存，或只有 EVS 管理主機可以存取資料儲存。
+
+
+. 在「檔案系統詳細資料」部分，輸入以下資訊：
++
+.. *ONTAP 憑證*：輸入 ONTAP 使用者名稱和密碼。
+.. *儲存虛擬機器憑證*（僅限進階建立）：輸入並確認儲存虛擬機器密碼。密碼可以專用於此檔案系統，也可以使用與 ONTAP 憑證相同的密碼。
+
+
+. 在「EVS 叢集附件」部分，輸入以下資訊：
++
+.. *資料儲存裝載選項*：您可以選擇啟用 *將資料儲存裝載至 EVS 叢集* 選項，以自動將資料儲存連接至 Amazon EVS 叢集。此選項也會使 Workload Factory 設定 VMware ESXi 主機設定，使其符合 ONTAP 最佳實務做法建議。在部署檔案系統之前，您可以在 *摘要* 區段中審查計畫詳細資料，以查看已變更的設定。
+.. *EVS 叢集 vSphere 控制台詳細資料*：輸入要連接至 Amazon EVS 的 VMware vCenter 伺服器的 IP 位址或 FQDN。
+.. *vSphere 系統管理員憑證機密 ARN*：選擇 vSphere 系統管理員憑證的機密 ARN。這些憑證用於裝載資料存放區和設定建議的 VMware 設定。
++
+如果 Amazon EVS 在此區域不可用，或者您的帳戶沒有權限擷取可用密鑰 ARN 列表，您可以手動輸入密鑰 ARN 值。
+
+
+
+. 在「摘要」部分，您可以檢視 VMware 移轉顧問根據您的資訊設計的 FSx for ONTAP 檔案系統和資料儲存組態。
+. 選擇 *建立* 以部署 FSx for ONTAP 檔案系統。此程序可能需要長達 2 小時。
++
+您也可以在 Codebox 視窗中選擇 *重新導向至 CloudFormation*，以使用 CloudFormation 堆疊建立檔案系統和建議的 VM 組態。
+
++
+無論哪種情況，您都可以在 CloudFormation 中監控建立進度。
+
+
+
+
+
+[[result]]
+== 結果
+
+FSx for ONTAP 檔案系統已部署。您現在可以使用 Codebox 中的 AWS CloudFormation 範本，將建議的 VM 組態部署到您的 Amazon Elastic VMware Service 環境。

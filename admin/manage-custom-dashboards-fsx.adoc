@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: admin/manage-custom-dashboards-fsx.html 
+keywords: manage dashboards, delete dashboard, refresh dashboard, dashboard catalog 
+summary: 存取您的儀表板目錄，以在 Workload Factory 中檢視、重新整理和刪除自訂儀表板。 
+---
+= 在 NetApp Workload Factory 中管理自訂儀表板
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以透過儀表板目錄管理您的自訂儀表板。您可以在這裡檢視詳細資訊、共享儀表板、重新整理資料或刪除不再需要的儀表板。
+
+.關於此任務
+您可以從儀表板目錄檢視和管理自訂儀表板。私人儀表板僅您可見，而公用儀表板對您 Workload Factory 帳戶中的所有使用者可見。每個儀表板都會顯示基本詳細資料，例如建立者姓名、建立日期和可見度標籤（私人或公用）。
+
+自訂儀表板為唯讀模式。無法變更儲存或工作負載設定。
+
+.開始之前
+您的 Workload Factory 帳戶中必須至少有一個自訂儀表板。
+
+
+
+[[access-the-dashboard-catalog]]
+== 存取儀表板目錄
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *工作負載概覽* > *自訂儀表板*。
++
+儀表板目錄顯示您 Workload Factory 帳戶中的所有自訂儀表板。
+
+. 查看儀表板清單。
+
+
+
+
+[[change-dashboard-visibility]]
+== 更改儀表板可見度
+
+將儀表板設為公開即可與團隊成員共享。將其設為私有即可停止共享。
+
+.步驟
+. 在「自訂儀表板」頁面中，找到要更新的儀表板。
+. 從該儀表板的 *Actions* 下拉式選單 image:icon-action.png["開啟動作選單的三點圖示"] 中，選擇以下選項之一：
++
+** *共享儀表板* - 使儀表板對您的 Workload Factory 帳戶中的所有使用者可見
+** *Change to private dashboard* - 僅您可見儀表板
+
+
+
+
+.結果
+儀表板會立即更新。儀表板卡片上的可見度標籤會顯示目前狀態。
+
+
+
+[[refresh-dashboard-data]]
+== 重新整理儀表板資料
+
+開啟儀表板後，儀表板資料就會載入。您可以重新整理儀表板以查看最新資訊。
+
+儀表板會重新載入工作負載中的資料。上次更新時間將會變更，以顯示資料重新整理的時間。
+
+
+
+[[delete-a-dashboard]]
+== 刪除儀表板
+
+刪除不再需要的儀表板。此操作為永久性操作，無法復原。
+
+.步驟
+. 在「自訂儀表板」頁面中，找到要刪除的儀表板。
+. 從該儀表板的 *Actions* 下拉式選單中，選擇 *Delete*。
+. 確認刪除。
+
+
+.結果
+儀表板已從您的 Workload Factory 帳戶中永久刪除，所有使用者都將失去對其的存取權限。
+
+
+
+[[related-information]]
+== 相關資訊
+
+* link:create-custom-dashboard-fsx.html["建立其他自訂儀表板"]
+* link:troubleshoot-custom-dashboards-fsx.html["疑難排解自訂儀表板"]
+

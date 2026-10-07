@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: gcnv/configuration-analysis.html 
+keywords: configuration issues, issues, improve, analyze, storage configuration, recommendation, recommendations 
+summary: NetApp Console 會定期分析儲存系統組態，以確定是否存在任何組態問題。 
+---
+= Google Cloud NetApp Volumes 組態分析
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp Console 中的架構完善儀表板會定期分析儲存系統組態，以確定是否存在任何組態問題。發現問題時，儀表板會向您顯示問題所在，並說明需要進行哪些變更，以確保您的儲存系統達到最佳效能、成本效率，並符合最佳實務做法。
+
+主要功能包括：
+
+* 每日配置分析
+* 對 NetApp ONTAP 儲存系統和合作夥伴儲存設備提供者進行自動最佳實務做法驗證
+* 主動可觀測性
+* 洞察化為行動
+
+
+
+
+[[analysis-requirements]]
+== 分析要求
+
+要進行完整的儲存資源池分析，您必須執行以下操作：
+
+* link:create-discover-systems.html["將您的 Google Cloud NetApp Volumes 系統新增至 NetApp Console"^]。
+* 在您的 Google Cloud 帳戶中授予 _view、planning 和 analysis_ 權限。
++
+link:add-credentials.html["了解如何授予 Google Cloud 帳戶權限"^]
+
+
+
+
+
+[[best-practices-and-recommendations-for-storage-workloads]]
+== 儲存工作負載的最佳實務做法和建議
+
+Workload Factory 會根據儲存設備與 ONTAP 最佳實務以及 Google Cloud 架構完善架構評估儲存設備組態。此評估也會建議改善措施。
+
+精心設計的分析將組態按以下架構支柱進行分類：_可靠性_和_卓越營運績效_。
+
+
+
+[[reliability]]
+=== 可靠性
+
+可靠性確保工作負載即使在出現中斷的情況下也能正確、持續地執行其預期功能。
+
+* *Snapshot 原則*
++
+排程本機 Snapshot 快照技術，以實現高效備份和快速還原。Snapshot 快照技術是 Volume 的即時時間點映像。
+
+* *SSD 容量餘裕*
++
+Workload Factory 建議將 SSD 分層的使用率保持在 80% 或以下。某些工作負載可能需要額外的容量餘裕和更低的使用率目標。如果使用率超過建議的餘裕，效能下降和服務問題的風險將會增加，尤其是在容量未能及時擴充的情況下。您可以暫時關閉一個或多個儲存資源池的此功能，並在需要時重新啟用。
+
+
+
+
+
+[[operational-excellence]]
+=== 卓越營運
+
+卓越營運的重點在於提供最佳架構和業務價值。
+
+* *Volume 容量餘裕*
++
+Workload Factory 建議將 Volume 使用率保持在 80% 以下，以降低空間不足的風險。如果 Volume 增長速度超出預期，您可能需要快速擴充它。這可能會增加應用程式受到影響的風險，尤其是在突然或高峰增長的情況下。使用資源隨需配置和自動容量管理可以降低此風險。您可以針對一個或多個 Volume 將其關閉，並在需要時重新啟用。
+
+
+
+.接下來
+link:improve-configurations.html["實作架構良好的 Google Cloud NetApp Volumes 組態"]

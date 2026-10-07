@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: setup/sign-up-and-log-in.html 
+keywords: sign up, signing up, sign in, signing in, login with netapp, log in with netapp, create account, account, log in with nss, nss, nss login 
+summary: 您可以透過 NetApp Console 存取 Workload Factory。開始使用 Workload Factory 時，第一步是使用您現有的 NetApp 支援網站認證資料註冊，或建立 NetApp 雲端登入。 
+---
+= 從 NetApp Console 註冊並登入 Workload Factory
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+可從 NetApp Console 存取 NetApp Workload Factory。若要使用 Console，請使用您的 NetApp 支援網站認證資料註冊或登入，或建立 NetApp Console 登入。如果您是公司第一位註冊的人員，您會以系統管理員身分建立新組織。如果您的公司已有組織，請使用您現有的 NetApp 支援網站認證資料或公司單一登入（SSO）註冊或登入。
+
+未解析的指令於 <stdin> - include::https://raw.githubusercontent.com/NetAppDocs/console-setup-admin/main/_include/task-sign-up-saas.adoc[]
+
+.結果
+您現在已登入，可以開始使用 Workload Factory 管理您的儲存系統和工作負載。若要前往 Workload Factory，請從主選單中選取 *工作負載*。

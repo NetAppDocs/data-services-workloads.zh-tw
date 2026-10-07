@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: setup/learn-about-workload-factory.html 
+keywords: overview, concepts, features, use case, workloads, how Workload Factory works, Amazon FSx for NetApp ONTAP, Google Cloud NetApp Volumes, Oracle Cloud Infrastructure NetApp Storage Service 
+summary: NetApp Workload Factory 是一個功能強大的生命週期管理平台，旨在協助您使用 Amazon FSx for NetApp ONTAP、Google Cloud NetApp Volumes 和 Oracle Cloud Infrastructure NetApp Storage Service 來最佳化您的工作負載。 
+---
+= 了解 NetApp Workload Factory
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp Workload Factory 是一個功能強大的生命週期管理平台，旨在協助您使用 Amazon FSx for NetApp ONTAP、Google Cloud NetApp Volumes 和 Oracle Cloud Infrastructure NetApp Storage Service 來最佳化您的工作負載。
+
+_工作負載_ 包含為達成業務目標而設計的資源、程式碼以及服務或應用程式的組合。這可以是從面向客戶的應用程式到後端流程的任何項目。工作負載可能涉及單一 AWS 帳戶中的資源子集，或跨越多個帳戶。
+
+
+
+[[features]]
+== 功能
+
+Workload Factory 平台提供以下主要功能。
+
+靈活且低成本的儲存設備:: 在雲端探索、部署和管理儲存系統。您的雲端儲存供應商將 ONTAP 的全部功能整合到原生代管服務中，從而提供一致的混合雲體驗。
+將內部部署 vSphere 環境移轉至 VMware Cloud on AWS:: VMware Cloud on AWS 移轉顧問可讓您分析內部部署 vSphere 環境中目前的虛擬機器配置，產生將建議的虛擬機器佈局部署至 VMware Cloud on AWS 的計畫，並使用自訂的 Amazon FSx for NetApp ONTAP 檔案系統作為外部資料存放區。
+資料庫生命週期管理:: 使用 Amazon FSx for NetApp ONTAP 探索資料庫工作負載並分析成本節約效益；將 SQL Server 資料庫移轉至 FSx for ONTAP 儲存設備時，運用儲存設備與應用程式優勢；部署實作廠商最佳實務做法的 SQL Server、資料庫與資料庫複本；使用基礎架構即程式碼 co-pilot 來自動化作業；並持續監控與最佳化 SQL Server 資產，以提升效能、可用度、保護與成本效益。
+
+
+Ask Me AI 助理:: 向 AI 助理詢問有關管理和操作儲存系統的問題。使用模型內容協定（MCP），Ask Me 可安全地與外部環境介接，並查詢 API 工具，以交付針對您特定儲存環境量身打造的回應。
+
+
+
+NOTE: 帳戶系統管理員可以啟用或停用 AI 功能。如果系統管理員停用這些功能，「Ask Me」AI 助理將無法使用。link:../admin/manage-genai-features.html["了解如何管理人工智慧功能"]。
+
+
+
+[[supported-cloud-providers]]
+== 支援的雲端供應商
+
+Workload Factory 可讓您管理雲端儲存，並在 Amazon FSx for NetApp ONTAP、Google Cloud NetApp Volumes 和 Oracle Cloud Infrastructure NetApp Storage Service （OCI NSS） 中使用工作負載功能。
+
+
+
+[[security]]
+== 安全性
+
+NetApp Workload Factory 的安全性是 NetApp 的第一要務。NetApp Workload Factory 已獲得 link:https://trust.netapp.com/["SOC2 Type 1 法規遵循、SOC2 Type 2 法規遵循和 HIPAA 法規遵循"^]。
+
+
+
+[[cost]]
+== 成本
+
+Workload Factory 可以免費使用。您向雲端供應商支付的費用取決於您計劃部署的儲存設備和工作負載服務。這包括儲存系統、基礎架構、服務等的成本。
+
+
+
+[[how-workload-factory-works]]
+== Workload Factory 的工作原理
+
+Workload Factory 包括透過 SaaS 階層提供的網路型控制台、帳戶、控制對雲端資產存取的權限原則、Workload Factory 與您的雲端帳戶之間的連線等等。
+
+
+
+[[software-as-a-service]]
+=== 軟體即服務
+
+可透過 link:https://console.netapp.com["NetApp Console"^] 存取 Workload Factory。此 SaaS 體驗可讓您自動存取最新發布的功能，並在您的 Workload Factory 帳戶和連結之間輕鬆進行交換器。
+
+
+
+[[sign-up-and-access-management]]
+=== 註冊和存取管理
+
+若要使用 NetApp Console，您需要使用 NetApp 支援網站憑證註冊，或建立 NetApp Console 登入。第一個使用者將成為組織系統管理員，並管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。
+
+* link:sign-up-and-log-in.html["了解如何註冊並登入 NetApp Console"]
+* link:https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["了解 NetApp Console 身分存取管理"^]
+
+
+
+
+[[permissions]]
+=== 權限
+
+Workload Factory 提供靈活的權限原則，使您能夠仔細控制對雲端環境的存取，並根據您的 IT 原則為 Workload Factory 分配遞增的信任。
+
+link:learn-about-permissions.html["深入瞭解 Workload Factory 權限原則"]
+
+
+
+[[codebox-automation]]
+=== Codebox 自動化
+
+Codebox 是一個基礎架構即程式碼（IaC）輔助工具，可協助開發人員和 DevOps 工程師產生執行 Workload Factory 支援的任何操作所需的程式碼。程式碼格式包括 Workload Factory REST API、雲端供應商 CLI、Terraform 等。
+
+Codebox 為執行準備工作制定了清晰的路徑，並提供了自動化目錄，以便將來快速重複使用。
+
+Codebox 窗格會顯示由特定作業流程操作所產生的 IaC，並與圖形化精靈或對話式聊天介面相對應。雖然 Codebox 支援顏色標碼與搜尋以方便導覽與分析，但不允許編輯。您只能建立複本或儲存至自動化目錄。
+
+link:../admin/codebox-automation.html["深入瞭解 Codebox"]
+
+
+
+[[well-architected-workloads]]
+=== 架構良好的工作負載
+
+Workload Factory 可協助您維護及運作可靠、安全的、有效率且具成本效益的儲存設備與資料庫組態，這些組態遵守 AWS Well-Architected Framework。Workload Factory 每日掃描 FSx for ONTAP 檔案系統、SQL Server 及 Oracle 資料庫部署，以提供對潛力設定錯誤的深入見解，並建議手冊或自動化動作來修正問題。
+
+link:../admin/well-architected-workloads.html["深入瞭解架構良好的工作負載"]
+
+
+
+[[tools-to-use-netapp-workload-factory]]
+== 使用 NetApp Workload Factory 的工具
+
+您可以將 NetApp Workload Factory 與下列工具搭配使用：
+
+* *NetApp Console*：NetApp Console 提供混合介面體驗，以便您可以將 Workload Factory 與其他 NetApp 資料服務一起使用。
+* *Ask Me*：使用 Ask Me AI 助理提問，無需離開 NetApp Console 即可了解更多關於 Workload Factory 的資訊。
+* *CloudShell CLI*：Workload Factory 包含一個 CloudShell CLI，可透過單一瀏覽器型 CLI 管理與操作跨帳戶的 AWS 和 NetApp 環境。
+* *REST API*：使用 Workload Factory REST API 部署和管理您的儲存系統和其他資源。
+* *NetApp Terraform 供應商*：使用 Terraform 建置與管理在 Workload Factory 的 NetApp Console 中產生的基礎架構工作流程。
+
+
+
+
+[[rest-apis]]
+=== REST API
+
+Workload Factory 讓您能夠針對特定工作負載最佳化、自動化和維運雲端儲存系統。每個工作負載都公開一個關聯的 REST API。這些工作負載和 API 共同構成了一個靈活且可擴展的開發平台，可用於管理您的儲存系統。
+
+使用 Workload Factory REST API 有以下幾個好處：
+
+* 這些 API 是基於 REST 技術和當前最佳實務設計的。核心技術包括 HTTP 和 JSON。
+* Workload Factory 的驗證是基於 OAuth2 標準。NetApp 依賴 Auth0 服務實作。
+* Workload Factory 網路型控制台使用相同的核心 REST API，因此兩個存取路徑之間具有一致性。
+
+
+link:https://console.workloads.netapp.com/api-doc["檢視 Workload Factory REST API 文件"^]

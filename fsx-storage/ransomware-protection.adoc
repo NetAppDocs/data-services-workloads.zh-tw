@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/ransomware-protection.html 
+keywords: ransomware, arp, autonomous protection, protect, security, detect, detection, restore, recover, threat, attack, suspect, anti-ransomware, entropy, abnormal volume activity, anti-ransomware, extension conformity, ransomware protection strategy 
+summary: NetApp Autonomous Ransomware Protection with AI （ARP/AI）在 NAS 和 SAN 環境中進行工作負載分析，以偵測並警告可能構成勒索軟體攻擊的異常活動。 
+---
+= 使用 NetApp Autonomous Ransomware Protection with AI 保護您的 FSx for ONTAP 資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 NetApp 具備人工智慧的自主勒索軟體防護 (ARP/AI) 來保護您的資料。它監控 NAS (NFS/SMB) 和 SAN 環境中的活動，以偵測可能預示勒索軟體攻擊的異常行為。如果偵測到威脅，ARP/AI 會自動建立新的不可變更快照，以便您可以還原資料。
+
+.關於此任務
+使用 ARP/AI 來保護免受阻斷服務攻擊，攻擊者會扣留資料直至支付贖金。ARP/AI 提供基於以下技術的即時勒索軟體偵測：
+
+* 識別傳入資料是加密資料還是明文資料。
+* 分析功能可檢測：
++
+** **熵**：對檔案中資料隨機性的評估（用於 NAS 和 SAN 環境）
+** **檔案副檔名類型**：不符合常規副檔名類型的副檔名（僅用於 NAS 環境）
+** **檔案 IOPS**：資料加密時出現異常的磁碟區活動激增（僅用於 NAS 環境）
+
+
+
+
+ARP/AI 可以在少量檔案被加密後偵測到大多數勒索軟體攻擊的蔓延，自動採取行動保護資料，並在疑似發生攻擊時向您發出警示。
+
+ARP/AI 功能會根據 Amazon FSx for NetApp ONTAP 執行的 ONTAP 版本自動更新，因此您無需進行手冊更新。
+
+學習和作用中模式:: ARP/AI 的行為取決於協定和磁碟區類型：
++
+--
+* *NAS 磁碟區（NFS/SMB）*：啟用 ARP/AI 後，它會立即開始運作。它使用預先訓練的 AI 模型來即時偵測勒索軟體威脅。
+* *SAN 磁碟區（自 ONTAP 9.17.1 起）*：ARP/AI 即使在首次評估期間內也能提供即時保護。在這 2-4 週內，系統會學習正常的加密活動並設定警報閾值。同時，系統會持續監控您的資料、偵測威脅並發送警報。
+* *主動模式*：啟用主動模式後，FSx for ONTAP 會建立 ARP/AI 快照，以便在偵測到潛在威脅時協助保護您的資料。
+
+
+--
+
+
+如果系統將某個檔案副檔名標記為異常，請查看警報。您可以回應警報以保護您的資料，或者如果活動在預期之內，則將其標記為誤報。
+
+當您將警報標記為誤報時，系統會更新其警報設定。例如，如果一個新的檔案副檔名觸發了警報，而您將其標記為誤報，那麼下次系統偵測到該檔案副檔名時，您將不會收到警報。
+
+不支援的組態:: 下列組態不支援使用 ARP/AI。
++
+--
+* NVMe Volume
+* 使用早於 ONTAP 9.17.1 版本的 iSCSI 磁碟區
+
+
+--
+
+
+
+
+[[enable-arpai-for-a-file-system-or-a-volume]]
+== 為檔案系統或 Volume 啟用 ARP/AI
+
+為檔案系統啟用 ARP/AI 功能可自動保護所有現有和新增的 NAS 磁碟區（NFS/SMB）。從 ONTAP 9.17.1 開始，此功能也支援 SAN 磁碟區（iSCSI）。您也可以為特定磁碟區啟用 ARP/AI 功能。
+
+啟用 ARP/AI 後，如果偵測到真實攻擊，Workload Factory 會自動建立快照原則。此原則每四小時最多可建立六個快照。每個快照鎖定 2-5 天。
+
+.開始之前
+若要為檔案系統或 Volume 啟用 ARP/AI，必須先關聯一個連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+[role="tabbed-block"]
+====
+.為檔案系統啟用 ARP/AI
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中選擇 *庫存*，然後選擇檔案系統的行動選單以啟用 ARP/AI，然後選擇 *管理*。
+. 在「資訊」下，選擇 *Autonomous Ransomware Protection* 旁的鉛筆圖示。當滑鼠懸停在 *Autonomous Ransomware Protection* 列上時，鉛筆圖示會出現在箭頭旁邊。
+. 在 NetApp Autonomous Ransomware Protection with AI (ARP/AI) 頁面上，執行下列操作：
++
+.. 啟用或停用該功能。
+.. *自動建立快照*：選擇要保留的最大快照數量以及快照拍攝間隔。預設值為每 4 小時拍攝 6 張快照。
+.. *不可變快照*：選擇預設保留期間（以小時為單位）和不可變快照保留的最長天數。啟用此選項可確保在指定的保留期間結束前，快照無法刪除或修改。
+.. *偵測*：您可以選擇下列任一參數來自動掃描和偵測異常。
+
+
+. 接受此聲明即可繼續。
+. 選取 *套用* 以儲存變更。
+
+
+--
+.為 Volume 啟用 ARP/AI
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇 Volume 的操作選單以啟用 ARP/AI，然後選擇*資料保護動作*，再選擇*管理 ARP/AI*。
+. 在「管理 ARP/AI」對話方塊中，執行以下操作：
++
+.. 啟用或停用該功能。
+.. *偵測*：您可以選擇下列任一參數來自動掃描和偵測異常。
+
+
+. 接受此聲明即可繼續。
+. 選取 *套用* 以儲存變更。
+
+
+--
+====
+
+
+[[validate-ransomware-attacks]]
+== 驗證勒索軟體攻擊
+
+判斷攻擊是錯誤警示還是真正的勒索軟體事件。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中，選擇 *清單*，然後選擇要驗證勒索軟體攻擊的檔案系統。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 從「自主勒索軟體防護」圖塊中選擇 *分析攻擊*。
+. 下載攻擊事件報告，審查是否有任何檔案或資料夾遭到破壞，然後確定是否發生了攻擊。
+. 如果沒有發生攻擊，請針對表格中的 Volume 選擇 *錯誤警示*，然後選擇 *關閉*
+. 如果發生攻擊，請在表格中為該 Volume 選擇 *真實攻擊*。此時將開啟「還原受損 Volume 資料」對話方塊。您可以立即繼續前往 <<勒索軟體攻擊後如何恢復資料,恢復您的資料>>，或是選擇 *關閉*，稍後再回來完成恢復程序。
+
+
+
+
+[[recover-data-after-a-ransomware-attack]]
+== 勒索軟體攻擊後如何恢復資料
+
+當系統偵測到可能的攻擊時，它會建立並鎖定該時刻的磁碟區快照。
+
+如果攻擊事後得到確認，您可以從快照中還原受影響的檔案或整個磁碟區。
+
+鎖定的快照在保留期限到期前無法刪除。如果之後確認攻擊為誤報，則會刪除鎖定的快照。
+
+由於系統能夠識別受影響的檔案和攻擊時間，因此您可以僅從可用的快照中還原受影響的檔案，而無需還原整個磁碟區。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中選擇 *Inventory*，然後選擇要恢復資料的檔案系統。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 從「自主勒索軟體防護」圖塊中選擇 *分析攻擊*。
+. 如果發生攻擊，請在表格中為該 Volume 選擇 *真實攻擊*。
+. 在「還原受損 Volume 資料」對話方塊中，依照指示進行操作，即可在檔案層級或 Volume 層級進行還原。大多數情況下，您將還原檔案而不是整個 Volume。
+. 還原完成後，選取 *關閉*。
+
+
+.結果
+受損資料已還原。

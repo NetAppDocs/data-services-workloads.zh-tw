@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: fsx-eda/quick-start-eda.html 
+keywords: requirements, permissions, eda, builders, quick start, electronic design automation 
+summary: 透過設定環境、啟用監控儀表板和設定延遲分析，即可開始使用 Workload Factory for EDA。 
+---
+= Workload Factory for EDA 快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過設定環境、啟用監控儀表板和設定延遲分析來開始使用 Workload Factory for EDA，從而最佳化 FSx for ONTAP 的效能，以滿足 EDA 工作負載的需求。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 登入 Workload Factory
+[role="quick-margin-para"]
+您需要link:../setup/sign-up-and-log-in.html["註冊並登入"]登入 NetApp Console。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 為 EDA 工作負載新增憑證和權限
+[role="quick-margin-para"]
+link:../fsx-storage/add-credentials.html["手動向帳戶新增憑證"] 其中包括選擇 EDA 工作負載功能，以及 link:../fsx-storage/permissions-reference-fsx.html["建立所需權限的 IAM 原則"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 設定環境以滿足 EDA 要求
+[role="quick-margin-para"]
+您需要一個已部署和發現的 FSx for ONTAP 檔案系統，其中至少包含一個已設定為 NFS 共享的 Volume。
+
+[role="quick-margin-para"]
+link:requirements.html["進一步了解 EDA 需求"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"] 啟用 Overview 儀表板
+[role="quick-margin-para"]
+啟用概覽儀表板，以監控 FSx for ONTAP 叢集的運作狀況、容量和吞吐量。接受同意提示，允許 Workload Factory 開始收集 CloudWatch 指標。
+
+[role="quick-margin-para"]
+link:task-activate-overview-dashboard.html["了解如何啟動 Overview 儀表板"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"] 配置專案儀表板
+[role="quick-margin-para"]
+配置 Projects 儀表板以監控系統運作狀況、效能和儲存使用情況，從而有效優化您的 EDA 環境。
+
+[role="quick-margin-para"]
+link:task-configure-project-dashboard.html["了解如何設定專案儀表板"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]設定 FSx for ONTAP 延遲分析
+[role="quick-margin-para"]
+設定延遲臨界值，以便在效能問題影響模擬運行時間之前主動識別並解決這些問題。設定警告和關鍵警示、設定電子郵件或 SNS 通知以接收即時警示、運用自動化基本分析，並可選擇使用 AI 分析來處理複雜場景。
+
+[role="quick-margin-para"]
+link:task-configure-latency-monitoring.html["了解如何設定延遲監控"^]。偵測到事件後，您可以使用互動式圖表link:task-analyze-latency-trends.html["分析延遲趨勢"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七"] 與其他服務整合
+[role="quick-margin-para"]
+使用 Workload Factory REST API 將 EDA 與其他服務（例如服務入口網站或 Perforce Helix Core）整合。
+
+[role="quick-margin-para"]
+link:integrate-perforce.html["了解如何將 EDA 與 Perforce 整合"^]。
+
+
+
+[[whats-next]]
+== 接下來呢？
+
+* link:task-configure-latency-monitoring.html["設定 FSx for ONTAP 的延遲監控"]
+* link:task-configure-project-dashboard.html["設定專案儀表板"]
+* link:learn-eda-workloads.html["了解 EDA 工作負載"]
+* link:../get-help.html["取得 EDA 方面的協助"]
+

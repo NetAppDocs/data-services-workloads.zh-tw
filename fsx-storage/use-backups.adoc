@@ -1,0 +1,95 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/use-backups.html 
+keywords: create backup, volume backup, back up a volume, FSx for ONTAP backup, manual backup, restore from a backup, restore volume 
+summary: 透過在 NetApp Workload Factory 中建立和還原備份，保護您的 Volume 資料免於意外刪除、毀損和其他資料遺失事件的影響。 
+---
+= 使用備份來保護 NetApp Workload Factory 中的資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過在 NetApp Workload Factory 中建立和還原備份，保護您的 Volume 資料免於意外刪除、毀損和其他資料遺失事件的影響。您可以設定備份排程，在定期排程備份之外建立 Volume 的隨選備份，也可以將 Volume 從現有備份還原到 AWS 帳戶中的任何 FSx for ONTAP 檔案系統。
+
+
+
+[[create-an-on-demand-backup-of-a-volume]]
+== 建立 Volume 的隨需備份
+
+在 NetApp Workload Factory 中，於定期排程的備份之外，建立 Volume 的手冊備份。
+
+.關於此任務
+Volume 備份是按 Volume 進行的，因此每個備份僅包含特定 Volume 中的資料。
+
+磁碟區備份採用增量備份，這表示僅儲存自上次備份以來磁碟區上發生變更的資料。這最大限度地減少了建立備份所需的時間和備份所需的儲存空間，從而避免資料重複，節省了儲存成本。
+
+.開始之前
+若要備份您的 Volume，您的 Volume 和檔案系統都必須有足夠的可用 SSD 儲存容量來儲存備份快照。建立備份快照時，快照所使用的額外儲存容量不能導致 Volume 的 SSD 儲存使用率超過 98%。如果發生這種情況，備份將會失敗。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要備份的 Volume 的動作選單。
+. 選擇 *Data protection actions* 、 *Volume backups* ，然後選擇 *Manual backup* 。
+. 在「手動備份」對話方塊中，輸入備份的名稱。
+. 選擇 *備份*。
+
+
+
+
+[[manage-the-backup-schedule-for-an-fsx-for-ontap-file-system]]
+== 管理 FSx for ONTAP 檔案系統的備份排程
+
+在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的備份排程。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取要更新備份排程的檔案系統動作功能表，然後選取 *管理*。
+. 在「資訊」下，選擇 *Volume backups* 旁的鉛筆圖示。當滑鼠懸停在 *Volume backups* 行上時，下拉箭頭旁邊會顯示鉛筆圖示。
+. 在 *Volume backups* 對話方塊中，提供以下資訊：
++
+.. *每日自動備份*：啟用或停用此功能。如果停用此功能，請選取 *套用*。如果啟用此功能，請完成下列步驟。
+.. *自動備份保留期間*：輸入自動備份的保留天數。
+.. *每日自動備份所需時間*：選擇*無偏好*（系統將為您選擇每日備份開始時間）或*選擇每日備份開始時間*並指定開始時間。
+.. *每週維護所需時間*：選擇*無偏好*（系統將為您選擇每週維護所需時間的開始時間）或*選擇 30 分鐘每週維護所需時間的開始時間*並指定開始時間。
+
+
+. 選擇 *Apply*。
+
+
+
+
+[[restore-a-volume-from-a-backup-in-netapp-workload-factory]]
+== 在 NetApp Workload Factory 中從備份還原 Volume
+
+在 NetApp Workload Factory 中，您可以將備份中的 Volume 還原到 AWS 帳戶中的任何 FSx for ONTAP 檔案系統。
+
+Workload Factory 會判斷您是否有足夠的容量進行還原，如果容量不足，則會自動新增 SSD 儲存層容量。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要從備份還原的 Volume 的動作選單。
+. 選擇 *Data protection actions* 、 *Volume backups* ，然後選擇 *Restore from a backup* 。
+. 在「從備份還原」對話方塊中，提供以下資訊：
++
+.. *目標檔案系統*：從下拉式選單中選擇目標檔案系統。
+.. *目標儲存設備 VM*：從下拉式選單中選擇目標儲存設備 VM。
+.. *備份名稱*：請從下拉式選單中選擇備份名稱。
+.. *還原的 Volume 名稱*：請輸入還原的 Volume 名稱。
+
+
+. 請確認檔案系統容量是否足以進行還原操作。
++
+當檔案系統容量有限時，可能會出現以下情況：
+
++
+** 還原可能會使已使用容量超過您指定的臨界值。您可以完成還原作業。考慮 link:adjust-file-system-capacity.html["手動新增 SSD 儲存層容量"] 或選擇讓 Workload Factory 自動新增 SSD 儲存層容量。
+** 還原需要額外的 SSD 容量。您必須選擇讓 Workload Factory 自動新增 SSD 儲存層容量才能繼續。
+
+
+. 選擇 *還原*。
+

@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-file-system-settings.html 
+keywords: create fsx tags, create tags, edit fsx tags, fsx tags, reset fsx admin password 
+summary: 隨時新增、更新或移除檔案系統的 FSx for ONTAP 檔案系統標籤。 
+---
+= 在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的設定。您可以管理檔案系統的標籤，在必要時重設 fsxadmin 密碼，並根據需要更新處理量容量。
+
+
+
+[[manage-fsx-for-ontap-file-system-tags]]
+== 管理 FSx for ONTAP 檔案系統標籤
+
+標籤可以幫助您對資源進行分類。在 NetApp Workload Factory 中，您可以隨時為檔案系統新增、編輯和移除標籤。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *庫存* 中，選取要更新的檔案系統的動作功能表，然後選取 *管理檔案系統標籤*。
+. 在 *管理檔案系統標籤* 對話方塊中，根據需要新增、編輯或移除標籤。
++
+檔案系統最多可以套用 50 個標籤。
+
+. 選擇 *Apply*。
+
+
+
+
+[[reset-the-fsxadmin-password-of-an-fsx-for-ontap-file-system]]
+== 重設 FSx for ONTAP 檔案系統的 fsxadmin 密碼
+
+必要時，在 NetApp Workload Factory 中重設 fsxadmin 密碼。
+
+如果在建立檔案系統時提供了備用使用者，則只能在 AWS 控制台中重設 fsxadmin 密碼。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選擇要重設 fsxadmin 密碼的檔案系統的操作選單，然後選擇 *管理*。
+. 從檔案系統總覽中，選擇操作選單。
++
+image:screenshot-reset-fsxadmin-password.png["檔案系統總覽標籤中的操作選單快照。"]
+
+. 選擇 *重設 fsxadmin 密碼*。
+. 在「重設 fsxadmin 密碼」對話方塊中，輸入新的 fsxadmin 密碼，然後重新輸入確認。
+. 選擇 *Apply*。
+
+
+
+
+[[update-throughput-capacity-for-an-fsx-for-ontap-file-system]]
+== 更新 FSx for ONTAP 檔案系統的處理量容量
+
+視需要更新 NetApp Workload Factory 中 FSx for ONTAP 檔案系統的處理量容量。
+
+有關處理量容量限制，請參閱 AWS FSx for NetApp ONTAP 文件中的link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/limits.html["配額"^]。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 在 *清單* 中，選取要更新處理量容量的檔案系統動作選單，然後選取 *管理*。
+. 在「資訊」下，選擇 *處理量容量* 旁的鉛筆圖示。當滑鼠懸停在 *處理量容量* 列上時，下拉箭頭旁邊會出現鉛筆圖示。
+. 在「處理量容量」對話方塊中，選擇所需的處理量容量。
+. 選擇 *套用* 以儲存變更
+

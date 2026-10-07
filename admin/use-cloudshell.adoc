@@ -1,0 +1,231 @@
+---
+sidebar: sidebar 
+permalink: admin/use-cloudshell.html 
+keywords: cloudshell, command line, aws cli, ontap cli, NetApp Workload Factory, Workload Factory 
+summary: 您可以使用 CloudShell 從 NetApp Workload Factory 使用者介面的任何位置發出 AWS 或 ONTAP CLI 命令。 
+---
+= 在 NetApp Workload Factory 中使用 CloudShell
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+開啟 CloudShell 以從 NetApp Workload Factory 控制台的任何位置執行 AWS 或 ONTAP CLI 命令。
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+CloudShell 允許您在 Workload Factory 主控台中，以類似 shell 的環境執行 AWS CLI 命令或 ONTAP CLI 命令。它會在瀏覽器中模擬終端機工作階段，提供終端機功能，並透過 Workload Factory 的後端代理訊息。它允許您使用在 NetApp 帳戶中提供的 AWS 認證資料和 ONTAP 認證資料。
+
+CloudShell 功能包括：
+
+* 多個 CloudShell 工作階段：一次部署多個 CloudShell 工作階段，以平行發出多個命令序列，
+* 多重檢視：分割 CloudShell 索引標籤工作階段，以便您可以同時水平或垂直檢視兩個或多個索引標籤
+* 工作階段重新命名：視需要重新命名工作階段
+* 上次工作階段內容持久化：如果您不小心將其結案，請重新開啟上次工作階段
+* 設定偏好設定：變更字型大小和輸出類型
+* 針對 ONTAP CLI 命令的 AI 產生的錯誤回應
+* 自動完成支援：開始輸入命令，然後使用 *Tab* 鍵檢視可用選項
+
+
+
+NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，則將無法使用 AI 產生的錯誤回應。link:manage-genai-features.html["了解如何管理人工智慧功能"]。
+
+
+
+[[cloudshell-commands]]
+== CloudShell 命令
+
+在 CloudShell GUI 介面中，您可以輸入 `help` 來檢視可用的 CloudShell 命令。發出 `help` 命令後，將顯示下列參考資料。
+
+.說明
+NetApp CloudShell 是內建於 NetApp Workload Factory 的 GUI 介面，可讓您在類似 shell 的環境中執行 AWS CLI 命令或 ONTAP CLI 命令。它會模擬瀏覽器中的終端機工作階段，提供終端機功能，並透過 Workload Factory 中的後端代理訊息。它可讓您使用在 NetApp 帳戶中提供的 AWS 認證資料和 ONTAP 認證資料。
+
+.可用命令
+* `clear`
+* `help`
+* `[--fsx <fsxId>] <ontap-command> [parameters]`
+* `aws <aws-command> <aws-sub-command> [parameters]`
+
+
+.情境
+每個終端工作階段都在特定的上下文中執行：認證資料、區域，以及選擇性的 FSx for ONTAP 檔案系統。
+
++ 所有 AWS 命令均在提供的上下文中執行。只有當提供的認證資料在指定區域擁有權限時，AWS 命令才能成功執行。
+
++ 您可以使用選用的 `fsxId`來指定 ONTAP 命令。如果您為個別的 ONTAP 命令提供 `fsxId`，則此 ID 會覆寫內容中的 ID。如果終端機工作階段沒有 FSx for ONTAP 檔案系統 ID 內容，則必須為每個 ONTAP 命令提供 `fsxId`。
+
++ 若要更新不同的內容特定資訊，請執行下列操作： * 若要變更認證資料："using credentials <credentialId>" * 若要變更區域："using region <regionCode>" * 若要變更 FSx for ONTAP 檔案系統："using fsx <fileSystemId>"
+
+.顯示項目
+* 若要顯示可用的認證資料："show credentials"
+* 若要顯示可用區域："show regions"
+* 顯示命令歷史記錄："show history"
+
+
+.變數
+以下是設定和使用變數的範例。如果變數值包含空格，則應將其放在引號內。
+
++ * 設定變數：$<variable> = <value> * 使用變數：$<variable> * 設定變數範例：$svm1 = svm123 * 使用變數範例：--fsx FileSystem-1 volumes show --vserver $svm1 * 設定具有字串值的變數範例：$comment1 = "有空格的註解"
+
+.營運者
+不支援管線 `|`、背景執行 `&`和重新導向 `>`等 Shell 運算子。如果包含這些運算子，命令執行將會失敗。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+CloudShell 需配合您的 AWS 認證資料使用。若要使用 CloudShell，您必須至少提供一個 AWS 認證資料。
+
+
+NOTE: 您可以使用 CloudShell 來執行任何 AWS 或 ONTAP CLI 命令。但是，如果您想要在 FSx for ONTAP 檔案系統的環境中運作，請確定您發出下列命令： `using fsx <file-system-name>`。
+
+
+
+[[deploy-cloudshell]]
+== 部署 CloudShell
+
+您可以從 NetApp Workload Factory 主控台的任何位置部署 CloudShell。您也可以從 NetApp Console 部署 CloudShell。
+
+[role="tabbed-block"]
+====
+.從 Workload Factory 控制台部署
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *管理* > *CloudShell*。
+. 在 CloudShell 視窗中，選擇 CloudShell 工作階段的認證資料和區域，然後選擇箭頭繼續。
++
+image:screenshot-deploy-cloudshell-session.png["顯示新 CloudShell 工作階段的快照。"]
+
+. 輸入  `help` 以檢視可用的 <<CloudShell 命令,CloudShell 命令>> 和說明，或參考下列 CLI 參考文件以了解可用的命令：
++
+** link:https://docs.aws.amazon.com/cli/latest/reference/["AWS CLI 參考"^]：對於與 FSx for ONTAP 相關的命令，請選擇 *fsx*。
+** link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP CLI 參考"^]
+
+
+. 在 CloudShell 工作階段中發出命令。
++
+如果在發出 ONTAP CLI 命令後發生錯誤，請選擇燈泡圖示以取得由 AI 產生的簡要錯誤回應，其中包含故障執行摘要、故障原因和詳細解決方案。選擇 *瞭解更多資訊* 以查看更多詳細資訊。
+
+
+
+--
+.從 NetApp Console 部署
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載* > *管理* > *CloudShell*。
+. 在 CloudShell 視窗中，選擇 CloudShell 工作階段的認證資料和區域，然後選擇箭頭繼續。
++
+image:screenshot-deploy-cloudshell-session.png["顯示新 CloudShell 工作階段的快照。"]
+
+. 輸入  `help` 以檢視可用的 CloudShell 命令和說明，或參考以下 CLI 參考文件以了解可用的命令：
++
+** link:https://docs.aws.amazon.com/cli/latest/reference/["AWS CLI 參考"^]：對於與 FSx for ONTAP 相關的命令，請選擇 *fsx*。
+** link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP CLI 參考"^]
+
+
+. 在 CloudShell 工作階段中發出命令。
++
+如果在發出 ONTAP CLI 命令後發生錯誤，請選擇燈泡圖示以取得由 AI 產生的簡要錯誤回應，其中包含故障執行摘要、故障原因和詳細解決方案。選擇 *瞭解更多資訊* 以查看更多詳細資訊。
+
+
+
+--
+====
+此快照所示的 CloudShell 任務可透過選擇開啟的 CloudShell 工作階段標籤的「操作」選單來完成。以下是每個任務的說明。
+
+image:screenshot-cloudshell-tab-menu.png["快照顯示 CloudShell 標籤頁操作選單，其中包含重新命名、複製、結案其他標籤頁和全部結案等選項。"]
+
+
+
+[[rename-a-cloudshell-session-tab]]
+== 重新命名 CloudShell 工作階段索引標籤
+
+您可以重新命名 CloudShell 工作階段標籤，以協助您識別工作階段。
+
+.步驟
+. 選擇 CloudShell 工作階段標籤的操作選單。
+. 選取 *重新命名*。
+. 輸入工作階段索引標籤的新名稱，然後按一下索引標籤名稱外部以設定新名稱。
+
+
+.結果
+新名稱會顯示在 CloudShell 工作階段標籤中。
+
+
+
+[[duplicate-cloudshell-session-tab]]
+== 複製 CloudShell 工作階段索引標籤
+
+您可以複製 CloudShell 工作階段索引標籤，以建立具有相同名稱、認證資料和區域的新工作階段。原始索引標籤中的程式碼不會複製到複製的索引標籤中。
+
+.步驟
+. 選擇 CloudShell 工作階段標籤的操作選單。
+. 選擇 *複製*。
+
+
+.結果
+新標籤頁的名稱與原始標籤頁相同。
+
+
+
+[[close-cloudshell-session-tabs]]
+== 關閉 CloudShell 工作階段標籤頁
+
+您可以一次結案一個 CloudShell 標籤頁，結案您未在使用的其他標籤頁，或是一次結案所有標籤頁。
+
+.步驟
+. 選擇 CloudShell 工作階段標籤的操作選單。
+. 請選擇以下選項之一：
++
+** 在 CloudShell 標籤頁視窗中選擇 "X" 即可一次結案一個標籤頁。
+** 選擇 *結案其他標籤頁* 可結案除您目前正在使用的標籤頁之外的所有其他開啟標籤頁。
+** 選擇 *結案所有標籤頁* 以結案所有標籤頁。
+
+
+
+
+.結果
+選定的 CloudShell 工作階段標籤頁結案。
+
+
+
+[[split-cloudshell-session-tabs]]
+== 分割 CloudShell 工作階段標籤
+
+您可以分割 CloudShell 工作階段標籤頁，同時檢視兩個或多個標籤頁。
+
+.步驟
+將 CloudShell 工作階段索引標籤拖放至 CloudShell 視窗的頂部、底部、左側或右側，以分割檢視。
+
+image:screenshot-cloudshell-split-view.png["快照顯示兩個 CloudShell 水平分割的標籤頁。這些標籤頁並排顯示。"]
+
+
+
+[[update-settings-for-a-cloudshell-session]]
+== 更新 CloudShell 工作階段設定
+
+您可以更新 CloudShell 工作階段的字型和輸出類型設定。
+
+.步驟
+. 部署 CloudShell 工作階段。
+. 在 CloudShell 標籤頁中，選擇設定圖示。
++
+設定對話框隨即出現。
+
+. 根據需要更新字體大小和輸出類型。
++
+
+NOTE: 增強型輸出適用於 JSON 物件和表格格式。所有其他輸出均以純文字顯示。
+
+. 選擇 *Apply*。
+
+
+.結果
+CloudShell 設定已更新。

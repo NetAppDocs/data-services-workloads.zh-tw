@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-nfs-export-policy.html 
+keywords: NFS, nfs, export policy, change export policy, update export policy, modify export policy 
+summary: 在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類型的 Volume 的 NFS 匯出原則。 
+---
+= 在 NetApp Workload Factory 中管理 Volume 的 NFS 匯出原則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類型的 Volume 的 NFS 匯出原則。
+
+.關於此任務
+管理 Volume 的匯出原則包括新增匯出原則規則，這些規則詳細說明用戶端規格、存取控制、超級使用者存取和 NFS 版本。您可以新增多個匯出原則並設定它們的優先順序。
+
+.開始之前
+確定匯出原則規則的用戶端規格。用戶端規格的有效值如下：
+
+* IP 位址
+* 帶有子網路遮罩的 IP 位址
+* 帶有網路遮罩的 IP 位址
+* 以 "@" 字元開頭的網路群組名稱
+* 以句點 “.” 開頭的網域名稱
+* 主機名稱
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要變更 NFS 匯出原則的 Volume 的動作選單。
+. 選擇 *進階操作*，然後選擇 *編輯 NFS 匯出原則*。
+. 在「編輯 NFS 匯出原則」頁面上，提供以下資訊：
++
+.. *存取控制*：選擇*自訂匯出原則*或*現有匯出原則*。
++
+或者，您可以選擇 *無權存取該 Volume*。
+
+.. *匯出原則名稱*：可選擇輸入匯出原則的名稱。
+.. *新增匯出原則規則*：提供下列詳細資料，並排列原則的優先順序，以 #1 作為最優先規則：
++
+... *用戶端規格*：多個數值之間以逗號分隔。
+... *存取控制*：從下拉式選單中選擇*讀寫*、*唯讀*或*無存取*。
+... *超級使用者存取*：請選擇*是*或*否*。
+... *NFS 版本*：選擇 *全部*、*NFSv3* 或 *NFSv4*。
+
+
+
+
+. 選擇 *Apply*。
+

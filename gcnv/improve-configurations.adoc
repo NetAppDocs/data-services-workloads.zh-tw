@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: gcnv/improve-configurations.html 
+keywords: improve configurations, optimize configurations, implement best practices, well-architected storage pool, Google Cloud NetApp Volumes, GCNV 
+summary: Workload Factory 掃描 Google Cloud NetApp Volumes 組態，提供見解和建議，協助您實現卓越營運績效。 
+---
+= 實作架構良好的 Google Cloud NetApp Volumes 組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+利用組態分析洞察和建議，運用 NetApp 為在 Google Cloud 儲存設備上執行的 Google Cloud NetApp Volumes 儲存資源池實作最佳實務。您可以輕鬆審查架構完善的狀態、了解組態中存在的問題，並獲得改善建議，以最佳化任何在可靠性、安全性、效能和成本方面尚未最佳化的儲存資源池架構。
+
+link:configuration-analysis.html["了解組態分析和架構良好狀態。"]
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+NetApp 每日分析 Google Cloud NetApp Volumes 儲存資源池在 Google Cloud 的部署。每日分析提供架構完善的狀態，以及深入見解與建議，協助您了解組態問題，讓您的儲存資源池符合最佳實務。
+
+每日分析完成後，儀表板會顯示架構良好的資源總數、處於關鍵狀態的資源數量以及處於警告狀態的資源數量。組態按架構良好架構的支柱進行分類：可靠性、卓越營運績效、成本最佳化、效能與效率和安全性。儀表板還包含一個表格，其中列出了所有組態、這些組態的架構良好狀態、嚴重程度、類別、資源類型（Volume 或儲存資源池）、受影響的資源，以及在組態未最佳化時檢視建議的選項。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+* 您必須link:https://console.netapp.com/add-working-environment/choose-type["新增 Google Cloud NetApp Volumes 儲存資源池"]至 NetApp Console，才能檢視架構完善的狀態及組態問題的建議。
+
+
+
+
+[[view-recommendations-for-configuration-issues]]
+== 檢視組態問題的建議
+
+每日分析完成後，您可以檢視針對組態問題的建議。這些建議說明最佳實務做法，以及未最佳化組態的潛在風險。您也可以下載包含這些建議的 CSV 檔案。
+
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 從「架構完善的儀表板」中，選取任何組態的 *檢視*。
++
+（可選）下載包含所有設定建議的 CSV 檔案。
+
+. 審查建議。
+
+
+
+
+[[dismiss-a-configuration-analysis]]
+== 駁回組態分析
+
+停止對 Google Cloud NetApp Volumes 儲存資源池或選定 Volume 的組態分析。您可以在需要時重新啟動分析。
+
+[role="tabbed-block"]
+====
+.駁回儲存資源池的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 從「架構完善的儀表板」中，選取任何組態的 *檢視*。
+. 在「配置」下，找出不適用於您環境的配置，然後選取 *Dismiss* 。
+. 在「關閉組態」對話方塊中，選取 *Dismiss* 以停止組態分析。
+
+
+--
+.關閉 Volume 的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 從「架構完善的儀表板」中，選取任何組態的 *檢視*。
+. 在「組態」下，確定要為所選 Volume 取消的組態，然後選擇 *檢視*。
+. 確定要從組態分析中剔除的 Volume。
++
+** 對於單一 Volume：選擇動作選單，然後選擇 *Dismiss volume*。
+** 對於多個 Volume：選取 Volume，然後選取「批次行動」旁邊的 *Dismiss*。
+
+
+. 選取 *Dismiss* 以停止對此組態的分析。
+. 在「關閉 Volume」對話方塊中，選擇 *Dismiss* 進行確認。
+
+
+--
+====
+.結果
+儲存資源池或選定 Volume 的組態分析停止。
+
+您可以隨時重新啟動分析。
+
+
+
+[[reactivate-a-dismissed-configuration-analysis]]
+== 重新啟動已關閉的組態分析
+
+隨時重新啟用已關閉的組態分析。您可以選擇一個或多個組態進行重新啟動。
+
+[role="tabbed-block"]
+====
+.重新啟動儲存資源池的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 選擇 *Dismissed configurations* 。
+. 確定要重新啟動的組態，然後選取 *Reactivate*。
+
+
+--
+.重新啟動 Volume 的組態分析
+--
+.步驟
+. 登入 link:https://console.netapp.com/home["NetApp Console"^]。
+. 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 選擇 *Dismissed configurations* 。
+. 根據組態分析識別要重新啟動的 Volume。
++
+** 對於單一磁碟區：選擇操作選單，然後選擇 *Reactivate volume*。
+** 對於多個 Volume：選取 Volume，然後選取「批次行動」旁邊的 *Reactivate*。
+
+
+
+
+--
+====
+.結果
+系統重新啟動組態分析。每天都會進行一次新的分析。

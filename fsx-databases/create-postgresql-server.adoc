@@ -1,0 +1,284 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/create-postgresql-server.html 
+keywords: create, server, PostgreSQL, deploy, host, deploy a database host, database host 
+summary: 在 NetApp Workload Factory for Databases 中建立新的 PostgreSQL SQL 伺服器。 
+---
+= 在 NetApp Workload Factory for Databases 中建立 PostgreSQL 伺服器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory for Databases 中建立新的 PostgreSQL 伺服器或資料庫主機需要 FSx for ONTAP 檔案系統部署和 Active Directory 資源。
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+在從 Workload Factory 建立 PostgreSQL 伺服器之前，請先了解資料庫主機組態的可用儲存部署類型、Workload Factory 的操作模式以及完成此操作的要求。
+
+.FSx for ONTAP 檔案系統部署
+建立新的 PostgreSQL 伺服器需要使用 FSx for ONTAP 檔案系統作為儲存設備後端。您可以使用現有的 FSx for ONTAP 檔案系統，也可以建立新的檔案系統。如果您選擇現有的 FSx for ONTAP 檔案系統作為資料庫伺服器的儲存設備後端，我們將為 PostgreSQL 工作負載建立新的儲存設備 VM。
+
++ FSx for ONTAP 檔案系統有兩種 PostgreSQL 伺服器部署模型：_高可用度（HA）_ 或 _單一執行個體_。根據您選擇的 FSx for ONTAP 部署模型，將為 FSx for ONTAP 檔案系統建立不同的資源。
+
+* *高可用度（HA）部署*：當選擇新的 FSx for ONTAP 檔案系統進行 HA 部署時，將會部署多可用區的 FSx for NetApp ONTAP 檔案系統。HA 部署會為資料、記錄和 tempdb 檔案建立分隔的 Volume 和 LUN。會為 Windows 叢集的仲裁或見證磁碟建立額外的 Volume 和 LUN。HA 部署會設定主要和次要 PostgreSQL 伺服器之間的串流複寫。
+* *單一執行個體部署*：建立新的 PostgreSQL 伺服器時，會建立單一可用區 FSx for ONTAP 檔案系統。此外，也會為資料、日誌和 tempdb 檔案建立分隔的 Volume 和 LUN。
+
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+您的 AWS 帳戶中必須擁有 link:../fsx-storage/add-credentials.html["授予 _資料庫主機建立_ 權限"^]，才能在 workload factory 中建立新的資料庫主機。
+
+
+
+[[create-a-postgresql-server]]
+== 建立 PostgreSQL 伺服器
+
+您可以使用 _快速建立_ 或 _進階建立_ 部署模式，以 _自動化_ 模式權限在 workload factory 中完成此工作。您也可以使用 Codebox 中提供的下列工具：REST API、AWS CLI、AWS CloudFormation 和 Terraform。link:../admin/use-codebox.html#how-to-use-codebox["了解如何使用 Codebox 進行自動化"^]。
+
+
+NOTE: 從 Codebox 使用 Terraform 時，您複本或下載的程式碼會隱藏  `fsxadmin` 和  `vsadmin` 密碼。執行程式碼時，您需要重新輸入密碼。除了 _Automate_ 模式權限外，您還需要為使用者帳戶包含下列權限： `iam:TagRole` 和  `iam:TagInstanceProfile`。link:../admin/use-codebox.html#use-terraform-from-codebox["透過 Codebox 學習如何使用 Terraform"^]。
+
+[role="tabbed-block"]
+====
+.快速建立
+--
+
+NOTE: 在「快速建立」中，HA 是預設部署模型，Windows 2016 是預設 Windows 版本，SQL 2019 標準版是預設 SQL 版本。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從資料庫概覽中，選取 *部署主機*，然後從選單中選取 *PostgreSQL 伺服器*。
+. 選擇 *快速建立*。
+. 在 *著陸區* 下方，提供下列資訊：
++
+.. *AWS 憑證*：選擇具有自動化權限的 AWS 憑證，以部署新的資料庫主機。
++
+具有 _資料庫主機建立_ 權限的 AWS 憑證可讓 Workload Factory 從您的 AWS 帳戶在 Workload Factory 中部署和管理新的資料庫主機。
+
++
+具有 _檢視、規劃和分析_ 權限的 AWS 憑證可讓 Workload Factory 產生 CloudFormation 範本，供您在 AWS CloudFormation 主控台中使用。
+
++
+如果您在 Workload Factory 中沒有關聯 AWS 憑證，並且想要在 Workload Factory 中建立新伺服器，請依照 *選項 1* 進入憑證頁面。手動新增所需的憑證以及資料庫工作負載的_資料庫主機建立_權限。
+
++
+如果您想在 Workload Factory 中填寫建立新伺服器表單，以便下載完整的 YAML 檔案範本以在 AWS CloudFormation 中進行部署，請依照 *選項 2* 操作，以確保您擁有在 AWS CloudFormation 中建立新伺服器所需的權限。手動新增資料庫工作負載所需的憑證以及 _檢視、規劃和分析_ 權限。
+
++
+您也可以選擇從 Codebox 下載部分完成的 YAML 檔案範本，以便在 Workload Factory 之外建立堆疊，而無需任何憑證或權限。從 Codebox 的下拉清單中選擇 *CloudFormation* 即可下載 YAML 檔案。
+
+.. *區域和 VPC*：選擇區域和 VPC 網路。
++
+確保現有介面端點的安全性群組允許對選定的子網路進行 HTTPS (443) 協定存取。
+
++
+如果找不到，則會在部署期間建立 AWS 服務介面端點（SQS、FSx、EC2、CloudWatch、CloudFormation、SSM）和 S3 閘道端點。
+
++
+VPC DNS 屬性 `EnableDnsSupport`和 `EnableDnsHostnames`已修改，以啟用端點位址解析（若尚未設定為 `true`）。
+
+.. *可用度區*：選擇可用度區和子網路。
++
+
+NOTE: HA 部署僅在多可用區（MAZ）FSx for ONTAP 組態上支援。
+
++
+為了實現高可用度，子網路不應該共享同一個路由表。
+
++
+... 在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式功能表中選擇 MAZ FSx for ONTAP 組態的主要可用度區域，然後從 *子網路* 下拉式功能表中選擇主要可用度區域中的子網路。
+... 在 *叢集組態 - 節點 2* 欄位中，從 *可用度區域* 下拉式選單中選擇 MAZ FSx for ONTAP 組態的次要可用度區域，然後從 *子網路* 下拉式選單中選擇次要可用度區域中的子網路。
+
+
+
+
+. 在 *應用程式設定* 下，輸入 *資料庫憑證* 的使用者名稱和密碼。
+. 在 *連線* 下，選擇金鑰對以安全地連線到您的執行個體。
+. 在 *基礎架構設定* 下，提供下列資訊：
++
+.. *FSx for ONTAP 系統*：建立新的 FSx for ONTAP 檔案系統或使用現有的 FSx for ONTAP 檔案系統。
++
+... *建立新的 FSx for ONTAP*：輸入使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 FSx for ONTAP 憑證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
++
+新的 FSx for ONTAP 檔案系統可能會增加 30 分鐘或更長的安裝時間。
+
+... *選擇現有的 FSx for ONTAP*：從下拉式選單中選擇 FSx for ONTAP 名稱，然後輸入檔案系統的使用者名稱和密碼。
++
+對於現有的 FSx for ONTAP 檔案系統，請確保符合下列條件：
+
++
+**** 附加至 FSx for ONTAP 的路由群組允許將通往子網路的路由用於部署。
+**** 安全性群組允許來自部署所用子網路的流量，特別是 HTTPS (443) 和 iSCSI (3260) TCP 連接埠。
+
+
+
+
+.. *資料磁碟機大小*：輸入資料磁碟機容量並選擇容量單位。
+
+
+. 摘要：
++
+.. *預覽預設設定*：檢閱快速建立所設定的預設組態。
+.. *預計費用*：提供部署所示資源後可能產生的費用估算。
+
+
+. 按一下 *Create* 。
++
+或者，如果您現在想要變更這些預設設定中的任何一項，請使用進階建立來建立資料庫伺服器。
+
++
+您也可以選擇 *儲存組態* 以便稍後部署主機。
+
+
+
+--
+.進階建立
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從資料庫概覽中，選取 *部署主機*，然後從選單中選取 *PostgreSQL 伺服器*。
+. 選擇 *進階建立*。
+. 在「部署模型」下，選擇「獨立執行個體」或「高可用度（HA）」。
+. 在 *著陸區* 下方，提供下列資訊：
++
+.. *AWS 憑證*：選擇具有自動化權限的 AWS 憑證，以部署新的資料庫主機。
++
+具有 _資料庫主機建立_ 權限的 AWS 憑證可讓 Workload Factory 從您的 AWS 帳戶在 Workload Factory 中部署和管理新的資料庫主機。
+
++
+具有 _檢視、規劃和分析_ 權限的 AWS 憑證可讓 Workload Factory 產生 CloudFormation 範本，供您在 AWS CloudFormation 主控台中使用。
+
++
+如果您在 Workload Factory 中沒有關聯 AWS 憑證，並且想要在 Workload Factory 中建立新伺服器，請依照 *選項 1* 進入憑證頁面。手動新增所需的憑證以及資料庫工作負載的_資料庫主機建立_權限。
+
++
+如果您想在 Workload Factory 中填寫建立新伺服器表單，以便下載完整的 YAML 檔案範本以在 AWS CloudFormation 中進行部署，請依照 *選項 2* 操作，以確保您擁有在 AWS CloudFormation 中建立新伺服器所需的權限。手動新增資料庫工作負載所需的憑證以及 _檢視、規劃和分析_ 權限。
+
++
+您也可以選擇從 Codebox 下載部分完成的 YAML 檔案範本，以便在 Workload Factory 之外建立堆疊，而無需任何憑證或權限。從 Codebox 的下拉清單中選擇 *CloudFormation* 即可下載 YAML 檔案。
+
+.. *區域和 VPC*：選擇區域和 VPC 網路。
++
+確保現有介面端點的安全性群組允許對選定的子網路進行 HTTPS (443) 協定存取。
+
++
+如果找不到，則會在部署期間建立 AWS 服務介面端點（SQS、FSx、EC2、CloudWatch、Cloud Formation、SSM）和 S3 閘道端點。
+
++
+VPC DNS 屬性  `EnableDnsSupport` 和  `EnableDnsHostnames` 將會修改，以啟用解析端點位址解析（如果尚未設定為  `true`）。
+
+.. *可用度區*：選擇可用度區和子網路。
++
+*適用於單一執行個體部署*
+
++
+在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式選單中選擇一個可用度區域，並從 *子網路* 下拉式選單中選擇一個子網路。
+
++
+*適用於 HA 部署*
+
++
+... 在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式功能表中選擇 MAZ FSx for ONTAP 組態的主要可用度區域，然後從 *子網路* 下拉式功能表中選擇主要可用度區域中的子網路。
+... 在 *叢集組態 - 節點 2* 欄位中，從 *可用度區域* 下拉式選單中選擇 MAZ FSx for ONTAP 組態的次要可用度區域，然後從 *子網路* 下拉式選單中選擇次要可用度區域中的子網路。
+
+
+.. *安全群組*：建立工作負載安全群組是為了允許 PostgreSQL 所需的連接埠和協定。此外，您可以選擇一個或多個安全群組。
+
+
+. 在 *應用程式設定* 下，提供下列資訊：
++
+.. 請從下拉式選單中選擇*作業系統*。
+.. 請從下拉式選單中選擇 *PostgreSQL 版本*。
+.. *資料庫伺服器名稱*：請輸入資料庫叢集名稱。
+.. *資料庫憑證*：輸入新服務帳戶的使用者名稱和密碼，或使用 Active Directory 中現有的服務帳戶憑證。
++
+對於 GovCloud 帳戶，請以下列格式輸入憑證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
+
+
+. 在 *連線* 下，選擇金鑰對以安全地連線到您的執行個體。
+. 在 *基礎架構設定* 下，提供下列資訊：
++
+.. *資料庫執行個體類型*：從下拉式選單中選擇資料庫執行個體類型。
+.. *FSx for ONTAP 系統*：建立新的 FSx for ONTAP 檔案系統或使用現有的 FSx for ONTAP 檔案系統。
++
+... *建立新的 FSx for ONTAP*：輸入使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 FSx for ONTAP 憑證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
++
+新的 FSx for ONTAP 檔案系統可能會增加 30 分鐘或更長的安裝時間。
+
+... *選擇現有的 FSx for ONTAP*：從下拉式選單中選擇 FSx for ONTAP 名稱，然後輸入檔案系統的使用者名稱和密碼。
++
+對於現有的 FSx for ONTAP 檔案系統，請確保符合下列條件：
+
++
+**** 附加至 FSx for ONTAP 的路由群組允許將通往子網路的路由用於部署。
+**** 安全性群組允許來自部署所用子網路的流量，特別是 HTTPS (443) 和 iSCSI (3260) TCP 連接埠。
+
+
+
+
+.. *Snapshot 原則*：預設啟用。快照每天建立，保留期間為 7 天。
++
+快照會指派給為 PostgreSQL 工作負載建立的 Volume。
+
+.. *資料磁碟機大小*：輸入資料磁碟機容量並選擇容量單位。
+.. *資源配置 IOPS*：選擇*自動*或*使用者資源配置*。如果選擇*使用者資源配置*，請輸入 IOPS 值。
+.. *處理量容量*：從下拉式選單中選擇處理量容量。
++
+在某些地區，您可以選擇 4 GB/s 的處理量。若要資源配置 4 GB/s 的處理量，您的 FSx for ONTAP 檔案系統必須設定至少 5,120 GiB 的 SSD 儲存容量和 160,000 SSD IOPS。
+
+.. *加密*：選擇您帳戶中的金鑰或另一個帳戶中的金鑰。您必須輸入另一個帳戶中的加密金鑰 ARN。
++
+FSx for ONTAP 自訂加密金鑰未根據服務適用性列出。請選擇適當的 FSx 加密金鑰。非 FSx 加密金鑰會導致伺服器建立故障。
+
++
+AWS 代管的金鑰會根據服務適用性進行篩選。
+
+.. *標籤*：您可以選擇新增最多 40 個標籤。
+.. *Simple Notification Service*：您可以選擇從下拉式選單中選擇 PostgreSQL 的 SNS 主題，為該組態啟用 Simple Notification Service (SNS)。
++
+... 啟用 Simple Notification Service。
+... 從下拉式選單中選擇一個 ARN。
+
+
+.. *CloudWatch 監控*：您可以選擇啟用 CloudWatch 監控。
++
+我們建議啟用 CloudWatch 以便在故障時進行偵錯。AWS CloudFormation 主控台中顯示的事件為高階，且未指定根本原因。所有詳細日誌均儲存於 EC2 執行個體中的 `C:\cfn\logs` 資料夾內。
+
++
+在 CloudWatch 中，會建立一個以堆疊名稱命名的日誌群組。每個驗證節點和 SQL 節點的日誌串流都會顯示在該日誌群組下。CloudWatch 會顯示指令碼進度，並提供相關資訊，協助您了解部署是否失敗以及何時失敗。
+
+.. *資源回滾*：此功能目前不支援。
+
+
+. 總結
++
+.. *預計費用*：提供部署所示資源後可能產生的費用估算。
+
+
+. 按一下 *建立* 以部署新的資料庫主機。
++
+或者，您可以儲存組態。
+
+
+
+--
+====
+.接下來
+您可以手動設定已部署的 PostgreSQL 伺服器上的使用者、遠端存取和資料庫。

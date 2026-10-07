@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/create-block-device.html 
+keywords: create block device, create lun, iscsi protocol 
+summary: 建立區塊設備以滿足您的業務線 （LOB） 應用程式需求。 
+---
+= 在 NetApp Workload Factory 中為檔案系統建立區塊裝置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+建立區塊設備以滿足您的業務線 （LOB） 應用程式需求。您可以在現有磁碟區中建立區塊設備，也可以為新區塊設備建立新磁碟區，或從快照為新區塊設備建立新磁碟區。
+
+.關於此任務
+僅 FlexVol Volume 支援作為 NetApp Workload Factory 中的區塊裝置。您可以使用 iSCSI 協定建立區塊裝置。
+
+區塊大小必須小於可用的 FlexVol Volume 大小。
+
+.開始之前
+* 您必須關聯連結才能建立區塊裝置。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 在 FSx for ONTAP 中，選擇要為其建立區塊裝置的檔案系統，然後選擇 *區塊裝置* 標籤。
+. 選取 *建立區塊裝置*。
+. 在 *Volume 詳細資料* 下，執行下列動作：
++
+.. *Volume 名稱*：請選擇下列選項之一。
++
+*** 建立一個新 Volume 並輸入 Volume 的名稱。
+*** 選擇現有 Volume。
+*** 從磁碟區快照建立。選擇來源磁碟區名稱和快照名稱。僅支援不包含區塊設備的磁碟區。
+
+
+.. *Aggregate 名稱*：選取要託管新磁碟區的 Aggregate 。
+.. *儲存 VM*：選取儲存 VM。
+.. *Volume 樣式*：預設 Volume 樣式為 *FlexVol*。
+.. *Volume 大小*：輸入 Volume 的大小並選擇單位。每個 FlexVol Volume 的最大大小為 100 TiB。
+.. *Volume 自動擴充*：您可以選擇啟用 Volume 自動擴充，允許 Volume 在達到容量時自動增加大小。最大擴充大小為 300 TiB。
+.. *標籤*：您可以選擇新增標籤，以協助組織和分類您的區塊裝置。
+
+
+. 在 *區塊裝置詳細資料* 下，執行下列操作：
++
+.. *區塊裝置名稱*：輸入區塊裝置的名稱。
+.. *區塊裝置大小*：輸入區塊裝置的大小並選擇單位。區塊裝置的大小必須小於可用的 Volume 大小。
+
+
+. 在 *存取* 下，執行下列操作：
++
+.. *iSCSI 組態*：請選擇下列選項之一。
++
+*** *建立新的啟動器群組*：提供主機作業系統、啟動器群組名稱，並新增一個或多個 iSCSI 限定名稱（IQN）主機啟動器。
+*** *對應現有啟動器群組*：選擇現有的啟動器群組，提供主機作業系統，然後選擇一個或多個 iSCSI 限定名稱（IQN）主機啟動器。
+
+
+
+
+. 在 *效率與保護* 下，執行下列動作：
++
+.. *儲存效率*：預設啟用。選擇此項目可停用此功能。
++
+ONTAP 利用重複資料刪除和壓縮功能來達到儲存效率。重複資料刪除可消除複製的資料區塊。資料壓縮可壓縮資料區塊，以減少所需的實體儲存設備。
+
+.. *Snapshot 原則*：選擇 Snapshot 原則以指定 Snapshot 快照技術的頻率和保留。
++
+以下是 AWS 的預設原則。若要顯示現有的快照原則，您必須link:create-link.html["關聯連結"^]。
+
++
+`default`:: 此原則會按照下列排程自動建立快照，並刪除最舊的快照複本，以便為較新的複本騰出空間：
++
+--
+*** 最多六個每小時快照，於整點過後五分鐘建立。
+*** 週一至週六午夜過後 10 分鐘，每天最多建立兩個快照。
+*** 每週最多建立兩個快照，時間為每週日午夜過後 15 分鐘。
++
+
+NOTE: Snapshot 快照技術時間基於檔案系統的時區，預設為協調世界時 (UTC)。如需變更時區的相關資訊，請參閱 NetApp 支援文件中的 link:https://library.netapp.com/ecmdocs/ECMP1155684/html/GUID-E26E4C94-DF74-4E31-A6E8-1D2D2287A9A1.html["顯示並設定系統時區"^]。
+
+
+
+--
+`default-1weekly`:: 此原則的運作方式與  `default` 原則相同，差別在於它只保留每週排程中的一個 Snapshot 快照技術。
+`none`:: 此原則不會建立任何 Snapshot 快照技術。您可以將此原則指派給 Volume，以避免自動建立 Snapshot 快照技術。
+
+
+.. *分層原則*：選擇儲存於 Volume 中的資料的分層原則。
++
+使用 Workload Factory 主控台建立 Volume 時，預設分層原則為 _Balanced (Auto)_。如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。請注意，Workload Factory 在 Workload Factory 主控台中針對分層原則使用以使用案例為基礎的名稱，並將 FSx for ONTAP 分層原則名稱包含在括號中。
+
+.. *ARP/AI*：當連結與檔案系統關聯時，預設會啟用 NetApp 基於人工智慧的自主勒索軟體防護（ARP/AI）。link:ransomware-protection.html["進一步了解 ARP/AI"]。接受此聲明以繼續。
++
+如果該功能不可用，則可能是由於以下原因之一：
+
++
+*** 連結尚未與檔案系統關聯。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+*** ARP/AI 不支援包含不可變檔案的 Volume 和使用 NVMe 協定的 Volume。
+*** 檔案系統已經具備 ARP/AI 原則。
+
+
+
+
+. 選擇 *Create*。
+
+
+.相關資訊
+link:manage-block-storage.html["管理 FSx for ONTAP 檔案系統的區塊儲存設備"]

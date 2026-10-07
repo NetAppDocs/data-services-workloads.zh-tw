@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-s3-access-points.html 
+keywords: S3, s3, access points, manage access points, change access points, update access points, modify access points 
+summary: 在 NetApp Workload Factory 中管理某個磁碟區的 S3 存取端點。 
+---
+= 在 NetApp Workload Factory 中管理 Volume 的 S3 存取點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中更新 Volume 的 S3 存取點詳細資訊或刪除 S3 存取點。
+
+您也可以啟用或停用存取點的 *Inventory table* 。Inventory table 會為所有可透過 S3 存取點存取的物件產生中繼資料，並產生 AWS S3 請求費用。如需詳細資訊，請參閱 link:https://aws.amazon.com/s3/pricing/["Amazon S3 定價文件"^]。
+
+
+
+[[edit-the-s3-access-points-for-a-volume]]
+== 編輯 Volume 的 S3 存取點
+
+在 NetApp Workload Factory 中編輯磁碟區的 S3 存取點。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *Volume 資源管理器*。
+. 選擇要編輯 S3 存取點的 Volume 的動作選單，然後選取 *進階動作*，然後選取 *管理 S3 存取點*。
+. 從 *Manage S3 access points* 畫面中，選擇操作選單，然後選擇 *Edit access point* 。
+. 進行更新，然後選取 *Apply* 。
++
+若要設定 journal table 功能的基礎架構，您必須選擇 *Internet* 作為 S3 存取點的網路設定。link:setup-journal-table.html["瞭解如何為 NetApp Workload Factory 設定 Journal 資料表基礎架構"]。
+
+
+
+
+
+[[view-s3-access-point-details-for-a-volume]]
+== 檢視 Volume 的 S3 存取點詳細資料
+
+查看 S3 存取點詳細資訊，例如別名、ARN 和 S3 URI。啟用清單和日誌表後，您可以查看跨 S3 存取點的使用者存取事件和物件操作的中繼資料和稽核記錄。
+
+.關於此任務
+啟用磁碟區的清單表後，您可以查看連接到該磁碟區的現有 S3 存取點的存取點、清單表和表儲存桶詳細資料。系統也會在 AWS Management Console 中提供指向清單表的連結。
+
+啟用日誌表後，Workload Factory 會在表格中產生存取點的日誌供您參考。此表格包含 CloudTrail 事件、追蹤（AWS 活動記錄）、CloudTrail 篩選器、CloudWatch 日誌群組等資訊。
+
+您可以複製存取點詳細資訊以供其他應用程式使用。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *Volume 資源管理器*。
+. 選擇要檢視詳細資料的 Volume 的操作選單，然後選擇 *進階操作*，接著選擇 *檢視詳細資料*。
++
+詳細資訊顯示在四個標籤下：* Access point *、* Inventory table *、* Journal table * 和 * Table bucket *。
+
+. 如果庫存表或日記帳表的狀態已啟用，但您缺少  `get:Object` 權限，請依照對話方塊中的指示新增所需的權限。
+. 當日誌表狀態為「待處理」時，您必須提供 CloudTrail ARN 才能將日誌表連接到已建立的基礎架構。請依照說明使用 AWS CLI 或 AWS 管理控制台部署 CloudFormation 堆疊，然後返回 Workload Factory 控制台輸入 CloudTrail ARN。
+
+
+
+
+[[delete-the-s3-access-points-for-a-volume-in-netapp-workload-factory]]
+== 在 NetApp Workload Factory 中刪除某個 volume 的 S3 存取端點
+
+從 NetApp Workload Factory 的一個磁碟區中刪除現有的 S3 存取端點。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *Volume 資源管理器*。
+. 選擇要管理 S3 存取點的 Volume 的動作選單，然後選取 *進階動作*，然後選取 *管理 S3 存取點*。
+. 選擇要刪除的 S3 存取點的動作功能表，然後選取 *Delete* 。
+. 在*刪除 S3 存取點*對話方塊中、選取*刪除*以從磁碟區刪除 S3 存取點。
++
+Workload Factory 不會刪除清單表或日誌表、但您可以從 AWS Management Console 手動移除它們。
+
+
+
+.相關資訊
+* link:setup-journal-table.html["設定日誌表基礎架構"]
+

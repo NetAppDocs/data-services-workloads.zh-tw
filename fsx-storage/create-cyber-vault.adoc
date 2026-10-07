@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/create-cyber-vault.html 
+keywords: create cyber vault, volume cyber vault, protect data cyber vault, cyber vault setup 
+summary: 了解 NetApp 網路保存庫以及如何實作網路保存庫架構，以保護您的資料免受勒索軟體和網路威脅。 
+---
+= 使用網路保存庫保護您的 FSx for ONTAP 資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+網路保存庫 Volume 是一個隔離的且安全的儲存設備位置，用於儲存您的資料備份複本，保護其免受勒索軟體攻擊和其他網路威脅。建立保存庫時，您將建立網路保存庫 Volume，停用所有用戶端協定，並在來源 Volume 和網路保存庫 Volume 之間設定複寫關係，並在網路保存庫 Volume 上建立不可變的快照。
+
+.什麼是網路保存庫？
+網路保存庫是一種特定的資料保護技術，包含將關鍵資料儲存在與主要 IT 基礎架構分隔的隔離的環境中。
+
+網路保存庫是一個「物理隔離」的、不可篡改且不可刪除的資料儲存庫，它能夠抵禦影響主網路的威脅，例如惡意軟體、勒索軟體，甚至是內部威脅。網路保存庫可以透過不可篡改且不可刪除的 Snapshot 快照技術來實現。
+
+使用傳統方法的實體隔離備份涉及建立空間，並將主要和次要媒體實體分隔。透過將媒體移至異地和/或切斷連線，惡意行為者將無法存取資料。這可保護資料，但可能會導致恢復時間變慢。
+
+.FSx for ONTAP 網路保存庫
+支援將 Amazon FSx for NetApp ONTAP 作為網路保存庫的來源和目標。
+
+.實作
+Workload Factory 提供建立網路安全保存庫架構的協助。在您聯絡 NetApp 表達實作網路安全保存庫的意願後，NetApp 專家會與您聯絡，討論您的需求。
+
+請傳送電子郵件至 ng-FSx-CyberVault@netapp.com 以開始使用。
+
+.相關資訊
+如需網路保存庫以及如何設定此架構的詳細資訊，請參閱link:https://docs.netapp.com/us-en/netapp-solutions-dataops/cyber-vault/ontap-cyber-vault-overview.html["ONTAP 網路保存庫文件"^]。

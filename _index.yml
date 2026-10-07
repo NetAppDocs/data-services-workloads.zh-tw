@@ -1,0 +1,65 @@
+---
+indexpage:
+  title: NetApp Workload Factory 文件
+  summary: 開始使用 NetApp Workload Factory，讓您充分利用雲端儲存工作負載。設定完成後，您可以建立、最佳化及管理工作負載的儲存系統，探索成本節約效益，使用內建的基礎架構即程式碼協同工具來實現跨平台自動化，並在
+    Workload Factory 中管理您的工作負載。
+  keywords: Workload Factory, fsx, account, credentials, users, permissions, log in,
+    calculator, codebox
+  lead: 立即開始使用 NetApp Workload Factory，以便在使用 Amazon FSx for NetApp ONTAP 和 OCI NetApp
+    儲存服務時充分利用您的工作負載。設定完成後，您可以建立、最佳化和管理適用於工作負載的 FSx for ONTAP 檔案系統，探索 FSx for ONTAP
+    的成本節約效益，使用內建的基礎架構即程式碼協同工具實現跨平台自動化，並在 Workload Factory 中管理您的工作負載。
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 版本資訊
+      url: "/whats-new.html"
+    - title: 了解 NetApp Workload Factory
+      url: "/setup/learn-about-workload-factory.html"
+    - title: 快速入門
+      url: "/setup/quick-start.html"
+    - title: 註冊並登入
+      url: "/setup/sign-up-and-log-in.html"
+  - title: 權限
+    links:
+    - title: Amazon FSx for NetApp ONTAP 的權限
+      url: "/fsx-storage/permissions-reference-fsx.html"
+    - title: OCI NetApp 儲存服務的權限
+      url: "/oci/permissions-oci.html"
+  - title: 針對您的雲端供應商使用 Workload Factory
+    links:
+    - title: Amazon FSx for NetApp ONTAP
+      url: "/fsx-storage/learn-fsx-ontap.html"
+    - title: Google Cloud NetApp Volumes
+      url: "/gcnv/learn-netapp-volumes.html"
+    - title: OCI NetApp 儲存服務
+      url: "/oci/learn-about-oci.html"
+  - title: 管理 Workload Factory
+    links:
+    - title: 設定通知
+      url: "/admin/configure-notifications.html"
+    - title: 管理 AI 功能
+      url: "/admin/manage-genai-features.html"
+    - title: 使用 Codebox 實現任務自動化
+      url: "/admin/use-codebox.html"
+  - title: 架構良好的工作負載
+    links:
+    - title: 了解架構良好的工作負載
+      url: "/admin/well-architected-workloads.html"
+    - title: 實作架構良好的 FSx for ONTAP 工作負載
+      url: "/fsx-storage/improve-configurations.html"
+    - title: 實作架構良好的 Google Cloud NetApp Volumes 工作負載
+      url: "/gcnv/improve-configurations.html"
+  - title: 知識與支援
+    links:
+    - title: 註冊以取得支援
+      url: "/register-support.html"
+    - title: 取得協助
+      url: "/get-help.html"
+  - title: 部落格與社群
+    links:
+    - title: NetApp Console
+      url: https://www.netapp.com/console
+    - title: NetApp Data Services
+      url: https://www.netapp.com/data-services/
+    - title: NetApp 社群
+      url: https://community.netapp.com/

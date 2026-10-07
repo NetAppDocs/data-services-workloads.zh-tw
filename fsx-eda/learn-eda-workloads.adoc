@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: fsx-eda/learn-eda-workloads.html 
+keywords: software builders, development, benefits, eda, electronic design automation, perforce integration, ci, cd 
+summary: 了解如何在 NetApp Workload Factory 中使用 Perforce 整合進行 EDA。 
+---
+= 了解 Workload Factory for EDA 中的 Perforce 整合
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+將 Perforce 與 CI/CD 管線整合，透過自動化建置、測試和部署來增強開發流程，領先業界的實現更快、更可靠的軟體交付。
+
+在工程設計自動化（EDA）領域，持續整合和持續部署（CI/CD）是一種針對軟體開發人員的快速建置環境創建工具。它能夠快速設定個人化的開發環境，節省時間，並為開發人員提供自助服務，同時使 DevOps 團隊能夠控制基礎架構。借助 CI/CD，軟體開發人員可以快速建立工作區，而無需專門的資料儲存設備或對開發基礎架構的了解。
+
+
+
+[[what-is-cicd]]
+== 什麼是 CI/CD？
+
+透過使用 CI/CD，您可以精簡開發人員管理不同軟體版本並與之互動的方式。它與 Perforce Helix Core 配合使用，可以即時 Clone 軟體版本，並為開發、QA 和 CI/CD 建立工作區。
+
+您可以輕鬆建立專案並指派一個 Volume，該 Volume 代表您的軟體環境及其相關組件。軟體更新時，您可以為該 Volume 建立快照，從而擷取軟體當時的運作狀態。您可以即時存取任何軟體版本，無需重新同步，從而節省時間和資源。
+
+利用 NetApp ONTAP 的快照與 Clone 功能，您可以快速存取軟體的不同版本，從而更快地開發與版本更新。如需 Workload Factory 的詳細資訊，請參閱 link:https://docs.netapp.com/us-en/workload-setup-admin/workload-factory-overview.html["Workload Factory 總覽"^]。
+
+
+
+[[cicd-features]]
+== CI/CD 功能
+
+* 建立、編輯和移除專案。請參閱link:manage-projects.html["管理專案"]。
+* 建立已定義軟體版本的快照。參見link:version-projects.html["管理專案版本"]。
+* 建立與刪除工作區（基於 Clone）。請參閱 link:create-workspaces.html["建立工作區"]。
+* 建立存取原則以控制對專案的存取。
+* 分析每個專案的容量使用量。
+* 控制每個專案的 Clone 大小限制和 Clone 保留。
+* 與 Perforce 等版本控制系統整合。參見link:integrate-perforce.html["與 Perforce 整合"]。
+
+
+
+
+[[projects-and-workspaces-in-eda]]
+== EDA 中的專案和工作區
+
+您可以建立一個專案並指派一個 Volume 來代表您的軟體環境及其工件。每次建立新的軟體版本時，都需要重新同步 Volume 資料並建立專案快照，以將 Volume 狀態標記為已知版本。專案來源 Volume 可能會進行捲動更新，並擁有多個快照來標記多個版本。您可以立即將每個快照用作即時 Clone，即可供開發人員、QA 或建置流程使用的專用或共享的可編輯儲存庫。在特定軟體版本的上下文中，Clone 就是一個工作區。
+
+
+
+[[automation-with-workload-factory-codebox]]
+== 使用 Workload Factory Codebox 實現自動化
+
+Workload Factory 引入了內建自動化功能 _Codebox_。Codebox 提供以下自動化優勢：
+
+* *程式碼片段產生*：在資源建立期間產生基礎設施即程式碼（IaC）片段，從而實現與現有協調工作流程的無縫整合。
+* *基礎架構即程式碼輔助工具*：Codebox 是一個基礎架構即程式碼（IaC）輔助工具，可協助開發人員和 DevOps 產生程式碼，以執行 Workload Factory 支援的任何作業。
+* *程式碼檢視器和自動化目錄*：Codebox 提供程式碼檢視器以快速分析自動化，以及自動化目錄以供未來快速重複使用。
+
+
+
+
+[[cost]]
+== 成本
+
+使用 Workload Factory 的 CI/CD 功能是完全免費的。
+
+
+
+[[licensing]]
+== 授權
+
+使用 Workload Factory 的 CI/CD 功能不需要來自 NetApp 的特殊授權。
+
+
+
+[[regions]]
+== 地區
+
+在所有支援 FSx for ONTAP 的商業區域，EDA 均受支援。 https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["檢視支援的 Amazon 區域。"^]
+
+以下 AWS 區域不受支援：
+
+* 中國地區
+* Secret Cloud
+* Top Secret Cloud
+
+
+
+
+[[getting-help]]
+== 尋求協助
+
+Amazon FSx for NetApp ONTAP 是 AWS 第一方解決方案。如需支援，請使用 AWS 管理主控台中的支援中心開啟案例。選擇「FSx for ONTAP」和類別，然後提供所需資訊。
+
+有關 Workload Factory 或 Workload Factory 應用程式和服務的一般問題，請參閱link:../get-help.html["取得 Workload Factory 的 EDA 協助"]。

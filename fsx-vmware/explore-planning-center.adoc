@@ -1,0 +1,147 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/explore-planning-center.html 
+keywords: vm workloads, netapp Workload Factory 
+summary: 您可以使用 VMware 規劃中心來管理已上傳的庫存資料和您建立的移轉計劃。 
+---
+= 探索 VMware 規劃中心
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware 規劃中心可讓您上傳新的虛擬機器清單資料並建立新的移轉計畫，以及管理您已使用 NetApp Workload Factory 儲存的虛擬機器清單資料和移轉計畫。
+
+
+
+[[manage-vm-inventory-data]]
+== 管理虛擬機器清單資料
+
+使用規劃中心建立和管理虛擬機器庫存資料。
+
+
+
+[[upload-vm-inventory-data]]
+=== 上傳虛擬機器清單資料
+
+當您準備使用 Workload Factory 探索移轉到 Amazon AWS 環境的選項時，即可上傳虛擬機器清單資料。請參閱link:upload-vm-inventory.html["上傳虛擬機器清單資料"]相關說明。
+
+
+
+[[rename-a-dataset]]
+=== 重新命名資料集
+
+您可以變更已儲存資料集的名稱。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 選擇您要重新命名的資料集的行動選單（……），然後選擇 *重新命名*。
+. 輸入資料集的新名稱，然後選擇 *儲存*。
+
+
+
+
+[[delete-a-dataset]]
+=== 刪除資料集
+
+當不再需要某個資料集時，您可以隨時將其刪除。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 選擇要刪除的資料集的行動選單（……），然後選擇 *刪除*。
+. 選擇 *刪除* 以確認行動。
+
+
+
+
+[[manage-migration-plans]]
+== 管理移轉計劃
+
+使用移轉中心建立和管理移轉計畫。
+
+
+
+[[provision-a-migration-plan]]
+=== 資源配置移轉計劃
+
+您可以選擇移轉計劃並進行資源配置，以便將虛擬機器移轉到您選擇的 Amazon AWS 環境。
+
+.步驟
+. 使用以下任一方式登入 Workload Factory  https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["主控台體驗"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至儲存、EDA、AI、資料庫、VMware 和管理等工作負載。"]，然後選擇 *VMware*。
++
+規劃中心已顯示。
+
+. 選擇*移轉計畫*。
+. 選擇您要資源配置的移轉計畫的行動選單（……），然後選擇 *資源配置*。
+. 根據移轉計劃，請參考部署檔案系統的說明：
++
+** link:deploy-fsx-file-system.html["為 Amazon VMware Cloud 計畫部署檔案系統"]
+** link:deploy-fsx-file-system-native.html["為 Amazon EC2 計畫部署檔案系統"]
+** link:deploy-fsx-file-system-evs.html["為 Amazon Elastic VMware Service 方案部署檔案系統"]
+
+
+
+
+
+
+[[edit-the-comment-for-a-migration-plan]]
+=== 編輯移轉計畫的註解
+
+如果需要更改移轉計畫的註釋詳情，請在規劃中心內編輯註釋。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 選擇*移轉計畫*。
+. 選擇您要編輯的移轉計畫的行動選單（……），然後選擇 *編輯註解*。
+. 輸入註解並選擇 *儲存*。
+
+
+
+
+[[create-a-pdf-or-csv-report-of-a-migration-plan]]
+=== 建立移轉計劃的 PDF 或 CSV 報告
+
+產生一份包含移轉計劃詳細資訊的 PDF 或 CSV 報告。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 選擇*移轉計畫*。
+. 選擇要建立 PDF 或 CSV 報告的移轉計畫的行動選單（……），然後選擇 *下載計畫（PDF）* 或 *下載 VM 報告（CSV）*。
+. 輸入報告名稱，然後選擇 *儲存*。
+
+
+
+
+[[delete-a-migration-plan]]
+=== 刪除移轉計畫
+
+當不再需要移轉計劃時，您可以隨時將其刪除。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 選擇*移轉計畫*。
+. 選擇要刪除的移轉計畫的「行動」選單（……），然後選擇 *刪除*。
+. 選擇 *Delete* 以確認操作。
+

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: gcnv/quick-start-gcnv.html 
+keywords: set up google cloud netapp volumes, quick start,system 
+summary: 首先設定 Google Cloud，然後建立系統，即可開始使用 Google Cloud NetApp Volumes。 
+---
+= Google Cloud NetApp Volumes 快速入門
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+首先設定 Google Cloud，然後建立系統，即可開始使用 Google Cloud NetApp Volumes。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] link:set-up.html["設定 Google Cloud NetApp Volumes"]
+[role="quick-margin-para"]
+透過 Google 建立服務帳戶。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] link:add-roles.html["指派角色"]
+[role="quick-margin-para"]
+若要開始使用 Google Cloud NetApp Volumes，您必須擁有適當的權限，並獲指派 Google Cloud NetApp Volumes 管理員或 Google Cloud NetApp 檢視者角色。
+
+[role="quick-margin-para"]
+image:role_gcnv.png["Google Cloud NetApp Volumes 角色的快照。"]
+
+[role="quick-margin-para"]
+在 NetApp Console 中，為成員指派正確的角色。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] link:create-discover-systems.html["新增系統"]
+[role="quick-margin-para"]
+在 NetApp Console 中，點擊 *新增系統* ，然後點擊 *Google Cloud Platform* ，再點擊 *Google Cloud NetApp Volumes* ，最後點擊 *探索* 。提供服務帳戶和 Google Cloud 專案的詳細資訊。

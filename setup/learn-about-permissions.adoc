@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: setup/learn-about-permissions.html 
+keywords: permissions, actions 
+summary: 若要使用 NetApp Workload Factory 的功能和服務，您需要提供權限，以便 Workload Factory 可以在您的雲端環境中執行作業。 
+---
+= NetApp Workload Factory 的權限
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要使用 NetApp Workload Factory 的功能和服務，您需要提供權限，以便 Workload Factory 可以在您的雲端環境中執行作業。
+
+
+
+[[why-use-permissions]]
+== 為什麼要使用權限
+
+當您提供權限時，Workload Factory 會將原則附加至執行個體，賦予其管理雲端供應商帳戶中資源和程序的權限。這使得 Workload Factory 能夠執行各種操作，從探索您的儲存環境到部署雲端資源（例如儲存管理中的磁碟區）。
+
+例如，對於 FSx for ONTAP 資料庫工作負載，當 Workload Factory 獲得所需權限後，它會掃描指定帳戶和區域中的所有 EC2 執行個體，並篩選出所有以 Windows 為基礎的機器。如果主機上已安裝並執行 AWS Systems Manager （SSM） 代理程式，且 System Manager 連網設定正確，則 Workload Factory 可以存取 Windows 機器並驗證是否已安裝 SQL Server 軟體。
+
+
+
+[[how-permissions-are-used]]
+== 權限的使用方式
+
+Workload Factory 使用權限來執行特定任務。權限被打包成一組權限原則。權限原則顯示在 link:../admin/codebox-automation.html["Codebox"] 中，並且是可複製的 JSON。每個雲端供應商都有其專屬的一套權限原則，這些原則是根據該雲端環境的特定需求和功能量身打造。本文件提供每個雲端供應商的權限參考資料。
+
+
+
+[[permission-references-by-cloud-provider]]
+=== 雲端供應商的權限參考
+
+請參閱以下頁面，以了解您的雲端供應商的權限要求：
+
+* link:../fsx-storage/permissions-reference-fsx.html["Amazon FSx for NetApp ONTAP"]
+* link:../oci/permissions-oci.html["OCI NetApp 儲存服務"]
+

@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/calculate-evs-savings.html 
+keywords: vm workloads, deploy fsx, deploy storage for vms, evs, savings, calculate, tco, regions 
+summary: 計算使用 Amazon EVS 搭配 FSx for ONTAP 可以節省多少費用。 
+---
+= 使用 NetApp Workload Factory 探索 Amazon Elastic VMware Service 的節省方案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+探索將 VMware 工作負載移轉到 Amazon Elastic VMware Service （EVS） 的節省潛力。此計算機可讓您比較在使用與不使用 Amazon FSx for NetApp ONTAP 作為儲存設備的情況下，使用 Amazon EVS 的成本。
+
+如果節省成本計算器確定最具成本效益的儲存設備是 FSx for ONTAP，您可以建立一份詳細的評估，其中提供移轉計畫，供您在使用前進行審查。之後，您可以使用 Codebox 產生基礎架構即程式碼範本。
+
+
+
+[[explore-savings-for-evs-environments]]
+== 探索 EVS 環境的節省方案
+
+請依照以下步驟探索計畫移轉至 Amazon EVS 環境的潛力節省。
+
+
+NOTE: 在繼續操作之前，請審查節省計算機底部的免責聲明，以了解更多關於價格估算計算方法的資訊。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 從 VMware 選單中，選取 *探索節省*。此時將顯示節省計算機。
++
+在 *環境偏好設定* 窗格中，您可以選擇您的 EVS 部署區域，並相應地調整 TCO 和節省預測。
+
+. 從「*區域*」下拉清單中，選擇 EVS 部署區域以計算節省金額。
+. 根據需要調整以下滑桿，即可查看所選數值的即時節省計算結果。如果使用鍵盤，您可以使用方向鍵進行微調：
++
+** *所需實體 CPU（數量）*
+** *所需實體記憶體容量（GiB）*
+** *所需虛擬機器儲存設備（TiB）*
+
+
+. 在 *EVS 計費方案* 下，選擇您正在使用的方案。
+. 執行下列其中一項作業：
++
+** 若要將移轉顧問link:launch-migration-advisor-evs-manual.html["制定部署計畫"]用於 Amazon EVS 環境，請選擇 *規劃 EVS 移轉*。
+** 選擇 *結案* 以結案 TCO 計算機。
+
+
+

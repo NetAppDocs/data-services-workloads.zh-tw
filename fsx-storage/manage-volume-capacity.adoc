@@ -1,0 +1,232 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-volume-capacity.html 
+keywords: volume size, rebalance volume capacity, adjust volume capacity, volume autogrow, manage volume capacity, FlexVol volume, FlexGroup volume 
+summary: 了解如何管理 Volume 容量，包括手動調整 Volume 大小以及在 Workload Factory 中使用 Volume 自動擴充。 
+---
+= 在 NetApp Workload Factory 中管理 Volume 容量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Volume 容量應隨著需求變化進行調整。您可以手動調整 Volume 大小，或開啟 Volume 自動擴充，讓 Workload Factory 為您管理 Volume 容量。檢查 FlexVol 或 FlexGroup Volume 容量的平衡，並重新平衡 Volume 容量，將檔案均勻分散到節點中的所有 FlexVol Volume 或所有組成 Volume 上，以便所有節點都能參與單一 FlexGroup Volume 的工作負載。
+
+
+
+[[edit-volume-autogrow]]
+== 編輯 Volume 自動擴充
+
+啟用 Volume 自動擴充，即可讓 Workload Factory 為您管理 Volume 容量。您可以隨時停用此功能。
+
+
+NOTE: iSCSI Volume 不支援 Volume 自動擴充。
+
+.開始之前
+若要啟用 Volume 自動擴充，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選取要修改的 Volume 對應的動作選單。
+. 選擇 *基本操作*，然後選擇 *設定 Volume 自動擴充*。
+. 在「設定自動擴充」對話方塊中，啟用 Volume 自動擴充功能，即可自動擴充 Volume 容量，直到 Volume 達到最大容量。此功能可應對不斷增長的資料使用量，確保操作不間斷。
++
+請指定最大 Volume 增長大小與單位。最大增長大小不能小於目前的 Volume 大小。
+
+. 選擇 *Apply*。
+
+
+
+
+[[adjust-volume-capacity-manually]]
+== 手動調整 Volume 容量
+
+您可以透過增加或減少 Volume 的已配置大小來調整 Volume 容量。下表依 Volume 類型顯示最小和最大 Volume 大小：
+
+[cols="1,1,1"]
+|===
+| 磁碟區類型 | 最小尺寸 | 最大大小 
+
+
+| FlexVol Volume | 20 MiB | 300 TiB 
+
+
+| FlexGroup Volume | 800 GiB | 2 PiB 
+|===
+對於 iSCSI LUN，增加 Volume 的大小也會增加主機 LUN 的大小。增加 Volume 容量後，請依照主機作業系統提供的步驟操作，以發現新的 LUN 大小並擴充 LUN 的檔案系統。
+
+僅 NFS 和 SMB/CIFS Volume 支援減少 Volume 大小。
+
+.開始之前
+若要調整 Volume 容量，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選取要修改的 Volume 對應的動作選單。
+. 選擇*基本操作*，然後選擇*調整 Volume 容量*。
+. 在「調整 Volume 容量」對話方塊中，設定 *已配置容量* 和單位。
+. 選擇 *調整* 以套用變更。
+
+
+
+
+[[rebalance-volume-capacity-for-flexvol-and-flexgroup-volumes]]
+== 重新平衡 FlexVol 和 FlexGroup Volume 的 Volume 容量
+
+FlexVol Volume 和 FlexGroup Volume 支援重新平衡 Volume 容量。當隨著時間推移，因為新增檔案和檔案成長而導致不平衡時，重新平衡 Volume 會重新分配容量。手動啟動重新平衡作業後，我們會自動選擇檔案並以不中斷的方式移動它們。Volume 傳輸作業會使用檔案系統資源。
+
+每種 Volume 類型和重新平衡作業的差異如下。
+
+.FlexVol Volume
+FlexVol Volume 是邏輯 Container，可提供管理資料的靈活度，允許擴充、縮小、移動和有效率的複製。它們可用於 NAS 和 SAN 環境。
+
+在 FSx for ONTAP 檔案系統中的單一節點內，FlexVol Volume 可以相對於其他 FlexVol Volume 進行平衡。如果檔案系統只有單一 FlexVol Volume，則無法重新平衡。當檔案系統每個節點有多個 FlexVol Volume，並且選取了單一 FlexVol Volume 時，該 FlexVol Volume 會在所有 FlexVols 的環境中進行平衡，但只允許移動所選的 Volume。
+
+.FlexGroup Volume
+另一方面，FlexGroup Volume 是易擴充的 NAS Container，專為高效能與自動分散負載而設計。它們由多個成員 Volume（組成部分）組成，可透明地共享流量。FlexGroup Volume 提供龐大容量，超越 FlexVol® 限制，容量高達 60PB，可容納 4000 億個檔案。它們透過提供命名空間 Container 來簡化管理。
+
+在具有兩個或多個高可用度（HA）配對的橫向擴充 FSx for ONTAP 檔案系統中，容量會分散在多個組成部分之間。每個組成部分都是一個 Container，決定了單一檔案的最大大小。FSx for ONTAP 會將檔案平均分散在所有組成部分，因此所有節點都能參與單一 FlexGroup Volume 的工作負載。
+
+當組成成分沒有均勻分佈在所有節點上時，FlexGroup Volume 效能就會下降。
+
+檢查 FlexGroup Volume 容量平衡包括評估目前組成組件的配置。當您重新平衡 Volume 的容量時，NetApp Workload Factory 會設計一個新的組成組件配置，其中包含偶數個組成組件，以便將資料均勻分散到所有 HA 配對上。此服務會執行重新平衡計畫，進而改善讀取和寫入作業。
+
+
+NOTE: SAN Volume（如 iSCSI 和 NVMe）不支援重新平衡。
+
+
+
+[[check-the-balance-of-your-volumes]]
+=== 檢查您的 Volume 平衡
+
+檢查 FSx for ONTAP 檔案系統中 FlexVol 或 FlexGroup Volume 的平衡。
+
+.開始之前
+* FlexGroup Volume 平衡僅適用於採用橫向擴充部署且至少包含兩個 HA 配對的 FSx for ONTAP 檔案系統。
+* 若要檢查 Volume 的平衡，您必須link:create-link.html["建立並關聯連結或將現有連結關聯到檔案系統"^]。連結關聯後，請返回此操作。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取包含要重新平衡之 Volume 的檔案系統的動作選單，然後選取 *管理*。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 在 Volume 標籤中，選取表格頂部的 *檢查 Volume 平衡*。
+. 在 Volume 平衡視窗中，審查下列項目的平衡狀態：
++
+** FlexGroup Volume
+** FlexVol Volume
++
+當 Volume 不平衡時，請考慮 <<重新平衡 Volume 容量,重新平衡>>。
+
+
+
+
+
+
+
+[[rebalance-volume-capacity]]
+=== 重新平衡 Volume 容量
+
+重新平衡一個或多個不平衡的 Volume。
+
+
+NOTE: Workload Factory 系統管理員可以在操作期間<<停止 Volume 重新平衡作業,停止重新平衡>>。
+
+.開始之前
+* <<檢查您的 Volume 平衡,檢查 Volume 的平衡>>在重新平衡 Volume 之前。
+* 若要重新平衡 Volume，您必須link:create-link.html["建立並關聯連結或將現有連結關聯到檔案系統"^]。連結關聯後，請返回此操作。
+* 請注意，您重新平衡的 Volume 上的現有快照會變成部分快照，且無法用於還原 Volume 資料，但在重新平衡後所建立的新快照則可用於還原 Volume 資料。
+* 最好將 FlexVol Volume 進行整體重新平衡，以均勻地平衡所有 Volume 資源。未選取的 Volume 不會主動參與平衡程序。
+
+
+[role="tabbed-block"]
+====
+.FlexVol Volume
+--
+在 FSx for ONTAP 檔案系統中的單一節點內，一個 FlexVol Volume 可以相對於其他 FlexVol Volume 進行平衡。當檔案系統每個節點有一個以上的 FlexVol Volume，並且選定單一 FlexVol Volume 時，該 FlexVol Volume 會在所有 FlexVols 的背景下進行平衡，但只有選定的 Volume 允許移動。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取包含要重新平衡之 Volume 的檔案系統的動作選單，然後選取 *管理*。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 在 Volume 標籤中，選取表格頂部的 *檢查 Volume 平衡*。
+. 在 Volumes 平衡視窗中，可選擇在 FlexVol 平衡總結中選取 *資料經銷*，以檢視每個彙總的已使用容量。
+. 選擇 *重新平衡* 以重新平衡一個或多個不平衡的 Volume。
+. 在「重新平衡」精靈中，請依照步驟操作。
++
+.. *最大傳輸率*：選用。預設為停用。啟用節流以限制檔案系統上 Volume 移動的頻寬，並降低傳出 Volume 複寫流量的速度。
++
+請輸入節流值，單位為 MB/s。
+
++
+選取 *下一步*。
+
+.. 審查所有 FlexVol Volume 的目前和建議佈局，然後選取 *下一步*。
+.. 在開始重新平衡作業之前，請仔細審查將會發生的情況與附註。
+
+
+. 選擇 *重新平衡*。
+
+
+.結果
+FlexVol Volume 已重新平衡。作業完成後，檔案系統將恢復至原始值。
+
+--
+.FlexGroup Volume
+--
+資料會在成員 Volume 之間重新分配，以重新平衡 FlexGroup Volume。根據您選擇的佈局，重新平衡作業可能會新增 FlexGroup 成員 Volume 並增加已配置 Volume 的大小。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取包含要重新平衡之 Volume 的檔案系統的動作選單，然後選取 *管理*。
+. 從檔案系統總覽中，選擇 *Volume* 標籤。
+. 在 Volumes 標籤中，選取表格頂部的 *檢查 FlexGroup 平衡*。
+. 在 FlexGroup 平衡視窗中，選取 *重新平衡* 以重新平衡一個或多個不平衡的 Volume。
+. 在重新平衡精靈中，選擇您偏好的資料經銷佈局。
++
+** *效能最佳化*（建議）：增加 FlexGroup 成員 Volume 的數量和 Volume 的配置大小。遵循 NetApp 最佳實務做法。
+** *受限*：支援複寫關係中的 Volume。FlexGroup 成員 Volume 的數量和已配置 Volume 的大小保持不變。如果所有選定的 Volume 都參與複寫關係，則預設選取此項。
+** *手動*：選擇每個 HA 配對所需的 FlexGroup 成員 Volume 數量。根據您的選擇，FlexGroup 成員 Volume 的數量和 Volume 的配置大小可能會增加。
+
+
+. *限流*：選用。預設為停用。啟用限流以限制檔案系統上 Volume 移動的頻寬，並減緩傳出的 Volume 複寫流量。
++
+請輸入節流值，單位為 MB/s。
+
+. 選擇佈局比較檢視，然後選擇 *下一步*。
++
+** Volume 佈局比較
+** FSx for ONTAP 佈局比較
+
+
+. （選用）下載重新平衡前的 Volume 移動清單。
+. 選擇 *重新平衡*。
+
+
+.結果
+在重新平衡期間，FlexGroup 成員 Volume 會逐一移動。作業完成後，檔案系統將恢復為原始值。
+
+--
+====
+
+
+[[stop-a-volume-rebalance-operation]]
+=== 停止 Volume 重新平衡作業
+
+您可以隨時停止重新平衡作業，這不會造成中斷。停止作業會中止作用中 Volume 移動。
+
+您可以稍後啟動另一次重新平衡作業。
+
+.步驟
+. 開始重新平衡作業後，從 Volume 平衡頁面中，選取 *停止重新平衡*。
+. 在「停止重新平衡」對話方塊中，選取 *停止*。
+
+
+.結果
+Volume 重新平衡作業停止，且作用中 Volume 移動中止。

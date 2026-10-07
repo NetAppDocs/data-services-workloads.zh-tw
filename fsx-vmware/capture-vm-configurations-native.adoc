@@ -1,0 +1,146 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/capture-vm-configurations-native.html 
+keywords: vm workloads, capture vm details 
+summary: 您可以使用移轉顧問虛擬機器收集器指令碼或 RVTools 來擷取目前的虛擬機器組態。我們建議您使用移轉顧問虛擬機器收集器指令碼，因為它能同時收集虛擬機器組態和效能資料，以提供最準確的規劃。 
+---
+= 在將 VMware 工作負載移轉到 Amazon EC2 之前，請擷取您的 VM 組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用移轉顧問 VM 資料收集指令碼、RVTools 或 NetApp Data Infrastructure Insights 來擷取目前的 VM 組態。我們建議您使用移轉顧問 VM 收集指令碼或 Data Infrastructure Insights，因為這些選項會同時收集 VM 組態和效能資料，以制定最準確的計畫。
+
+[role="tabbed-block"]
+====
+.使用 RVTools（快速評估）
+--
+RVTools 是一款 Windows 應用程式，可與 VCenter 和 ESX 伺服器（5.x 至 8.0）互動，以擷取有關 VMware 虛擬環境的資訊。它會收集有關虛擬機器、CPU、記憶體容量、磁碟、叢集、ESX 主機、資料存放區等資訊。您可以將這些資訊匯出至 xlsx 檔案，以便與移轉顧問搭配使用。
+
+link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["了解更多關於 RVTools 的資訊"^]
+
+.步驟
+. 從 link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["RVTools 網站"^] 下載並安裝 RVTools 4.4.2 或更高版本
+. 啟動 RVTools 並登入目標 VCenter 伺服器。
++
+這將擷取有關該 VCenter Server 的資訊。
+
+. 將您的 VMware 資訊匯出到 xlsx 或 xls 檔案。
++
+詳情請參閱 link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["RVTools 文件"^] 中的「命令列參數」章節。
+
+
+
+.結果
+包含結果的 xlsx 或 xls 檔案將會儲存到您的工作目錄中。
+
+--
+.使用移轉顧問 VM 收集器指令碼（詳細規劃）
+--
+NetApp 移轉顧問 VM 收集器指令碼會從您的 vCenter 收集 VM 組態資訊，類似於 RVTools 所收集的資訊，不過，它會擷取目前的 VM 效能資料，以提供實際的讀取與寫入 IOPS 及處理量統計資料。您可以在下列兩種模式之一使用指令碼：
+
+* 每小時資料收集
+* 每日資料收集
+
+
+您需要啟動移轉顧問，才能從 Codebox 視窗複製移轉顧問 VM 收集器指令碼。
+
+.開始之前
+執行收集器指令碼的系統必須滿足以下要求：
+
+* 必須安裝 Microsoft PowerShell 7.0 或更高版本。如果您需要安裝 PowerShell，請參閱 https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4["Microsoft PowerShell 文件"^]。
+* 必須安裝 VMware PowerCLI。如果您需要安裝 PowerCLI，請參閱 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-F02D0C2D-B226-4908-9E5C-2E783D41FE2D.html["VMware PowerCLI 文件"^]。
+* 必須停用 SSL 憑證檢查。
+* PowerShell 必須允許執行未簽署的指令碼。
+
+
+請注意，如果您打算從虛擬機器擷取長期統計資料（每日統計資料），則必須在 vSphere 管理主控台（VMware 管理環境）中啟用統計資料層級 3 或更高。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心隨即顯示。在規劃中心，您可以上傳您的 VM 清單資料、查看先前的清單資料上傳記錄，並使用任何 VM 清單資料集規劃移轉。然後選取 *移轉至 AWS 原生運算*。VMware 移轉顧問啟動畫面隨即顯示。
+
++
+審查資訊以了解移轉顧問的效益。
+
+. 準備就緒後，請選取 *開始*。
+. 選擇 *詳細規劃* 圖塊，然後選擇 *下一步*。
++
+Codebox 視窗出現在頁面右側。
+
+. 在 Codebox 視窗中，選擇 image:button-download-codebox.png["下載按鈕"] 將移轉顧問資料收集器指令碼（名為 "list-vms.ps1"）儲存至目標系統，或選擇 image:button-copy-codebox.png["複本按鈕"] 複本該指令碼，以便將其貼上至適當的系統。
+. 請依照以下步驟擷取目前虛擬機器的組態：
++
+.. 登入您下載資料收集器的系統，該系統上已安裝 PowerShell 和 PowerCLI。
+.. 執行下列命令以連線至您的 VMware vCenter 伺服器：
++
+[source, console]
+----
+Connect-VIServer -server <server_IP>
+----
++
+請將 <server_IP> 替換為您的 VMware 伺服器的 IP 位址或主機名稱。
+
+.. 執行您下載的資料收集器指令碼，並指定「每小時」或「每天」VM 統計資料的資料收集選項。
++
+[source, console]
+----
+./list-vms.ps1 -PerformanceStatisticsTimePeriod <LastHour | LastDay>
+----
++
+其中：
+
++
+*** *LastHour* 以 20 秒的間隔收集過去 1 小時的 IOPS 和處理量資料。
+*** *LastDay* 以 5 分鐘為間隔收集過去 24 小時的 IOPS 和處理量資料。
+
+
+
+
++
+您也可以選擇不指定任何選項來執行資料收集指令碼；這樣您就可以從互動式選單中選擇資料收集週期。
+
+
+
+.結果
+該指令碼會在目前工作目錄中輸出一個檔案名稱包含時間戳記的壓縮檔案。該 .zip 檔案包含所有虛擬機器的清單及其屬性，以及它們的 IOPS 和處理量資料。
+
+--
+.使用 NetApp Data Infrastructure Insights（詳細規劃）
+--
+NetApp Data Infrastructure Insights 是一款雲端基礎架構監控工具，可讓您對完整的基礎架構具有可見度。您需要啟用移轉顧問與 Data Infrastructure Insights 之間的臨時 API 通訊，以便移轉顧問可以收集有關您 VMware 基礎架構的資訊。
+
+https://docs.netapp.com/us-en/data-infrastructure-insights/["了解更多關於 Data Infrastructure Insights"^]
+
+.步驟
+. 登入您的 Data Infrastructure Insights 帳戶。
+. 在側邊導覽功能表中，選取 *Admin*。
+. 在出現的選單中，選擇 *API 存取*。
+. 在 *API 存取權杖* 標籤中，選擇 *+ API 存取權杖*。
++
+此時會顯示「建立 API 存取權杖」對話方塊。
+
+. 請提供 API 權杖的名稱和執行摘要。
+. 在 *此權杖將用於呼叫哪種類型的 API* 下，請選擇下列其中一項：
++
+** 擷取單元
+** 資產
+** 資料收集
+
+
+. 在 *權限* 下選擇 *唯讀*。
+. 在 *Token expires in* 之下，選擇 API 權杖有效的時間長度。
+. 取消勾選 *自動輪調 Kubernetes 權杖*。
+. 選擇 *Save*。
+. 選擇 *複製 API 存取權杖*。
+. 請儲存此權杖，以便與 Workload Factory 移轉顧問搭配使用。
+
+
+--
+====
+.接下來呢？
+link:launch-onboarding-advisor-native.html["使用移轉顧問建立 Amazon EC2 部署計劃"]。

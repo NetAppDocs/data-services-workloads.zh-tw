@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/quick-start-databases.html 
+keywords: requirements, setup, quick start, getting started, getting started with databases, getting started with workload factory for databases 
+summary: 開始使用 NetApp Workload Factory for Databases 來使用基礎架構即程式碼片段、探索主機、管理資源等等。 
+---
+= NetApp Workload Factory for Databases 快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 NetApp Workload Factory for Databases，您可以立即以 _檢視、規劃與分析_ 權限開始使用。如果您想使用 Workload Factory 來探索主機、管理資源等，只需幾個步驟即可開始使用。
+
+您必須擁有 AWS 帳戶才能使用資料庫。
+
+請依照以下步驟開始。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]登入 NetApp Workload Factory
+[role="quick-margin-para"]
+您需要link:../setup/sign-up-and-log-in.html["註冊"^]並登入 NetApp Console。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 為資料庫工作負載新增憑證和權限
+[role="quick-margin-para"]
+link:../fsx-storage/add-credentials.html["手動向帳戶新增憑證"^]這包括選擇資料庫工作負載功能，並選擇link:../fsx-storage/permissions-reference-fsx.html["權限原則"^]來滿足您的需求。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 探索或部署資源
+[role="quick-margin-para"]
+透過憑證和 IAM 原則，您可以探索清單中的現有資料庫資源，或是 link:create-sql-database-server.html["部署 Microsoft SQL Server"] 或 link:create-postgresql-server.html["部署 PostgreSQL 伺服器"]。清單提供統一的介面來管理資源。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"] 探索節省成本的機會
+[role="quick-margin-para"]
+當您的資料庫在內部部署或 AWS 上執行，且儲存設備位於 Amazon Elastic Block Store （EBS） 或 FSx for Windows File Server 時，您可以link:explore-savings-databases.html["使用 Explore 節省計算機"]有效地分析成本並規劃遷移。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"] 實作架構良好的資料庫組態
+[role="quick-margin-para"]
+Workload Factory for Databases 會定期從架構完善的儀表板分析 Amazon FSx for NetApp ONTAP 儲存設備上的 Microsoft SQL Server 和 Oracle 部署。若要從架構完善的儀表板疑難排解資料庫資源的問題，您首先需要link:register-instance.html["註冊執行個體"]。
+
+[role="quick-margin-para"]
+註冊執行個體後，您可以在 Workload Factory 中檢視架構良好的狀態並採取行動以 link:optimize-configurations.html["實作架構良好的資料庫組態"]。
+
+.接下來
+當您在資料庫清單中註冊具有 FSx for ONTAP 檔案系統儲存設備的資源後，您可以link:create-sql-database.html["建立使用者資料庫"]或link:create-sandbox-clone.html["Clone 您的主機以建立沙箱"]。

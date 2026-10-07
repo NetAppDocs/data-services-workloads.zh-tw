@@ -1,0 +1,16 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/deploy-fsx-file-system-native.html 
+keywords: vm workloads, deploy fsx, deploy storage for vms 
+summary: 在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。 
+---
+= 部署建議的 FSx for ONTAP 檔案系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在您確認建議的 FSx for ONTAP 檔案系統（或某些情況下的多個檔案系統）符合您的確切要求後，您可以使用 Workload Factory 將系統部署到您的 AWS 環境中。
+
+依照 link:../fsx-storage/create-discover-systems.html["在 NetApp Workload Factory 中建立 FSx for ONTAP 檔案系統"^] 中的說明，根據 Workload Factory 建議的組態部署 FSx for ONTAP 檔案系統。您可以使用說明中的 *進階建立* 步驟來完全自訂檔案系統。

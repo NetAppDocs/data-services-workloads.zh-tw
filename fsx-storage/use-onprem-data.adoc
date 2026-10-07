@@ -1,0 +1,166 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/use-onprem-data.html 
+keywords: use, detect, replicate, remove, on-premises, ONTAP cluster, on-premises cluster, ONTAP 
+summary: 在 NetApp Workload Factory 中探索並複寫內部部署的 ONTAP 資料，以便將其用作雲端備份。 
+---
+= 在 NetApp Workload Factory 中複寫內部部署 ONTAP 叢集資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 NetApp Workload Factory 中探索並複寫內部部署的 ONTAP 資料，以便將其用作雲端備份。
+
+.關於此任務
+若要使用內部部署 ONTAP 叢集中的資料，您必須先探索內部部署 ONTAP 叢集。探索內部部署 ONTAP 叢集後，您可以將資料用於下列任何使用案例。
+
+使用案例::
++
+--
+* *備份與移轉到雲端*：將內部部署 ONTAP Volume 資料複寫到 FSx for ONTAP 檔案系統，即可用作雲端中的備份。
+* *資料分層*：複寫後，不常存取的內部部署 ONTAP Volume 資料可以從 SSD 儲存層分層至容量資源池儲存層。
+
+
+--
+
+
+
+
+[[discover-an-on-premises-ontap-cluster]]
+== 探索內部部署 ONTAP 叢集
+
+在 NetApp Workload Factory 中探索內部部署 ONTAP 叢集，以便您可以將資料複寫到 Amazon FSx for NetApp ONTAP 檔案系統。
+
+.開始之前
+在開始之前，請確定您具備下列項目：
+
+* 用於複寫的 FSx for ONTAP 檔案系統。
+* 要與探索到的內部部署叢集建立關聯的已連線連結。如果您沒有連結，您需要link:create-link.html["建立一個"^]。
+* 具備所需權限的 ONTAP 使用者憑證。
+* 本地部署的 ONTAP 版本 9.8 以上。
+* 連接方式如下圖所示。
++
+image:screenshot-on-prem-connectivity.png["螢幕截圖顯示如何將內部部署 ONTAP 叢集的管理路徑和資料路徑連接到 Amazon Web Services 雲端"]
+
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中，選擇 *內部部署 ONTAP*。
+. 選擇 *探索*。
+. 檢閱先決條件並選取 *下一步*。
+. 在 Discover ONTAP 內部部署頁面上，在 *叢集組態* 下提供下列資訊：
++
+.. *連結*：選擇一個連結。此連結將與內部部署叢集關聯，以在叢集和 Workload Factory 之間建立連線。
++
+如果您尚未建立連結，請按照說明操作，然後返回此操作並選擇連結。
+
+.. *叢集 IP 位址*：提供要複寫的內部部署 ONTAP 叢集的 IP 位址。
+.. *ONTAP credentials*：請提供以下資訊：
++
+*** GovCloud 帳戶：使用 ONTAP 憑證輸入 ARN。
+*** 所有其他帳戶：輸入內部部署 ONTAP 叢集的 ONTAP 憑證。確保使用者擁有所需的權限。
+
+
+
+
+. 選擇 *探索* 以開始探索程序。
+
+
+.結果
+已探索內部部署 ONTAP 叢集，現在該叢集會顯示在 *On-Premises ONTAP* 標籤中。
+
+您現在可以檢視內部部署 ONTAP 叢集中的資料和 <<從內部部署 ONTAP 叢集複寫 Volume 資料,將資料複寫到 FSx for ONTAP 檔案系統>>。
+
+
+
+[[replicate-volume-data-from-an-on-premises-ontap-cluster]]
+== 從內部部署 ONTAP 叢集複寫 Volume 資料
+
+將 Volume 資料從內部部署 ONTAP 叢集複寫到 FSx for ONTAP 檔案系統。複寫後，這些資料可用於豐富 AI 知識庫。
+
+.開始之前
+* 您必須探索內部部署 ONTAP 叢集才能複寫其 Volume 資料。
+* 您必須有一個可用的 FSx for ONTAP 檔案系統作為複寫目標。
+* 您用於複寫關係的內部部署 ONTAP 叢集和 FSx for ONTAP 檔案系統都必須具有關聯的連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中，選擇 *內部部署 ONTAP*。
+. 若要依儲存 VM 尋找 Volume，您可以從下拉式選單中選擇 *選取儲存 VM*。
+. 選擇一個或多個要複寫的 Volume，然後選擇 *複寫*。
+. 在「建立複寫」頁面的「複寫目標」下，提供以下內容：
++
+.. *FSx for ONTAP 檔案系統*：選擇目標 FSx for ONTAP 檔案系統的憑證、區域和 FSx for ONTAP 檔案系統名稱。
+.. *Storage VM 名稱*：從下拉式選單中選擇 Storage VM。
+.. *Volume 名稱*：目標 Volume 名稱會以下列格式自動產生 `{OriginalVolumeName}_copy`。您可以使用自動產生的 Volume 名稱，也可以輸入其他 Volume 名稱。
+.. *資料分層*：選擇目標 Volume 中儲存資料的分層原則。
++
+*** *自動*：使用 Workload Factory FSx for ONTAP 使用者介面建立 Volume 時的預設分層原則。將包含使用者資料和快照在內的所有冷資料分層到容量資源池儲存層一段特定時間。
+*** *僅 Snapshot 快照技術*：僅將快照資料分層至容量資源池儲存層。
+*** *無*：將您 Volume 的所有資料保留在主儲存設備分層。
+*** *全部*：將所有使用者資料和 Snapshot 快照技術資料標記為冷資料，並將其儲存在容量資源池儲存層中。
++
+請注意，某些分層原則具有相關聯的最短冷卻期，該冷卻期設定了 Volume 中的使用者資料必須保持非作用中狀態的時間（或 _冷卻天數_），以便將資料視為「冷」並移至容量資源池儲存層。冷卻期從資料寫入磁碟時開始。
+
++
+如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。
+
+
+
+.. *最大傳輸率*：選擇*有限制*並輸入最大傳輸限制（單位為 MiB/s）。或者，選擇*無限制*。
++
+如果沒有限制，網路和應用程式效能可能會下降。或者，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
+
+
+
+. 在複寫設定中，提供以下內容：
++
+.. *複寫間隔*：選擇快照從來源 Volume 傳送到目標 Volume 的頻率。
+.. *長期保留*：可以選擇啟用快照以進行長期保留。
++
+如果啟用長期保留，請選擇現有原則或建立新原則，以定義要複寫的快照和要保留的數量。
+
++
+*** 對於現有原則，請選擇 *選擇現有原則*，然後從下拉式選單中選擇現有原則。
+*** 如需建立新原則，請選擇 *建立新原則* 並提供以下資訊：
++
+**** *原則名稱*：請輸入原則名稱。
+**** *Snapshot 快照技術原則*：在表格中，選擇 Snapshot 快照技術原則頻率和要保留的複本數。您可以選擇多個 Snapshot 快照技術原則。
+
+
+
+
+
+
+. 選擇 *Create*。
+
+
+.結果
+複寫關係會顯示在目標 FSx for ONTAP 檔案系統的 *複寫關係* 索引標籤中。
+
+
+
+[[remove-an-on-premises-ontap-cluster-from-netapp-workload-factory]]
+== 從 NetApp Workload Factory 移除內部部署 ONTAP 叢集
+
+需要時，從 NetApp Workload Factory 移除內部部署 ONTAP 叢集。
+
+.開始之前
+在移除內部部署 ONTAP 叢集之前，您必須針對叢集中的任何 Volume link:manage-replication.html["刪除所有現有複寫關係"]，以免留下任何中斷的關係。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中，選擇 *內部部署 ONTAP*。
+. 選擇要移除的內部部署 ONTAP 叢集。
+. 選取動作選單，然後選取 *從 Workload Factory 移除*。
+
+
+.結果
+內部部署 ONTAP 叢集已從 NetApp Workload Factory 移除。

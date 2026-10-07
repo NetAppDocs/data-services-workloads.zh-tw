@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/quick-start-evs.html 
+keywords: quick start 
+summary: 開始使用 VMware 移轉顧問，將您目前的基礎架構移轉至 Amazon EVS，並使用 Amazon FSx for ONTAP 作為外部 NFS 資料儲存。 
+---
+= 使用 VMware 工作負載移轉顧問移轉至 Amazon EVS 的快速入門
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+開始使用 VMware 移轉顧問，將您目前的基礎架構移轉至 Amazon EVS，並使用 Amazon FSx for ONTAP 作為外部 NFS 資料儲存。
+
+在開始之前，您應該先了解link:../fsx-storage/permissions-reference-fsx.html["NetApp Workload Factory 的權限"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 登入 Workload Factory
+[role="quick-margin-para"]
+您需要link:../setup/sign-up-and-log-in.html["在 Workload Factory 設定帳戶"^]並登入 NetApp Console。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 新增憑證和權限
+[role="quick-margin-para"]
+選擇 link:../fsx-storage/permissions-reference-fsx.html["權限原則"] 以滿足您的需求。
+
+[role="quick-margin-para"]
+如果您選擇不授予權限，您可以開始使用 Workload Factory for Databases 從 link:../fsx-storage/permissions-reference-fsx.html["權限原則"^] 複製部分完成的程式碼範例。
+
+[role="quick-margin-para"]
+如果您選擇授予權限，您將需要link:../fsx-storage/add-credentials.html["手動向帳戶新增憑證"]，其中包括選擇工作負載功能（例如資料庫和 VMware），以及為所需權限建立 IAM 原則。
+
+[role="quick-margin-para"]
+link:../fsx-storage/add-credentials.html["了解如何新增憑證和權限"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]上傳虛擬機器清單資料
+[role="quick-margin-para"]
+您可以使用規劃中心上傳目前虛擬機器環境的清單詳細資訊。使用資料收集指令碼、RVTools 或 NetApp Data Infrastructure Insights 來擷取目前的虛擬機器組態，並將資料上傳到規劃中心。
+
+[role="quick-margin-para"]
+link:upload-vm-inventory.html["了解如何上傳虛擬機器清單資料"^]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四"] 使用 VMware 移轉顧問建立部署計畫
+[role="quick-margin-para"]
+啟動 VMware 移轉顧問，並手動設定要在 Amazon Elastic VMWare Service 基礎架構上建立的 VM 環境，使用 Amazon FSx for ONTAP 檔案系統作為外部 NFS 資料儲存區。
+
+[role="quick-margin-para"]
+link:launch-migration-advisor-evs.html["了解如何使用 VMware 移轉顧問建立部署計畫"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"] 部署建議的 FSx for ONTAP 檔案系統
+[role="quick-margin-para"]
+部署新的 FSx for ONTAP 檔案系統，它將為 Amazon EC2 基礎架構中的虛擬機器提供資料存放區。
+
+[role="quick-margin-para"]
+link:deploy-fsx-file-system-evs.html["了解如何部署新的 FSx for ONTAP 檔案系統"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"] 審查針對您 EVS 環境的精心設計見解
+[role="quick-margin-para"]
+當您的 EVS 環境被發現時，Workload Factory 會自動執行每日 Well-Architected 掃描，以識別組態問題並提供修復建議。
+
+[role="quick-margin-para"]
+link:view-evs-well-architected.html["瞭解如何實作架構良好的組態"^]。

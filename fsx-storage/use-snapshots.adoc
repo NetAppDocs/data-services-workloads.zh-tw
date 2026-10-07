@@ -1,0 +1,151 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/use-snapshots.html 
+keywords: create snapshot, snapshot 
+summary: 透過在 NetApp Workload Factory 中建立和管理快照，保護 Volume 資料免於意外刪除或毀損。 
+---
+= 在 NetApp Workload Factory 中使用快照來保護資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過在 NetApp Workload Factory 中建立和管理快照，保護 Volume 資料免於意外刪除或毀損。您可以隨選建立 Volume 的快照，定義快照原則以自動化儲存 VM 的快照建立與保留，以及從現有快照還原 Volume，以恢復特定時間點的資料。
+
+
+
+[[create-an-on-demand-snapshot-of-a-volume]]
+== 隨需建立 Volume 的快照
+
+在 NetApp Workload Factory 中建立 FSx for ONTAP Volume 的手冊 Snapshot 快照技術。Snapshot 快照技術是 Volume 內容的時間點版本。
+
+Snapshot 快照技術是 Volume 的資源，是對資料的即時擷取，僅對修改過的資料使用空間。由於資料會隨時間變化，Snapshot 快照技術通常會隨著時間使用更多空間。
+
+FSx for ONTAP Volume 使用即時邊寫入邊複製，因此 Snapshot 快照技術中任何未修改的檔案都不會使用 Volume 的任何容量。
+
+
+NOTE: 快照並非資料副本。如果您需要建立資料副本，請考慮使用磁碟區備份或磁碟區複寫功能。
+
+.開始之前
+您必須關聯一個連結才能建立 Volume 的手冊快照。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中選擇包含要建立快照的 Volume 的檔案系統的操作選單，然後選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Volumes* 標籤。
+. 在 *Volumes* 標籤中，選擇要使用快照保護的 Volume 的動作選單。
+. 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
+. 在「管理快照」頁面中，選擇 *建立快照*。
+. 在「建立 Snapshot 快照技術」對話方塊中，執行下列操作：
++
+.. 在 *Snapshot 快照技術名稱* 欄位中輸入快照名稱。
+.. （可選）選擇標籤或建立新標籤。
+.. 將*保留期間*設定為數小時、數天、數月或數年。
+.. 選用：*將此 Snapshot 快照技術設為不可變*，以防止 Snapshot 快照技術在保留期間被刪除。
++
+接受關於不可變 Snapshot 快照技術的聲明。
+
+
+
+. 選擇 *Create*。
+
+
+
+
+[[create-a-snapshot-policy-for-storage-vms]]
+== 為儲存設備虛擬機器建立快照原則
+
+在 Workload Factory 中為儲存設備虛擬機器建立自訂 Snapshot 原則，以管理 Snapshot 快照技術的建立和保留。Snapshot 原則定義了系統如何為儲存設備虛擬機器建立 Snapshot 快照技術。您可以為 FSx for ONTAP 檔案系統中的儲存設備虛擬機器建立 Snapshot 原則。您也可以跨多個儲存設備虛擬機器共享該原則。
+
+您可以建立與 FSx for ONTAP 的三個內建 Snapshot 原則不同的自訂 Snapshot 原則：
+
+* `default`
+* `default-1weekly`
+* `none`
+
+
+預設情況下，每個 Volume 都與檔案系統的 `default` Snapshot 原則關聯。我們建議大多數工作負載使用此原則。
+
+自訂原則可讓您指定何時建立 Snapshot 快照技術、保留多少份複本，以及如何命名它們。
+
+.開始之前
+* 一旦建立 Snapshot 原則，就無法修改其與儲存 VM 的關聯，但您隨時可以在 Volume 新增或移除該原則。
+* 在使用快照之前，請考慮以下有關快照容量的問題：
++
+** 對於大多數資料集而言，額外增加 20% 的容量足以將快照保留長達四周。隨著資料越來越舊，其用於還原的可能性會降低。
+** 覆寫 Snapshot 快照技術中的所有資料會消耗大量的 Volume 容量，這會影響 Volume 容量的配置。
+
+
+* 若要建立自訂快照原則，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"]。連結關聯後，請返回此操作。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選擇包含該 Volume 的檔案系統的動作選單，然後選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Storage VMs* 標籤。
+. 從 *Storage VMs* 標籤中，選擇要以排程的 Snapshot 快照技術保護的 Volume 的操作選單，然後選擇 *進階操作*，接著選擇 *管理 Snapshot 原則*。
+. 在 Snapshot 原則管理頁面上，選取 *建立 Snapshot 原則*。
+. 在 *Snapshot 原則名稱* 欄位中，輸入 Snapshot 原則的名稱。
+. （可選）輸入 Snapshot 原則的執行摘要。
+. 在 *原則排程與複本* 下，選擇建立 Snapshot 快照技術的時間。例如，每分鐘或每小時。
++
+您可以選擇多個頻率。
+
+. 在 *複本數* 下方，輸入要保留的複本數。
++
+最大複本數量為 1,023 份。
+
+. 選用：在 *命名慣例* 下，輸入原則的 *前綴*。
+. *保留標籤*會自動填入。
++
+此標籤指的是 SnapMirror 或複寫標籤，用於僅選擇指定的快照，以從來源複寫至目標檔案系統。
+
+. 選用：為您需要的任何排程啟用 *不可變的 Snapshot 快照技術*，為每個排程設定 *保留期間*，然後接受聲明以繼續。
++
+啟用不可變的 Snapshot 快照技術會鎖定此 Snapshot 原則中的所有 Snapshot 快照技術，以防止 Snapshot 快照技術在保留期間被刪除。
+
+. *跨儲存設備虛擬機器共享*：預設為啟用。啟用後，Snapshot 原則將在檔案系統中的所有儲存設備虛擬機器之間共享。停用此選項可為單一儲存設備虛擬機器建立 Snapshot 原則。
+. 選擇 *Create*。
+
+
+
+
+[[restore-a-volume-from-a-snapshot]]
+== 從快照還原 Volume
+
+您可以將快照中的資料還原到現有 Volume 或新 Volume。還原作業支援在 Volume 包含已刪除或毀損的檔案時進行時間點恢復。
+
+從快照建立新 Volume 會在幾秒鐘內製作整個 Volume 的複本，與 Volume 的大小無關。新建立的複本代表一個新 Volume。
+
+.開始之前
+從快照建立磁碟區之前，請考慮以下限制：
+
+* 只有當您擁有該 Volume 的現有快照複本時，才能從快照還原 Volume。
+* 權限模型變更：如果您使用此操作切換網路連接儲存設備 (NAS) 傳輸協定類型，則安全樣式提供的權限模型也可能會切換。您可能會遇到檔案存取權限問題，這些問題只能透過系統管理員存取，使用 NAS 用戶端工具進行權限設定來手動解決。
+
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選擇包含該 Volume 的檔案系統的動作選單，然後選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Volumes* 標籤。
+. 在 *Volumes* 標籤中，選擇要從 Snapshot 快照技術還原的 Volume 的操作選單。
+. 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
+. 在「管理 Snapshot」頁面中，選取要還原的 Snapshot 的動作選單，然後選取 *還原*。
+. 在「從快照還原 Volume」對話方塊中，從下列選項中選擇：
++
+** 切換以選取 *還原為新的 Volume*。
++
+在 *已還原 Volume 名稱* 欄位中，輸入要還原的 Volume 的唯一名稱。
+
+** 將快照中的資料還原到現有 Volume。此作業將永久刪除快照建立後修改的所有資料。
++
+接受此聲明即可繼續。
+
+
+
+. 選擇 *還原*。
+

@@ -1,0 +1,420 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/create-sql-database-server.html 
+keywords: create, server, Microsoft SQL, deploy, host, deploy a database host, database host 
+summary: 在 NetApp Workload Factory for Databases 中建立一個新的 Microsoft SQL Server。 
+---
+= 在 NetApp Workload Factory for Databases 中建立 Microsoft SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 Workload Factory for Databases 中建立新的 Microsoft SQL Server（或資料庫主機）需要 FSx for ONTAP 檔案系統部署和 Active Directory 資源。
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+在從 Workload Factory 建立 Microsoft SQL Server 之前，請先了解資料庫主機組態的可用儲存部署類型、Microsoft 多路徑 I/O 組態、Active Directory 部署、連網詳細資訊以及完成此操作的要求。
+
+部署完成後，您需要<<步驟 2：在 Microsoft SQL Server 上啟用遠端連線,在 Microsoft SQL Server 上啟用遠端連線>>。
+
+.FSx for ONTAP 檔案系統部署
+建立新的 Microsoft SQL Server 需要使用 FSx for ONTAP 檔案系統作為儲存設備後端。您可以使用現有的 FSx for ONTAP 檔案系統，也可以建立一個新的檔案系統。如果您選擇現有的 FSx for ONTAP 檔案系統作為資料庫伺服器的儲存設備後端，我們會為 Microsoft SQL 工作負載建立一個新的儲存設備虛擬機器。
+
+FSx for ONTAP 檔案系統有兩種 Microsoft SQL Server 部署模型：_容錯移轉叢集執行個體（FCI）_或_獨立_。根據您選擇的 FSx for ONTAP 部署模型，將為 FSx for ONTAP 檔案系統建立不同的資源。
+
+* *容錯移轉叢集執行個體（FCI）Microsoft SQL 部署*：當為 FCI 部署選擇新的 FSx for ONTAP 檔案系統時，會部署多可用度區域 FSx for NetApp ONTAP 檔案系統。FCI 部署會為資料、日誌和 tempdb 檔案建立分隔的 Volume 和 LUN。此外，也會為 Windows 叢集建立額外的 Volume 和 LUN，作為仲裁或見證磁碟。
+* *獨立式 Microsoft SQL 部署*：建立新的 Microsoft SQL Server 時，會建立單一可用區 FSx for ONTAP 檔案系統。此外，也會為資料、日誌和 tempdb 檔案建立分隔的 Volume 和 LUN。
+
+
+.Microsoft 多路徑 I/O 組態
+兩種 Microsoft SQL Server 部署模型皆要求使用 iSCSI 儲存傳輸協定建立 LUN。Workload Factory 在為 FSx for ONTAP 上的 SQL Server 設定 LUN 時，會設定 Microsoft 多路徑 I/O（MPIO）。MPIO 是根據 AWS 和 NetApp 最佳實務進行設定。
+
+如需詳細資訊，請參閱 link:https://aws.amazon.com/blogs/modernizing-with-aws/sql-server-high-availability-amazon-fsx-for-netapp-ontap/["使用 Amazon FSx for NetApp ONTAP 的 SQL Server 高可用度部署"^]。
+
+.Active Directory
+在部署期間，Active Directory （AD） 會發生以下情況：
+
+* 如果您未提供現有的 SQL 服務帳戶，則會在網域中建立新的 Microsoft SQL 服務帳戶。
+* Windows 叢集、節點主機名稱和 Microsoft SQL FCI 名稱會作為代管電腦新增至 Microsoft SQL 服務帳戶。
+* Windows 叢集項目獲指派將電腦新增至網域的權限。
+
+
+.使用者管理的 Active Directory 安全性群組
+如果在 Workload Factory 中部署 Microsoft SQL Server 時選擇「使用者管理的 Active Directory」，則必須提供一個安全性群組，允許 EC2 執行個體與目錄服務之間的流量以進行部署。Workload Factory 不會像對 AWS Managed Microsoft AD 那樣，自動為使用者管理的 Active Directory 附加安全性群組。
+
+.資源復原
+如果您決定回溯網域名稱系統（DNS）資源，AD 和 DNS 中的資源記錄不會自動移除。您可以依照下列方式從 DNS 伺服器和 AD 移除記錄。
+
+* 對於使用者代管的 AD，首先 link:https://learn.microsoft.com/en-us/powershell/module/activedirectory/remove-adcomputer?view=windowsserver2022-ps["移除 AD 電腦"^]。然後，從 DNS 管理程式連接到 DNS 伺服器並 link:https://learn.microsoft.com/en-us/windows-server/networking/technologies/ipam/delete-dns-resource-records["刪除 DNS 資源記錄"^]。
+* 對於 AWS 代管的 Microsoft AD，link:https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html["安裝 AD 管理工具"^]。接下來，link:https://learn.microsoft.com/en-us/powershell/module/activedirectory/remove-adcomputer?view=windowsserver2022-ps["移除 AD 電腦"^]。最後，從 DNS 管理程式連接到 DNS 伺服器並 link:https://learn.microsoft.com/en-us/windows-server/networking/technologies/ipam/delete-dns-resource-records["刪除 DNS 資源記錄"^]。
+
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+在建立新的資料庫主機之前，請確保您具備以下先決條件。
+
+.認證資料和權限
+您必須在 AWS 帳戶中 link:../fsx-storage/add-credentials.html["授予 _資料庫主機建立_ 權限"^]，才能在 Workload Factory 中建立新的資料庫主機。
+
+.Active Directory
+連線到 Active Directory 時，您必須擁有管理存取，並具備執行下列作業的權限：
+
+* 參加網域
+* 建立電腦物件
+* 在預設組織單位（OU）中建立物件
+* 讀取所有屬性
+* 將網域使用者設定為 AD 節點上的本機管理員
+* 如果 AD 中尚未存在 Microsoft SQL Server 服務使用者，請建立一個
+
+
+
+
+[[step-1-create-a-database-server]]
+== 步驟 1：建立資料庫伺服器
+
+您可以使用 _Quick create_ 或 _Advanced create_ 部署模式，在具備 _Automate_ 模式權限的 Workload Factory 中完成此工作。您也可以使用 Codebox 中提供的下列工具：REST API、AWS CLI、AWS CloudFormation 和 Terraform。link:../admin/codebox-automation.html["了解如何使用 Codebox 進行自動化"^]。
+
+
+NOTE: 從 Codebox 使用 Terraform 時，您複本或下載的程式碼會隱藏 `fsxadmin`和 `vsadmin`密碼。執行程式碼時，您需要重新輸入密碼。除了 _Automate_ 模式權限外，您還需要為使用者帳戶包含下列權限： `iam:TagRole`和 `iam:TagInstanceProfile`。link:../admin/codebox-automation.html["透過 Codebox 學習如何使用 Terraform"^]。
+
+部署期間，Workload Factory 會啟用 CredSSP，以便將認證資料委派給指令碼來設定 SQL。如果使用群組原則封鎖所有網域電腦的 CredSSP 委派，則部署會失敗。部署完成後，Workload Factory 會停用 CredSSP。
+
+[role="tabbed-block"]
+====
+.快速建立
+--
+
+NOTE: 在 _快速建立_ 中，FCI 是預設部署模型，Windows 2016 是預設 Windows 版本，SQL 2019 Standard Edition 是預設 SQL 版本。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 在資料庫概覽中，選擇 *部署主機*，然後從選單中選擇 *Microsoft SQL Server*。
+. 選擇 *快速建立*。
+. 在 *AWS 設定* 中，提供以下資訊：
++
+.. *AWS 憑證*：選擇具有自動化權限的 AWS 憑證，以部署新的資料庫主機。
++
+具有 _資料庫主機建立_ 權限的 AWS 憑證可讓 Workload Factory 從您的 AWS 帳戶在 Workload Factory 中部署和管理新的資料庫主機。
+
++
+具有 _檢視、規劃和分析_ 權限的 AWS 憑證可讓 Workload Factory 產生 CloudFormation 範本，供您在 AWS CloudFormation 主控台中使用。
+
++
+如果您在 Workload Factory 中沒有關聯 AWS 憑證，並且想要在 Workload Factory 中建立新伺服器，請依照 *選項 1* 進入憑證頁面。手動新增所需的憑證以及資料庫工作負載的_資料庫主機建立_權限。
+
++
+如果您想在 Workload Factory 中填寫建立新伺服器表單，以便下載完整的 YAML 檔案範本以在 AWS CloudFormation 中進行部署，請依照 *選項 2* 操作，以確保您擁有在 AWS CloudFormation 中建立新伺服器所需的權限。手動新增資料庫工作負載所需的憑證以及 _檢視、規劃和分析_ 權限。
+
++
+您也可以選擇從 Codebox 下載部分完成的 YAML 檔案範本，以便在 Workload Factory 之外建立堆疊，而無需任何憑證或權限。從 Codebox 的下拉清單中選擇 *CloudFormation* 即可下載 YAML 檔案。
+
+.. *區域和 VPC*：選擇區域和 VPC 網路。
++
+確保部署子網路與現有介面端點關聯，且安全性群組允許對所選子網路使用 HTTPS（443）協定存取。
+
++
+如果找不到，則會在部署期間建立 AWS 服務介面端點（SQS、FSx、EC2、CloudWatch、CloudFormation、SSM）和 S3 閘道端點。
+
++
+VPC DNS 屬性 `EnableDnsSupport`和 `EnableDnsHostnames`已修改，以啟用端點位址解析（若尚未設定為 `true`）。
+
++
+使用跨 VPC DNS 時，DNS 所在的另一個 VPC 上的端點安全性群組應允許連接埠 443 存取部署子網路。否則，加入跨 VPC Active Directory 時，應從本機 VPC 提供 DNS 解析器。在多重複製的網域控制器環境中，如果某些網域控制器無法從子網路連線，您可以 *重新導向至 CloudFormation* 並輸入 `Preferred domain controller`以連線至 Active Directory。
+
+.. *可用度區*：根據容錯移轉叢集執行個體 (FCI) 部署模型選擇可用度區和子網路。
++
+
+NOTE: FCI 部署僅在多可用度區域（MAZ）FSx for ONTAP 組態上支援。
+
++
+... 在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式功能表中選擇 MAZ FSx for ONTAP 組態的主要可用度區域，然後從 *子網路* 下拉式功能表中選擇主要可用度區域中的子網路。
+... 在 *叢集組態 - 節點 2* 欄位中，從 *可用度區域* 下拉式選單中選擇 MAZ FSx for ONTAP 組態的次要可用度區域，然後從 *子網路* 下拉式選單中選擇次要可用度區域中的子網路。
+
+
+
+
+. 在 *應用程式設定* 下，輸入 *資料庫憑證* 的使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請按以下格式輸入 AWS SSM 參數 ARN 的值：
+`{fsx:{"username":"fsxadmin","password":"pass"}}`。
+
++
+該值位於 AWS Management Console 的 Parameter Store 中的 Parameter details 下。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
+. 在 *連線* 下，提供下列資訊：
++
+.. *金鑰對*：選取一個金鑰對。
+.. *Active Directory*：
++
+... 在 *網域名稱* 欄位中，選擇或輸入網域的名稱。
++
+.... 對於 AWS 代管的 Active Directory，網域名稱會出現在下拉式選單中。
+.... 對於使用者代管的 Active Directory，請在 *搜尋和新增* 欄位中輸入名稱，然後按一下 *新增*。
+
+
+... 在 *DNS 位址* 欄位中，輸入網域的 DNS IP 位址。您最多可以新增 3 個 IP 位址。
++
+對於 AWS 代管的 Active Directory，DNS IP 位址將顯示在下拉式功能表中。
+
+... 在 *使用者名稱* 欄位中，輸入 Active Directory 網域的使用者名稱。
+... 在「密碼」欄位中，輸入 Active Directory 網域的密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 Active Directory 認證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
+
+
+
+
+. 在 *基礎架構設定* 下，提供下列資訊：
++
+.. *FSx for ONTAP 系統*：建立新的 FSx for ONTAP 檔案系統或使用現有的 FSx for ONTAP 檔案系統。
++
+... *建立新的 FSx for ONTAP*：輸入使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 FSx for ONTAP 憑證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
++
+新的 FSx for ONTAP 檔案系統可能會增加 30 分鐘或更長的安裝時間。
+
+... *選擇現有的 FSx for ONTAP*：選擇 FSx for ONTAP 名稱，並輸入檔案系統的使用者名稱和密碼。
++
+對於現有的 FSx for ONTAP 檔案系統，請確保符合下列條件：
+
++
+**** 附加至 FSx for ONTAP 的路由群組允許將通往子網路的路由用於部署。
+**** 安全性群組允許來自部署所用子網路的流量，特別是 HTTPS (443) 和 iSCSI (3260) TCP 連接埠。
+
+
+
+
+.. *資料磁碟機大小*：輸入資料磁碟機容量並選擇容量單位。
+
+
+. 摘要：
++
+.. *預覽預設設定*：檢閱快速建立所設定的預設組態。
+.. *預計費用*：提供部署所示資源後可能產生的費用估算。
+
+
+. 按一下 *Create* 。
++
+或者，如果您現在想要變更這些預設設定中的任何一項，請使用進階建立來建立資料庫伺服器。
+
++
+您也可以選擇 *儲存組態* 以便稍後部署主機。
+
+
+
+--
+.進階建立
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 在資料庫概覽中，選擇 *部署主機*，然後從選單中選擇 *Microsoft SQL Server*。
+. 選擇 *進階建立*。
+. 對於*部署模型*，請選擇*容錯移轉叢集執行個體*或*單一執行個體*。
+. 在 *AWS 設定* 中，提供以下資訊：
++
+.. *AWS 憑證*：選擇具有自動化權限的 AWS 憑證，以部署新的資料庫主機。
++
+具有 _資料庫主機建立_ 權限的 AWS 憑證可讓 Workload Factory 從您的 AWS 帳戶在 Workload Factory 中部署和管理新的資料庫主機。
+
++
+具有 _檢視、規劃和分析_ 權限的 AWS 憑證可讓 Workload Factory 產生 CloudFormation 範本，供您在 AWS CloudFormation 主控台中使用。
+
++
+如果您在 Workload Factory 中沒有關聯 AWS 憑證，並且想要在 Workload Factory 中建立新伺服器，請依照 *選項 1* 進入憑證頁面。手動新增所需的憑證以及資料庫工作負載的_資料庫主機建立_權限。
+
++
+如果您想在 Workload Factory 中填寫建立新伺服器表單，以便下載完整的 YAML 檔案範本以在 AWS CloudFormation 中進行部署，請依照 *選項 2* 操作，以確保您擁有在 AWS CloudFormation 中建立新伺服器所需的權限。手動新增資料庫工作負載所需的憑證以及 _檢視、規劃和分析_ 權限。
+
++
+您也可以選擇從 Codebox 下載部分完成的 YAML 檔案範本，以便在 Workload Factory 之外建立堆疊，而無需任何憑證或權限。從 Codebox 的下拉清單中選擇 *CloudFormation* 即可下載 YAML 檔案。
+
+.. *區域和 VPC*：選擇區域和 VPC 網路。
++
+確保現有介面端點的安全性群組允許對選定的子網路進行 HTTPS (443) 協定存取。
+
++
+如果找不到，則會在部署期間建立 AWS 服務介面端點（SQS、FSx、EC2、CloudWatch、Cloud Formation、SSM）和 S3 閘道端點。
+
++
+VPC DNS 屬性  `EnableDnsSupport` 和  `EnableDnsHostnames` 將會修改，以啟用解析端點位址解析（如果尚未設定為  `true`）。
+
+.. *可用度區域*：根據您選擇的部署模型選擇可用度區域和子網路。為了達到高可用度，子網路不應共享相同的路由表。
++
+
+NOTE: FCI 部署僅在多可用度區域（MAZ）FSx for ONTAP 組態上支援。
+
++
+*** 對於單一執行個體部署：
++
+**** 在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式選單中選擇一個可用度區域，並從 *子網路* 下拉式選單中選擇一個子網路。
+
+
+*** 對於 FCI 部署：
++
+**** 在 *叢集組態 - 節點 1* 欄位中，從 *可用度區域* 下拉式功能表中選擇 MAZ FSx for ONTAP 組態的主要可用度區域，然後從 *子網路* 下拉式功能表中選擇主要可用度區域中的子網路。
+**** 在 *叢集組態 - 節點 2* 欄位中，從 *可用度區域* 下拉式選單中選擇 MAZ FSx for ONTAP 組態的次要可用度區域，然後從 *子網路* 下拉式選單中選擇次要可用度區域中的子網路。
+
+
+
+
+.. *安全群組*：工作負載安全群組用於允許節點上 Microsoft SQL 和 Windows 叢集通訊所需的 port 和協定。此外，您可以選擇一個或多個安全群組。
+
+
+. 在 *應用程式設定* 下，提供下列資訊：
++
+.. 在 *SQL Server 安裝類型* 下，選擇 *包含授權的 AMI* 或 *使用自訂 AMI*。
++
+... 如果您選擇 *包含授權的 AMI*，請提供下列資訊：
++
+.... *作業系統*：選擇 *Windows server 2016*、*Windows server 2019* 或 *Windows server 2022*。
+.... *資料庫版本*：選擇 *SQL Server Standard Edition* 或 *SQL Server Enterprise Edition*。
+.... *資料庫版本*：請選擇 *SQL Server 2016*、*SQL Server 2019* 或 *SQL Server 2022*。
+.... *SQL Server AMI*：從下拉式選單中選擇一個 SQL Server AMI。
+
+
+... 如果選擇 *使用自訂 AMI*，請從下拉式選單中選擇一個 AMI。
+
+
+.. *SQL Server 排序規則*：為伺服器選擇排序規則集。
++
+
+NOTE: 如果所選排序規則集與安裝不相容，我們建議您選擇預設排序規則「SQL_Latin1_General_CP1_CI_AS」。
+
+.. *資料庫名稱*：請輸入資料庫叢集名稱。
+.. *資料庫憑證*：輸入新服務帳戶的使用者名稱和密碼，或使用 Active Directory 中現有的服務帳戶憑證。
++
+選用：選擇為 SQL Server 服務帳戶 *使用代管服務帳戶*。如果您的環境使用 MSA（代管服務帳戶）或群組代管服務帳戶（gMSA），且密碼管理由 Active Directory 處理，請使用此選項。
+
++
+對於 GovCloud 帳戶，請按以下格式輸入 AWS SSM 參數 ARN 的值：
+`{fsx:{"username":"fsxadmin","password":"pass"}}`。
+
++
+該值位於 AWS Management Console 的 Parameter Store 中的 Parameter details 下。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
+
+
+. 在 *連線* 下，提供下列資訊：
++
+.. *金鑰對*：選擇一個金鑰對以安全地連線到您的執行個體。
+.. *Active Directory*：請提供以下 Active Directory 詳細資訊：
++
+... 在 *網域名稱* 欄位中，選擇或輸入網域的名稱。
++
+.... 對於 AWS 代管的 Active Directory，網域名稱會出現在下拉式選單中。
+.... 對於使用者代管的 Active Directory，請在 *搜尋和新增* 欄位中輸入名稱，然後按一下 *新增*。
+
+
+... 在 *DNS 位址* 欄位中，輸入網域的 DNS IP 位址。您最多可以新增 3 個 IP 位址。
++
+對於 AWS 代管的 Active Directory，DNS IP 位址將顯示在下拉式功能表中。
+
+... 請輸入 Active Directory 網域的使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 Active Directory 認證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
+... *首選網域控制器*：（可選）輸入要用於參加 Active Directory 的首選網域控制器。
+... *首選組織單元路徑*：（選用）輸入要參加的 Active Directory 中的首選組織單元（OU）。
+... *目標 Active Directory 群組*：選用，輸入要將電腦新增至的目標 Active Directory 群組。
+
+
+
+
+. 在 *基礎架構設定* 下，提供下列資訊：
++
+.. *資料庫執行個體類型*：從下拉式選單中選擇資料庫執行個體類型。
+.. *FSx for ONTAP 系統*：建立新的 FSx for ONTAP 檔案系統或使用現有的 FSx for ONTAP 檔案系統。
++
+... *建立新的 FSx for ONTAP*：輸入使用者名稱和密碼。
++
+對於 GovCloud 帳戶，請以下列格式輸入 FSx for ONTAP 憑證的 AWS SSM Parameter ARN 值： `{fsx:{"username":"fsxadmin","password":"pass"}}`。AWS SSM 參數類型必須為「Secure String」，名稱格式為 `/netapp/wlmdb/<anyname>`。深入瞭解如何從link:https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ssm.html["AWS GovCloud 文件"^]擷取 SSM 參數。
+
++
+新的 FSx for ONTAP 檔案系統可能會增加 30 分鐘或更長的安裝時間。
+
+... *選擇現有的 FSx for ONTAP*：從下拉式選單中選擇 FSx for ONTAP 名稱，然後輸入檔案系統的使用者名稱和密碼。
++
+對於現有的 FSx for ONTAP 檔案系統，請確保符合下列條件：
+
++
+**** 附加至 FSx for ONTAP 的路由群組允許將通往子網路的路由用於部署。
+**** 安全性群組允許來自部署所用子網路的流量，特別是 HTTPS (443) 和 iSCSI (3260) TCP 連接埠。
+
+
+
+
+.. *Snapshot 原則*：預設啟用。快照每天建立，保留期間為 7 天。
++
+快照會指派給為 SQL 工作負載建立的 Volume。
+
+.. *資料磁碟機大小*：輸入資料磁碟機容量並選擇容量單位。
+.. *資源配置 IOPS*：選擇*自動*或*使用者資源配置*。如果選擇*使用者資源配置*，請輸入 IOPS 值。
+.. *處理量容量*：從下拉式選單中選擇處理量容量。
++
+在某些地區，您可以選擇 4 GB/s 的處理量。若要資源配置 4 GB/s 的處理量，您的 FSx for ONTAP 檔案系統必須設定至少 5,120 GiB 的 SSD 儲存容量和 160,000 SSD IOPS。
+
+.. *加密*：選擇您帳戶中的金鑰或另一個帳戶中的金鑰。您必須輸入另一個帳戶中的加密金鑰 ARN。
++
+FSx for ONTAP 自訂加密金鑰未根據服務適用性列出。請選擇適當的 FSx 加密金鑰。非 FSx 加密金鑰會導致伺服器建立故障。
+
++
+AWS 代管的金鑰會根據服務適用性進行篩選。
+
+.. *標籤*：您可以選擇新增最多 40 個標籤。
+.. *簡單通知服務*：您可以選擇從下拉式功能表中選擇 Microsoft SQL Server 的 SNS 主題，為此組態啟用簡單通知服務（SNS）。
++
+... 啟用 Simple Notification Service。
+... 從下拉式選單中選擇一個 ARN。
+
+
+.. *CloudWatch 監控*：您可以選擇啟用 CloudWatch 監控。
++
+我們建議啟用 CloudWatch 以便在故障時進行偵錯。AWS CloudFormation 主控台中顯示的事件為高階，且未指定根本原因。所有詳細日誌均儲存於 EC2 執行個體中的 `C:\cfn\logs` 資料夾內。
+
++
+在 CloudWatch 中，會建立一個以堆疊名稱命名的日誌群組。每個驗證節點和 SQL 節點的日誌串流都會顯示在該日誌群組下。CloudWatch 會顯示指令碼進度，並提供相關資訊，協助您了解部署是否失敗以及何時失敗。
+
+.. *資源回滾*：此功能目前不支援。
+
+
+. 總結
++
+.. *預計費用*：提供部署所示資源後可能產生的費用估算。
+
+
+. 按一下 *建立* 以部署新的資料庫主機。
++
+或者，您可以儲存組態。
+
+
+
+--
+====
+
+
+[[step-2-enable-remote-connection-on-the-microsoft-sql-server]]
+== 步驟 2：在 Microsoft SQL Server 上啟用遠端連線
+
+伺服器部署完成後，Workload Factory 不會在 Microsoft SQL Server 上啟用遠端連線。若要啟用遠端連線，請完成下列步驟。
+
+.步驟
+. 請參考 Microsoft 文件中的 link:https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-allow-local-system-to-use-computer-identity-for-ntlm["網路安全性：允許本機系統使用電腦身分進行 NTLM"^] 以使用電腦身分進行 NTLM。
+. 請參考 Microsoft 文件中的 link:https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/connect/network-related-or-instance-specific-error-occurred-while-establishing-connection["建立與 SQL Server 的連線時發生網路相關或特定於執行個體的錯誤"] 來檢查動態連接埠組態。
+. 允許安全性群組中所需的用戶端 IP 或子網路。
+
+
+.接下來
+現在您可以 link:create-sql-database.html["在 Workload Factory for Databases 中建立資料庫"]。

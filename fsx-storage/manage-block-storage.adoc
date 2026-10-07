@@ -1,0 +1,221 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-block-storage.html 
+keywords: block storage, manage block storage, igroups, block devices, view details, clone, client access, delete block device 
+summary: 在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的區塊儲存。 
+---
+= 在 NetApp Workload Factory 中管理檔案系統的區塊儲存
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 NetApp Workload Factory 簡化區塊儲存資源（包括 igroup 和區塊裝置）的管理，並控制客戶端對 FSx for ONTAP 區塊裝置的存取，以提供最佳效能並最大限度地降低成本。
+
+.關於此任務
+從 Workload Factory 主控台，您可以管理啟動器群組（igroup）以控制用戶端對區塊裝置的存取。您也可以檢視區塊裝置詳細資料、增加容量、建立複本、管理用戶端存取、歸檔非作用中區塊裝置的資料，以及刪除區塊裝置。
+
+檢查區塊儲存圖表，確認是否有以下情況：
+
+* 用戶端連線
+* 區塊裝置狀態
+* 節點 - 用戶端關係
+* 潛在的不正確用戶端連線
+
+
+.開始之前
+* 您必須關聯一個連結來管理 igroups。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
+* 您必須擁有現有的 igroup 或區塊裝置才能檢視和管理。
+
+
+
+
+[[manage-igroups]]
+== 管理 igroup
+
+您可以查看 igroup 詳細資訊、管理用戶端存取權限以及刪除 igroup。
+
+
+
+[[manage-client-access-for-an-igroup]]
+=== 管理 igroup 的用戶端存取
+
+隨時管理現有 igroup 的用戶端存取。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 選擇資源類型 *Initiator groups (igroups)* 以查看現有 igroups。
+. 進入區塊裝置的操作選單，然後選擇 *管理用戶端存取*。
+. 檢閱為 igroup 顯示的用戶端存取詳細資訊。
+. 若要變更用戶端存取權限，請選擇 *Edit client access* 。
+. 在 *Edit client access* 對話方塊中，您可以編輯以下內容：
++
+** *igroup name*
+** *igroup 說明*
+** *Storage VM 名稱*
+** * 區塊設備名稱 *
+** *作業系統類型*
+** *主機啟動器*
+
+
+. 選擇 *Apply*。
+
+
+
+
+[[delete-an-igroup]]
+=== 刪除 igroup
+
+不再需要 igroup 時，請將其刪除。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 選擇資源類型 *Initiator groups (igroups)* 以查看現有 igroups。
+. 前往區塊裝置的動作功能表，然後選取 *Delete initiator group* 。
+. 在「刪除發起者群組（igroup）」對話方塊中、輸入「delete」以確認您要刪除 igroup、然後選取 *Delete* 。
+
+
+
+
+[[manage-block-devices-for-an-igroup]]
+== 管理 igroup 的區塊裝置
+
+區塊裝置或 LUN（邏輯單元號碼）是 SAN 環境中具有檔案系統的磁碟區，可透過網路供主機存取。
+
+您可以管理使用 iSCSI 協定的 FSx for ONTAP 檔案系統的區塊裝置。
+
+
+
+[[view-block-device-details]]
+=== 檢視區塊裝置詳細資料
+
+隨時檢視現有區塊裝置的詳細資訊。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 導覽至區塊裝置的操作選單，然後選擇 *檢視詳細資料*。
++
+顯示區塊裝置的一般詳細資訊、使用量、存取和保護資訊。
+
+
+
+
+
+[[manage-client-access-for-a-block-device]]
+=== 管理區塊設備的用戶端存取
+
+您可以隨時透過建立 igroup，以及新增或移除區塊裝置與主機啟動器，來管理現有區塊裝置的用戶端存取。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 導覽至區塊裝置的操作選單，然後選取 *管理用戶端存取*。
+. 如果不存在 igroup、請選取 * 對應 igroup > 建立 igroup * 來建立新的 igroup、然後執行下列動作：
++
+.. *區塊裝置名稱*：輸入區塊裝置名稱。您可以選擇多個區塊裝置與 igroup 關聯。
+.. *作業系統類型*：選擇作業系統類型。
+.. *igroup 名稱*：請輸入 igroup 名稱。
+.. *igroup 執行摘要*：可選擇輸入 igroup 執行摘要。
+.. *主機啟動器*：輸入一個或多個主機啟動器。這些啟動器必須遵循 iSCSI 合格（IQN）格式。
+.. 選擇 *Create*。
+
+
+. 如果 igroup 已存在、請選取 * 對應 igroup > 對應現有 igroup* 、以從 igroup 新增或移除區塊裝置和主機啟動器、然後選取 * 對應 * 。
+
+
+
+
+[[increase-the-capacity-of-a-block-device]]
+=== 增加區塊裝置的容量
+
+隨時增加現有區塊設備的容量。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 瀏覽至區塊裝置的動作選單，然後選取 *增加容量*。
+. 輸入區塊設備的新容量並選擇單位。
+. 選擇 *增加* 以套用變更。
+
+
+
+NOTE: 增加區塊裝置的大小後，請遵循主機作業系統提供的程序來探索新的大小並擴充檔案系統。
+
+
+
+[[clone-a-block-device]]
+=== 複製區塊裝置
+
+您可以隨時建立現有區塊裝置的複本。區塊裝置複本是原始區塊裝置的可寫入複本，在對原始裝置或複本進行變更之前，兩者會共用相同的資料區塊。複製區塊裝置是一種快速且有效率的方式，可建立可重複使用的資料複本，而無需佔用額外的儲存容量。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 導覽至區塊裝置的動作功能表，然後選取 *Clone block device* 。
+. 在 Clone block device 對話方塊中、輸入複製區塊裝置的名稱。
+. （選用）啟用自動刪除功能，以便在磁碟區空間不足時自動刪除已複製的區塊裝置。
+. *iSCSI 組態*：選用。若要將區塊裝置複本連線至主機啟動器、請建立新的啟動器群組、或將其對應至現有的啟動器群組。
++
+** *建立新的啟動器群組*：選取此選項可為區塊裝置複本建立新的啟動器群組。輸入下列詳細資料：
++
+... *主機作業系統*：選擇主機作業系統類型。
+... *啟動器群組名稱*：輸入 igroup 名稱。
+... *主機啟動器*：輸入一個或多個主機啟動器。這些啟動器必須遵循 iSCSI 合格（IQN）格式。
+
+
+** *對應至現有啟動器群組*：選取此選項可將區塊裝置複本對應至現有啟動器群組。選取一個或多個啟動器群組，以將區塊裝置對應至這些群組。
+
+
+. 選取 *Clone* 以建立區塊裝置複本。
+
+
+
+
+[[archive-the-data-of-an-inactive-block-device]]
+=== 將非作用中區塊裝置的資料歸檔
+
+不再對應到客戶端或連續七天未使用的區塊裝置將被歸類為非活動區塊裝置。您可以將非活動區塊裝置的資料歸檔到容量池層，以回收 SSD 容量。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 在孤立裝置下，選取 *檢視與回收容量*。
+. 在「回收未使用的區塊裝置空間」畫面上，選取一或多個區塊裝置來歸檔資料並回收容量。
+. 選擇 *歸檔*。
+
+
+
+
+[[delete-a-block-device]]
+=== 刪除區塊裝置
+
+未對應到客戶端或七天內未使用的區塊設備將被視為非活動區塊設備。此操作將取消映射並刪除選定的區塊設備。如果主機 FlexVol volume 不包含任何區塊設備，Workload Factory 會將其刪除。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
+. 在孤立裝置下，選取 *檢視與回收容量*。
+. 在「回收未使用的區塊裝置空間」畫面上，選取一或多個區塊裝置來歸檔資料並回收容量。
+. 選擇 *Delete*。
+
+
+
+
+[[related-information]]
+== 相關資訊
+
+* link:create-igroup.html["為 FSx for ONTAP 檔案系統建立 igroup"]
+* link:create-block-device.html["為 FSx for ONTAP 檔案系統建立區塊裝置"]
+

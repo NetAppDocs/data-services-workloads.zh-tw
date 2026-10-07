@@ -1,0 +1,501 @@
+---
+sidebar: sidebar 
+permalink: fsx-databases/explore-savings-databases.html 
+keywords: cost, savings, compare costs, EBS, FSx for Windows File Server, SQL Server on-premises, on-premises, FSx for ONTAP 
+summary: 比較使用 Amazon Elastic Block Store （EBS）、FSx for Windows File Server 和 SQL Server 內部部署資料庫儲存設備與 FSx for ONTAP 儲存設備的成本。 
+---
+= 探索 NetApp Workload Factory for Databases 的節省效益
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過比較在 Amazon Elastic Block Store（EBS）、FSx for Windows File Server 和內部部署儲存設備上使用 Microsoft SQL Server 的成本與使用 FSx for ONTAP 儲存設備的成本，探索您的資料庫工作負載在 NetApp Workload Factory for Databases 中的成本節約效益。
+
+
+
+[[about-this-task]]
+== 關於此任務
+
+您可以使用「儀表板」、「清單」標籤或「探索節省」標籤，探索在 EBS、FSx for Windows File Server 和內部部署儲存設備上執行資料庫工作負載的節省成本。在所有情況下，您都可以使用節省計算機，比較在 FSx for ONTAP 檔案系統上執行 Microsoft SQL Server 工作負載的各種成本組成（例如儲存、運算、SQL 授權、快照和複本）與 Elastic Block Store（EBS）、FSx for Windows File Server 和內部部署儲存設備上執行資料庫工作負載的成本。
+
+如果 Workload Factory 在 FSx for ONTAP 上發現成本節省，您可以直接透過 Workload Factory 控制台中的節省計算器，在 FSx for ONTAP 上部署 Microsoft SQL。當您在 Elastic Block Store、FSx for Windows File Server 或內部部署儲存上擁有多個 Microsoft SQL Server 執行個體時，我們會建議使用單一 SQL 執行個體的 FSx for ONTAP 組態。
+
+.所有資料庫工作負載的潛在節省
+存取 Workload Factory 控制台中的資料庫*儀表板*，即可概覽在 FSx for ONTAP 上執行所有資料庫工作負載的潛在成本節省。*潛在節省*磁貼會顯示您在 EBS 和 FSx for Windows File Server 上的資料庫工作負載、潛在成本節省、節省百分比以及長條圖。
+
+image:screenshot-dashboard-potential-savings-tile.png["這是 Workload Factory 主控台中資料庫儀表板「潛力節省」圖塊的快照。「潛力節省」圖塊顯示了您在 Elastic Block Store 和 FSx for Windows File Server 上的所有資料庫工作負載數量、潛力成本節約效益、節省百分比，以及長條圖的視覺化表示。"]
+
+.節約計算機
+您可以使用成本節省計算器，比較在 FSx for ONTAP 檔案系統上執行 Microsoft SQL Server 工作負載（例如儲存、運算、SQL 授權、快照和複製）與在 Elastic Block Store (EBS)、FSx for Windows File Server 和本機儲存上執行資料庫工作負載的各項成本。FSx for ONTAP 檔案系統可能是您資料庫工作負載最具成本效益的選擇。
+
+此計算器顯示，如果使用 FSx for ONTAP 檔案系統，這些 Microsoft SQL Server 上的資料庫工作負載的儲存設備成本是否會更低。<<計算器選項,學習如何使用計算機。>>
+
+image:screenshot-ebs-savings-calculator-update.png["節省計算機頁面的快照顯示了左側選定的 Microsoft SQL Server on Amazon Elastic Block Store 組態，並提供了自訂 Snapshot 快照技術和 Clone 值的選項。以美元金額和百分比表示的成本節約效益，以及使用 Microsoft SQL Server on FSx for ONTAP 和 Elastic Block Store 儲存設備的每月總成本，均顯示在左側。"]
+
+
+
+[[sql-server-deployment-analysis]]
+== SQL Server 部署分析
+
+此計算器會檢查您的 SQL Server 部署，以確保所使用的資源和功能與 SQL Server 版本相符。以下是計算器在建議降級至 Standard Edition 之前檢查的關鍵因素和條件：
+
+.部署模型
+此計算器會評估部署模型以及是否需要企業版。
+
+.已分配資源
+此計算器評估下列與授權相關的已分配資源狀況：
+
+* 目標執行個體 vCPU：此執行個體具有 48 個或更少的虛擬 CPU。
+* 記憶體配置：執行個體的記憶體為 128GB 或更少。
+
+
+.企業功能使用情況
+此計算器會驗證是否正在使用下列任何 Enterprise 功能：
+
+* 資料庫層級企業功能
+* 線上索引作業
+* 資源管理器
+* 點對點或 Oracle 複製
+* R/Python 擴充功能
+* 記憶體最佳化的 TempDB
+
+
+如果評估的 SQL Server 執行個體未使用上述任何 Enterprise 功能，且符合資源限制，則計算機會建議將授權降級為 Standard Edition。此計算器可協助您在不降低效能或功能的前提下最佳化 SQL Server 授權成本。
+
+
+
+[[calculator-options]]
+== 計算器選項
+
+有兩種計算器選項可用於比較您的系統和 FSx for ONTAP 之間的成本 — 自訂和偵測。
+
+透過自訂探索成本節約效益：您可以為 Amazon EC2 上的 Microsoft SQL Server（使用 EBS 或 FSx for Windows File Server）提供組態設定，包括區域、部署模型、SQL Server 版本、每月資料變更率、Snapshot 快照技術頻率等。
+
+探索偵測到之主機的節省效益：Workload Factory 會連結至您現有的 Microsoft SQL 伺服器，並將詳細資料提取至計算機以進行自動比較。您需要授與 _檢視、規劃和分析_ 權限，才能使用此計算機選項。您可以變更使用案例，但所有其他詳細資料都會在計算中自動決定。
+
+此外，您還可以 link:../fsx-storage/add-credentials.html["新增 AWS 憑證"^] 來提高計算機分析的準確性。選擇 *基於現有資源計算節省額*。系統會將您重新導向至「新增憑證」頁面。新增憑證後，選擇要與 FSx for ONTAP 進行比較的現有資源，然後選擇 *探索節省額*。
+
+
+
+[[explore-savings-via-customization]]
+=== 透過自訂探索節省成本
+
+自訂計算器中的欄位，以獲得最準確的節省估算值。
+
+
+
+==== 為 Microsoft SQL Server 主機自訂節省成本
+
+請依照您儲存設備類型對應的標籤下的步驟操作。
+
+[role="tabbed-block"]
+====
+.Amazon Elastic Block Store （EBS）
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從資料庫功能表中，選擇 *探索節省*，然後選擇 *EBS 上的 Microsoft SQL Server*。
+. 在節約計算機中，提供下列詳細資訊：
++
+.. *區域*：請從下拉式選單中選擇一個區域。
+.. *部署模型*：從下拉式選單中選擇部署模型。
+.. *SQL Server 版本*：請從下拉式選單中選擇 SQL Server 版本。
+.. *每月資料變更率（%）*：輸入 Clone 和快照資料平均每月變更的百分比。
+.. *Snapshot 快照技術頻率*：從下拉式選單中選擇快照頻率。
+.. *Clone 複本數量*：輸入 EBS 組態中的 Clone 複本數量。
+.. *每月 SQL BYOL 費用（$）*：您可以選擇輸入每月 SQL BYOL 費用（美元）。
+.. 根據 EC2 規範，提供以下內容：
++
+*** *機器執行摘要*：可選擇輸入名稱以描述機器。
+*** *執行個體類型*：從下拉式選單中選擇 EC2 執行個體類型。
+
+
+.. 在「 Volume 類型」下，請提供至少一種 Volume 類型的下列詳細資訊。IOPS 和處理量適用於某些磁碟類型的 Volume 。
++
+*** *Volume 數量*
+*** *每 Volume 儲存量（GiB）*
+*** *每個 Volume 的預置 IOPS*
+*** *處理量 MB/s*
+
+
+.. 如果您選擇了 Always On 可用度部署模型，請提供 *次要 EC2 規格* 和 *Volume 類型* 的詳細資訊。
+
+
+
+
+--
+.Amazon FSx for Windows File Server
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從資料庫功能表中，選擇 *探索節省*，然後選擇 *FSx for Windows 上的 Microsoft SQL Server*。
+. 在節約計算機中，提供下列詳細資訊：
++
+.. *區域*：請從下拉式選單中選擇一個區域。
+.. *部署模型*：從下拉式選單中選擇部署模型。
+.. *SQL Server 版本*：請從下拉式選單中選擇 SQL Server 版本。
+.. *每月資料變更率（%）*：輸入 Clone 和快照資料平均每月變更的百分比。
+.. *Snapshot 快照技術頻率*：從下拉式選單中選擇快照頻率。
+.. *Clone 複本數量*：輸入 EBS 組態中的 Clone 複本數量。
+.. *每月 SQL BYOL 費用（$）*：您可以選擇輸入每月 SQL BYOL 費用（美元）。
+.. 在 FSx for Windows File Server 設定中，提供下列資訊：
++
+*** *部署類型*：請從下拉式選單中選擇部署類型。
+*** *儲存類型*：SSD 儲存設備是支援的儲存設備類型。
+*** *總儲存容量*：輸入儲存容量並選擇組態的容量單位。
+*** *已配置 SSD IOPS*：輸入組態的已配置 SSD IOPS。
+*** *處理量（MB/s）*：請輸入處理量，單位為 MB/s。
+
+
+.. 在 EC2 規範中，從下拉式選單中選擇 *執行個體類型*。
+
+
+
+
+--
+====
+在您提供資料庫主機組態的詳細資訊後，審查頁面上提供的計算結果和建議。
+
+此外，向下捲動到頁面底部，選擇以下選項之一即可檢視報告：
+
+* *匯出 PDF*
+* *透過電子郵件發送*
+* *檢視計算結果*
+
+
+若要切換至 FSx for ONTAP，請依照下列說明操作 <<使用 FSx for ONTAP 在 AWS EC2 上部署 Microsoft SQL Server,使用 FSx for ONTAP 檔案系統在 AWS EC2 上部署 Microsoft SQL Server>>。
+
+
+
+==== 為 EBS 上的 Oracle 主機自訂節省成本
+
+自訂計算機中的欄位，以獲得在 Amazon Elastic Block Store （EBS） 上執行的 Oracle 主機最準確的節省估算值。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從資料庫選單中，選擇 *探索節省*，然後選擇 *Oracle on EBS*。
+. 在節約計算機中，提供下列詳細資訊：
++
+.. *區域*：請從下拉式選單中選擇一個區域。
+.. *部署模型*：從下拉式選單中選擇部署模型。
+.. *Oracle 版本*：請從下拉式選單中選擇 Oracle 版本。
+.. *每月資料變更率（%）*：輸入 Clone 和快照資料平均每月變更的百分比。
+.. *Snapshot 快照技術頻率*：從下拉式選單中選擇快照頻率。
+.. *Clone 複本數量*：輸入 EBS 組態中的 Clone 複本數量。
+.. *Oracle BYOL 每月費用（美元）*：您可以選擇輸入 Oracle BYOL 的每月費用（美元）。
+.. 根據 EC2 規範，提供以下內容：
++
+*** *機器執行摘要*：可選擇輸入名稱以描述機器。
+*** *執行個體類型*：從下拉式選單中選擇 EC2 執行個體類型。
+
+
+.. 在「 Volume 類型」下，請提供至少一種 Volume 類型的下列詳細資訊。IOPS 和處理量適用於某些磁碟類型的 Volume 。
++
+*** *Volume 數量*
+*** *每 Volume 儲存量（GiB）*
+*** *每個 Volume 的預置 IOPS*
+*** *處理量 MB/s*
+
+
+.. 如果您選擇了 Always On 可用度部署模型，請提供 *次要 EC2 規格* 和 *Volume 類型* 的詳細資訊。
+
+
+
+
+在您提供資料庫主機組態的詳細資訊後，審查頁面上提供的計算結果和建議。
+
+此外，向下捲動到頁面底部，選擇以下選項之一即可檢視報告：
+
+* *匯出 PDF*
+* *透過電子郵件發送*
+* *檢視計算結果*
+
+
+
+
+[[explore-savings-for-detected-hosts]]
+=== 探索已偵測主機的節省情況
+
+Workload Factory 會輸入偵測到的主機特性，以便您可以自動探索節省成本的方法。
+
+.開始之前
+在開始之前，請完成以下先決條件：
+
+* link:../fsx-storage/add-credentials.html["授予 _檢視、規劃和分析_ 權限"^] 在您的 AWS 帳戶中，在 *探索節省* 標籤下偵測 Elastic Block Store （EBS） 和 FSx for Windows 系統，並在節省計算器中顯示節省計算結果。
+* 為了獲得執行個體類型推薦並提高成本準確性，請執行以下操作：
++
+.. 授予 Amazon CloudWatch 和 AWS Compute Optimizer 權限。
++
+... 登入 AWS Management Console 並開啟 IAM 服務。
+... 編輯 IAM 角色的原則。複製並新增以下 Amazon CloudWatch 和 AWS Compute Optimizer 權限。
++
+[source, json]
+----
+{
+"Version": "2012-10-17",
+"Statement": [
+  {
+   "Effect": "Allow",
+   "Action": "compute-optimizer:GetEnrollmentStatus",
+   "Resource": "*"
+  },
+  {
+   "Effect": "Allow",
+   "Action": "compute-optimizer:PutRecommendationPreferences",
+   "Resource": "*"
+  },
+  {
+   "Effect": "Allow",
+   "Action": "compute-optimizer:GetEffectiveRecommendationPreferences",
+   "Resource": "*"
+  },
+  {
+   "Effect": "Allow",
+   "Action": "compute-optimizer:GetEC2InstanceRecommendations",
+   "Resource": "*"
+  },
+  {
+   "Effect": "Allow",
+   "Action": "autoscaling:DescribeAutoScalingGroups",
+   "Resource": "*"
+  },
+  {
+   "Effect": "Allow",
+   "Action": "autoscaling:DescribeAutoScalingInstances",
+   "Resource": "*"
+  }
+]
+}
+----
+
+
+.. 選擇將計費的 AWS 帳戶加入 AWS Compute Optimizer。
+
+
+
+
+
+
+==== 探索已偵測到的 Microsoft SQL Server 主機的節省方案
+
+請依照您儲存設備類型對應的標籤下的步驟操作。
+
+[role="tabbed-block"]
+====
+.Amazon Elastic Block Store （EBS）
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從「資料庫」選單中，選擇 *Explore savings* 。
+. 在「探索節省」中，選取 *SQL Server on Elastic Block Store (EBS)* 標籤。
++
+如果 Workload Factory 偵測到 EBS 主機，它會將您重新導向到「探索節省」標籤。如果未偵測到 EBS 主機，它會將您重新導向到計算器以<<透過自訂探索節省成本,透過自訂探索節省成本>>。
+
+. 從 *探索節省* 中，選擇一個或多個在 EBS 上執行的資料庫主機，然後選擇 *探索節省*。
+. 如有需要，請使用 SQL Server 憑證、Windows 憑證，或新增缺少的 SQL Server 權限來驗證資料庫主機。
++
+如果成功驗證後探索節省頁面沒有載入資料，請選擇 *庫存* 標籤重新載入資料，然後再選擇 *探索節省* 標籤。
+
+. 在節省計算器中、您可以提供 EBS 儲存設備中複本和快照的下列詳細資料、以便更準確地估算成本節約效益。
++
+.. *Snapshot 快照技術頻率*：從選單中選擇 Snapshot 快照技術頻率。
+.. *Clone 重新整理頻率*：從選單中選擇 Clone 重新整理的頻率。
+.. *Clone 複本數量*：輸入 EBS 組態中的 Clone 複本數量。
+.. *月變化率*：輸入 Clone 和 Snapshot 快照技術資料平均每月變化的百分比。
+.. *新增主機*：您可以選擇最多五個偵測到的 EBS 主機，將其包含在節省計算中。
++
+Workload Factory 將多個 SQL Server 主機合併到單一 FSx for ONTAP 組態建議中，以最佳化成本節約效益，除非所選 EBS 主機超過單一 FSx for ONTAP 檔案系統的處理量、容量或 IOPS 限制。
+
+
+
+
+
+--
+.Amazon FSx for Windows File Server
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從「資料庫」選單中，選擇 *Explore savings* 。
+. 在「探索節省」中，選取 *SQL Server on FSx for Windows* 標籤。
++
+如果 Workload Factory 偵測到 FSx for Windows 主機，它會將您重新導向到「探索節省」標籤。如果它未偵測到 FSx for Windows 主機，它會將您重新導向到計算器以<<透過自訂探索節省成本,透過自訂探索節省成本>>。
+
+. 在「探索節省」標籤中，選擇使用 FSx for Windows File Server 儲存設備的資料庫主機的 *探索節省*。
+. 如有需要，請使用 SQL Server 憑證、Windows 憑證，或新增缺少的 SQL Server 權限來驗證資料庫主機。
++
+如果成功驗證後探索節省頁面沒有載入資料，請選擇 *庫存* 標籤重新載入資料，然後再選擇 *探索節省* 標籤。
+
+. 在節省計算機中，您可以選擇提供有關 FSx for Windows 儲存設備中 Clone（陰影複本）與 Snapshot 快照技術的下列詳細資料，以便更準確地估算成本節約效益。
++
+.. *Snapshot 快照技術頻率*：從選單中選擇 Snapshot 快照技術頻率。
++
+如果 Workload Factory 偵測到 FSx for Windows 陰影副本，則將預設值設為 *每日* 。如果未偵測到陰影副本，則將預設值設為 *無快照頻率* 。
+
+.. *Clone 重新整理頻率*：從選單中選擇 Clone 重新整理的頻率。
+.. *Clone 複本數量*：在 FSx for Windows 組態中輸入 Clone 複本的數量。
+.. *月變化率*：輸入 Clone 和 Snapshot 快照技術資料平均每月變化的百分比。
+
+
+
+
+--
+.內部部署的 Microsoft SQL Server
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從「資料庫」選單中，選擇 *Explore savings* 。
+. 在「探索節省」中、選擇引擎類型 *Microsoft SQL Server*。
+. 接下來，選擇 *SQL Server on-premises* 標籤。
+. 從 SQL Server 本機標籤中，選擇 *Assessment script* > *Assessment script information* ，然後查看提供的資訊。
+. 選擇 *Download assessment script* 。
++
+該指令碼是以 PowerShell 為基礎的資料收集工具。它會收集 SQL Server 配置和效能數據，然後將其上傳到 Workload Factory。遷移顧問會評估這些數據，並為您的 SQL Server 環境規劃 FSx for ONTAP 部署。
+
+. 使用具有足夠權限的使用者在 SQL Server 主機上執行指令碼。
+. 在 Workload Factory 的 SQL Server 內部部署標籤中選取 *上傳指令碼結果*。
+. 從 SQL Server 內部部署標籤中，選取最多五個資料庫主機，然後選取 *探索節省* 以針對 SQL Server 內部部署主機與 FSx for ONTAP 執行成本分析。
+. 在節省計算機中，選擇內部部署主機的區域。
+. 您可以選擇提供內部部署資料庫環境中關於 Clone（陰影複本）與 Snapshot 快照技術的下列詳細資料，以便更準確地估算成本節約效益。
++
+.. *Snapshot 快照技術頻率*：從選單中選擇 Snapshot 快照技術頻率。
++
+如果 Workload Factory 偵測到 FSx for Windows 陰影副本，則將預設值設為 *每日* 。如果未偵測到陰影副本，則將預設值設為 *無快照頻率* 。
+
+.. *Clone 重新整理頻率*：從選單中選擇 Clone 重新整理的頻率。
+.. *Clone 複本數量*：輸入內部部署組態中的 Clone 複本數量。
+.. *月變化率*：輸入 Clone 和 Snapshot 快照技術資料平均每月變化的百分比。
+
+
+. 為了獲得更準確的結果，請更新運算資訊以及儲存設備和效能詳細資料。
++
+Workload Factory 將多個內部部署 SQL Server 主機整合為單一 FSx for ONTAP 組態建議，以最佳化成本節約，除非所選的內部部署主機超過單一 FSx for ONTAP 檔案系統的處理量、容量或 IOPS 限制。
+
+
+
+.內部部署主機移除
+在您探索了 Microsoft SQL Server 內部部署主機的節省成本後，您可以選擇從 Workload Factory 移除該內部部署主機記錄。選擇 Microsoft SQL Server 內部部署主機的行動選單，然後選擇 *刪除*。
+
+--
+====
+在您提供資料庫主機組態的詳細資訊後，審查頁面上提供的計算結果和建議。
+
+此外，向下捲動到頁面底部，選擇以下選項之一即可檢視報告：
+
+* *匯出 PDF*
+* *透過電子郵件發送*
+* *檢視計算結果*
+
+
+若要切換至 FSx for ONTAP，請依照下列說明操作 <<使用 FSx for ONTAP 在 AWS EC2 上部署 Microsoft SQL Server,使用 FSx for ONTAP 檔案系統在 AWS EC2 上部署 Microsoft SQL Server>>。
+
+
+
+==== 探索已偵測到的 Oracle 主機的節省方案
+
+請依照您儲存設備類型對應的標籤下的步驟操作。
+
+[role="tabbed-block"]
+====
+.Amazon Elastic Block Store （EBS）
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從「資料庫」選單中，選擇 *Explore savings* 。
+. 在「探索節省」中，選擇 *Oracle on Elastic Block Store （EBS）* 標籤。
++
+如果 Workload Factory 偵測到 EBS 主機，它會將您重新導向到「探索節省」標籤。如果未偵測到 EBS 主機，它會將您重新導向到計算器以<<透過自訂探索節省成本,透過自訂探索節省成本>>。
+
+. 從 *探索節省* 中，選擇一個或多個在 EBS 上執行的資料庫主機，然後選擇 *探索節省*。
+. 如有需要，請使用 Oracle 憑證對資料庫主機進行驗證，或新增缺少的 Oracle 權限。
++
+如果成功驗證後探索節省頁面沒有載入資料，請選擇 *庫存* 標籤重新載入資料，然後再選擇 *探索節省* 標籤。
+
+. 在節省計算器中、您可以提供 EBS 儲存設備中複本和快照的下列詳細資料、以便更準確地估算成本節約效益。
++
+.. *Snapshot 快照技術頻率*：從選單中選擇 Snapshot 快照技術頻率。
+.. *Clone 重新整理頻率*：從選單中選擇 Clone 重新整理的頻率。
+.. *Clone 複本數量*：輸入 EBS 組態中的 Clone 複本數量。
+.. *月變化率*：輸入 Clone 和 Snapshot 快照技術資料平均每月變化的百分比。
+.. *新增主機*：您可以選擇最多五個偵測到的 EBS 主機，將其包含在節省計算中。
++
+Workload Factory 將多個 Oracle 主機合併為單一 FSx for ONTAP 設定建議，以最佳化成本節約，除非所選 EBS 主機超過單一 FSx for ONTAP 檔案系統的吞吐量、容量或 IOPS 限制。
+
+
+
+
+
+--
+.Oracle Server 內部部署
+--
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *資料庫*。
+. 從「資料庫」選單中，選擇 *Explore savings* 。
+. 在「探索節省」中、選擇引擎類型 *Microsoft SQL Server*。
+. 接下來，選取 *Oracle Server on-premises* 索引標籤。
+. 從 Oracle Server 內部部署標籤中、選取 *Assessment script* > *Assessment script information* 並檢閱所提供的資訊。
+. 選擇 *Download assessment script* 。
++
+該指令碼是以 PowerShell 為基礎的資料收集工具。它會收集 Oracle Server 組態和效能資料。
+
+. 使用具有足夠權限的使用者在 Oracle 主機上執行指令碼。
+. 選擇 *Upload script results* ，然後將腳本輸出檔案上傳到 Workload Factory 主控台。遷移顧問會評估資料，並為您的 Oracle Server 環境規劃 FSx for ONTAP 部署。
+. 在 Oracle Server 本機部署標籤中，選擇本機 Oracle Server，然後選擇 *探索節省* 以針對 FSx for ONTAP 執行成本分析。
+. 在節省計算機中，選擇內部部署主機的區域。
+. 您可以選擇提供內部部署資料庫環境中關於 Clone（陰影複本）與 Snapshot 快照技術的下列詳細資料，以便更準確地估算成本節約效益。
++
+.. *Snapshot 快照技術頻率*：從選單中選擇 Snapshot 快照技術頻率。
++
+如果 Workload Factory 偵測到 FSx for Windows 陰影副本，則將預設值設為 *每日* 。如果未偵測到陰影副本，則將預設值設為 *無快照頻率* 。
+
+.. *Clone 重新整理頻率*：從選單中選擇 Clone 重新整理的頻率。
+.. *Clone 複本數量*：輸入內部部署組態中的 Clone 複本數量。
+.. *月變化率*：輸入 Clone 和 Snapshot 快照技術資料平均每月變化的百分比。
+
+
+. 為了獲得更準確的結果，請更新運算資訊以及儲存設備和效能詳細資料。
++
+Workload Factory 將多個 Oracle 內部部署資料庫整合為單一 FSx for ONTAP 組態建議，以最佳化成本節約，除非所選的內部部署資料庫超過單一 FSx for ONTAP 檔案系統的處理量、容量或 IOPS 限制。
+
+
+
+.內部部署主機移除
+在您探索了 Oracle 內部部署主機的節省成本後，您可以選擇從 Workload Factory 中移除該內部部署主機記錄。選取 Oracle 內部部署主機的動作功能表，然後選取 *Delete* 。
+
+--
+====
+在您提供資料庫主機組態的詳細資訊後，審查頁面上提供的計算結果和建議。
+
+此外，向下捲動到頁面底部，選擇以下選項之一即可檢視報告：
+
+* *匯出 PDF*
+* *透過電子郵件發送*
+* *檢視計算結果*
+
+
+
+
+[[deploy-microsoft-sql-server-on-aws-ec2-using-fsx-for-ontap]]
+== 使用 FSx for ONTAP 在 AWS EC2 上部署 Microsoft SQL Server
+
+如果您想交換器至 FSx for ONTAP 以實現成本節約效益，請按一下 *建立*，直接從「建立新的 Microsoft SQL Server」精靈建立建議的組態，或按一下 *儲存*，將建議的組態儲存起來以便稍後使用。
+
+
+NOTE: Workload Factory 不支援儲存或建立多個 FSx for ONTAP 檔案系統。
+
+.部署方法
+擁有 _資料庫主機建立_ 權限後，您可以直接從 Workload Factory 使用 FSx for ONTAP 在 AWS EC2 上部署新的 Microsoft SQL Server。您也可以從 Codebox 視窗複本內容，並使用 Codebox 方法之一部署建議的組態。
+
+若無權限，您可以從 Codebox 視窗複製內容，並使用其中一種 Codebox 方法來部署建議的組態。
+
+.相關資訊
+link:../fsx-storage/permissions-reference-fsx.html["Workload Factory FSx for ONTAP 權限參考"^]

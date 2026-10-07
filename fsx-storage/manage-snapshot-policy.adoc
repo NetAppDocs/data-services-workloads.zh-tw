@@ -1,0 +1,184 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/manage-snapshot-policy.html 
+keywords: manage snapshot policy, change snapshot policy, assign snapshot policy, remove snapshot policy, snapshot policies, snapshot schedule, update, snapshot long-term retention, enable long-term retention 
+summary: 在 Workload Factory 中管理 FSx for ONTAP Volume 的 Snapshot 原則。Snapshot 原則定義系統如何為 Volume 建立快照。 
+---
+= 在 NetApp Workload Factory 中管理 Volume 的快照原則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 Workload Factory 中管理 FSx for ONTAP Volume 的 Snapshot 原則。Snapshot 原則定義系統如何為 Volume 建立快照。
+
+在 FSx for ONTAP 檔案系統中，諸如指派、變更和刪除 Volume 的 Snapshot 原則等 Snapshot 快照技術管理操作是在儲存設備 VM 層級代管。Snapshot 原則可以與單一儲存設備 VM 共享，也可以與所有儲存設備 VM 共享。
+
+某些管理工作需要您將連結與 FSx for ONTAP 檔案系統建立關聯link:../setup/links-overview.html["了解 Workload Factory 連結"^]。
+
+預設情況下，每個 Volume 都與檔案系統的 `default` Snapshot 原則關聯。我們建議大多數工作負載使用此原則。
+
+
+
+[[assign-a-snapshot-policy-to-a-volume]]
+== 為 Volume 指派 Snapshot 原則
+
+您可以為單一 Volume 指派 Snapshot 原則，以便為該 Volume 建立排程的 Snapshot。
+
+.開始之前
+您必須關聯一個連結才能指派快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 選擇包含要指派 Snapshot 原則的 Volume 的檔案系統的操作選單，然後選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Storage VMs* 標籤。
+. 從 *Storage VMs* 標籤中，選取包含要以排程快照保護之 Volume 的儲存設備 VM 的操作選單，然後選取 *進階操作*，接著選取 *管理 Snapshot 原則*。
+. 在 Snapshot 原則管理頁面上，選取 Snapshot 原則的動作選單，然後選取 *將原則指派給 Volume*。
+. 在「指派 Snapshot 原則」對話方塊中，選擇要指派給 Volume 的 Snapshot 原則並審查原則排程。
++
+如果原則包含不可變的 Snapshot 快照技術，且您想要使用它，請接受該聲明。
+
+. 選擇 *分配*。
+
+
+.結果
+Snapshot 原則已指派給該 Volume。
+
+
+
+[[change-a-snapshot-policy]]
+== 更改 Snapshot 原則
+
+您可以變更 Snapshot 原則名稱、排程和要保留的副本數，以及啟用或停用不可變的 Snapshot 快照技術。無法啟用或停用跨儲存設備虛擬機器的原則共享。此選項僅在建立 Snapshot 原則時可用。
+
+.開始之前
+若要顯示現有快照原則，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備*。
+. 從儲存設備選單中，選擇 *庫存*。
+. 選擇檔案系統的操作選單，然後選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Storage VMs* 標籤。
+. 從 *Storage VMs* 標籤中，選取包含要以排程快照保護之 Volume 的儲存設備 VM 的操作選單，然後選取 *進階操作*，接著選取 *管理 Snapshot 原則*。
+. 在 Snapshot 原則管理頁面上，選擇要變更的 Snapshot 原則的操作選單，然後選擇 *編輯*。
+. 在「編輯 Snapshot 原則」對話方塊中，對 Snapshot 原則進行必要的變更。
+. 選擇 *Apply*。
+
+
+.結果
+Snapshot 原則已更新。
+
+
+
+[[enable-immutable-snapshots]]
+== 啟用不可變快照
+
+鎖定快照，防止其在保留期間被刪除。
+
+.開始之前
+您必須關聯連結才能啟用不可變的快照。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要為其鎖定 Snapshot 快照技術的 Volume 的動作選單。
+. 選擇 *資料保護操作*、*Snapshot 快照技術*，然後選擇 *使 Snapshot 快照技術不可變*。
+. 在「使快照不可變」對話方塊中，執行下列操作：
++
+.. *Snapshot 快照技術名稱*：選擇要鎖定的 Snapshot 快照技術。
+.. 設定*保留期間*，單位可以是小時、天、月或年。
+.. 接受該聲明。
+
+
+. 選擇 *Apply*。
+
+
+.結果
+Volume 快照現已鎖定。
+
+
+
+[[enable-long-term-snapshot-retention-in-netapp-workload-factory]]
+== 在 NetApp Workload Factory 中啟用長期快照保留
+
+在 NetApp Workload Factory 中，您可以啟用快照以進行長期保留，這可讓您複寫特定快照以進行長期災難恢復。
+
+長期保留使業務服務即使在完全站台故障的事件下也能繼續運作，支援使用次要複本進行應用程式的透明的容錯移轉。
+
+啟用和編輯快照以進行長期保留的步驟相同。
+
+當內部部署 ONTAP 叢集是複寫關係的目標時，不支援變更快照以進行長期保留。
+
+
+NOTE: 複製儲存 VM 資料和組態設定時，無法編輯長期保留。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中選擇 *庫存*，然後選擇要更新的檔案系統的操作選單，再選擇 *管理*。
+. 從檔案系統概覽中，選取 *複寫關係* 標籤。
+. 在「複寫關係」標籤中，選取要變更的複寫關係排程的動作選單。
+. 選擇 *編輯長期保留*。
+. 在「編輯長期保留」對話方塊中，啟用或停用長期保留的快照。
+. 如果您選擇停用長期保留的 Snapshot 快照技術，請選擇 *套用* 以完成此操作。
+. 如果您選擇啟用 Snapshot 快照技術以進行長期保留，請選擇現有原則或建立新原則。
++
+.. 若要使用現有原則，請從下拉式選單中選擇。
+.. 若要建立新原則，請提供以下資訊：
++
+... *原則名稱*：請輸入原則名稱。
+... *Snapshot 原則*：選擇一個或多個 Snapshot 原則。
+... *要保留的複本*：輸入要在目標檔案系統上保留的 Snapshot 快照技術複本數。
+
+
+
+
+. 選擇 *Apply*。
+
+
+
+
+[[remove-a-snapshot-policy-from-a-volume]]
+== 從 Volume 中移除 Snapshot 原則
+
+您可以從 Volume 移除 Snapshot 原則，原因可能是您不再需要該 Volume 的 Snapshot，或是您想要刪除已指派給多個 Volume 的 Snapshot 原則。若要<<刪除 Snapshot 原則,刪除 Snapshot 原則>>已指派給多個 Volume 的 Snapshot 原則，您必須手動將其從所有 Volume 中移除。
+
+.開始之前
+您必須關聯連結才能移除快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中選擇 *庫存*，然後選擇要更新的檔案系統的操作選單，再選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Storage VMs* 標籤。
+. 從 *Storage VMs* 標籤中，選取包含要以排程快照保護之 Volume 的儲存設備 VM 的操作選單，然後選取 *進階操作*，接著選取 *管理 Snapshot 原則*。
+. 在 Snapshot 原則管理頁面上，選取 Snapshot 原則的動作選單，然後選取 *將原則指派給 Volume*。
+. 在「指派 Snapshot 原則」對話方塊中，選擇 *無* 以移除 Snapshot 原則。
+. 選擇 *分配*。
+
+
+.結果
+Snapshot 原則已從 Volume 移除。
+
+
+
+[[delete-a-snapshot-policy]]
+== 刪除 Snapshot 原則
+
+不再需要 Snapshot 原則時，請將其刪除。
+
+當 Snapshot 原則指派給多個 Volume 時，您必須手動從所有 Volume 中<<從 Volume 中移除 Snapshot 原則,移除它>>以刪除 Snapshot 原則。或者，您可以<<為 Volume 指派 Snapshot 原則,指派不同的 Snapshot 原則>>至這些 Volume。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
+. 從 *FSx for ONTAP* 選單中選擇 *庫存*，然後選擇要更新的檔案系統的操作選單，再選擇 *管理*。
+. 在檔案系統總覽中，選擇 *Storage VMs* 標籤。
+. 從 *Storage VMs* 標籤中，選取包含要刪除之 Snapshot 原則的儲存設備 VM 的動作選單，然後選取 *Advanced actions*，接著選取 *Manage snapshot policies*。
+. 在 Snapshot 原則管理頁面上，選擇要刪除的 Snapshot 原則的操作選單，然後選擇 *刪除*。
+. 在「刪除」對話方塊中，選取 *刪除* 以刪除原則。
+

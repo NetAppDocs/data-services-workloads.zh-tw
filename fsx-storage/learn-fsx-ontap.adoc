@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/learn-fsx-ontap.html 
+keywords: Amazon FSx for NetApp ONTAP, FSx, storage, aws 
+summary: Amazon FSx for NetApp ONTAP 是一項完全代管服務，可讓客戶在 Workload Factory 中產品發表和執行檔案系統，作為您工作負載的儲存設備後端。 
+---
+= 了解 Amazon FSx for NetApp ONTAP 在 NetApp Workload Factory 中的相關資訊
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Amazon FSx for NetApp ONTAP 是一款完全代管的雲端型資料儲存設備服務，提供進階資料管理員功能和易擴充的效能。FSx for ONTAP 可讓您在 NetApp Workload Factory 中建立和管理檔案系統，作為所有工作負載的儲存設備後端。
+
+FSx for ONTAP 提供 NetApp 客戶現今在內部部署環境中使用的相同功能、效能和管理能力，同時具備原生 AWS 服務的簡單性、敏捷度、安全性和擴充性。
+
+FSx for ONTAP 是 Workload Factory 中的 _儲存設備_ 元件。
+
+
+
+[[features]]
+== 功能
+
+FSx for ONTAP 提供以下功能：
+
+* *完全代管服務*：提供與 Workload Factory 控制台整合的完全代管服務。
+* *高可用度*：為每個 FSx for ONTAP 檔案系統提供高可用度，支援單一可用區和多可用區部署。
+* *自動 Snapshot 快照技術*：透過自動、高效的 Snapshot 快照技術來保護資料，這些是檔案系統或 Volume 近乎即時、節省空間的時間點唯讀複本。
+* *Volume 複寫*：透過 Amazon Web Services 提供跨區域複寫的災難恢復。
+* *有效率的備份*：在另一個區域保留資料複本以備不時之需，藉此增加額外的保護階層。
+* *快速複製*：透過快速複製加速應用程式開發。
+* *多傳輸協定支援*：支援網路檔案系統（NFS）、伺服器訊息區塊（SMB）和網際網路小型電腦系統介面（iSCSI）協定。
+* *高處理量*：提供高處理量效能，確保在 FSx for ONTAP 檔案系統上執行的工作負載具有低延遲。
+* *記憶體快取和 NVMe 快取*：包含獨特的記憶體快取和 NVMe 快取，可提高頻繁存取資料的效能。
+* *數十萬 IOPS*：採用 SSD 磁碟，提供數十萬 IOPS，確保您的儲存設備和工作負載能及時獲得結果。
+* *精簡配置*：允許預先配置容量，從而節省成本，直到需要更多容量時才進行配置。
+* *資料重複資料刪除與壓縮*：移除複製資料並壓縮資料，以減少 FSx for ONTAP 檔案系統所需的實體儲存設備，進而帶來成本節約效益。
+* *資料分層*：將存取頻率較低的資料從主要、高效能的 SSD 儲存層移至次要的容量資源池儲存層，可降低儲存設備成本。
+
+
+
+
+[[additional-features-in-workload-factory]]
+== Workload Factory 的其他功能
+
+* *儲存成本比較計算器*：將您的 Amazon Elastic Block Store (EBS)、Elastic File System (EFS) 和 FSx for Windows File Server 儲存設備成本與 FSx for ONTAP 進行比較。透過此計算器，您可以檢視 FSx for ONTAP 儲存設備組態如何提供潛力節約效益，並規劃您向 FSx for ONTAP 儲存設備的移轉。
+* *Workload Factory 使用者介面*：提供 _快速建立_ 和 _進階建立_ 部署模式選項。快速建立包含 AWS 、 NetApp 和產業標準最佳實務做法，可用於您的儲存設備組態。
+* *Codebox*：為開發人員提供適用於 FSx for ONTAP 操作的程式碼檢視器、用於複本和下載的程式碼範本，以及用於程式碼重複使用的自動化目錄。
+
+
+
+
+[[tools-to-use-netapp-workload-factory]]
+== 使用 NetApp Workload Factory 的工具
+
+您可以將 NetApp Workload Factory 與下列工具搭配使用：
+
+* *Workload Factory 控制台*：Workload Factory 控制台提供應用程式和專案的視覺化、整體檢視。
+* *NetApp Console*：NetApp Console 提供混合介面體驗，讓您可以將 Workload Factory 與其他 NetApp 資料服務搭配使用。
+* *Ask me*：使用 Ask me AI 助理來提問，無需離開 Workload Factory 主控台即可了解更多關於 Workload Factory 的資訊。您可以從 Workload Factory 說明選單存取 Ask me。
+* *CloudShell CLI*：Workload Factory 包含一個 CloudShell CLI，可透過單一、以瀏覽器為基礎的 CLI，跨帳戶管理及操作 AWS 與 NetApp 環境。從 Workload Factory 主控台的頂部列存取 CloudShell。
+* *REST API*：使用 Workload Factory REST API 部署和管理您的 FSx for ONTAP 檔案系統和其他 AWS 資源。
+* *CloudFormation*：使用 AWS CloudFormation 程式碼執行您在 Workload Factory 主控台中定義的行動，以從您 AWS 帳戶中的 CloudFormation 堆疊，建模、資源配置及管理 AWS 與第三方資源。
+* *NetApp Terraform 供應商*：使用 Terraform 建置和管理在 Workload Factory 主控台中產生的基礎架構工作流程。
+
+
+
+
+[[cost]]
+== 成本
+
+AWS 維護您的 FSx for ONTAP 帳戶，而不是 Workload Factory。請參閱 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html#pricing-for-fsx-ontap["Amazon FSx for NetApp ONTAP 的定價"^]。
+
+
+
+[[regions]]
+== 地區
+
+在所有支援 FSx for ONTAP 的商業區域中，皆支援 Workload factory。link:https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["檢視支援的 Amazon 區域。"^]
+
+以下 AWS 區域不受支援：
+
+* 中國地區
+* Secret Cloud
+* Top Secret Cloud
+
+
+
+
+[[getting-help]]
+== 尋求協助
+
+Amazon FSx for NetApp ONTAP 是 AWS 的第一方解決方案。如果您在使用 FSx for ONTAP 檔案系統、基礎架構或任何使用此服務的解決方案時遇到問題或需要技術支援，請使用 AWS 管理主控台中的支援中心向 AWS 開啟支援案例。選擇「FSx for ONTAP」服務和適當的類別。提供建立 AWS 支援案例所需的其餘資訊。
+
+有關 Workload Factory 或 Workload Factory 應用程式和服務的一般問題，請參閱link:../get-help.html["取得適用於 Workload Factory 的 FSx for ONTAP 協助"]。

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/security-reference.html 
+keywords: security, data protection, IAM, file system access control, vpc 
+summary: Amazon FSx for NetApp ONTAP 文件提供了以下安全性主題供您參考。 
+---
+= NetApp Workload Factory 中的 FSx for ONTAP 安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Amazon FSx for NetApp ONTAP 文件提供了以下安全性主題供您參考。
+
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/data-protection.html["Amazon FSx for NetApp ONTAP 中的資料保護"^]
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/security-iam.html["Amazon FSx for NetApp ONTAP 的身分與存取管理"^]
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/limit-access-security-groups.html["使用 Amazon VPC 進行檔案系統存取控制"^] 在 Amazon FSx for NetApp ONTAP 文件中
+
+
+Workload Factory 提供有關資訊安全性的文件，以便了解並實作 Workload Factory 和 FSx for ONTAP 中的安全性最佳實務。link:https://docs.netapp.com/us-en/workload-infosec/index.html["深入瞭解"^]。

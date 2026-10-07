@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: fsx-vmware/capture-vm-configurations.html 
+keywords: vm workloads, capture vm details 
+summary: 您可以使用移轉顧問虛擬機器收集器指令碼或 RVTools 來擷取目前的虛擬機器組態。我們建議您使用移轉顧問虛擬機器收集器指令碼，因為它能同時收集虛擬機器組態和效能資料，以提供最準確的規劃。 
+---
+= 在將 VMware 工作負載移轉至 VMware Cloud 之前，請擷取您的虛擬機器組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用移轉顧問虛擬機器收集器指令碼或 RVTools 來擷取目前的虛擬機器組態。我們建議您使用移轉顧問虛擬機器收集器指令碼，因為它能同時收集虛擬機器組態和效能資料，以提供最準確的規劃。
+
+[role="tabbed-block"]
+====
+.使用移轉顧問 VM 收集器指令碼
+--
+NetApp 移轉顧問 VM 收集器指令碼從您的 vCenter 收集 VM 組態資訊，類似於 RVTools 收集的內容，然而，它會擷取目前的 VM 效能資料，以提供實際的讀取和寫入 IOPS 與處理量統計資料。
+
+您需要啟動移轉顧問，才能從 Codebox 視窗複製移轉顧問 VM 收集器指令碼。
+
+.開始之前
+執行收集器指令碼的系統必須滿足以下要求：
+
+* 必須安裝 Microsoft PowerShell 7.0 或更高版本。如果您需要安裝 PowerShell，請參閱 https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.4["Microsoft PowerShell 文件"^]。
+* 必須安裝 VMware PowerCLI。如果您需要安裝 PowerCLI，請參閱 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-F02D0C2D-B226-4908-9E5C-2E783D41FE2D.html["VMware PowerCLI 文件"^]。
+* 必須停用 SSL 憑證檢查。
+* PowerShell 必須允許執行未簽署的指令碼。
+
+
+請注意，如果您打算從虛擬機器擷取長期統計資料（每日統計資料），則必須在 vSphere 管理主控台（VMware 管理環境）中啟用統計資料層級 3 或更高。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *VMware*。
++
+規劃中心已顯示。
+
+. 從 VMware 選單中選擇 *評估和規劃*，然後選擇 *移轉至 VMware Cloud on AWS*。
++
+顯示 VMware 移轉顧問主頁。
+
+. 選擇 *規劃並建立 VMC*。
+. 選擇 *Let's start!*。您可以選取核取方塊，選擇不再顯示此頁面。
+. 選擇 *建立新部署計畫*，選擇 *使用移轉顧問 VMware 資料收集器* 選項，然後選擇 *下一步*。
++
+隨即顯示 *Prepare for VMware Cloud on AWS 移轉* 頁面。
+
+. 在 Codebox 視窗中，選擇 image:button-download-codebox.png["下載按鈕"] 將移轉顧問 VM 收集器指令碼（名為「list-vms.ps1」）儲存到目標系統，或選擇 image:button-copy-codebox.png["複本按鈕"] 製作該指令碼的複本，以便將其貼上到適當的系統上。
+. 請依照以下步驟擷取目前虛擬機器的組態：
++
+.. 登入您下載資料收集器的系統，該系統上已安裝 PowerShell 和 PowerCLI。
+.. 執行下列命令以連線至您的 VMware vCenter 伺服器：
++
+[source, console]
+----
+Connect-VIServer -server <server_IP>
+----
++
+請將 <server_IP> 替換為您的 VMware 伺服器的 IP 位址或主機名稱。
+
+.. 執行您下載的資料收集器指令碼，並指定資料收集選項為「每日」或「每小時」VM 統計資料。
++
+[source, console]
+----
+./list-vms.ps1 -isLongTermDataCollectionEnabled <true | false>
+----
++
+其中：
+
++
+*** *true* 會以 5 分鐘為間隔收集過去 24 小時的 IOPS 和處理量資料
+*** *false* 以 20 秒的間隔收集過去 1 小時的 IOPS 和處理量資料。
+
+
+
+
+
+
+.結果
+該指令碼會在目前工作目錄中輸出名為 `list-vms-yyyy-MM-dd-HH-mm-ss.csv`的 CSV 檔案。該 CSV 檔案包含所有虛擬機器及其屬性的清單，以及其 IOPS 和處理量資料。
+
+--
+.使用 RVTools 軟體
+--
+RVTools 是一款 Windows 應用程式，可與 VCenter 和 ESX 伺服器（5.x 至 8.0）互動，以擷取有關 VMware 虛擬環境的資訊。它會收集有關虛擬機器、CPU、記憶體容量、磁碟、叢集、ESX 主機、資料存放區等資訊。您可以將這些資訊匯出至 xlsx 檔案，以便與移轉顧問搭配使用。
+
+link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["了解更多關於 RVTools 的資訊"^]
+
+.步驟
+. 在 link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["RVTools 網站"^] 中下載並安裝 RVTools 4.4.2 或更高版本
+. 啟動 RVTools 並登入目標 VCenter 伺服器。
++
+這將擷取有關該 VCenter Server 的資訊。
+
+. 將您的 VMware 資訊匯出到 xlsx 或 xls 檔案。
++
+詳情請參閱 link:https://www.dell.com/en-us/shop/vmware/sl/rvtools["資源區段中的 RVTools 文件"^] 中的「命令列參數」章節。
+
+
+
+.結果
+包含結果的 xlsx 或 xls 檔案將會儲存到您的工作目錄中。
+
+--
+====
+.接下來呢？
+link:launch-onboarding-advisor.html["使用移轉顧問建立 VMware Cloud on AWS 部署計劃"]。
