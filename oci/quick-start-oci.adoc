@@ -17,7 +17,7 @@ summary: 您只需幾個步驟，即可開始使用 Oracle Cloud Infrastructure 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 新增憑證和權限
 [role="quick-margin-para"]
-link:add-credentials.html["新增憑證至帳戶"].這包括選擇工作負載功能和建立所需權限的 IAM 原則。
+link:add-credentials-oci.html["新增憑證至帳戶"]。這包括選擇工作負載功能和建立所需權限的 IAM 原則。
 
 [role="quick-margin-para"]
 選擇預設link:permissions-oci.html["檢視、規劃與分析"]權限原則。

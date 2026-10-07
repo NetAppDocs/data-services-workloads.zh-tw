@@ -6429,7 +6429,6 @@
   <block id="e7eedef49aec1304d7b6e635357cf103" category="doc">NetApp Workload Factory 中的 Oracle Cloud Infrastructure NetApp 儲存服務快速入門</block>
   <block id="4921b955e2ee790fb36dea7d888abc3d" category="paragraph">透過新增憑證與權限、視需要建立連結，以及建立或探索儲存系統，開始使用 Oracle Cloud Infrastructure NetApp Storage Service （OCI NSS）。</block>
   <block id="51e2ade1c8d95d7f0f67d863179b93df" category="inline-link-macro">新增憑證至帳戶</block>
-  <block id="6f03cc1414acef942ae2e128ecc52497" category="paragraph"><block ref="518d818b180e3db000763010b4d6108f" category="inline-link-macro-rx"></block>.這包括選擇工作負載功能和建立所需權限的 IAM 原則。</block>
   <block id="290a812b6a2763487fb9805ae3edcc9f" category="inline-link-macro">檢視、規劃與分析</block>
   <block id="728a221143ba043fd0f57efb7223a156" category="paragraph">選擇預設<block ref="5ac42561767f3951cc6f464c1ccfc0f3" category="inline-link-macro-rx"></block>權限原則。</block>
   <block id="34fa64212b217b9064088a993c30cfe4" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 建立連結</block>
@@ -6633,7 +6632,6 @@
   <block id="6c98e127eb9f894ba57b9bfc2d5dab1f" category="paragraph"><block ref="6c98e127eb9f894ba57b9bfc2d5dab1f" category="inline-link-macro-rx"></block></block>
   <block id="2f4902a24a062f32e6a6cfa57616c831" category="summary">您可以透過 NetApp Console 存取 Workload Factory。開始使用 Workload Factory 時，第一步是使用您現有的 NetApp 支援網站認證資料註冊，或建立 NetApp 雲端登入。</block>
   <block id="ae09b16571bb5c1b5c1fccf487b44ea7" category="paragraph">可從 NetApp Console 存取 NetApp Workload Factory。若要使用 Console，請使用您的 NetApp 支援網站認證資料註冊或登入，或建立 NetApp Console 登入。如果您是公司第一位註冊的人員，您會以系統管理員身分建立新組織。如果您的公司已有組織，請使用您現有的 NetApp 支援網站認證資料或公司單一登入（SSO）註冊或登入。</block>
-  <block id="78929a53b7d6974b9d8b34e9c74d7da0" category="paragraph">未解析的指令於 &lt;stdin&gt; - include::https://raw.githubusercontent.com/NetAppDocs/console-setup-admin/main/_include/task-sign-up-saas.adoc[]</block>
   <block id="9b2e339c9639747e25e597bf41706151" category="paragraph">您現在已登入，可以開始使用 Workload Factory 管理您的儲存系統和工作負載。若要前往 Workload Factory，請從主選單中選取 *工作負載*。</block>
   <block id="cd1196d5845aaf259540d322ace00ee9" category="summary">在 NetApp Console 中了解 Workload Factory 的新增功能，例如工作負載管理、服務管理、儲存設備功能、權限等方面的更新和增強功能。</block>
   <block id="83006b8c743f417478830e1d83e1bb41" category="doc">NetApp Console 中的 Workload Factory 新功能</block>
@@ -6773,4 +6771,28 @@
   <block id="733ae60890dc5503303e1f5780ac5c9b" category="sidebar">使用 Codebox 產生程式碼</block>
   <block id="4ab00ae468588a563b956d814954695d" category="sidebar">使用 CloudShell</block>
   <block id="25f033e226552b2f5ae002edb8e5fd2f" category="sidebar">移除憑證</block>
+  <block id="24974380365a2e3e3af1d901b4f56526" category="paragraph"><block ref="8e78b98d3ec3e8310cb1961b36d417e0" category="inline-link-macro-rx"></block>。這包括選擇工作負載功能和建立所需權限的 IAM 原則。</block>
+  <block id="0946433107c0141c86e12d9acfc94eb5" category="section-title">以初始組織系統管理員身分註冊 NetApp Console</block>
+  <block id="826401015c53957df701460dc5fefb05" category="paragraph">如果您的公司還沒有 NetApp Console 組織，請註冊建立一個。第一個使用者將成為組織系統管理員，負責管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。</block>
+  <block id="6c479e362a71650f0ec9bfca93ce7f12" category="list-text">開啟網頁瀏覽器並前往<block ref="9fa63571706fcef6edc9d423212e6d10" category="inline-link-rx"></block>。</block>
+  <block id="dc346f53e29026800c3b9274294105f6" category="list-text">如果您有 NetApp 支援網站帳戶，請直接在 *登入* 頁面上輸入與您帳戶關聯的電子郵件地址。</block>
+  <block id="b1c0e39fde6fd83a65dd3bd95142165f" category="paragraph">控制台會在您首次登入時使用您的 NetApp 支援網站憑證為您註冊。</block>
+  <block id="bf093decf90516c940874ca448e5647c" category="list-text">如果您想透過建立 Console 登入來註冊，請選擇 *註冊*。</block>
+  <block id="dafbc60d299b7ecf7d1bf490a178f77f" category="list-text">在 *註冊* 頁面上，輸入所需資訊，然後選取 *下一步*。</block>
+  <block id="95f99a60f019f663b3b74472e57bd99b" category="admonition">註冊表格中只允許使用英文字元。</block>
+  <block id="422588021a93cfdaa26ce8d7d46dfeda" category="list-text">請檢查您的收件匣，查看是否有來自 NetApp 的電子郵件，其中包含驗證您電子郵件地址的說明。</block>
+  <block id="745229ae5b2bced3482332829ac60c32" category="paragraph">請驗證您的電子郵件地址以完成註冊。</block>
+  <block id="9e8f3a5627d6a315be184e88407a8e4b" category="list-text">登入後，審查並接受最終用戶許可協議。</block>
+  <block id="4c93133d0f71016860e62cd5febc8888" category="list-text">在 *歡迎* 頁面上，建立組織。</block>
+  <block id="16a6acfaa9478d613f4568fcc7f798b9" category="list-text">選擇 *開始*。</block>
+  <block id="d7398f410905989b0cfbd7c8949dea25" category="inline-link-macro">了解如何使用 Console Assistant。</block>
+  <block id="d3c4045cc716512dce22d4f648f90c3d" category="paragraph">+ 身為首次使用者和組織系統管理員，您可以按照引導流程新增儲存資源、建立 Console 代理程式等等。<block ref="8411fcab28bea2c0f0cc571757b43362" category="inline-link-macro-rx"></block></block>
+  <block id="11fd5297be439890aa7909ed6b065791" category="inline-link-macro">了解 NetApp Console 的身分與存取管理</block>
+  <block id="01d4731d174643f3b86d001a74ec91d4" category="paragraph">身為系統管理員，在完成 Console Assistant 中包含的步驟後，您應該規劃身分與存取策略，將使用者新增至您的組織，並指派角色。<block ref="e8cd337a181a13b2fbfafad53132bafb" category="inline-link-macro-rx"></block></block>
+  <block id="347778e3054043c713d65df7f9e10e01" category="section-title">當組織已存在時，註冊或登入 NetApp Console</block>
+  <block id="5acfd694e6aaca7505fcdbc950ee0e38" category="paragraph">如果貴公司已有 NetApp Console 組織，請註冊或登入以存取。您的註冊或登入方式取決於貴公司是否使用身分聯盟或擁有 NetApp 支援網站憑證。否則，請建立 NetApp Console 登入。</block>
+  <block id="7db903b190082d22d5def424cfdf8da1" category="list-text">如果您擁有 NetApp 支援網站帳戶，或您的公司已設定單一登入（SSO），請在 *登入* 頁面輸入您關聯的電子郵件地址或 SSO 憑證。依照提示完成登入。</block>
+  <block id="f6400c3e909c93ba53f8281302a7ffef" category="paragraph">在這兩種情況下，您都會在首次登入時註冊 Console。</block>
+  <block id="adbbbb6561b05ff5263526309e842926" category="inline-link-macro">了解如何聯絡組織系統管理員。</block>
+  <block id="172584f9c60790ff1f0e0a5fce827ebd" category="list-text">如果系統提示您建立組織，請結案對話方塊並告知 Console 系統管理員，以便他們可以將您新增至 Console 組織並授予您存取。<block ref="b322cd1c319c783c8c76cc03c56dbbda" category="inline-link-macro-rx"></block></block>
 </blocks>

@@ -13,7 +13,71 @@ summary: 您可以透過 NetApp Console 存取 Workload Factory。開始使用 W
 [role="lead"]
 可從 NetApp Console 存取 NetApp Workload Factory。若要使用 Console，請使用您的 NetApp 支援網站認證資料註冊或登入，或建立 NetApp Console 登入。如果您是公司第一位註冊的人員，您會以系統管理員身分建立新組織。如果您的公司已有組織，請使用您現有的 NetApp 支援網站認證資料或公司單一登入（SSO）註冊或登入。
 
-未解析的指令於 <stdin> - include::https://raw.githubusercontent.com/NetAppDocs/console-setup-admin/main/_include/task-sign-up-saas.adoc[]
 
-.結果
+
+[[sign-up-for-netapp-console-as-the-initial-organization-administrator]]
+== 以初始組織系統管理員身分註冊 NetApp Console
+
+如果您的公司還沒有 NetApp Console 組織，請註冊建立一個。第一個使用者將成為組織系統管理員，負責管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。
+
+.步驟
+. 開啟網頁瀏覽器並前往 https://console.netapp.com["NetApp Console"^]。
+. 如果您有 NetApp 支援網站帳戶，請直接在 *登入* 頁面上輸入與您帳戶關聯的電子郵件地址。
++
+控制台會在您首次登入時使用您的 NetApp 支援網站憑證為您註冊。
+
+. 如果您想透過建立 Console 登入來註冊，請選擇 *註冊*。
++
+.. 在 *註冊* 頁面上，輸入所需資訊，然後選取 *下一步*。
++
+
+NOTE: 註冊表格中只允許使用英文字元。
+
+.. 請檢查您的收件匣，查看是否有來自 NetApp 的電子郵件，其中包含驗證您電子郵件地址的說明。
++
+請驗證您的電子郵件地址以完成註冊。
+
+
+
+. 登入後，審查並接受最終用戶許可協議。
+. 在 *歡迎* 頁面上，建立組織。
+. 選擇 *開始*。
+
+
++ 身為首次使用者和組織系統管理員，您可以按照引導流程新增儲存資源、建立 Console 代理程式等等。link:https://docs.netapp.com/us-en/console-setup-admin/task-console-assistant.html["了解如何使用 Console Assistant。"^]
+
+.後續步驟
+身為系統管理員，在完成 Console Assistant 中包含的步驟後，您應該規劃身分與存取策略，將使用者新增至您的組織，並指派角色。link:https://docs.netapp.com/us-en/console-setup-admin/task-iam-get-started.html["了解 NetApp Console 的身分與存取管理"^]
+
+
+
+[[sign-up-or-login-to-netapp-console-when-an-organization-already-exists]]
+== 當組織已存在時，註冊或登入 NetApp Console
+
+如果貴公司已有 NetApp Console 組織，請註冊或登入以存取。您的註冊或登入方式取決於貴公司是否使用身分聯盟或擁有 NetApp 支援網站憑證。否則，請建立 NetApp Console 登入。
+
+.步驟
+. 開啟網頁瀏覽器並前往 https://console.netapp.com["NetApp Console"^]。
+. 如果您擁有 NetApp 支援網站帳戶，或您的公司已設定單一登入（SSO），請在 *登入* 頁面輸入您關聯的電子郵件地址或 SSO 憑證。依照提示完成登入。
++
+在這兩種情況下，您都會在首次登入時註冊 Console。
+
+. 如果您想透過建立 Console 登入來註冊，請選擇 *註冊*。
++
+.. 在 *註冊* 頁面上，輸入所需資訊，然後選取 *下一步*。
++
+
+NOTE: 註冊表格中只允許使用英文字元。
+
+.. 請檢查您的收件匣，查看是否有來自 NetApp 的電子郵件，其中包含驗證您電子郵件地址的說明。
++
+請驗證您的電子郵件地址以完成註冊。
+
+
+
+. 登入後，審查並接受最終用戶許可協議。
+. 如果系統提示您建立組織，請結案對話方塊並告知 Console 系統管理員，以便他們可以將您新增至 Console 組織並授予您存取。link:https://docs.netapp.com/us-en/console-setup-admin/task-user-settings.html#contact-admin["了解如何聯絡組織系統管理員。"^]
+
+
+.後續步驟
 您現在已登入，可以開始使用 Workload Factory 管理您的儲存系統和工作負載。若要前往 Workload Factory，請從主選單中選取 *工作負載*。

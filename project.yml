@@ -320,7 +320,7 @@ sidebar:
     - title: OCI NetApp 儲存服務快速入門
       url: "/oci/quick-start-oci.html"
     - title: 新增 OCI 憑證
-      url: "/oci/add-credentials.html"
+      url: "/oci/add-credentials-oci.html"
     - title: 探索 OCI 儲存系統
       url: "/oci/create-discover-systems.html"
     - title: 連接到 OCI 儲存系統
