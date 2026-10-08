@@ -25,7 +25,7 @@ summary: 修復自訂儀表板的常見問題，包括設定失敗、資料載�
 **解決方法：** 請嘗試以下方法：
 
 * 請重新撰寫您的請求，更清楚說明您想要監控的內容。
-* 從 link:create-custom-dashboard-fsx.html["建立自訂儀表板"] 中的其中一個範例提示開始。
+* 從 link:../admin/create-custom-dashboard-fsx.html["建立自訂儀表板"] 中的其中一個範例提示開始。
 * 將複雜的監控需求分解成幾個更簡單的儀表板。
 * 指定要追蹤的工作負載、指標、時間範圍或維度。
 
@@ -41,8 +41,8 @@ summary: 修復自訂儀表板的常見問題，包括設定失敗、資料載�
 
 **解決方案：**
 
-* **檢查權限：** 請確保您的 Workload Factory 帳戶擁有對儀表板使用的工作負載和資源的讀取存取。請查看 link:learn-custom-dashboards-fsx.html#aws-credentials-and-permissions["AWS 憑證和權限"] 中的權限要求。
-* **驗證憑證：**確認您的 AWS 憑證有效且未過期。如需詳細資訊，請參閱 link:../fsx-storage/add-credentials.html["新增 AWS 憑證"]。
+* **檢查權限：** 請確保您的 Workload Factory 帳戶擁有對儀表板使用的工作負載和資源的讀取存取。請檢閱link:../admin/learn-custom-dashboards-fsx.html#aws-credentials-and-permissions["權限要求"]。
+* **驗證憑證：**確認您的 AWS 憑證有效且未過期。詳情請參閱 link:../fsx-storage/add-credentials.html["新增 AWS 憑證"]。
 
 
 
@@ -85,4 +85,4 @@ Workload Factory 帳戶中的所有使用者都可以檢視和刪除自訂儀表
 [[additional-help]]
 == 其他說明
 
-如果您在使用自訂儀表板時仍然遇到問題，請參閱 link:../get-help.html["取得協助"] 以取得有關聯絡 NetApp 支援人員的資訊。
+如果您在使用自訂儀表板時仍然遇到問題，請參閱 link:../get-help.html["取得協助"] 以取得聯絡 NetApp 支援的資訊。

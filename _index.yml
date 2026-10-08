@@ -37,6 +37,8 @@ indexpage:
     links:
     - title: 設定通知
       url: "/admin/configure-notifications.html"
+    - title: AI 代理程式
+      url: "/admin/learn-agent.html"
     - title: 管理 AI 功能
       url: "/admin/manage-genai-features.html"
     - title: 使用 Codebox 實現任務自動化

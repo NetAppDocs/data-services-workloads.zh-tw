@@ -277,9 +277,7 @@
   <block id="5af1607522ddad534f7fc3e5976684e5" category="paragraph">建立完成後，您可以重新整理儀表板以查看更新後的資料。</block>
   <block id="a8f8e9b8eb3f376a4b560c169094087e" category="paragraph">請記住，自訂儀表板在設計上為唯讀，無法變更您的儲存或工作負載組態。</block>
   <block id="21b694dc2503eab08ab245a8bcfe9f1c" category="inline-link-macro">了解 AI 管理</block>
-  <block id="1981f9412416cf6cd4df691ce6b82265" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立儀表板。請聯絡您的系統管理員或<block ref="51cc9b1bceb3cdf8e5a226d8fb6d37eb" category="inline-link-macro-rx"></block>。</block>
   <block id="1490f3908001d2cdf7587ba480973340" category="section-title">建立儀表板</block>
-  <block id="1589e8533c432499ad85efd268dd750c" category="list-text">從 NetApp Console 選單中，選取 *工作負載* &gt; *工作負載概覽* &gt; *自訂儀表板*。</block>
   <block id="f1dcf9e30698fcfe356b412b3f1f523c" category="paragraph">如果這是您第一次使用控制面板，您將看到一個空白螢幕，其中包含一些範例提示，幫助您快速入門。您可以選擇 *Copy prompt* 將範例提示複製到 AI 對話方塊文字方塊中。</block>
   <block id="2e752336fdbff2abb5e9bf262bd0dbdd" category="list-text">選擇 *Create new dashboard*。</block>
   <block id="28d14a36109f19e020789b18ad010e52" category="list-text">在 AI 對話方塊中，描述您想要監控的內容。</block>
@@ -292,9 +290,7 @@
   <block id="871affa3441567ce8c578a244f4fa377" category="paragraph">您的儀表板正在建立中。這可能需要一些時間。</block>
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">結果</block>
   <block id="fa2935cab9052ead8bda54e043c876e7" category="inline-link-macro">了解如何變更儀表板可見度</block>
-  <block id="5ea00850c689f7da39c4db94cd187857" category="paragraph">您的自訂儀表板已建立並新增至儀表板目錄。預設情況下，儀表板為私有，僅您可見。如果您想與 Workload Factory 帳戶中的其他使用者共享，可以將其可見度變更為公開。<block ref="289ea80c835498b9548bdc48b7cf5ae9" category="inline-link-macro-rx"></block>。</block>
   <block id="863d814c29385fa8ebfd13bc1c1c7e96" category="inline-link-macro">了解如何設定通知</block>
-  <block id="c9db1966c96002c79c43ee5507b95b7c" category="paragraph">儀表板準備就緒後，您會收到通知。如果建立失敗，您會收到一條包含重試連結的通知。<block ref="19fa6c73a4251f43a74dc700e68a79f1" category="inline-link-macro-rx"></block>。</block>
   <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">接下來</block>
   <block id="fb3b6f147b0a44a08f4c961dc053571e" category="paragraph">建立完成後，您可以：</block>
   <block id="86d47ec5cc124c99638dc3c2f21c96e0" category="list-text">更改儀表板可見度，以便與您的團隊共享</block>
@@ -302,11 +298,8 @@
   <block id="7bff2130a08698224667671d85a34ed4" category="list-text">刪除不再需要的儀表板</block>
   <block id="ed5184af3d39b3e314759db5b95ba675" category="list-text">檢視儀表板詳細資訊，包括建立者及上次更新時間。</block>
   <block id="d10995cac5dfc264a5da7f4abec9025d" category="inline-link-macro">管理您的自訂儀表板</block>
-  <block id="c6b1282f7bfcab2471a26abec56e02af" category="list-text"><block ref="c6b1282f7bfcab2471a26abec56e02af" category="inline-link-macro-rx"></block></block>
   <block id="1703fc0755f2533bd9d727fa0298c500" category="inline-link-macro">疑難排解自訂儀表板</block>
-  <block id="42f7b5e86648dfe662db00ae0b30eae7" category="list-text"><block ref="42f7b5e86648dfe662db00ae0b30eae7" category="inline-link-macro-rx"></block></block>
   <block id="b765164d0d63341925efe41eda98a9b0" category="summary">建立由 AI 驅動的儀表板，根據您的工作負載和優先順序進行個人化設定，從而提升營運可見性，不受預定義檢視的限制。</block>
-  <block id="71a8c05eab4e4008080f227b779ca449" category="doc">在 NetApp Workload Factory 中了解適用於 ONTAP 的 FSx 自訂儀表板</block>
   <block id="7eb72e0c632d43245022c759c6dabf4f" category="paragraph">身為雲端和儲存管理員，自訂儀表板能讓您清楚了解所管理的系統和工作負載。您可以根據自身的工作、優先順序和業務目標建立和個人化檢視，而無需局限於預設版面配置。</block>
   <block id="959c71c7e92856ead7b3a708f6c721c2" category="paragraph">自訂儀錶板利用 AI 技術，建立個人化的 Workload Factory 環境視圖。您只需用簡單易懂的語言描述想要監控的內容，系統即可根據您的需求自動產生視覺化圖表。</block>
   <block id="f1e11e6b7c8b037c77a4a7c91acba439" category="paragraph">Workload Factory 帳戶中的所有使用者都可以查看所有自訂儀表板。這種共享設定有助於團隊協作，並在整個組織內查看相同的營運資訊。</block>
@@ -328,7 +321,6 @@
   <block id="7341b20ff1ddefe079f968d8d4436714" category="list-text">*私人儀表板*：只有您可以檢視這些儀表板。可用於個人監控、測試或進行中的工作。</block>
   <block id="71c6aa9812ec2db21553218b51c3d261" category="list-text">*公開儀表板*：您 Workload Factory 帳戶中的所有使用者都可以檢視這些儀表板。使用它們可以共享監控檢視，並確保您的團隊在工作負載、優先順序和業務目標方面保持一致。</block>
   <block id="0f72bd1a783a9d1e54bd0e1af11e9b72" category="paragraph">每個儀表板卡片都會顯示儀表板是私有的還是公開的，因此您可以快速查看哪些儀表板是共享的。</block>
-  <block id="f3cf67ccb99f00593ef15c799619319e" category="paragraph"><block ref="289ea80c835498b9548bdc48b7cf5ae9" category="inline-link-macro-rx"></block>。</block>
   <block id="18b34a0dd090bb7f1f01f6f3d0d42c52" category="section-title">考慮因素和局限性</block>
   <block id="97911b3c54a4e826b34c1f79026316c5" category="section-title">AWS 憑證和權限</block>
   <block id="6344c74fd8e5c3678a14327105887b61" category="paragraph">若要建立或檢視自訂儀表板，您需要擁有要監控的資源的正確 AWS IAM 權限。請確保 Workload Factory 帳戶對儀表板使用的資料來源具有讀取存取權限。</block>
@@ -338,7 +330,6 @@
   <block id="d65de0ffa05b31f0beebf22d3e28dbde" category="section-title">連結至 FSx for ONTAP</block>
   <block id="ee01e7a77a5b8f6475723b4e66eca889" category="paragraph">Workload Factory 需要透過連結連接到 FSx for ONTAP 檔案系統。此連結會在 Workload Factory 與一個或多個 FSx for ONTAP 檔案系統之間建立信任關係和連線。這樣，您就可以直接透過 ONTAP REST API 呼叫來監控和管理某些 Amazon FSx for ONTAP API 無法提供的檔案系統功能。</block>
   <block id="68cd2ca9724f378c0a2815415eeecfbd" category="inline-link-macro">學習如何建立連結</block>
-  <block id="232e3bd00f6c8f524e871620adb4285f" category="paragraph"><block ref="09d2f2e6f3fb5ec04917bb58f408754d" category="inline-link-macro-rx"></block>。</block>
   <block id="edc83c82b6a6439e121df7b8dfc618e7" category="section-title">唯讀設計</block>
   <block id="9596530d51115869eabe2f1148109fcb" category="paragraph">自訂儀表板為唯讀模式。無法變更儲存或工作負載設定。這可讓您監控系統，而不會意外變更任何內容。</block>
   <block id="e646e16bee8b32e6ea29e30d01970a6c" category="section-title">限制</block>
@@ -356,9 +347,7 @@
   <block id="489342efbcb2cab8832e0e763b340653" category="list-text">所有磁碟區都必須啟用 ARP。"</block>
   <block id="cce78dc6ebbec7385a01f2146d6d01c8" category="section-title">後續步驟</block>
   <block id="dfc2a77d9b383cd28cba1a1e99f9a378" category="inline-link-macro">建立自訂儀表板</block>
-  <block id="0d31ec9338481ac9d70aba81ed6a3dcd" category="list-text"><block ref="0d31ec9338481ac9d70aba81ed6a3dcd" category="inline-link-macro-rx"></block></block>
   <block id="62403e3fa28afe128e2c0e15bf0333f7" category="inline-link-macro">管理自訂儀表板</block>
-  <block id="ecb7db8454bf763909a485516115aa9b" category="list-text"><block ref="ecb7db8454bf763909a485516115aa9b" category="inline-link-macro-rx"></block></block>
   <block id="adf67e3c15ea92cdb089cbb8d3dced6b" category="summary">如果您不再需要某組憑證，可以從 NetApp Workload Factory 中將其刪除。您只能刪除未與 FSx for ONTAP 檔案系統關聯的憑證。</block>
   <block id="b088f0038dd9646dd61cd1cf0cae1489" category="doc">從 NetApp Workload Factory 移除憑證</block>
   <block id="2f13edc244ce3aa63a739bc5418cd67f" category="paragraph">如果您不再需要某組憑證，可以從 Workload Factory 中刪除它們。您只能刪除未與 FSx for ONTAP 檔案系統關聯的憑證。</block>
@@ -369,7 +358,6 @@
   <block id="90b29202abc7a1c38c887ae166296c46" category="summary">存取您的儀表板目錄，以在 Workload Factory 中檢視、重新整理和刪除自訂儀表板。</block>
   <block id="526aa50fb911c91291e959f7543639b0" category="doc">在 NetApp Workload Factory 中管理自訂儀表板</block>
   <block id="3ba405e1d72777e360f3b281ce3ba5b9" category="paragraph">您可以透過儀表板目錄管理您的自訂儀表板。您可以在這裡檢視詳細資訊、共享儀表板、重新整理資料或刪除不再需要的儀表板。</block>
-  <block id="4765f204e5de83ae87fec00c7c5b7589" category="paragraph">您可以從儀表板目錄檢視和管理自訂儀表板。私人儀表板僅您可見，而公用儀表板對您 Workload Factory 帳戶中的所有使用者可見。每個儀表板都會顯示基本詳細資料，例如建立者姓名、建立日期和可見度標籤（私人或公用）。</block>
   <block id="a83695a886882e5b4baf753ee607f66f" category="paragraph">自訂儀表板為唯讀模式。無法變更儲存或工作負載設定。</block>
   <block id="76fc0fde7a5041f5e2df3b114841202c" category="paragraph">您的 Workload Factory 帳戶中必須至少有一個自訂儀表板。</block>
   <block id="19f40b5f5943ee4953075403d9783061" category="section-title">存取儀表板目錄</block>
@@ -385,7 +373,6 @@
   <block id="7e3cce2609a225eafd019dfc30a9437a" category="paragraph">儀表板會立即更新。儀表板卡片上的可見度標籤會顯示目前狀態。</block>
   <block id="9e3f16aef1d22400bdae48c5cb77b00f" category="section-title">重新整理儀表板資料</block>
   <block id="4e424a1ad37782627141d4d50f79b586" category="paragraph">開啟儀表板後，儀表板資料就會載入。您可以重新整理儀表板以查看最新資訊。</block>
-  <block id="6835e72df37e141c78401ea8d4bfcf90" category="paragraph">儀表板會重新載入工作負載中的資料。上次更新時間將會變更，以顯示資料重新整理的時間。</block>
   <block id="74ee9feffcb1603b7eeb47c099c0e5a5" category="section-title">刪除儀表板</block>
   <block id="e54360b7371199d6607f76cd1ae6ad17" category="paragraph">刪除不再需要的儀表板。此操作為永久性操作，無法復原。</block>
   <block id="3325f3a5c13a73bb87ed2dabebb0b6a3" category="list-text">在「自訂儀表板」頁面中，找到要刪除的儀表板。</block>
@@ -393,12 +380,8 @@
   <block id="b26a5fa549c938ffb56d20623c3f69c0" category="list-text">確認刪除。</block>
   <block id="22e8351c82677bcc78bd23d6fb170bc8" category="paragraph">儀表板已從您的 Workload Factory 帳戶中永久刪除，所有使用者都將失去對其的存取權限。</block>
   <block id="9537d9160ef701530bdd875698475957" category="inline-link-macro">建立其他自訂儀表板</block>
-  <block id="955c1a1cd93a476dfbcc96e2d337dabc" category="list-text"><block ref="955c1a1cd93a476dfbcc96e2d337dabc" category="inline-link-macro-rx"></block></block>
   <block id="f7b22a19823cae9bc6664fece0b96115" category="summary">在 Workload Factory 中控制對基於 Bedrock 的 AI 功能的存取。您可以關閉 AI 功能或使用 NetApp 代管的 AWS Bedrock。</block>
-  <block id="1aaa6ae8dc8943b938e73e20b3d28d07" category="doc">在 NetApp Workload Factory 中管理 FSx for ONTAP 的 AI 功能</block>
-  <block id="85c7bc155798813a7f9165f8ac043607" category="paragraph">在 Workload Factory 中控制對 FSx for ONTAP 的 AI 功能的存取。您可以關閉 AI 功能或使用由 NetApp 代管的 AWS Bedrock。</block>
   <block id="00e95115c994386ef85f1864db952bca" category="section-title">關於 AI 功能</block>
-  <block id="5a41793d075495dfb423bb395a189adf" category="paragraph">Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如「問我」、自訂儀表板以及 EMS、資料庫日誌和延遲分析器。</block>
   <block id="46918c8c585299e7a785eed266de3f97" category="paragraph">身為 Workload Factory 系統管理員，您可以在 AI 設定頁面上控制這些功能如何使用 AI。</block>
   <block id="50f33d14f129e4548c1c270fd6725a78" category="section-title">組態選項</block>
   <block id="5787d906b76d8323ff398ce17924ceda" category="paragraph">請從以下設定選項中選擇：</block>
@@ -408,10 +391,8 @@
   <block id="9a0258efc499c889c5f1af73bbaf4364" category="list-text">每月使用額度在您的組織內共享。</block>
   <block id="2c8b8060f9331f918beb8261403785ec" category="list-text">無需額外的 AWS 設定</block>
   <block id="1ee78c04d8b078adcb0fca6be60af5a2" category="list-text">GenAI 功能關閉</block>
-  <block id="8828805c938d7fc1a48fbf3585c37b14" category="list-text">關閉所有 AI 功能。使用者將無法再使用「問我」、分析器、自訂儀表板、規則建構者或其他人工智慧驅動工具。</block>
   <block id="396640080b08108896efb48796063406" category="list-text">我們建議帳戶系統管理員設定 AI 功能。</block>
   <block id="6b7af6c72f84f0f7380106617c11be78" category="section-title">設定 AI 功能</block>
-  <block id="0b9ce81b2ccc278e75862730529db903" category="list-text">從 NetApp Console 選單中，選取 *工作負載* &gt; *管理* &gt; *AI 設定*。</block>
   <block id="ef1f959eefc1f11cf2aec294261e066f" category="list-text">在「AI 設定」頁面，選擇您偏好的組態：</block>
   <block id="7530dc640ec2dd92a9e70b8484867369" category="list-text">*NetApp-代管的 Bedrock （建議）*：使用 NetApp-代管的 AWS Bedrock。</block>
   <block id="053d266af64b45b2a2fbc0eeccc99297" category="list-text">*Gen AI features off*：關閉所有 AI 功能。</block>
@@ -440,7 +421,6 @@
   <block id="686efa14a6d0381010005caff3820d5a" category="inline-link-macro">了解 Workload Factory 功能</block>
   <block id="15776a498e04d3e0bd78a1478d9c287a" category="list-text"><block ref="15776a498e04d3e0bd78a1478d9c287a" category="inline-link-macro-rx"></block></block>
   <block id="1d37f129240a0035a4c1f8d424382c89" category="inline-link-macro">了解自訂儀表板</block>
-  <block id="d117d4fd605dbd7dc4026e925fc36ba0" category="list-text"><block ref="d117d4fd605dbd7dc4026e925fc36ba0" category="inline-link-macro-rx"></block></block>
   <block id="196a1b1d4d7eff75b0b7bc0f6fa282e7" category="inline-link-macro">新增 AWS 憑證</block>
   <block id="8feef39480c2e9a61121221ad1a6e6fc" category="list-text"><block ref="8feef39480c2e9a61121221ad1a6e6fc" category="inline-link-macro-rx"></block></block>
   <block id="b8646f09ea34b75c077cfea12f75617b" category="inline-link-macro">權限參考</block>
@@ -541,15 +521,12 @@
   <block id="0687519296941b7aa068cbc5e70a1c22" category="paragraph">**原因：**系統無法理解您的要求或無法根據您的提示建立視覺化內容。</block>
   <block id="83b9aaf1b6b5ef7884e24699dc7f7511" category="paragraph">**解決方法：** 請嘗試以下方法：</block>
   <block id="894b21673f7a949e53a381985a55de87" category="list-text">請重新撰寫您的請求，更清楚說明您想要監控的內容。</block>
-  <block id="1a5b38b4e731948856a46b57ba7acacb" category="list-text">從 <block ref="0d31ec9338481ac9d70aba81ed6a3dcd" category="inline-link-macro-rx"></block> 中的其中一個範例提示開始。</block>
   <block id="6e8565abed03ed302a07467257865757" category="list-text">將複雜的監控需求分解成幾個更簡單的儀表板。</block>
   <block id="28ceb1134c8420a708d78605ab459972" category="list-text">指定要追蹤的工作負載、指標、時間範圍或維度。</block>
   <block id="7b0923a8ddaa6864688d6afeed5bde9f" category="section-title">儀錶板載入資料失敗</block>
   <block id="6cf9da3bc18ab877793e971ea5fdf80d" category="paragraph">**問題：**儀表板已建立，但在載入資料時顯示錯誤。</block>
   <block id="423c766e8a7076c3dd890fe7460b5785" category="paragraph">**原因：**這通常是由於權限問題或資料來源無法使用造成的。</block>
   <block id="6342c16a39a9eb2f31fa733eb76963b7" category="paragraph">**解決方案：**</block>
-  <block id="5c7f8468c6375df4cef5ecb5f18b113c" category="list-text">**檢查權限：** 請確保您的 Workload Factory 帳戶擁有對儀表板使用的工作負載和資源的讀取存取。請查看 <block ref="85406e0d04c8df1dc17be4dd86713ac5" category="inline-link-macro-rx"></block> 中的權限要求。</block>
-  <block id="9f91001f68a6708181c9064ef06f2a03" category="list-text">**驗證憑證：**確認您的 AWS 憑證有效且未過期。如需詳細資訊，請參閱 <block ref="8feef39480c2e9a61121221ad1a6e6fc" category="inline-link-macro-rx"></block>。</block>
   <block id="a82708a710bdc7f66cc4d1b5721a359c" category="section-title">儀錶板無法載入或載入緩慢</block>
   <block id="7b8a6ade8ac0e93d1993c6d3ee222a27" category="paragraph">**問題：**儀表板載入緩慢或某些小工具未顯示。</block>
   <block id="c66f626cb62bfd00b1514c2f1a4ec699" category="paragraph">**原因：**載入速度慢可能是由於網路問題、資料量過大或臨時服務延遲造成的。</block>
@@ -565,7 +542,6 @@
   <block id="62ad02c42e5e548dcaf80a64c2d0eefd" category="list-text">如有必要，請根據原始要求重新建立儀表板。</block>
   <block id="1e2b52bc0d9b39d605af8ef1990be5ab" category="paragraph">Workload Factory 帳戶中的所有使用者都可以檢視和刪除自訂儀表板。管理共享儀表板時，請與您的團隊協調。</block>
   <block id="e2a43aebbf3f114c3e1dfc54b469c13e" category="section-title">其他說明</block>
-  <block id="40c027613b25b5acd817da4656c22bd8" category="paragraph">如果您在使用自訂儀表板時仍然遇到問題，請參閱 <block ref="12b3578a80c78dee4be855cedba97ff4" category="inline-link-macro-rx"></block> 以取得有關聯絡 NetApp 支援人員的資訊。</block>
   <block id="c61544abe563251eb7477b6292b382e4" category="summary">您可以使用 CloudShell 從 NetApp Workload Factory 使用者介面的任何位置發出 AWS 或 ONTAP CLI 命令。</block>
   <block id="2cc12a89b9145b8d67b684667bcb6e3e" category="doc">在 NetApp Workload Factory 中使用 CloudShell</block>
   <block id="bdd3829c4c5d30727b854efad6656ed4" category="paragraph">開啟 CloudShell 以從 NetApp Workload Factory 控制台的任何位置執行 AWS 或 ONTAP CLI 命令。</block>
@@ -1921,7 +1897,6 @@
   <block id="9c26918e454ba2268c8c93c41218c570" category="list-text">追蹤多個叢集的效能指標</block>
   <block id="ff552e5da914068f0d9d4064c2f6fb85" category="list-text">檢查連結組態狀態（相關連結欄）- 每日驗證連線有效性</block>
   <block id="88b77b6c01adce036032ab7bf374a7a9" category="list-text">選擇多個叢集進行批次參數更新</block>
-  <block id="94e78450902ff8802101a87715f2120e" category="paragraph">選擇檔案系統以開啟叢集詳細資訊，包括叢集資訊、SSD 容量值和 SSD Capacity Over Time 圖表。</block>
   <block id="c6e9c9061d9167583226901e02ffb03e" category="section-title">SSD 容量管理</block>
   <block id="f8ea6e988f609d0e7b256e12ea4d4718" category="section-title">管理模式</block>
   <block id="7ae10da71cdf204162f214a176b66232" category="list-text">*僅通知（建議模式）*</block>
@@ -1955,15 +1930,12 @@
   <block id="622a5b145e5cdfd92b8124baf3f8e5d7" category="list-text">*最小延遲（毫秒）*（預設值 10 毫秒）</block>
   <block id="4067af77fe7df9f9047c8c4eeb9490b5" category="list-text">*最大處理量 SKU*（預設：無）</block>
   <block id="e4612c732ae1c64db60c83cb8cae8381" category="section-title">檔案系統應變彈性建議</block>
-  <block id="cc8b8287cb9875fcd93e6deecaaa1c10" category="paragraph">當 Workload Factory 處於 Automate 或 Recommend 模式時，它會自動檢查每個 FSx for ONTAP 檔案系統，並執行容量建議演算法。系統會定期掃描，以確定是否需要調整 SSD 容量或處理量。</block>
   <block id="1f9c155d60450baccee27bca630b6497" category="paragraph">當識別出建議時：</block>
   <block id="c3a8bcc1273489aff39484b64fd9efe7" category="list-text">您將根據 Workload Factory 的通知設定立即收到通知。</block>
   <block id="1c5b8d97751372161e201f333f1b4f62" category="list-text">透過篩選叢集表格，識別具有建議的檔案系統。</block>
   <block id="a3eb814e72de4d40c0767efe37beafe1" category="list-text">介面顯示目前具有有效建議的檔案系統總數。</block>
   <block id="68c65b2650d813b072f0481727b3e600" category="paragraph">該建議解釋了建議的變更及其背後的原因，例如：_我們建議您根據檔案系統的 SSD 使用模式增加 SSD 容量。_</block>
-  <block id="7c3b540ce616a2a72155e6240f74714c" category="paragraph">系統會針對儲存容量事件發送通知，包括容量建議、容量增加成功、警告警報以及容量檢查或增加操作期間發生的錯誤。錯誤通知會解釋原因，例如缺少權限、檔案系統更新正在進行中、最近一次儲存設備變更後 AWS 的等待期、達到最大容量或 CloudWatch 資料不可用。</block>
   <block id="fa0b4e3f4266abe4ec93e3058cfcd2aa" category="section-title">了解容量決策點</block>
-  <block id="1b07a2acaea0fa364496ba3afb977975" category="paragraph">SSD 使用圖會標記系統何時提出容量建議或執行自動操作。這些標記顯示容量管理演算法隨時間推移的運作方式。</block>
   <block id="c27f88e562f3ed3c4000570673348297" category="list-text">*建議決策點*</block>
   <block id="25dc82340ec038ecbda8ab79823e242a" category="list-text">當系統偵測到需要更多 SSD 容量時，就會出現此提示。如果容量尚未增加，這些提示點可能每 30 分鐘出現一次。圖表會盡可能顯示每個提示點。如果選定的時間範圍過於密集，則會將這些點合併在一起。</block>
   <block id="153ea1a28a0f56dba57777e1680e1f76" category="list-text">*自動化決策點*</block>
@@ -2165,11 +2137,8 @@
   <block id="ee58964f46df645da6108475c6d86f30" category="list-text">選擇 *Activate* 以啟動儀表板並開始收集指標。</block>
   <block id="7b76cd809591b8cb2b82a5d96bf92502" category="paragraph">Workload Factory 開始收集與您的 AWS 憑證關聯的所有 FSx for ONTAP 檔案系統的 CloudWatch 指標。指標資料可用時，控制面板會更新。資料收集仍在進行時，會顯示通知。</block>
   <block id="b7b10c1304f383232f064dc193d3492b" category="paragraph">啟動儀表板後，您可以：</block>
-  <block id="84dbb7b1eccc71ff5f71a7198ff13b68" category="list-text"><block ref="2cfa6ed38cd9b96055529b98595c7f05" category="inline-link-macro-rx"></block> 監控叢集健全狀況和容量</block>
   <block id="2733df4f5d332cf0fbf7a918cce60410" category="inline-link-macro">啟用並設定 SSD 容量管理模式</block>
-  <block id="806c2769f2f8cebfc3e1fb594f627f17" category="list-text"><block ref="4f6b89d6de6199c28054a07fffc78ba6" category="inline-link-macro-rx"></block>（Recommend、Automate 或 None）</block>
   <block id="c3bb386a8cfadc37852e3ce68761e026" category="inline-link-macro">啟用和設定處理量管理模式</block>
-  <block id="ef059ce8f7b1372dd14393349e748478" category="list-text"><block ref="5d06130fa1ae401255bccec02e322846" category="inline-link-macro-rx"></block>（Recommend、Automate 或 None）</block>
   <block id="f872ab9156293273da8e58555b68ca2e" category="list-text">設定篩選條件以專注於特定區域或 AWS 帳戶</block>
   <block id="94865ed9933801afc860536ada02e496" category="summary">檢視並分析延遲事件，以尋找 FSx for ONTAP Volume 的效能問題。使用基本分析和可選的 AI 分析來確定根本原因並提供建議的修復方案。</block>
   <block id="7c7708c4a86b73bb59e5e08ced5293bf" category="doc">分析 Workload Factory for EDA 中的延遲問題</block>
@@ -2333,8 +2302,6 @@
   <block id="c71e0da6508887a77f334a554ab5495a" category="summary">使用概覽儀表板監控叢集健全狀況、檢視容量建議、管理 SSD 和處理量設定，並分析 FSx for ONTAP 檔案系統的效能趨勢。</block>
   <block id="79181b2c6ed46060150e77e4602bc886" category="doc">使用 Workload Factory 中的 Overview 儀表板進行 EDA</block>
   <block id="4c3cb97ad8dafb44b4527de840549941" category="paragraph">使用概覽儀表板檢查 FSx for ONTAP 檔案系統的健全狀況和容量。您可以篩選資料、查看容量建議、調整 SSD 和處理量設定，以及審查效能趨勢，以協助決定 Volume 的放置位置以及何時擴展容量。</block>
-  <block id="f4d32e19fbe53c2c3a060145a3cb089e" category="inline-link-macro">已啟動 Overview 儀表板</block>
-  <block id="b989d81a69fe7883dca4d1012f53d338" category="paragraph">您必須先<block ref="38c0848a99095f730ae7166b7cd5884e" category="inline-link-macro-rx"></block>才能使用它來監控檔案系統。</block>
   <block id="26949f06981e97a3e3cda29668de2aff" category="section-title">篩選儀表板</block>
   <block id="3add6a53fd27e48c56df398ecbb78292" category="paragraph">使用儀表板頂部的篩選器可以查看特定的檔案系統。這些篩選器適用於延遲、使用率、ONTAP 事件部分以及叢集表。</block>
   <block id="e8f3159a468f02961bca7416aa632c34" category="list-text">使用可用的篩選條件來縮小檢視範圍：</block>
@@ -2352,7 +2319,6 @@
   <block id="45cd3072594a40004f1648f957b11b4f" category="list-text">檢視延遲事件：</block>
   <block id="9bab24fe4c951c13841b658922a21a8b" category="list-text">選取 *Review* 以導覽至 *Latency* 索引標籤</block>
   <block id="d88a1f1774fe796edce9fbdb30450768" category="list-text">如果未設定延遲監控，請選取 *Configure* 以設定延遲臨界值</block>
-  <block id="3fc40acdeffa85e640e04decb4a3c8a1" category="paragraph">如需延遲監控的詳細資訊，請參閱 <block ref="9fa375caf288330dba08fd0144ac3746" category="inline-link-macro-rx"></block>。</block>
   <block id="fc28c48860928b711f31c63cbbeac8d0" category="list-text">若要檢視 FSx for ONTAP 檔案系統的 ONTAP 事件、請選取 *Review* 。</block>
   <block id="b89294c44923d00aeca4413b78b17341" category="inline-link-macro">ONTAP CLI 說明文件</block>
   <block id="1c9d8ee06541dbbb5c46a2f2dcb0188e" category="paragraph">ONTAP 事件檢視卡按類別（容量、可用性和保護以及安全性和其他）顯示 EMS 事件的數量。有關監控的 EMS 事件的完整列表，請參閱<block ref="95232132a00f2412cfd89d25359e73da" category="inline-link-macro-rx"></block>。</block>
@@ -2369,9 +2335,6 @@
   <block id="37b5b20fd94de2275a255ae79e7ac8f0" category="list-text">若要套用建議，請遵循建議訊息中提供的指引。</block>
   <block id="95138c66b91ee03084dfba9068536d5e" category="section-title">變更 SSD 管理模式</block>
   <block id="5b9d5469c481b2fd86bb70731779a54a" category="paragraph">對於每個檔案系統，選擇如何管理 SSD 容量：接收手動建議或允許自動擴充。</block>
-  <block id="6d8ccfb06da581a2d86feacefa3b4869" category="inline-image-macro">動作功能表圖示</block>
-  <block id="c9eecdb0eb0ca75174ea4d40e628f365" category="list-text">在 Clusters 表格中找到檔案系統名稱。在其旁邊，開啟 <block ref="db26b5e8c520e1d883813594c799d7f7" category="inline-image-macro-rx" type="image"></block> 並選取 *Change SSD capacity management*。</block>
-  <block id="c7ac58faf1984cf107f3421908d2207c" category="list-text">選擇 *Enable SSD capacity management*，然後選擇 *Apply*。</block>
   <block id="b689124bbd04a08329d8f616990fa06d" category="list-text">選擇您偏好的模式：</block>
   <block id="da35cbad278570472c076b6042a5b528" category="list-text">設定 SSD 容量管理參數：</block>
   <block id="166c4a53ef8fc50b9b03ca91c1c677bc" category="list-text">*臨界值 (%)*：觸發建議的 SSD 使用率百分比</block>
@@ -2382,40 +2345,16 @@
   <block id="86161e58ce8677bff58de719cb9f29a8" category="paragraph">針對每個檔案系統，選擇如何管理處理量的增加。</block>
   <block id="441fc54d05bba2a603a05c500cf068c7" category="list-text">在 *Overview* 索引標籤中，在「叢集」表中選取一個或多個檔案系統。</block>
   <block id="0231f044766e71e4fe49a62ba8e8bbbe" category="list-text">選擇 *Change throughput management*。</block>
-  <block id="652aab445f49bb41fa3e8774b5719cf2" category="list-text">選擇 *啟用處理量管理*，然後選擇 *套用*。</block>
-  <block id="16393cf33b95f8ff007d76d513b875d7" category="list-text">在對話方塊中，設定處理量管理參數：</block>
   <block id="083678f0efe5919237188ee0ee5d0b90" category="list-text">*評估視窗（小時）*：用於分析處理量模式的時間段</block>
   <block id="ed38b15c549d9cd41a86a3787f5fee23" category="list-text">*Breached metrics (%)*：用於確定違規情況的百分比臨界值</block>
-  <block id="5e1e1daa7e6d115a54180e147895003e" category="list-text">*連續違規窗口期（小時）*：採取行動前連續違規行為的持續時間</block>
   <block id="91455d18a42b79b1a34df0d97bfbaffd" category="list-text">*最小延遲（毫秒）*：用於確定處理量增加的延遲臨界值</block>
   <block id="0a2daf37cc4cac8c9a3da95290e9a399" category="list-text">*最大處理量（SKUs）*：允許的最大處理量 SKU</block>
   <block id="6b482ace535080820ca5dea3bb557cb6" category="paragraph">選定的檔案系統會立即切換至新的處理量模式。</block>
-  <block id="be76a5f710c434b57d7bb9106913548d" category="section-title">批次編輯管理參數</block>
-  <block id="399db4c92643ea16a6e10865b34f5b4f" category="paragraph">一次變更多個檔案系統的設定，使相同的設定套用至您的所有叢集。</block>
-  <block id="cc009bfb1b3b40af528a54a164d8b953" category="list-text">從 *Overview* 標籤中，選取表格中要編輯的檔案系統。</block>
-  <block id="8cd7391e66f29fd726ffdf9a59961f54" category="admonition">您可以選取個別檔案系統，或使用標題核取方塊來選取所有可見的檔案系統。</block>
-  <block id="93343e8a72e86eb0283fa9c6fb77b48b" category="list-text">在表格上方選擇「變更 SSD 容量管理」或「變更處理量管理」。</block>
-  <block id="b97c770bb654f2ef0b93eb759a99c159" category="list-text">選擇您偏好的模式。</block>
-  <block id="a707a072d0b2b11d2c3e5a2160f9cd48" category="list-text">在編輯對話方塊中，根據需要調整參數。</block>
-  <block id="43c2e4748a7a87eb44a6cb86329b0750" category="paragraph">每個參數欄位都包含一個工具提示，描述其用途和有效範圍。對話方塊會根據您的選擇顯示目前值或預設值。</block>
-  <block id="3f254e874f94d9cc6daffdbea2c76012" category="list-text">選擇 *Apply* 以將變更套用到所有選定的檔案系統。</block>
-  <block id="80c68bda2149e685b2c9d4a63c1abe0b" category="paragraph">所有選定檔案系統的參數都會更新。處於「推薦」或「自動」模式的檔案系統會立即使用新參數進行分析和決策。</block>
   <block id="84a7874f129070a914f70dd3d70a6716" category="section-title">分析容量趨勢與決策點</block>
   <block id="65bd457971cf8d44b2a0e065d040b668" category="paragraph">使用 SSD 使用情況圖表查看儲存使用情況隨時間的變化，並找出規律。</block>
   <block id="4dbca2bab9fb0222adee0d079e0d2127" category="paragraph">圖表上的決策點表示：</block>
   <block id="232af3ec8ca37d39f0b49ddb6c81830a" category="list-text">*建議決策點*：容量建議演算法識別出需要額外的 SSD 容量。</block>
   <block id="adcae559988943cef6bf4b9ce78904b2" category="list-text">*自動化決策點*：自動化系統嘗試增加 SSD 容量。這些點顯示操作成功或失敗的情況。</block>
-  <block id="322cceacdd52c951c88a1d93df7f0dd8" category="list-text">在 *總覽* 標籤中，選擇表格中的檔案系統名稱。</block>
-  <block id="c7967065af6ac7703ee14f60f2812ccb" category="list-text">檢閱顯示歷史容量趨勢的 SSD 使用圖表。</block>
-  <block id="6f6089a81e1a8064861733b4969654d6" category="list-text">選擇不同的時間範圍，以檢視不同期間的容量行為。</block>
-  <block id="8d33ce28efafbfe7600930c556bcfd55" category="list-text">將滑鼠懸停在圖表上的決策點，即可檢視特定時刻的建議或自動化行動的詳細資訊。</block>
-  <block id="4d43a6d1e695bf0a99e5bc33d3ca3fda" category="list-text">使用圖表中的深入見解來：</block>
-  <block id="8aa0b0a22cf225f503177c8f1de7df3c" category="list-text">了解需要進行容量調整的頻率</block>
-  <block id="dc036d0aefd6c43f7e0e90f879128e16" category="list-text">評估自動化或建議模式是否更適合您的工作負載模式</block>
-  <block id="274e06045627d8934cd9bb52e8c64f53" category="list-text">識別反覆出現的容量限制</block>
-  <block id="38e979158d55ae25a36aba4d97b0a8b4" category="list-text">根據成長趨勢規劃未來的容量需求</block>
-  <block id="2814ccd9bf1ef1faffa5931e29ee7f74" category="list-text">疑難排解失敗的自動化嘗試</block>
-  <block id="aaf7b326d4aad005d3ebd721670545d4" category="paragraph">常見故障原因包括：AWS 權限不足、檔案系統更新正在進行中、儲存設備在過去 6 小時內被修改、SSD 容量已達上限或 CloudWatch 計量不可用。</block>
   <block id="e307894bdae8efc4f4fdacf666cf2573" category="section-title">使用叢集表</block>
   <block id="27e86a81d2f78cd7f4181479163bbbeb" category="paragraph">叢集表詳細列出每個 FSx for ONTAP 檔案系統的效能和使用情況指標。</block>
   <block id="88dc1144edaa697995919551780b6e93" category="list-text">從 *Overview* 標籤檢視叢集表。</block>
@@ -2435,7 +2374,6 @@
   <block id="7780e54da604364e93f91b1ab2a73f3e" category="list-text">**注意決策點**：查看容量圖上的決策點，了解系統如何做出決策，並確認設定是否符合您的需求。</block>
   <block id="88a7c4b8bd498e193a117097af5581b1" category="list-text">**批次編輯**：管理多個檔案系統時，使用批次編輯來保持設定一致。</block>
   <block id="526ad94042b150fca39290f6bef86a67" category="inline-link-macro">了解概覽儀表板</block>
-  <block id="91b5f8f96066d41fb5057458a69d5f81" category="list-text"><block ref="91b5f8f96066d41fb5057458a69d5f81" category="inline-link-macro-rx"></block></block>
   <block id="1fa1c236c7c4e85b71969a980c4956d3" category="summary">使用 Projects 儀表板監控儲存使用情況，按專案或團隊篩選資料，並分析磁碟區效能以最佳化資源分配。</block>
   <block id="dcc687e70127f35861ac1fa0778b7f6a" category="doc">使用 Workload Factory 中的 Projects 儀表板進行 EDA</block>
   <block id="0828a499bedded78f0e58a1aaac8fc54" category="paragraph">使用「專案」儀表板追蹤 FSx for ONTAP 檔案系統和磁碟區的儲存使用情況。按專案、團隊或應用程式篩選資料。查看整體效能和每個磁碟區的效能，以協助規劃容量並更有效地運用資源。</block>
@@ -2940,38 +2878,16 @@
   <block id="3b40a61896ac7bb071b70913553072f1" category="inline-link-macro">管理 FSx for ONTAP 檔案系統的區塊儲存設備</block>
   <block id="a0e2ae9ee4d99470514827717a4caba4" category="paragraph"><block ref="a0e2ae9ee4d99470514827717a4caba4" category="inline-link-macro-rx"></block></block>
   <block id="502e4764bf709decaf10769de6bc6d35" category="summary">使用自然語言建立自訂架構規則，以強制執行 FSx for ONTAP 的組織標準。</block>
-  <block id="4049afdb7ff78ea7ac28f61f9f797fd8" category="doc">在 NetApp Workload Factory 中建立自訂規則</block>
-  <block id="5043959279a8a7130fead37731434f76" category="paragraph">用簡單易懂的語言描述，即可建立自訂規則。NetApp Workload Factory 中的 AI 規則建構者會將您的要求轉換為經過驗證的規則，以檢查您的 FSx for ONTAP 資源。</block>
-  <block id="4a43e7c1c8d139e6a6dad318b5a9cefb" category="paragraph">規則建立過程會引導您完成以下步驟：定義規則、查看 AI 如何解讀規則，以及在安排定期評估之前檢查結果。每一步都由您掌控。系統會根據您的提示建議規則，但只有在您確認後才會繼續執行。</block>
-  <block id="350427d39e7ed0f683e8f1c404ec8d1d" category="admonition">如果您的帳戶系統管理員關閉了 AI 功能，您將無法建立自訂規則。請聯絡您的系統管理員或<block ref="ba4e701e567767978f2b4fc32c409de8" category="inline-link-macro-rx"></block>。</block>
-  <block id="1c3732fbe04e93a2e86e149b248e9fd0" category="paragraph">以下限制適用於自訂規則：</block>
-  <block id="f49daa2f924ab7cc9649449db3950201" category="list-text">無法自動修復。您必須按照提供的指南自行更正不合規的資源。</block>
-  <block id="7c7854f0cd9e8cf85ade395e732f419d" category="list-text">每條規則只能檢查一種類型的資源。若要檢查多種資源類型，請建立個別的規則。</block>
-  <block id="a2dac8d044c9463b44de62bfef46ffc3" category="list-text">為避免過度掃描，最短評估間隔為 1 小時。</block>
-  <block id="fa79d87dc9bd4ce86b2fe88eb0b009f8" category="list-text">規則具有唯讀存取，無法變更您的環境。</block>
   <block id="2090e30be5c37fb6b5aa40aa26a83dea" category="section-title">自訂規則範例</block>
-  <block id="d272586227e521ec436cb6d107bc72ba" category="paragraph">以下範例說明了常見的自訂規則：</block>
-  <block id="ee7f53b205e43e7a5017510113ca16f8" category="list-text">*正式作業 Volume 保護*</block>
   <block id="31ba253c12166670e96f9fc69476b594" category="list-text">"所有帶有 'Prod' 標籤的 Volume 都必須安裝快照原則"</block>
   <block id="6136cd3669246561542587bb4d5eac4c" category="paragraph">此規則會根據公司要求自動建立快照，以保護正式作業 Volume。</block>
-  <block id="d806e9e618419f7699287ac2bf68844c" category="list-text">*封存 Volume 分層*</block>
   <block id="654b13cdd2897fd4260df3602f80ebbf" category="list-text">「所有帶有『Archive』標籤的 Volume 都應將分層原則設定為『All』」</block>
   <block id="3756e2c2d7cd023d9845fbb763b174a9" category="paragraph">該規則透過自動將歸檔資料移至更便宜的儲存設備來降低成本。</block>
-  <block id="e3ea153fbcf2ab9a530ac273d13d87b1" category="list-text">*檔案系統命名標準*</block>
   <block id="269acf14c942e18c7f92dabf12bccaf5" category="list-text">「所有檔案系統都必須遵循命名慣例 'fsx-{environment}-{application}'」</block>
   <block id="bf0fa31d0a55270b5b0783d82f5a26b2" category="paragraph">此規則驗證檔案系統是否遵守組織命名慣例，以便於管理和成本分配。</block>
   <block id="aa5bf59269969e22f1e91f0116790d69" category="paragraph">在建立和執行自訂規則之前，請確保您已具備以下條件：</block>
-  <block id="45be4c4082a75641f5cf09a1154f1a35" category="list-text">您已設定具有唯讀存取權的 AWS 認證資料。<block ref="0c8d805d1564d3a241abc10cd617ddd7" category="inline-link-macro-rx"></block>。</block>
-  <block id="b03a5834e0c7d0443ad6e81c5dbc0c80" category="inline-link-macro">將 ONTAP 憑證新增至 Workload Factory</block>
-  <block id="b32bd70485f5cd4564a8bb64cad83248" category="list-text">您擁有具有檢視器權限的 ONTAP 認證資料。<block ref="8c5843ad463a4380d4aee234d9c63357" category="inline-link-macro-rx"></block>。</block>
-  <block id="26857cd503604f9b1af321699f33fd88" category="inline-link-macro">建立並關聯連結</block>
-  <block id="70926b3739e479d17c8fa7038918d40e" category="inline-link-macro">部署 Console 代理程式</block>
-  <block id="c451917ff78847232a6e9ad1a2e5ce75" category="list-text">您已設定連結或 Console 代理程式與雲端儲存系統的連線。<block ref="f19f5082e51b44f6df48e1dc4b4843cb" category="inline-link-macro-rx"></block> 或 <block ref="c0b60e44058ef23cb425372e66b4c6eb" category="inline-link-macro-rx"></block>。</block>
   <block id="fadf874162a190084750a51220f07180" category="list-text">您了解自訂規則建立使用 NetApp 的 Bedrock AI 服務。</block>
   <block id="536d32f8526dd0faea40f78af4cad034" category="section-title">建立規則</block>
-  <block id="8359d1f482d547a2e4629ea9efc70b35" category="paragraph">使用規則建構者，以淺顯易懂的語言建立自訂的最佳實務規則。這些規則會針對您的所有資源進行檢查。</block>
-  <block id="5c831e6d1d52edfcb0f3153ac4d08fc8" category="list-text">選擇選單 <block ref="d0893c56792da060977c8f5dd5abb05a" category="inline-image-macro-rx" type="image"></block>，*工作負載* &gt; *架構良好*。</block>
-  <block id="9e0430dcbcdaff60b125b83d5a4885ff" category="list-text">從「架構完善」選單中，選擇 *Rule builder*。</block>
   <block id="3f87c61ee7c070ec896e14d55b132e25" category="paragraph">開啟規則建構者後，它會顯示範例提示，幫助您寫入自訂規則。您可以選擇 *Copy prompt* 將範例提示複製到 AI 對話方塊文字方塊中。</block>
   <block id="ab99baf0da39867076eea6e470865275" category="list-text">在「建立規則」欄位中，以自然語言輸入規則執行摘要。請盡可能具體地描述以下內容：</block>
   <block id="d8eefaf38d3f8455541df01bc5d6831b" category="list-text">您正在檢查哪種資源類型（檔案系統、Volume 或快取）。</block>
@@ -2983,47 +2899,17 @@
   <block id="15fc6fdd1dd9d66889237c7e8a75d290" category="paragraph">AI 會分析您的提示並產生規則定義。</block>
   <block id="1c88936123899b4423b51efeb098f008" category="section-title">審查 AI 解釋</block>
   <block id="28ea3f4811ef4cb7fc2b7f08d6fce5a7" category="paragraph">規則建構者顯示：</block>
-  <block id="ac95e11bdbe6b7951bc4176d753eecdb" category="list-text">*解析解釋*：AI 如何以淺顯易懂的語言理解您的提示。</block>
-  <block id="7754266bb34a8d80acb7e15270b99ec3" category="list-text">*規則定義*：結構化規則，包括資源類型、條件邏輯和評估標準。</block>
-  <block id="7c2fe3e0d58f228cda5f45d633432f17" category="list-text">*Reasoning*：AI 為何如此解讀您的提示。</block>
-  <block id="76aee06db0fa09e15fccb38736a4bcf7" category="list-text">*信賴度指標*：系統對解釋結果的信心程度。</block>
   <block id="f89784f298e9f6255c6acd2f32b4051a" category="list-text">審查解釋結果，確保其符合您的預期。</block>
-  <block id="c0a47630db46adfc611696cbc6259777" category="paragraph">請檢查規則定義是否正確。如果解釋不明確或有誤，系統可能會詢問以下問題：* 應該檢查哪個資源？* 法規遵循由什麼值或限制定義？* 規則應該多久執行一次？</block>
   <block id="f7dd96479a94850934674d003fe54f52" category="list-text">回答完所有問題後，選擇 *Continue* 以建立規則。</block>
   <block id="66178252f08edeeeeda7bfc5ebf5227b" category="section-title">測試規則</block>
-  <block id="0362b2cfbfe0db96dc282024dbd64841" category="paragraph">在排程規則之前，先執行一次性測試，以查看它將影響哪些資源。</block>
   <block id="e0924f9cecf28912d6b59208f0ee9242" category="list-text">選擇*驗證規則*。</block>
   <block id="87d68b4e906936ea67c73d25fddbb199" category="paragraph">系統會根據您的規則邏輯評估範圍內的所有資源。</block>
   <block id="6ad0887ee719e958ea66bc1d5ca7ed60" category="list-text">審查驗證結果：</block>
-  <block id="0c1a6881568187ba2218c2798723b963" category="list-text">*已評估資源*：已檢查資源總數</block>
-  <block id="4b5e8fb3a43e71540bec48dd1195e60d" category="list-text">*合規*：符合規則標準的資源</block>
-  <block id="149dc40e624cd47605b5908752da1597" category="list-text">*不合規*：不符合標準的資源</block>
-  <block id="222d82b8b5728640234e4566d39a549c" category="list-text">*評估失敗*：無法評估的資源（附錯誤詳細資料）</block>
-  <block id="6844f9bfd3027da2003f968152f2a47a" category="list-text">如果某些資源評估失敗，請審查錯誤原因：</block>
-  <block id="277990b13713bd5d1349cb0637866450" category="list-text">*AWS 認證資料錯誤*：唯讀權限可能不足以存取某些資源</block>
-  <block id="1bb9a202a6c7284b2727618b6b42d1bf" category="list-text">*連線錯誤*：連結或代理程式可能未針對特定檔案系統進行組態設定</block>
-  <block id="6601c2de36f9d2c2a63a21c9170e4bae" category="list-text">*ONTAP 權限錯誤*：檢視者使用者可能無法存取某些資源</block>
   <block id="24a910eeb4468fa91fa54136e064eb5d" category="section-title">儲存或排程規則</block>
-  <block id="8c7715e49e638258c4536fec9aff1f6e" category="paragraph">測試規則後，您可以將其儲存為草稿或設定為定期執行。</block>
   <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">執行下列其中一項作業：</block>
-  <block id="8c080127194fcaf624649c3bab095baa" category="list-text">若要安排定期評估，請設定評估頻率（最短 1 小時，預設 24 小時），然後選擇 *Schedule*。規則已啟用，並依定義的排程執行。</block>
-  <block id="988a89425a3c56162fa9fed77217603a" category="list-text">若要儲存規則而不安排執行時間，請選擇 *Save as draft*。系統會儲存規則，但在您排程之前不會進行評估。</block>
-  <block id="f3448dd91675f24e9473969b2f303b47" category="list-text">若要放棄該規則，請選擇「放棄」以取消規則建立並重新開始。</block>
-  <block id="8e89c0ba0d3b83aea36ecc1be4cfe4fb" category="paragraph">您的自訂規則已建立並列於規則目錄中。如果您設定了排程，它將以指定的頻率檢查您的 FSx for ONTAP 資源。</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="section-title">疑難排解</block>
-  <block id="ad7ea03a306fd66841c171a6885f7b14" category="list-text">沒有可用的檔案系統</block>
-  <block id="9f6cf15e71e56dca004ae4af5511fdc6" category="list-text">設定您的 AWS 認證資料，並確保您的環境中至少有一個 FSx for ONTAP 檔案系統。規則建構者需要一個檔案系統才能套用規則。</block>
-  <block id="15a9422f3948ed951664141901f605d9" category="list-text">低信賴度解譯</block>
-  <block id="d901db1e2096f8ef858f5f7e7e04f829" category="list-text">需要更多資訊。請回答問題，或重新撰寫提示，詳細說明資源類型、限制和條件。</block>
-  <block id="ce332e562b5422b101c4ea54a309f0c9" category="list-text">部分驗證失敗</block>
-  <block id="a4bffcd84e8416b02d243a51aa82cb84" category="list-text">檢查哪些資源故障以及故障原因。常見原因包括缺少連結或代理程式設定，或權限不足。修復問題後，再次驗證。</block>
-  <block id="7720c57b7119d10e920558f513246c98" category="list-text">含糊不清的提示</block>
-  <block id="57aa8a34f1c34817409a7bb0fcc62dde" category="list-text">請更具體地說明您要檢查的內容。包括資源類型、條件和臨界值。請參閱提示範例以取得協助。</block>
-  <block id="319de2ebfe72521f2551d5fa11e01fd5" category="list-text">規則針對多種資源類型</block>
-  <block id="9614a11d3defd26388181526016cb85d" category="list-text">為每種資源類型建立個別規則。每條規則僅支援一種資源類型。</block>
   <block id="3f710cadb0123c693533da68aaf5b596" category="section-title">接下來該做什麼</block>
   <block id="79d32aa7b3e52f3c6db178577378b427" category="inline-link-macro">管理自訂規則</block>
-  <block id="f571cd95e32f7c421382198bc0dd0eae" category="paragraph"><block ref="f571cd95e32f7c421382198bc0dd0eae" category="inline-link-macro-rx"></block></block>
   <block id="7335bfe9e44aaa30f676443b169c4028" category="summary">了解 NetApp 網路保存庫以及如何實作網路保存庫架構，以保護您的資料免受勒索軟體和網路威脅。</block>
   <block id="08d70d11ddeec80d88a5f51591578656" category="doc">使用網路保存庫保護您的 FSx for ONTAP 資料</block>
   <block id="c20c451e413ebde26a765cbbc0c15afc" category="paragraph">網路保存庫 Volume 是一個隔離的且安全的儲存設備位置，用於儲存您的資料備份複本，保護其免受勒索軟體攻擊和其他網路威脅。建立保存庫時，您將建立網路保存庫 Volume，停用所有用戶端協定，並在來源 Volume 和網路保存庫 Volume 之間設定複寫關係，並在網路保存庫 Volume 上建立不可變的快照。</block>
@@ -3596,44 +3482,13 @@
   <block id="90bf65e5861f1213fc5134e7f7138cc3" category="paragraph">Workload Factory 會重新啟動組態分析，每天都會執行新的分析。</block>
   <block id="05becc6908f11b950a10c1285ad8e610" category="summary">學習如何定義和管理您自己的架構規則，以強制執行組織標準，並遵循 NetApp 最佳實務。</block>
   <block id="ce6ef2ffcadf69c1dc27dcb9da2d801d" category="doc">了解 NetApp Console 中的自訂規則</block>
-  <block id="b01cf57846bbc28ff99c21c4bc5bf95e" category="paragraph">自訂規則可讓您在「架構完善」儀表板中設定、檢查和強制執行您自己的架構標準以及 NetApp 最佳實務。</block>
-  <block id="1bf27748c4595ac68f24c9ca81ac41bf" category="paragraph">Rule builder 可讓您使用純文字語言建立自訂最佳實踐規則。這些規則將套用於您的所有資源。</block>
-  <block id="a14942c110e79e05bc4f2c080b767a9b" category="paragraph">自訂規則可協助您強制執行組織的標準、風險限制和營運要求—這些是通用廠商規則可能無法完全涵蓋的內容。</block>
-  <block id="002c98034b4e47541ee4b33aac974174" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，則規則建構者將不可用，您也將無法建立自訂規則。<block ref="16a6e53f632272dd159a18488d3ece68" category="inline-link-macro-rx"></block>。</block>
   <block id="2d5a2d8915799663f0b12f296909b0d7" category="section-title">自訂規則的工作原理</block>
-  <block id="d269a3644b7db5fd4dd7893dafcb7c46" category="paragraph">自訂規則採用 AI 引導流程，將您用簡單語言描述的指令轉換為清晰、結構化的規則。AI 充當翻譯和檢查員的角色。它會建議一條規則，解釋其如何理解您的請求，並在規則儲存或排程執行之前徵求您的核准。</block>
-  <block id="2798be4150461330610447e77c4b94bc" category="paragraph">此過程確保：</block>
-  <block id="878df2e7c1f458ab6c7a2aa10a79a91d" category="list-text">規則邏輯定義清晰，並已進行錯誤檢查。</block>
-  <block id="2de539a5ac80425a29aa3efc4546d6bd" category="list-text">不執行自由格式程式碼</block>
-  <block id="a279bdea3d93ab7f5ebfed278530b951" category="list-text">在您批准規則之前，您可以清楚地看到將要評估的內容。</block>
-  <block id="da7a7207ece80c733dd995304be2e71b" category="section-title">規則定義模型</block>
-  <block id="bac8c4aaf2611263b9e58729fcd77b06" category="paragraph">每個自訂規則都包含以下元件：</block>
-  <block id="a4257b70dd090b12a16890a8df21a097" category="list-text">規則名稱</block>
-  <block id="c183586d821a9b142dd656b18e6abd05" category="list-text">使用者自訂的規則名稱。</block>
-  <block id="33d8c05440f61966e844b1f1f9bdfdbc" category="list-text">請說明為什麼這條規則對貴組織很重要。</block>
-  <block id="34b13a905e7f65d5c27af25f75b92e1a" category="list-text">要評估的 FSx 資源（檔案系統、Volume 或快取）。目前，每個規則只能有一種資源類型。</block>
-  <block id="ffaac1794c6af94dc7e1b21a4c194523" category="list-text">調度程式</block>
-  <block id="7689948dd9ffc86e8e4279d74f40440a" category="list-text">規則評估頻率（最短 1 小時，預設 24 小時）。</block>
-  <block id="eef94a037f518dee839a80817e6c370d" category="list-text">條件邏輯</block>
-  <block id="3ec042014c07c06e08f1132a2736a67b" category="list-text">需要核查的具體標準。</block>
-  <block id="69971bc4f2fcec5885c890771737ab96" category="list-text">評估範圍</block>
-  <block id="f9352c661007f5c20648b8667e3e2c2e" category="list-text">評估哪些資源（所有適用範圍內的資源）。</block>
-  <block id="383f1fcec1ec1cc242da70cbe9e75353" category="list-text">補救邏輯</block>
-  <block id="fa89a084a4db5e99f8289cf816f86093" category="list-text">處理不合規資源的手冊指引。</block>
   <block id="3414a9edc41238183f8bcc3192e49adf" category="section-title">規則生命週期</block>
   <block id="990ef24c1b7e8a2bf1d9ad948d75e88c" category="paragraph">自訂規則會經歷以下階段：</block>
   <block id="f03ab16cd58372c77ba45a3d9a5a1cb9" category="list-text">草稿</block>
-  <block id="7edfa45546f16ea439072c85ed022ded" category="list-text">規則正在建立中。不進行評估。</block>
-  <block id="a42abfa6ff4f9bd0c4d682a01cec4455" category="list-text">試執行</block>
-  <block id="df76323d34c18ca92f80a38fd9da8d33" category="list-text">一次性評估，用於預覽哪些資源會受到影響。用於排程前的驗證。</block>
-  <block id="9c039c6e29eb59991bbe3702d2de1aed" category="list-text">已排程（已啟用）</block>
-  <block id="12401e69cfee8012efd57dfa07ccda49" category="list-text">規則已生效，並按設定的排程執行。</block>
   <block id="b9f5c797ebbf55adccdd8539a65a0241" category="list-text">已停用</block>
-  <block id="9bfd2521cfb729dd925cf45079242073" category="list-text">規則已暫停但未刪除。可重新啟用。</block>
   <block id="5fe6005bf6e415c950c011fb65f12b8f" category="list-text">已刪除</block>
-  <block id="82ec5f7cc11035152c40e48c55c05b0d" category="list-text">規則已永久移除。</block>
   <block id="cff2e3f5566a6d8510f1c58ca5513eb3" category="inline-link-macro">建立自訂規則</block>
-  <block id="385442535e80145b437f6d2ceb94114a" category="paragraph"><block ref="385442535e80145b437f6d2ceb94114a" category="inline-link-macro-rx"></block></block>
   <block id="a6ea8698bb0a2a5be6c2039333230f0d" category="summary">Amazon FSx for NetApp ONTAP 是一項完全代管服務，可讓客戶在 Workload Factory 中產品發表和執行檔案系統，作為您工作負載的儲存設備後端。</block>
   <block id="cf48e68a514aaa28472879638d1a7d1f" category="doc">了解 Amazon FSx for NetApp ONTAP 在 NetApp Workload Factory 中的相關資訊</block>
   <block id="e09c57ba3be0669d8a1f0b37718a2e2f" category="paragraph">Amazon FSx for NetApp ONTAP 是一款完全代管的雲端型資料儲存設備服務，提供進階資料管理員功能和易擴充的效能。FSx for ONTAP 可讓您在 NetApp Workload Factory 中建立和管理檔案系統，作為所有工作負載的儲存設備後端。</block>
@@ -3807,9 +3662,6 @@
   <block id="dd3ba3038bdde3ca3d4a9a2397052b60" category="list-text">在「管理 SMB/CIFS 共用區」頁面上，選取 SMB/CIFS 共用區的操作選單，然後選取 *刪除*。</block>
   <block id="dc782d3e46ef3bd4b9ae294af16366b0" category="paragraph">刪除 SMB/CIFS 共用區會使其無法使用，任何想要裝載它的使用者都無法存取。</block>
   <block id="73d6e57b628ed920f4ce69e52d8df9d7" category="list-text">在「刪除 SMB/CIFS 共用區」對話方塊中，選取 *刪除* 以確認刪除。</block>
-  <block id="2f7453885ba13ef684e6cd780fb74164" category="summary">從規則目錄中檢視、啟用、停用和刪除自訂架構規則。</block>
-  <block id="8514e73d9c66f38925285d9bebb2a243" category="doc">管理 NetApp Workload Factory 的自訂規則</block>
-  <block id="0a7f0abf34857702447ced5ee72899a5" category="paragraph">規則目錄是管理所有自訂規則的單一位置。您可以查看每條規則的詳細資訊、檢查其結果，以及啟用或停用規則。</block>
   <block id="d8bb2214730133a5475bf68bf933cdeb" category="section-title">檢視規則目錄</block>
   <block id="12dc6c12cd959eea202fab9d01a2ef04" category="paragraph">規則目錄顯示您建立的所有規則、其狀態、排程和最新結果。</block>
   <block id="e1cf2ece0db166d8b4c6b87f20794e11" category="inline-image-macro">漢堡選單圖示</block>
@@ -3822,17 +3674,7 @@
   <block id="f4e2484ce7f636995f87d4460bb472cf" category="list-text">選取 **View details** 以查看每次執行的結果。</block>
   <block id="13b595cf2341f5678ff3130cc1287485" category="paragraph">如果某些項目的檢查失敗，請讀取錯誤訊息以了解原因。常見原因包括連線問題、權限不足或連結尚未設定。</block>
   <block id="12a0a2265c24db72f6aaae801b9ef08e" category="section-title">編輯自訂規則</block>
-  <block id="116b3452f6f173fec30f1c3fdc6abf00" category="paragraph">您可以隨時變更規則的邏輯、排程或其他設定。編輯規則時，規則建構者會開啟並顯示規則的目前設定。</block>
   <block id="c581903f7e0dde27bf4a83cc84f27b43" category="list-text">在規則目錄中，按一下要編輯的規則。</block>
-  <block id="4a1938d0e423380a1497b6177cf5dc1c" category="list-text">點選 *編輯*。</block>
-  <block id="98e7c69fc0402a63a6188811c74d5241" category="paragraph">規則切換到草稿模式，規則建構者開啟。</block>
-  <block id="33866fc7f5559365b0589d4a8bc41091" category="list-text">編輯規則提示或利用對話來改進規則。</block>
-  <block id="d9f6e2c38d2693ba00ab2675a59dd016" category="list-text">檢閱 AI 更新後的解釋和規則定義。</block>
-  <block id="7f377d9cf47a3f190040ea3efc10335f" category="paragraph">系統會顯示與目前規則相比發生了哪些變化，包括任何 API 呼叫或邏輯。</block>
-  <block id="1e953a8680ae41072abb4bd1012ad3b4" category="list-text">根據所做的變更，執行下列其中一項操作：</block>
-  <block id="531b7098c8d3a0630df416551c1eabcf" category="list-text">如果進行了細微的變更，請按一下 *儲存* 以更新規則。</block>
-  <block id="30a70c42d21ecc5c129ccf20f303ec75" category="list-text">如果進行了重大變更，請點擊 *驗證規則* 來測試變更，然後點擊 *排程* 來儲存並排程規則，或點擊 *儲存為草稿* 以儲存而不排程。</block>
-  <block id="c4201ee0fd07b804ee782357c70d2e27" category="list-text">若要放棄變更，請按一下 *還原到先前版本*。規則將恢復到其原始定義並退出編輯模式。</block>
   <block id="c5ef40517475cde4aa83a5451658e49f" category="summary">隨時新增、更新或移除檔案系統的 FSx for ONTAP 檔案系統標籤。</block>
   <block id="3dd4ca2c61c588825f3e69d7851510b5" category="doc">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統設定</block>
   <block id="f120bfb32fdc034593c753c46a030312" category="section-title">管理 FSx for ONTAP 檔案系統標籤</block>
@@ -5998,20 +5840,10 @@
   <block id="4783fc8cfe1d67f67a21a8d696efba01" category="list-text"><block ref="4783fc8cfe1d67f67a21a8d696efba01" category="inline-link-rx"></block></block>
   <block id="691c4c4e7aae91b9ba1765ff8bbe5163" category="inline-link">NetApp Console 複製與同步文件</block>
   <block id="1b49be3f67267d403496193d78233d91" category="list-text"><block ref="1b49be3f67267d403496193d78233d91" category="inline-link-rx"></block></block>
-  <block id="7c9227c0b3486490a4814fe5ca042183" category="summary">首先設定 Google Cloud，然後建立系統，即可開始使用 Google Cloud NetApp Volumes。</block>
   <block id="b0aa4fa8dc6511816bb58aa5617d1ee5" category="doc">Google Cloud NetApp Volumes 快速入門</block>
-  <block id="a213ab2be24278e031afba73382d0cf1" category="paragraph">首先設定 Google Cloud，然後建立系統，即可開始使用 Google Cloud NetApp Volumes。</block>
-  <block id="15adadcc8bf8dcb5404e0fe11af44772" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> <block ref="313399230f51e71d885069f73138c41a" category="inline-link-macro-rx"></block></block>
-  <block id="91b07957ce4b7cb970c3aaa153fddf0c" category="paragraph">透過 Google 建立服務帳戶。</block>
   <block id="c14bbe70b91bf5d6b061027d2a7d5c35" category="inline-link-macro">指派角色</block>
-  <block id="a8028c06a9224ed3ab0f9316a3fb7bc7" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> <block ref="e1bc4ca4196f069d6cfddda77094a4ac" category="inline-link-macro-rx"></block></block>
-  <block id="e1f998e938cc77602c685ea4489861e5" category="paragraph">若要開始使用 Google Cloud NetApp Volumes，您必須擁有適當的權限，並獲指派 Google Cloud NetApp Volumes 管理員或 Google Cloud NetApp 檢視者角色。</block>
-  <block id="1082b67e395cc89d61a139c7ce68374f" category="inline-image-macro">Google Cloud NetApp Volumes 角色的快照。</block>
-  <block id="c1718ab208b6eab475574a990a36a0b8" category="paragraph"><block ref="c1718ab208b6eab475574a990a36a0b8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="aaea90d2749395beb16f5340fe5cc964" category="paragraph">在 NetApp Console 中，為成員指派正確的角色。</block>
   <block id="770e6e1d37ec8e564116ac215a622e66" category="inline-link-macro">新增系統</block>
-  <block id="7e68ee8ea5a2fb297454d49c5a880f4b" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> <block ref="3c542c966df5afd0ff43e76a8b69feae" category="inline-link-macro-rx"></block></block>
-  <block id="05c5a25d7a79c44ec89bb64914a00a71" category="paragraph">在 NetApp Console 中，點擊 *新增系統* ，然後點擊 *Google Cloud Platform* ，再點擊 *Google Cloud NetApp Volumes* ，最後點擊 *探索* 。提供服務帳戶和 Google Cloud 專案的詳細資訊。</block>
   <block id="19e4ef4e4ed4623b5e0397bb68bc60c0" category="summary">NetApp Console 需要透過 Google Cloud 服務帳戶存取 Google Cloud NetApp Volumes API 並具備正確的權限。</block>
   <block id="f0eefed66af669fe08a145bb3c570ac3" category="paragraph">NetApp Console 需要透過 Google Cloud 服務帳戶取得對應的權限。</block>
   <block id="bc50bdbbe9eebcafb5a89e4937b64930" category="paragraph">完成以下任務，以便 NetApp Console 可以存取您的 Google Cloud 專案。</block>
@@ -6814,4 +6646,269 @@
   <block id="9a90fd93ba397d5f48de07251acc1808" category="list-text">延遲事件的元件細目</block>
   <block id="1df7d27de080cb3c4560fbfcb9b950a2" category="inline-link-macro">適用於 NetApp Console 的 Workload Factory 文件</block>
   <block id="865cb26d81d670b59ffd115deff750d1" category="paragraph"><block ref="865cb26d81d670b59ffd115deff750d1" category="inline-link-macro-rx"></block></block>
+  <block id="12e6f15d6e11849eda04741c878ee336" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立儀表板。請聯絡您的系統管理員或<block ref="55cc8ba0b3cffc5a9d61e1691feb56d9" category="inline-link-macro-rx"></block>。</block>
+  <block id="2e73b76e7b232c5b1f77e0a5880d5ad5" category="list-text">選擇選單 <block ref="d1917ed039a7bd34b3d1373e5ffc5ece" category="inline-image-macro-rx" type="image"></block>，然後選擇 *Workloads Overview* &gt; *Custom dashboards*。</block>
+  <block id="3fc036b2c292290b8cd3e3dd22515be4" category="paragraph">您的自訂儀表板已建立並新增至儀表板目錄。預設情況下，儀表板為私有，僅您可見。如果您想與 Workload Factory 帳戶中的其他使用者共享，可以將其可見度變更為公開。<block ref="7f05a2d9425c37de5e57a44940ff0962" category="inline-link-macro-rx"></block>。</block>
+  <block id="e9f973e77c8ea51b19afbc2f814be860" category="paragraph">儀表板準備就緒後，您會收到通知。如果建立失敗，您會收到一條包含重試連結的通知。<block ref="f2f02b956f17500aef24321ad05c7e30" category="inline-link-macro-rx"></block>。</block>
+  <block id="b2174789d5314bb12b464a8d03a18be6" category="list-text">編輯儀表板以變更其顯示內容，包括計量、圖表和時間範圍</block>
+  <block id="126ca7c8fdb99a80b6510a42ef44ab9f" category="list-text"><block ref="126ca7c8fdb99a80b6510a42ef44ab9f" category="inline-link-macro-rx"></block></block>
+  <block id="571a6725cec558792e7b13f29f5e9d9c" category="list-text"><block ref="571a6725cec558792e7b13f29f5e9d9c" category="inline-link-macro-rx"></block></block>
+  <block id="2c8d2ace24ab724b2b9846dfbd1113fb" category="summary">了解 Workload Factory 的 AI 代理程式如何分析您的環境，識別風險和改善效能的方法，並在獲得您的批准後為您採取行動。</block>
+  <block id="a4988f1624f7fc0b4eaabf35a45c6593" category="doc">了解 NetApp Workload Factory 中的 AI 代理程式</block>
+  <block id="44930f32325dbab8392ff7743e877c7e" category="paragraph">Workload Factory AIOps 利用 AI 分析您的環境並提出改進建議。如果您批准，它還可以使用您設定的憑證和權限執行動作。</block>
+  <block id="d509ca4bf93c965b1cd7121948d79351" category="admonition">如果您的帳戶管理員已關閉 AI 功能，您將看到一則訊息，並且將無法使用代理程式。請聯絡您的系統管理員或<block ref="55cc8ba0b3cffc5a9d61e1691feb56d9" category="inline-link-macro-rx"></block>。</block>
+  <block id="29e96b144158fa2cf3ed37b1696584a9" category="paragraph">請確保您的 Workload Factory 帳戶擁有 AWS 認證資料以及代理程式存取資源所需的 IAM 權限。如果您啟用讀寫模式，這些權限也必須允許進行受支援的變更。</block>
+  <block id="3b8e3eff2b9d5a25eecc8e879fab9225" category="section-title">資料使用和隱私</block>
+  <block id="823764ac349552585c033c832c9a9119" category="paragraph">您的資料不會用於訓練 AI 模型。代理程式會使用您的認證資料透過標準的 AWS API 安全地存取 AWS 資源，並根據您的實際環境做出回應。所有代理程式活動均遵循 NetApp 隱私權政策和 AWS 安全性控制措施。</block>
+  <block id="a9ad35f78cf699132ce97296208021d6" category="section-title">為何使用 AI 代理程式</block>
+  <block id="0dcc2bd50249549545f604062e32c8d1" category="paragraph">在 Workload Factory 中，AI 代理程式可以幫助您更有效率地工作：</block>
+  <block id="08b88087b00df48c7dcec290d2085d9d" category="list-text">根據您的環境取得答案和建議。</block>
+  <block id="f41dc5b513f7a5678f949fafbb672e71" category="list-text">識別風險與最佳化機會。</block>
+  <block id="45747fdf81b9f650b9ab26706866db24" category="list-text">在一個工作流程中解決問題並執行已核准的行動。</block>
+  <block id="6fd44b1c4edd80ad7b595f1fcb4c7483" category="list-text">執行排程檢查並在聊天記錄中接收更新。</block>
+  <block id="54ba8fb885319acf274731794ecf9b35" category="list-text">跨 FSx for ONTAP 與 Google Cloud NetApp Volumes 環境運作。</block>
+  <block id="4eeb2bca1dddd7a796d908c266d60075" category="section-title">存取 AI 代理程式</block>
+  <block id="e6478bab5c49062e219e1290c4442eed" category="list-text">從 Ask Me 首頁</block>
+  <block id="b3c72178808d9fa6e9c876b76d5d1928" category="list-text">在 Ask Me 活動網頁上，選擇 *探索代理程式*。AI 代理程式側邊面板會開啟，並顯示歡迎訊息以介紹代理程式的功能。</block>
+  <block id="99b503a5e4373b0bc3054a025797d268" category="list-text">來自代理程式重新導向連結</block>
+  <block id="54fd5f6787cd568e4b9880863150bb93" category="list-text">使用 **Ask Me** 或其他功能時，您可能會看到將您重新導向至代理程式以取得更進階協助的連結。</block>
+  <block id="98ff5af4adf0662fa0278d6e7332c116" category="section-title">AI 代理程式的工作原理</block>
+  <block id="31fe269c620fcf2562efe2871e4398f8" category="section-title">代理程式如何存取您的環境</block>
+  <block id="d6356702d2caa14ca196fe664fc1853e" category="inline-link-macro">代理程式設定</block>
+  <block id="9707c726221d376ab19585baff504e36" category="paragraph">只有當資源包含在您目前的 Workload Factory 範圍內，並且受 <block ref="282e73cd725615cc6b76a3c0f60eeeeb" category="inline-link-macro-rx"></block> 中選取的認證資料支援時，代理程式才能存取資源。代理程式只能在兩種控制皆適用的情況下運作。它們可以存取的資源也取決於指派給其 AWS 認證資料的權限。預設情況下，所有認證資料均已選取，但您可以將其縮小為已設定認證資料的子集。</block>
+  <block id="f19cfe1072c3d3c974b0cdafbcdde1ef" category="paragraph">您目前的範圍包括：</block>
+  <block id="676cd33769e7c44db0294ca1bdc4a818" category="list-text">*AWS 帳戶*：代理程式可以存取哪些 AWS 帳戶。</block>
+  <block id="8f7fd41f1486852019ec1e81297e4749" category="list-text">*認證資料*：代理程式可以使用的認證資料。</block>
+  <block id="db9be091d62e76416638fd7987fac0d3" category="list-text">*區域*：代理程式可以存取哪些 AWS 區域。</block>
+  <block id="9ea7586a1a950d81f272e8403a8f6cbe" category="paragraph">Workload Factory 中的篩選器設定目前頁面的範圍，例如檢視中的 AWS 帳戶和區域。代理程式設定控制代理程式在該範圍內允許使用哪些認證資料。對資源的存取也取決於指派給這些認證資料的 IAM 權限。</block>
+  <block id="28dec2f4988032196e5673d255d3c391" category="admonition">在 *代理程式設定* 中選擇認證資料並不會授予額外的 AWS 權限。請確保認證資料擁有代理程式存取您希望其分析或管理的資源所需的 IAM 權限。</block>
+  <block id="54a2d462b3304eb93c5cfe391a9e67bf" category="section-title">唯讀模式（預設）</block>
+  <block id="dd8585af3d55da47f5760a15f3d8be48" category="paragraph">預設情況下，代理程式以唯讀模式運作。在此模式下，它們可以：</block>
+  <block id="1b539d90e247bf7cc195a2d8096208d6" category="list-text">回答有關您環境的問題。</block>
+  <block id="0f896edbba7d346551c186acd1309a44" category="list-text">分析您的 FSx for ONTAP 檔案系統、資料庫和工作負載。</block>
+  <block id="6705aab6526bc219af2bdc50b636aa94" category="list-text">識別風險、錯誤組態和最佳化機會。</block>
+  <block id="e863933d9a2c33d982a9403853ef5c8f" category="list-text">提出提高效能、可用度、保護和成本效益的建議。</block>
+  <block id="0da32bbd416014e9a050dd9753a5f97c" category="list-text">排除問題並提出補救措施。</block>
+  <block id="5c5d131e2fde1dde32d484bb16b397d5" category="paragraph">在唯讀模式下，他們無法更改資源。如果您要求的行動需要寫入存取，代理程式會解釋此限制並提供指向代理程式設定的連結。</block>
+  <block id="c43e0775dbe854488f7416962d78486c" category="section-title">讀寫模式（可選）</block>
+  <block id="a87dff151959e2568b226abf5e272ac7" category="paragraph">您可以在 <block ref="282e73cd725615cc6b76a3c0f60eeeeb" category="inline-link-macro-rx"></block> 中啟用讀寫功能。在此模式下，代理程式會解釋每個支援的行動，並在進行任何變更之前需要您的核准。</block>
+  <block id="601c01875f07f976aec59310ce582da5" category="paragraph">此核准流程適用於所有代理程式體驗，包括 Slack 整合和 NetApp Console。</block>
+  <block id="dbe095e1cf28fb37bfc9bc65e6db07ec" category="section-title">當 AI 代理程式沒有資料或活動時，使用者會看到什麼</block>
+  <block id="02a1c40d157b16f6b4bb75e05fed5d20" category="paragraph">如果代理程式沒有認證資料，它們仍然可以提供一般性指引。但是，它們無法審查您的資源或提供針對您環境的特定見解。</block>
+  <block id="1d85daa8d058598d6553a1e930e88b37" category="doc">了解 NetApp Workload Factory 中的自訂儀表板</block>
+  <block id="ca4bc65d09babb8dda4e8bb6392755ee" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且將無法建立或編輯儀表板。請聯絡您的系統管理員或<block ref="55cc8ba0b3cffc5a9d61e1691feb56d9" category="inline-link-macro-rx"></block>。</block>
+  <block id="3dacf374ca39e9d1e2ccd73b21e8d75a" category="paragraph">您可以從目錄中編輯儀表板，並在決定是否儲存修改後的版本之前更新儀表板名稱、執行摘要、類別或監控要求。</block>
+  <block id="8f44990f66d79c05eb2b8e612e7e18b5" category="admonition">只有儀表板建立者才能編輯儀表板。在您編輯時，其他使用者無法看到您的變更，直到您儲存為止。</block>
+  <block id="6e47cea976f64eef97bd90c4f38440f6" category="paragraph"><block ref="7f05a2d9425c37de5e57a44940ff0962" category="inline-link-macro-rx"></block>。</block>
+  <block id="6535de0ace4a848cab5b62382b0150fa" category="paragraph"><block ref="5f8157906d4be6e00d0ca91a518bfa54" category="inline-link-macro-rx"></block>。</block>
+  <block id="e353446964aabeb4012c8f3074fb20a4" category="list-text"><block ref="e353446964aabeb4012c8f3074fb20a4" category="inline-link-macro-rx"></block></block>
+  <block id="b43e84f96f0b4efcf44900b53939ded4" category="list-text"><block ref="b43e84f96f0b4efcf44900b53939ded4" category="inline-link-macro-rx"></block></block>
+  <block id="40b5b336cde586af18464c8514adcf84" category="summary">設定 AI 代理程式設定，例如運作模式、存取權限、自訂指示和回應詳細程度，以控制代理程式在您的 Workload Factory 環境中的運作方式。</block>
+  <block id="c97e3b8fd990844d5f1d9fbc0c4a1a58" category="doc">在 NetApp Workload Factory 中管理 AI 代理程式設定</block>
+  <block id="027abdce98c3533464664728631b1841" category="paragraph">設定 AI 代理程式在您的 Workload Factory 環境中的運作方式。您可以選擇代理程式的運作方式、決定其可使用的認證資料、新增自訂提示，以及調整回應詳細程度。</block>
+  <block id="9de8087bd8bdadfe4e3bb629bc47ce3b" category="list-text">我們建議帳戶管理員設定代理程式設定。</block>
+  <block id="127bc47c2c22a1c1b4353c48f309430d" category="list-text">在啟用讀寫模式之前，請確保您了解允許代理程式為您執行行動的安全性風險。</block>
+  <block id="66116bea1fd8f0082a35b3207ff3f729" category="admonition">如果您的帳戶系統管理員已關閉人工智慧功能，人工智慧代理程式將無法使用。<block ref="646cadbb9cfc9d23560c447c51098225" category="inline-link-macro-rx"></block>。</block>
+  <block id="a7f61a64f2ed965b18a4239b5377a37f" category="section-title">存取代理程式設定</block>
+  <block id="aa9106dd7dbce448bc6eb071ef2c9112" category="list-text">使用以下方法之一存取代理程式設定：</block>
+  <block id="d92f9415529b85cb7482af295b940c55" category="list-text">從選單中選擇 *管理*、*設定*，然後選擇 *代理程式*。</block>
+  <block id="4eff4baef0601b15c7b18727d2be80c1" category="list-text">從代理程式聊天體驗中，選擇前往 *代理程式設定* 的連結。</block>
+  <block id="cc565804a9c219fe2f3854136c730f29" category="section-title">設定代理程式操作模式</block>
+  <block id="44d28331c753ec749031ccccf1d70880" category="paragraph">選擇代理程式是以唯讀模式還是讀寫模式運作。</block>
+  <block id="c1754028c55cdf3e2e13a700bdd9f2ab" category="paragraph">代理程式的運作模式決定了代理程式可以執行哪些行動：</block>
+  <block id="a84826751ef0f28a9bca5de4cfd244cb" category="list-text">代理程式可以檢視和分析您的資料，但不能更改您的資源。它們可以回答問題、識別風險、提供建議並協助解決問題。</block>
+  <block id="7e6277284f05e2d4cf99020f4156281c" category="list-text">讀寫模式</block>
+  <block id="08805adb79ed6abfef5a9b183fdd826a" category="list-text">代理程式可以使用您選擇的認證資料為您執行行動。在執行任何行動之前，它們會向您顯示總結並等待您的批准。未經您的批准，它們不會執行任何行動。</block>
+  <block id="6092eef047a776cf1ae032fce2fe1ff0" category="list-text">在 *代理程式設定* 頁面上，前往 *代理程式模式* 區段。</block>
+  <block id="ae1c7cee2bb050e0f57e3431296b4490" category="list-text">選擇操作模式。</block>
+  <block id="9be8b23c1b30a5412be369acebac3129" category="section-title">選擇代理程式存取的認證資料</block>
+  <block id="bed4ed0551e8d0bd53e2940df4d0dd60" category="paragraph">選擇代理程式可以使用哪些 AWS 認證資料來存取您的雲端環境。預設情況下，所有認證資料均已選取，但您可以將其縮小為已設定認證資料的子集。</block>
+  <block id="ad7a6d84190cb018bcb20040ba7aa840" category="paragraph">您可以選擇不選取、選取一個、部分或全部已設定的認證資料。如果您選擇不選取任何認證資料，代理程式可以回答一般性問題，但無法分析您環境中的資源。</block>
+  <block id="04320da953584028ea1a9fef64f0a0ac" category="list-text">在 *代理程式設定* 頁面上，前往 *認證資料* 區段。</block>
+  <block id="a685a78df1473e416ec4f5dd1d5e55ca" category="list-text">從 *認證資料名稱* 下拉清單中，選擇代理程式可以使用的認證資料。</block>
+  <block id="4df13cb466a3becbc8b94f5c683e4d88" category="paragraph">如果沒有設定認證資料，您將看到一個選項，可以為您的 Workload Factory 帳戶新增認證資料。</block>
+  <block id="f2ab6dda5dcaf24c6ffbc9828ce53e7e" category="section-title">Slack 整合</block>
+  <block id="a83e309e3bc8e3235a652fcff10e1a49" category="paragraph">您可以將代理程式連接到 Slack，並在您的 Slack 工作區中直接與它們互動。</block>
+  <block id="47d254476d408dfbd41fb01b874a3e59" category="paragraph">如需設定 Slack 整合的相關資訊，請造訪 Slack 整合文件，或聯絡您的 NetApp 代表以了解代理程式的相關資訊。</block>
+  <block id="66e18fcdb18961698dac90fe1128ccaf" category="section-title">新增自訂提示</block>
+  <block id="944ca360f82b24c3e6cdba37ae9655ff" category="paragraph">新增自訂指南、偏好或規則，供代理程式在回應您的要求時遵循。</block>
+  <block id="2499325dea2f4195ca3a4812ba2de0a4" category="paragraph">自訂提示有助於指南代理程式如何回應，使其遵循貴組織的政策、語言和工作流程。它適用於每個代理程式的每一次互動。</block>
+  <block id="1d0aa8e6f1b6bf319e12bda616651aff" category="paragraph">自訂提示欄位預設為空。您可以隨時新增、修改或移除自訂提示。</block>
+  <block id="e72865f9318e142476270f1893312be0" category="list-text">在 *代理程式設定* 頁面上，前往 *自訂提示* 部分。</block>
+  <block id="7e9ec3a59392a9dc66594a6c8668926e" category="list-text">在文字方塊中，輸入您為代理程式制定的自訂準則。</block>
+  <block id="f1caaeb9dcd13d22145262ee4d9928c4" category="paragraph">例如，您可以定義命名規則、首選回應格式或代理程式應遵循的公司政策。</block>
+  <block id="f28546d1f8eb515bb452998faef01dd0" category="paragraph">代理程式在回應您的要求時，會使用您自訂的提示以及其內建功能。</block>
+  <block id="2f618527204802cdc7e0635d88da47f9" category="paragraph">若要變更或移除自訂提示，請返回此頁面，編輯文字方塊，然後選擇 *套用*。</block>
+  <block id="87856c473606410336b82bb7e93ec084" category="section-title">設定詳細程度選項</block>
+  <block id="52b5a4685cfb3e3d513b7d409b3f610c" category="paragraph">選擇代理程式共享其推理和工具使用細節的程度。</block>
+  <block id="fc1633b3da679875551048103029e4c3" category="paragraph">詳細程度選項可讓您查看更多關於代理程式如何得出回應，以及其使用哪些工具來收集資訊的相關資訊：</block>
+  <block id="f1a4ff7ec8fc7f3d10af7f489e6dcfbd" category="list-text">冗長的推理</block>
+  <block id="23d5becf46b121e67317963fda10fb1d" category="list-text">啟用後，代理程式會解釋它們如何得出答案並做出決策。這有助於您了解它們為何建議某些動作或得出特定結論。</block>
+  <block id="c4b6900e9ca5e303fc19fb9394ea3c86" category="list-text">詳細的工具說明</block>
+  <block id="806c4a6030ee5638bad868ac296edc46" category="list-text">啟用後，代理程式會顯示它們用於收集資料和執行分析的工具和 API。這有助於您了解它們如何與您的環境互動。</block>
+  <block id="ba309604a791da2fbf6b620fc085c387" category="paragraph">為保持回應簡潔，這兩個選項預設為關閉。當您需要更高的通透性或正在疑難排解代理程式行為時，請將其開啟。</block>
+  <block id="cd9b6d5e3d6f46f09890d134dcd76b6f" category="list-text">在 *代理程式設定* 頁面上，前往 *詳細層級* 部分。</block>
+  <block id="5af9190832e86a39b32955d77e972b2e" category="list-text">選擇要啟用的詳細程度選項。</block>
+  <block id="6ef261950960e68b5c274dbb2ad858c2" category="paragraph">您可以從儀表板目錄檢視和管理自訂儀表板。私人儀表板僅您可見，而公用儀表板對您 Workload Factory 帳戶中的所有使用者可見。每個儀表板都會顯示基本詳細資料，例如建立者姓名、建立日期和可見度標籤（私人或公用）。</block>
+  <block id="94ab7238c8d6eb39314e6dc172cba073" category="list-text">從選單中選擇 *Workloads Overview*，然後選擇 *Custom dashboards*。</block>
+  <block id="09716803bbab78d4545cc7210ae61d90" category="paragraph">儀表板會重新載入工作負載中的資料。</block>
+  <block id="d2258a9653c6a977efeeb955b27c66e9" category="section-title">編輯儀表板</block>
+  <block id="4e2f12e496523d85bae4a969657d45aa" category="paragraph">您可以編輯儀表板來變更其顯示的內容，包括計量、圖表和時間範圍。</block>
+  <block id="b13bad0dcb6df4e403e8e2af9058dfe5" category="list-text">在「自訂儀表板」頁面中，找到要編輯的儀表板。</block>
+  <block id="d431f68c965a7131bbc2f48128983c25" category="list-text">從該儀表板的 *Actions* 功能表中，選取 *Edit dashboard*。</block>
+  <block id="63f40ecf20824ff6d561a306d3a25fd1" category="list-text">在 AI 對話方塊中，描述您想要進行的變更。</block>
+  <block id="3184c7e78934ef4b37ea845f1d56789a" category="paragraph">此程序與建立新儀表板類似。您可以變更儀表板追蹤的工作負載、指標或時間範圍。</block>
+  <block id="f66306510aaf399aef8bdf649739a15e" category="list-text">查看更改並選擇**儲存**。</block>
+  <block id="89806ea6a9ed9b0bb6cb322f912aff65" category="paragraph">儀錶板會根據您的變更進行更新。最後修改日期也會更新。</block>
+  <block id="665b56adc96ec0ae170583f2c939549f" category="list-text"><block ref="665b56adc96ec0ae170583f2c939549f" category="inline-link-macro-rx"></block></block>
+  <block id="dbc831d32bec483a9698bd8ffbae773b" category="doc">在 NetApp Workload Factory 中管理 AI 功能</block>
+  <block id="13bb649429b18adc1dadc0ed391c5bc2" category="paragraph">控制對 Workload Factory 中 AI 功能的存取。您可以關閉 AI 功能或使用由 NetApp 代管的 AWS Bedrock。</block>
+  <block id="17f306dd010c4f9182635b5f5e336fa1" category="paragraph">Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、Rule 建構者，以及 EMS、資料庫日誌和延遲分析器。</block>
+  <block id="cbdbc1bacc2d0ff55d93219e225f857a" category="list-text">關閉所有 AI 功能。使用者將無法再使用 Ask Me、AI 代理程式、分析器、自訂儀表板、規則建構者或其他 AI 工具。</block>
+  <block id="3f0879fc8845a02f07ea71a0a584847e" category="list-text">從選單中選擇 *管理*，然後選擇 *AI 設定*。</block>
+  <block id="d558bf5c801444e8a41fb205b6481939" category="list-text"><block ref="d558bf5c801444e8a41fb205b6481939" category="inline-link-macro-rx"></block></block>
+  <block id="7822184101da98dc9a2f973bcc0b1e57" category="list-text">從 <block ref="e353446964aabeb4012c8f3074fb20a4" category="inline-link-macro-rx"></block> 中的其中一個範例提示開始。</block>
+  <block id="1d66ae30886d42b24d56159b752d6ad9" category="inline-link-macro">權限要求</block>
+  <block id="f5237f85c76e5020d5a264239e68fa44" category="list-text">**檢查權限：** 請確保您的 Workload Factory 帳戶擁有對儀表板使用的工作負載和資源的讀取存取。請檢閱<block ref="7190815f23bdebc2d96fb2bc5298d03f" category="inline-link-macro-rx"></block>。</block>
+  <block id="105342799c8c2abdc941b4b9e9d21842" category="list-text">**驗證憑證：**確認您的 AWS 憑證有效且未過期。詳情請參閱 <block ref="8feef39480c2e9a61121221ad1a6e6fc" category="inline-link-macro-rx"></block>。</block>
+  <block id="5ee789356e4b622b0a26bc4b948f1f1d" category="paragraph">如果您在使用自訂儀表板時仍然遇到問題，請參閱 <block ref="12b3578a80c78dee4be855cedba97ff4" category="inline-link-macro-rx"></block> 以取得聯絡 NetApp 支援的資訊。</block>
+  <block id="05d2715aacab706b61cab6ab5eae577f" category="paragraph">選擇檔案系統以檢視叢集詳細資料，包括叢集資訊、SSD 容量和圖表。在叢集詳細資料檢視中，使用 *處理量* 和 *SSD 容量* 選項來切換檢視。</block>
+  <block id="44ad493c3ed3456875890a0633967832" category="paragraph">處理量檢視顯示用戶端處理量和資源使用率。SSD 容量檢視顯示 SSD 使用趨勢和容量建議。</block>
+  <block id="0575d3bb4ddf703c8919e95c56fd6669" category="paragraph">當 Workload Factory 處於「自動」或「建議」模式時，它會自動檢查每個 FSx for ONTAP 檔案系統，並建議容量變更。它會定期掃描系統，以確定是否需要調整 SSD 容量或處理量。啟用管理功能後，檔案系統詳情頁面會顯示 SSD 容量和處理量，以及歷史趨勢和建議的調整點。</block>
+  <block id="3b39aa368232f477c3b4544b63a58a94" category="paragraph">SSD 使用情況圖表顯示系統何時建議變更容量或進行自動調整。這些標記指出系統如何隨時間代管容量。如果 SSD 容量管理已關閉，則圖表僅顯示過去的使用情況，不會顯示建議或自動行動。</block>
+  <block id="4e7a79cbed5a3ae9b9dcf1a054cdccae" category="list-text"><block ref="c3a254114142556a33ac5d002cb96077" category="inline-link-macro-rx"></block> 監控叢集健全狀況和容量</block>
+  <block id="099c26f0b4268db2c6beff338b00f523" category="list-text"><block ref="cfa2a4e1b7a54130891d0ec0a2ab7571" category="inline-link-macro-rx"></block>（Recommend、Automate 或 None）</block>
+  <block id="0610ec46d221095ea1a6664708b315d4" category="list-text"><block ref="9e799615dd4f243d7b7e498891d56424" category="inline-link-macro-rx"></block>（Recommend、Automate 或 None）</block>
+  <block id="9b1d1bb5e9e50d21cba2409290825e8f" category="inline-link-macro">啟動概覽儀表板</block>
+  <block id="0077ec0b7e54059f97c44de562d456b9" category="paragraph">您必須<block ref="a74bf2d8f2388227184d8bdfb1fffa90" category="inline-link-macro-rx"></block>才能使用它來監控您的檔案系統。</block>
+  <block id="37e179077423d083a73e4ed1b7712584" category="paragraph">如需延遲監控的詳細資訊，請參閱 <block ref="83cf55f201b976d4d05be16a638a6c43" category="inline-link-macro-rx"></block>。</block>
+  <block id="cc23b0ef8b8c73f4efb0ced4281250f3" category="list-text">在叢集表中尋找並選擇檔案系統名稱，然後選擇 *變更 SSD 容量管理*。</block>
+  <block id="66237dc10c2943c0563d26d3f0b6b230" category="list-text">*建議*</block>
+  <block id="d9a44929e0eea557983dbb6917008a70" category="list-text">選擇 *啟用處理量管理*。</block>
+  <block id="1cbae666f242dee35d801763ff6c587f" category="list-text">在 *使用率臨界值（%）* 中設定觸發建議或自動化行動的使用率層級。</block>
+  <block id="e920df7cb27871af178ff85a428a8b4e" category="list-text">在 *進階組態* 中，設定處理量管理參數：</block>
+  <block id="39122245b5363dc3871538d2ef59784e" category="list-text">*連續違規窗口期（小時）*：採取行動前連續違規行為的持續時間</block>
+  <block id="a9d111294543c201d767519d991c1b8d" category="list-text">*連續違規計量（%）*：用於確定連續違規的百分比臨界值</block>
+  <block id="d385fd0ac858ff17553d407851f64c48" category="paragraph">如果關閉 SSD 容量管理，圖表將僅顯示過去的使用情況，而不顯示建議或自動化決策。</block>
+  <block id="1de4de358ec9c3a1cd36180e2c13a443" category="list-text">在 *總覽* 標籤中，選擇表格中的檔案系統名稱。在叢集詳細資料檢視中，選擇 *處理量* 或 *SSD 容量* 選項來切換圖表顯示。</block>
+  <block id="a01346bc61a98c025144199b0893e264" category="paragraph">如果您選擇 *處理量*，圖表會顯示用戶端處理量和使用率，以便您將需求與設定的處理量層級和臨界值進行比較。</block>
+  <block id="e56ecd5b4053d7385c23bb7c3422bdd5" category="paragraph">如果選擇 *SSD 容量*，圖表會顯示 SSD 使用情況，包括歷史容量趨勢和容量決策點。</block>
+  <block id="d73906b15c9fc84c1806084ce8720a42" category="paragraph">選擇不同的時間範圍，檢視不同期間的處理量或容量趨勢。。將滑鼠懸停在圖表上的決策點，即可檢視特定時刻的建議或自動化行動的詳細資訊。。利用圖表中的洞察資訊來： * 瞭解需要調整容量的頻率 * 評估自動化或建議模式是否更適合您的工作負載模式 * 識別反覆出現的容量限制 * 根據成長趨勢規劃未來的容量需求 * 疑難排解失敗的自動化嘗試</block>
+  <block id="d84848ea25e8f980ed30c066f0e2cab7" category="list-text"><block ref="d84848ea25e8f980ed30c066f0e2cab7" category="inline-link-macro-rx"></block></block>
+  <block id="3784e1d30d90c571998c16706c434e4f" category="list-text"><block ref="3784e1d30d90c571998c16706c434e4f" category="inline-link-macro-rx"></block></block>
+  <block id="274d09f174202ef30839bc1b86c8644b" category="list-text"><block ref="274d09f174202ef30839bc1b86c8644b" category="inline-link-macro-rx"></block></block>
+  <block id="a8f76ad42c3df15f6fbe9addd47ffe36" category="doc">在 NetApp Console 中為 Workload Factory 建立自訂規則</block>
+  <block id="f4014ae984242fefc2f0569e68611a2e" category="paragraph">在 Workload Factory 中建立自訂規則，以檢查您的 FSx for ONTAP 資源。用簡單易懂的語言描述規則，AI 規則建構者會將您的請求轉換為已驗證的規則。</block>
+  <block id="4995e76cedbca110dbb7cefe85e61d77" category="paragraph">規則設定流程會引導您完成每個步驟：建立規則、審查 AI 如何理解該規則，以及在安排定期審查之前檢查結果。在整個過程中，您始終保持控制。系統會根據您的提示建議一項規則，但在您核准之前不會執行任何動作。</block>
+  <block id="d87385efd143a7a589ef7be597c50809" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立或編輯自訂規則。請聯絡您的系統管理員或<block ref="ba4e701e567767978f2b4fc32c409de8" category="inline-link-macro-rx"></block>。</block>
+  <block id="5d9b02c1296ee6f0b859a2db7ccf523b" category="list-text">您已設定具有唯讀存取權的 AWS 認證資料。</block>
+  <block id="0876642abf2aedd4eb3ae76dd87f7586" category="list-text">您擁有具有檢視器權限的 ONTAP 認證資料。</block>
+  <block id="0e8e25fe832310f010ce2950b2110974" category="list-text">您已為 FSx for ONTAP 連線設定連結或代理程式。</block>
+  <block id="be31b56e3ba8f8ceee6d9deed7f5c112" category="list-text">選擇選單 <block ref="438b712f6e6afc173ce78a756adc207c" category="inline-image-macro-rx" type="image"></block>，然後選擇工作負載 &gt; 架構良好 &gt; 規則建構者。</block>
+  <block id="0cd216375fd6782b45d9f84efb6f3e84" category="list-text">解析解釋</block>
+  <block id="9d009657b96c5aad9fa21f1828b73bcf" category="list-text">人工智慧如何以淺顯易懂的語言理解您的提示。</block>
+  <block id="e35d59c335e26445eed5e3cf4fc88047" category="list-text">規則定義</block>
+  <block id="69dc0eb643b0cd391da1782b1c0156e4" category="list-text">結構化規則包括資源類型、條件邏輯和評估標準。</block>
+  <block id="87a222577e9c7b7a0739d92337f4fe46" category="list-text">推理</block>
+  <block id="22e3f2781979bb9f2227381c2a3c30ea" category="list-text">為什麼 AI 會這樣解讀您的提示。</block>
+  <block id="6e536680660f9f562a1a4ab7cdbba4e1" category="list-text">置信度指標</block>
+  <block id="0f1a4e7b1fc79efcfb93a1a4b715f3d0" category="list-text">系統對解釋的信心程度。</block>
+  <block id="1a5f54a69b5adde0f81c2cf7d6675df3" category="list-text">請檢查規則定義是否正確。如果解釋不明確或有誤，系統可能會提出以下問題：</block>
+  <block id="1f3c02b25897cff55c5d7894bed5c157" category="list-text">應該檢查哪個資源？</block>
+  <block id="2d351367dd00ae9228b6503d57500015" category="list-text">定義法規遵循的值或限制是什麼？</block>
+  <block id="d24a425ef6891cb0134794ec6897a668" category="list-text">該規則應該多久執行一次？</block>
+  <block id="677aeb7441cfb06ed7138c57338cfd53" category="paragraph">在儲存或排程規則之前，請執行測試以查看它將影響哪些資源。</block>
+  <block id="31d7cb3d933c56805e03dca75c02893d" category="list-text">評估資源：檢查的資源總數</block>
+  <block id="c3e6edb3feeaf77e1989872831656640" category="list-text">合規：符合規則標準的資源</block>
+  <block id="00d56e696324ec288953d4f8b2cfec0f" category="list-text">不合規：不符合標準的資源</block>
+  <block id="bd86697cf08c2fc5775c698f872f3628" category="list-text">評估失敗：無法評估的資源（附錯誤詳情）</block>
+  <block id="cdac1db1869db85a5ed349854c63c6bf" category="paragraph">驗證規則後，您可以將其儲存為草稿或設定為定期執行。</block>
+  <block id="39a7241c7fb2f38f3a304dc5a7ddd33e" category="list-text">若要排程定期評估，請設定評估頻率並選取 *Schedule*。規則已啟用，並依定義的排程執行。</block>
+  <block id="9c85906f54c1b8a93d6470f07300ddfa" category="list-text">若要在驗證後儲存而不排程，請選取 *儲存為草稿*。系統會儲存規則，但在您排程之前不會進行評估。</block>
+  <block id="4a5aaf656967e8a439bf519ae6b59880" category="list-text">若要刪除規則，請選擇 *刪除*。</block>
+  <block id="ac896c02d18100750fc4d290b272e808" category="paragraph">您的自訂規則已建立並列於規則目錄中。如果您設定了排程，它將以指定的頻率檢查您的 FSx for ONTAP 資源。如果您稍後編輯規則，系統將指南您完成相同的步驟——聊天、審查、核准和驗證——然後您才能儲存更新的版本。</block>
+  <block id="8bc0878ae35d7f3c225b4bac0e907504" category="paragraph"><block ref="8bc0878ae35d7f3c225b4bac0e907504" category="inline-link-macro-rx"></block></block>
+  <block id="0ef70b60892b97d12c2eebf7686872ca" category="paragraph">自訂規則可讓您在架構完善的儀表板中設定、檢查及強制執行您自己的架構標準，以及 NetApp 最佳實務。</block>
+  <block id="91b90f08c0d07c5aa66b502a1d12c868" category="paragraph">規則建構者可讓您使用一般語言建立自訂規則。這些規則會針對您的所有資源進行檢查。自訂規則有助於您強制執行組織的標準、風險限制和營運要求，而這些可能是預設規則無法涵蓋的。</block>
+  <block id="60a625f073158b990bcf2ad232af27aa" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。<block ref="fb4375aa776b206d4ba3c7bbae1bcfb2" category="inline-link-macro-rx"></block>。</block>
+  <block id="4edc72502b9f9929e41bae938a7490c1" category="paragraph">自訂規則利用人工智慧將簡單的語言指示轉換為清晰、結構化的規則。人工智慧會轉譯您的要求，建議一項規則，解釋它如何理解您的指示，並在儲存或排程規則之前要求核准。此程序有助於確保：</block>
+  <block id="0465277e228b6cf7f37c1fab3872f9cd" category="list-text">此規則定義明確，並經過錯誤檢查</block>
+  <block id="f2b92cb195f44b1f57205f66b9c1c992" category="list-text">未執行任何自訂程式碼</block>
+  <block id="f6b50ace5a7da2eb893c9a1a1c3971be" category="list-text">在批准規則之前，您可以審查具體評估內容</block>
+  <block id="110a917dc178ad706edce62d767a4196" category="list-text">每個自訂規則都包含要評估的資源類型、條件邏輯、嚴重性、評估排程和補救指南。</block>
+  <block id="5eb43201405d6bbeac74bcd01d61e2e1" category="list-text">對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。<block ref="1db25aada4bff8233b24c1d7b39230cd" category="inline-link-macro-rx"></block>。</block>
+  <block id="823a6e1d7fe661be55dd3af05f972b11" category="list-text">ONTAP 憑證</block>
+  <block id="559e5220d6130b1d9f3af60fa24ff138" category="list-text">具有唯讀權限的 FSx 檢視器使用者。如果尚不存在，Workload Factory 會在每個 FSx for ONTAP 檔案系統上建立一個唯讀使用者，以便執行評估。</block>
+  <block id="04d1424a4b58f665f6537d166f4f9750" category="list-text">連結或代理程式</block>
+  <block id="b68341d527b58582cc7cb537c3230cd8" category="inline-link-macro">透過連結連接到 FSx for ONTAP 檔案系統</block>
+  <block id="d358f748048c3fa0487b8cd6d6410fb2" category="list-text">僅當規則必須直接連線至 ONTAP 以檢查 AWS API 無法存取的設定時才需要。<block ref="4c7cc50e5133efc728aaa88011208eda" category="inline-link-macro-rx"></block>。</block>
+  <block id="00d54cb4ae79a42990f001ca7b1eafd2" category="list-text">規則無法自動解決問題。您必須按照提供的指南自行更正不合規的資源。</block>
+  <block id="e0ff3e32dbc4b668a800d5b59c47613b" category="list-text">每條規則只檢查一種類型的資源，但可以應用於多種資源。例如，一條規則可以評估多個區域、所有區域或多個帳戶中的 Volume。若要評估不同的資源類型，請建立分隔的規則。</block>
+  <block id="3f84490332db2de49bed3d46ab452bb0" category="list-text">為防止過度掃描，規則最多每小時執行一次。</block>
+  <block id="499ed12f9f73ef11f2d3afd859dacba5" category="list-text">規則只能讀取您的環境，而不能進行更改。</block>
+  <block id="7d178946e8d76597de91865cae420fb6" category="list-text">您稍後可以從規則目錄更新這些設定。</block>
+  <block id="b6e0b0c90cfbddfe767f137f8066d1df" category="list-text">進行中</block>
+  <block id="d4008ffe54f55490997ab0d5940aafb3" category="list-text">建立或檢查規則。</block>
+  <block id="b75ff201f3276decaffcefb7b216622f" category="list-text">建立失敗</block>
+  <block id="db78d463a1f2fbb737aa54f862bd0d4b" category="list-text">無法建立規則。您可以重新開啟規則，並在聊天中繼續編輯。</block>
+  <block id="c4e6fec5ee0f22a348768aa087f15acb" category="list-text">已儲存但尚未排程。</block>
+  <block id="7401c14d073cd1188b475ef7f5e0cdc8" category="list-text">已驗證草稿</block>
+  <block id="de28b803b960b2c037e1abe4d18cf9d7" category="list-text">已通過驗證，可以儲存或安排執行。</block>
+  <block id="b1caf7f21c1b8899e11165a6aed71af9" category="list-text">編輯</block>
+  <block id="f25dfb15b911ed977033f485330ceadd" category="list-text">更新現有規則的草稿複本。目前排程的規則會繼續執行，直到您儲存變更為止。</block>
+  <block id="2b7dabba0077abe3732e0418b048a56b" category="list-text">已排程</block>
+  <block id="cf61937578a34d9f00c4f6dd6f175c05" category="list-text">作用中，並依定義的排程執行。</block>
+  <block id="ca7e0b16936fbee3bd2dd7f992b32b4d" category="list-text">已暫停但未刪除。可重新啟用。</block>
+  <block id="71e78f13c09017bc4b63f46243d379b7" category="list-text">已永久移除。</block>
+  <block id="cc36425e424f4c30e5d1dd8b4cf78a69" category="list-text">生產 Volume 保護</block>
+  <block id="9beacae88b6d84f519d92cf003a30d57" category="list-text">歸檔 Volume 分層</block>
+  <block id="ccf414cfce06645c55d0bcfd5f41608b" category="list-text">檔案系統命名標準</block>
+  <block id="9b4ad9b41b7f7f63bf3258fc3894691a" category="paragraph"><block ref="a9a97108e6fef351f8c6a7a2af6f4937" category="inline-link-macro-rx"></block> <block ref="8bc0878ae35d7f3c225b4bac0e907504" category="inline-link-macro-rx"></block></block>
+  <block id="71d671c8e1cf2aa5cf976dd7ff9d340b" category="summary">從規則目錄中檢視、編輯、啟用、停用和刪除自訂架構規則。</block>
+  <block id="1cf051440b9604c5c57c4c6cab344202" category="doc">在 NetApp Console 中管理 Workload Factory 的自訂規則</block>
+  <block id="8ef292d4be46fbc351d35b26b3ce8720" category="paragraph">規則目錄是管理所有自訂規則的單一位置。您可以審查規則詳細資料、編輯規則、檢查結果，以及控制規則是否依排程執行。</block>
+  <block id="dbea8da43ac90f4152565d880d18e30e" category="paragraph">您可以隨時重新命名規則。您也可以編輯規則的執行摘要、資源類型、排程、嚴重性、條件邏輯、評估範圍與補救指南。</block>
+  <block id="8473633d69dc94d27429c2a37902fe75" category="paragraph">您可以從「規則」目錄或規則詳情卡中重新命名規則。若要編輯任何其他規則設定，請從「規則」目錄開始。</block>
+  <block id="2dc19156fac0f6096a2db17a78fe0da8" category="list-text">若要重新命名規則，請從目錄或規則詳細資料卡中更新規則名稱。</block>
+  <block id="4d3a6d0da6e18e9505524b8a39ca5bf1" category="list-text">若要編輯其他規則設定，請按一下 *編輯*。</block>
+  <block id="01e52dae8e86fc149d714c3cdc94859d" category="paragraph">該規則以聊天模式開啟，並顯示其完整歷史記錄。</block>
+  <block id="91fa4b053658e4dedadb0d60014d7b3e" category="list-text">提出您想要進行的更改，或在聊天中更新請求。</block>
+  <block id="f5500860e31d724af72a4be713c2c1e5" category="paragraph">如果之前建立規則失敗，您可以從該規則繼續，並在聊天中更新您的請求。</block>
+  <block id="1f998f331ae48a1cf2b4056c154eff9f" category="list-text">審查更新後的說明與變更總結。</block>
+  <block id="fc7c0f65a3d8f2f0a1da1c56bd143c30" category="paragraph">系統會在您儲存規則之前顯示與目前規則相比發生了哪些變更。</block>
+  <block id="023ad31a6b18fc538747a36ab488e65c" category="list-text">如果規則處於草稿模式，請選擇 *驗證規則* 來測試更新後的邏輯。</block>
+  <block id="58b17236d18d0245f7322e360753f322" category="list-text">若要保留變更，請按一下 *儲存* 以取代目前的規則。如果您變更了排程，請儲存更新的排程。如果您沒有變更排程，排程將保持不變。</block>
+  <block id="a91166998826b450f2fb807ba450dbc4" category="list-text">若要放棄更改，請按一下 *放棄更改*。規則將恢復到先前的版本並退出編輯模式。</block>
+  <block id="053ebf33b65f60110cd8e776b413ed79" category="paragraph">當您編輯規則時，該規則會對您顯示為 *編輯中*。其他使用者仍然可以看到目前已排程的規則，而且排程的執行會正常繼續，直到您儲存變更為止。</block>
+  <block id="8c5fb02c595607ff2d6a7bffe64be464" category="section-title">暫停規則</block>
+  <block id="ad91e5fff3b8c62296713afbb3628a85" category="paragraph">暫停規則可以停止評估，但不會刪除該規則。暫停的規則會保留在目錄中，可以隨時重新啟動。</block>
+  <block id="6128c344ce68ca2256885ace5b47ff93" category="list-text">在規則目錄中，按一下要暫停的規則。</block>
+  <block id="082d380473aced66fdfe341c99cda5a8" category="list-text">若要暫停已排程的規則，請按一下 *Pause*，然後確認。該規則將停止按排程執行。</block>
+  <block id="45967b1be5307f4c7a1110294cadcd04" category="list-text">若要恢復已暫停的規則，請按一下 *Resume*，然後確認。規則將恢復定期評估。</block>
+  <block id="505e9a4d5d793341b92e51caeffa198f" category="section-title">刪除自訂規則</block>
+  <block id="106aa9d3af8dd9fe811548be7c0ab934" category="paragraph">當您不再需要某條規則時，請將其永久刪除。此行動無法撤銷。</block>
+  <block id="0aec4bb39ad4e484e24dc1510d9772d1" category="list-text">在規則目錄中，按一下要刪除的規則。</block>
+  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">按一下 *Delete* 。</block>
+  <block id="a611c28af3d155e736c074bd926dc51b" category="list-text">確認是否要永久刪除該規則。</block>
+  <block id="f36dd1b2731552458a4d8983a8bec074" category="paragraph">該規則已從目錄中移除。所有評估歷史記錄均已刪除。</block>
+  <block id="ee46de54fef48d3ea00b2c8fc06cb58b" category="section-title">執行快速測試</block>
+  <block id="bd472ca28321d77d062059272b456804" category="paragraph">隨時執行快速測試，檢查目前法規遵循狀態，無需等待下次排程執行。</block>
+  <block id="5edd65680f750fa6f32b6e445f24fd27" category="list-text">在規則目錄中，按一下要評估的規則。</block>
+  <block id="ae7b417afa23cb538530e43e4b08cfff" category="list-text">點選 *Validate* 。</block>
+  <block id="b4b7ad5dbb1a5d746e0ac8936e3f4798" category="paragraph">系統會根據規則邏輯評估範圍內的所有資源。</block>
+  <block id="5cb57852939f164731c4f61fcca33dac" category="list-text">查看結果以了解目前的法規遵循狀態。</block>
+  <block id="2cc894218e78a9699920859cc698e5d7" category="paragraph">測試結果會經過審核，並記錄在規則的評估歷史記錄中。</block>
+  <block id="26a1c27f638f5372654511db0a450638" category="paragraph"><block ref="26a1c27f638f5372654511db0a450638" category="inline-link-macro-rx"></block></block>
+  <block id="9a8fccbd850aa8643a89826b7a8fb208" category="summary">透過指派 NetApp Console 角色、新增憑證與探索系統，開始使用 Google Cloud NetApp Volumes。</block>
+  <block id="2999755d1730c0395dc6d69c2e4175da" category="paragraph">透過指派您的 NetApp Console 角色、新增憑證並探索系統，開始使用 Google Cloud NetApp Volumes。</block>
+  <block id="aa0b2ca9fbe37ff46d33ea907e58b677" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> <block ref="4db55a1c8076378b257ee9e0511dd2d4" category="inline-link-macro-rx"></block></block>
+  <block id="0f391d5482822722d86585c248878517" category="inline-link-macro">新增憑證</block>
+  <block id="6f2763cd3e02476cb119778797369b0f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> <block ref="2fd3a5be9d6b1b1b584f1ac1aa0e2f8e" category="inline-link-macro-rx"></block></block>
+  <block id="77d5ddb0fb660aaf755b6ed1f614b0c5" category="paragraph">在 NetApp Console 中，新增 Google Cloud NetApp Volumes 憑證。</block>
+  <block id="66db479b9f5558108a119367246238d1" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> <block ref="8b88ff7d74af8bb26ccc5fa950b51632" category="inline-link-macro-rx"></block></block>
+  <block id="3d5dcea171c7a77f7cb0efa8c9a0cd1a" category="paragraph">在 NetApp Console 中，使用憑證、Google Cloud 專案和受支援的區域探索系統。</block>
+  <block id="c04236280596e42d063458cddb934506" category="sidebar">AI 代理程式</block>
+  <block id="737f86fc6a3bb3563670dac4c0b49585" category="sidebar">Workload Factory AIOps</block>
+  <block id="ff2cb9e669640d8f287be7fc339c4d78" category="sidebar">了解人工智慧代理程式</block>
+  <block id="64f2f595f7dd037774e1dbd99cb2ab7b" category="sidebar">管理 AI 代理程式設定</block>
 </blocks>

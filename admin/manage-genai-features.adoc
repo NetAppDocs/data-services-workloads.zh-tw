@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: admin/manage-genai-features.html 
-keywords: gen ai, generative ai, bedrock, ask me, custom dashboards, rules builder, cloudshell ai, ems analyzer, db log analyzer, latency analyzer, byom, bring your own model, administration 
+keywords: gen ai, generative ai, bedrock, ask me, custom dashboards, rules builder, cloudshell ai, ems analyzer, db log analyzer, latency analyzer, administration 
 summary: 在 Workload Factory 中控制對基於 Bedrock 的 AI 功能的存取。您可以關閉 AI 功能或使用 NetApp 代管的 AWS Bedrock。 
 ---
-= 在 NetApp Workload Factory 中管理 FSx for ONTAP 的 AI 功能
+= 在 NetApp Workload Factory 中管理 AI 功能
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,14 +14,14 @@ summary: 在 Workload Factory 中控制對基於 Bedrock 的 AI 功能的存取�
 
 
 [role="lead"]
-在 Workload Factory 中控制對 FSx for ONTAP 的 AI 功能的存取。您可以關閉 AI 功能或使用由 NetApp 代管的 AWS Bedrock。
+控制對 Workload Factory 中 AI 功能的存取。您可以關閉 AI 功能或使用由 NetApp 代管的 AWS Bedrock。
 
 
 
 [[about-ai-features]]
 == 關於 AI 功能
 
-Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如「問我」、自訂儀表板以及 EMS、資料庫日誌和延遲分析器。
+Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、Rule 建構者，以及 EMS、資料庫日誌和延遲分析器。
 
 身為 Workload Factory 系統管理員，您可以在 AI 設定頁面上控制這些功能如何使用 AI。
 
@@ -41,7 +41,7 @@ NetApp 代管的 Bedrock （建議）:: 使用 NetApp 代管的 AWS Bedrock 服�
 
 
 --
-GenAI 功能關閉:: 關閉所有 AI 功能。使用者將無法再使用「問我」、分析器、自訂儀表板、規則建構者或其他人工智慧驅動工具。
+GenAI 功能關閉:: 關閉所有 AI 功能。使用者將無法再使用 Ask Me、AI 代理程式、分析器、自訂儀表板、規則建構者或其他 AI 工具。
 
 
 
@@ -59,7 +59,7 @@ GenAI 功能關閉:: 關閉所有 AI 功能。使用者將無法再使用「問�
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
-. 從 NetApp Console 選單中，選取 *工作負載* > *管理* > *AI 設定*。
+. 從選單中選擇 *管理*，然後選擇 *AI 設定*。
 . 在「AI 設定」頁面，選擇您偏好的組態：
 +
 ** *NetApp-代管的 Bedrock （建議）*：使用 NetApp-代管的 AWS Bedrock。
@@ -136,7 +136,7 @@ NetApp 在使用預設的 NetApp 代管組態時，會管理 AI 功能的預算�
 == 相關資訊
 
 * link:../setup/learn-about-workload-factory.html["了解 Workload Factory 功能"]
-* link:learn-custom-dashboards-fsx.html["了解自訂儀表板"]
+* link:../admin/learn-custom-dashboards-fsx.html["了解自訂儀表板"]
 * link:../fsx-storage/add-credentials.html["新增 AWS 憑證"]
 * link:../fsx-storage/permissions-reference-fsx.html["權限參考"]
 

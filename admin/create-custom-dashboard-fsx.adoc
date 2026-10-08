@@ -21,7 +21,7 @@ summary: 使用 AI 引導提示建立自訂儀表板，以監控對您的工作�
 請記住，自訂儀表板在設計上為唯讀，無法變更您的儲存或工作負載組態。
 
 
-NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立儀表板。請聯絡您的系統管理員或link:manage-genai-features.html["了解 AI 管理"]。
+NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立儀表板。請聯絡您的系統管理員或link:../admin/manage-genai-features.html["了解 AI 管理"]。
 
 
 
@@ -30,7 +30,7 @@ NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則�
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
-. 從 NetApp Console 選單中，選取 *工作負載* > *工作負載概覽* > *自訂儀表板*。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至儲存、EDA、AI、資料庫、VMware 和管理等工作負載。"]，然後選擇 *Workloads Overview* > *Custom dashboards*。
 +
 如果這是您第一次使用控制面板，您將看到一個空白螢幕，其中包含一些範例提示，幫助您快速入門。您可以選擇 *Copy prompt* 將範例提示複製到 AI 對話方塊文字方塊中。
 
@@ -50,15 +50,16 @@ AI 可能會要求您從幾個選項中進行選擇，以便更清楚地了解�
 您的儀表板正在建立中。這可能需要一些時間。
 
 .結果
-您的自訂儀表板已建立並新增至儀表板目錄。預設情況下，儀表板為私有，僅您可見。如果您想與 Workload Factory 帳戶中的其他使用者共享，可以將其可見度變更為公開。link:manage-custom-dashboards-fsx.html#change-dashboard-visibility["了解如何變更儀表板可見度"]。
+您的自訂儀表板已建立並新增至儀表板目錄。預設情況下，儀表板為私有，僅您可見。如果您想與 Workload Factory 帳戶中的其他使用者共享，可以將其可見度變更為公開。link:../admin/manage-custom-dashboards-fsx.html#change-dashboard-visibility["了解如何變更儀表板可見度"]。
 
-儀表板準備就緒後，您會收到通知。如果建立失敗，您會收到一條包含重試連結的通知。link:configure-notifications.html["了解如何設定通知"]。
+儀表板準備就緒後，您會收到通知。如果建立失敗，您會收到一條包含重試連結的通知。link:../admin/configure-notifications.html["了解如何設定通知"]。
 
 .接下來
 建立完成後，您可以：
 
 * 更改儀表板可見度，以便與您的團隊共享
 * 重新整理儀表板資料以查看最新資訊
+* 編輯儀表板以變更其顯示內容，包括計量、圖表和時間範圍
 * 刪除不再需要的儀表板
 * 檢視儀表板詳細資訊，包括建立者及上次更新時間。
 
@@ -68,6 +69,6 @@ AI 可能會要求您從幾個選項中進行選擇，以便更清楚地了解�
 [[related-information]]
 == 相關資訊
 
-* link:manage-custom-dashboards-fsx.html["管理您的自訂儀表板"]
-* link:troubleshoot-custom-dashboards-fsx.html["疑難排解自訂儀表板"]
+* link:../admin/manage-custom-dashboards-fsx.html["管理您的自訂儀表板"]
+* link:../admin/troubleshoot-custom-dashboards-fsx.html["疑難排解自訂儀表板"]
 

@@ -60,8 +60,8 @@ Workload Factory 開始收集與您的 AWS 憑證關聯的所有 FSx for ONTAP �
 
 啟動儀表板後，您可以：
 
-* link:task-use-overview-dashboard.html["使用概覽儀表板"] 監控叢集健全狀況和容量
-* link:task-use-overview-dashboard.html#change-ssd-management-mode["啟用並設定 SSD 容量管理模式"]（Recommend、Automate 或 None）
-* link:task-use-overview-dashboard.html#change-throughput-management-mode["啟用和設定處理量管理模式"]（Recommend、Automate 或 None）
+* link:../fsx-eda/task-use-overview-dashboard.html["使用概覽儀表板"] 監控叢集健全狀況和容量
+* link:../fsx-eda/task-use-overview-dashboard.html#change-ssd-management-mode["啟用並設定 SSD 容量管理模式"]（Recommend、Automate 或 None）
+* link:../fsx-eda/task-use-overview-dashboard.html#change-throughput-management-mode["啟用和設定處理量管理模式"]（Recommend、Automate 或 None）
 * 設定篩選條件以專注於特定區域或 AWS 帳戶
 
