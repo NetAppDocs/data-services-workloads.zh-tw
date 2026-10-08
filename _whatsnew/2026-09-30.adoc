@@ -15,3 +15,5 @@
 === 適用於 NetApp Console 使用者的 Workload Factory 文件
 
 您可以在 NetApp Console 中找到有關 Workload Factory 的詳細文件，包括入門、系統探索、認證資料管理，以及連結建立與關聯的指南。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/index.html["適用於 NetApp Console 的 Workload Factory 文件"]
