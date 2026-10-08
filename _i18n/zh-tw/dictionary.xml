@@ -151,21 +151,11 @@
   <block id="5ba8acf00a9c87f3087344b902777a6e" category="doc">設定 NetApp Workload Factory 通知</block>
   <block id="ecfa38cbb07762f651b2d55730a9503d" category="paragraph">您可以設定 NetApp Workload Factory 通知服務，使其將通知以警報形式傳送至 NetApp Console、帳戶關聯的任何電子郵件地址或 Amazon SNS 主題。如果您已部署 Console 代理或鏈接，則以警報形式傳送的通知將顯示在 NetApp Console 中。當 Workload Factory 將通知發佈到 Amazon SNS 主題時，該主題的訂閱者（例如使用者或其他應用程式）將透過為該主題配置的端點（例如電子郵件或簡訊）接收通知。</block>
   <block id="7c1a1feb7968ed15d338ae3e7284dd4e" category="section-title">設定 Workload Factory 通知</block>
-  <block id="4bd55d131f0ae81cc60c9fe282068a64" category="paragraph">您可以使用 NetApp Console 或 Workload Factory 主控台來設定 Workload Factory 通知。</block>
-  <block id="d7dcef6f1d8c5c823f847fd4c7fa8fe9" category="paragraph">接收通知的選項包括：</block>
   <block id="3c031b939f6ec312ee601d021e7a6644" category="section-title">NetApp Console</block>
-  <block id="cce7bd3a3721067273866ec7f3ec7b7c" category="list-text">*通知*：設定 Workload Factory 以傳送顯示在 NetApp Console 鈴鐺圖示下的通知。</block>
-  <block id="a58c54927d168d58046b4ad29f5254fa" category="list-text">*電子郵件*：在 NetApp Console 啟用電子郵件通知，無需設定 Amazon SNS，即可將通知發送到與帳戶關聯的任何電子郵件地址。</block>
-  <block id="d7b2e59eb21ae19aa7b493f93fbcb35f" category="list-text">*Amazon SNS*：設定 Workload Factory 以傳送通知至 Amazon SNS 主題。</block>
-  <block id="8fd935558171bd50056871ef9ee7bd05" category="section-title">Workload Factory 控制台</block>
-  <block id="e174fa0e05fb5c229301ef978773782d" category="list-text">*電子郵件*：在 Workload Factory Console 中啟用電子郵件通知，即可接收傳送至與該帳戶關聯的任何電子郵件地址的通知，而無需設定 Amazon SNS。</block>
-  <block id="7184b61f2058f394c7d6b104dc166242" category="list-text">*Amazon SNS*：使用 Workload Factory 主控台設定 Workload Factory 以向 Amazon SNS 主題發送通知。</block>
-  <block id="150b7425bee731f53d950cb07997d3a9" category="admonition">當你在 NetApp Console 中設定通知時，NetApp Console 會接管通知傳送的管理權限，並且 Workload Factory console 的通知選項會被停用並以唯讀模式顯示。工具提示會顯示通知是由 NetApp Console 管理。之後你只能從 NetApp Console 管理通知。</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">開始之前</block>
   <block id="719c05c1c99e00fa5e0edb33bb8190f6" category="paragraph">以下先決條件僅適用於設定 Amazon SNS 通知時：</block>
   <block id="9ccebe6954a81c5c1f9a57ddc658596a" category="list-text">您需要設定 Amazon SNS 並使用 Amazon SNS 主控台或 AWS CLI 建立 Amazon SNS 主題。</block>
   <block id="1a7d7414c3da7bd3d69c29c1c9dc74ad" category="list-text">請注意，Workload Factory 支援 *標準* 主題類型。此類主題無法保證通知會按照接收順序發送給訂閱者，因此如果您有關鍵或緊急通知，請將此納入考量。</block>
-  <block id="4be7ff4e16147ce765eb61308f73beda" category="open-title">從 NetApp Console 設定通知</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步驟</block>
   <block id="fe3e3ad90678611fd3fe6b4348fba6dc" category="list-text">登入 <block ref="7532dfde8c533672ea63a5b546224a97" category="inline-link-macro-rx"></block>。</block>
   <block id="0a4d4130dbebdc7083cd7435e388797d" category="list-text">從 NetApp Console 選單中，選擇 *工作負載*、*管理*，然後選擇 *通知設定*。</block>
@@ -175,14 +165,8 @@
   <block id="0d7adbc19c316fab18fa015b723496bd" category="list-text">*Amazon SNS 通知*：選取*啟用 SNS 通知*，然後依照指示從 Amazon SNS 主控台設定 Amazon SNS。</block>
   <block id="a4caa02a925f9e2b61439b42ecfebb6f" category="paragraph">建立主題後，複製主題 ARN 並將其輸入到 *通知設定* 頁面上的 *SNS 主題 ARN* 欄位中。</block>
   <block id="2339afaee28d73e91f81e490b67a4b5c" category="list-text">傳送測試通知以驗證組態後，選取 *套用*。</block>
-  <block id="4bc45d22028e53a00f4de2c50839c911" category="open-title">設定來自 Workload Factory 主控台的通知</block>
-  <block id="219bd6a410f8c490dbc0ffbcf504910f" category="list-text">登入 <block ref="ed002915dbbbf90a20b3d8fdf4cc2390" category="inline-link-macro-rx"></block>。</block>
-  <block id="99a1b22d5c08e1ea6e260730064a78c1" category="list-text">從 Workload Factory 控制台選單中，選取 *工作負載*、*管理*，然後選取 *通知設定*。</block>
-  <block id="458f208085c8b6ec69e163ddf2378427" category="list-text">啟用以下一種或多種通知類型：</block>
-  <block id="622901cf56fa55473d2f9550e6422faf" category="list-text">*電子郵件通知*：選取 *啟用電子郵件通知*。與該帳戶相關聯的任何電子郵件地址都會以唯讀模式顯示。</block>
   <block id="5e5392f4dcdf5502f0937be76da274d0" category="section-title">訂閱 Amazon SNS 主題</block>
   <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link">指示</block>
-  <block id="48069e5c28c259c5ae7ab58ad98f2b42" category="paragraph">設定 Workload Factory 向主題傳送通知後，請按照 Amazon SNS 文件中的<block ref="88c7b6108316e02c36e39863bedc2019" category="inline-link-rx"></block>訂閱主題，以便接收來自 Workload Factory 的通知。</block>
   <block id="e457faf451b04c78c6b2c6bc25491ad1" category="section-title">篩選通知</block>
   <block id="3bf17ee9de6360f01456d2fe35c8ff4c" category="paragraph">您可以透過對通知套用篩選器，減少不必要的通知流量，並針對特定使用者推播特定類型的通知。您可以使用 Amazon SNS 策略來管理 SNS 通知，也可以在 NetApp Console 中使用通知設定來實現這一點。</block>
   <block id="4ccc3070ee3f76f6afb040d5f99b3bdd" category="section-title">篩選 Amazon SNS 通知</block>
@@ -2312,7 +2296,6 @@
   <block id="d3ac5879c6e6d4037eeb5996a078c1eb" category="list-text">*電子郵件*：傳送至您在 Workload Factory 通知設定中設定的電子郵件地址</block>
   <block id="521affd4c31056b034895f68689c40d6" category="list-text">*Amazon SNS*：發佈到您配置的 SNS 主題，以便與其他系統整合</block>
   <block id="b113e6e3f414df97faffdf304f96cdea" category="inline-link-macro">設定通知設定</block>
-  <block id="894adf5cb0ac606f1e718c5bc998fe44" category="paragraph">若要啟用通知，請參閱<block ref="4ab27e3456d02f7a901aae478e281703" category="inline-link-macro-rx"></block>。</block>
   <block id="01bd639bef6ec9a56687ee7ffd9f246c" category="section-title">管理延遲組態</block>
   <block id="95ae0d98cc5a0df87238eb0392c461da" category="paragraph">設定完成後，您可以隨時變更閾值。</block>
   <block id="6fe6ef1cbd27d3257ff9500aab5f9ab9" category="list-text">在 *Latency* 頁面中，選擇 *Edit*。</block>
@@ -2823,16 +2806,13 @@
   <block id="c0aee0db2523a540ba66181f63809c8b" category="list-text">選取 *資料保護動作*，然後選取 *Clone Volume*。</block>
   <block id="a9056a8f8a35fa168136ae9ea8b7866d" category="list-text">在「Clone Volume」對話方塊中，輸入 Volume 複製的名稱。</block>
   <block id="9de0e2b17d7e1e2da6c0ce7e9dc6e377" category="list-text">選擇 *Clone* 。</block>
-  <block id="94a3e141996b9431c4516ae849425040" category="summary">NetApp Workload Factory 會定期分析 Amazon FSx for NetApp ONTAP 檔案系統設定，以判斷是否存在任何設定問題。</block>
   <block id="94e390698b0c254e1e6b02b938689a62" category="doc">FSx for ONTAP 檔案系統的組態分析</block>
-  <block id="eb2b721313223c7264abb769bf627d20" category="paragraph">NetApp Workload Factory 會定期分析 Amazon FSx for NetApp ONTAP 檔案系統設定，以判斷是否存在任何設定問題。當發現問題時，Workload Factory 會顯示這些問題並說明需要做出哪些更改，以確保您的檔案系統儲存能達到最佳效能、成本效益及符合最佳實務。</block>
   <block id="1c11d2e59190fe6a4e37f1e68abafcb4" category="paragraph">主要功能包括：</block>
   <block id="ebc3bf5de769bc75ad8e36a90a0ed695" category="list-text">每日配置分析</block>
   <block id="8c0981b34ea19373e1dcf1c3d034f097" category="list-text">自動最佳實務驗證</block>
   <block id="3583e4a3e4e2e122cff65b8ad9045348" category="list-text">主動可觀測性</block>
   <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">洞察化為行動</block>
   <block id="7a3fc3cf12e9da54628c7311398bee5c" category="list-text">AWS 架構完善框架顧問</block>
-  <block id="081bb4ab1716ea656b2b52715598f415" category="paragraph">每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以按類別查看組態問題，以及組態問題清單和建議。您可以審查針對組態問題的建議。Workload Factory 可以自動修復某些問題；其他問題則需要手冊干預。在這種情況下，Workload Factory 會提供詳細說明，幫助您實作建議的變更。</block>
   <block id="8779c6393df05e1705b311d9e0f13958" category="paragraph">您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。<block ref="02fcf2ffb8ce0690b17b03c9491ef999" category="inline-link-macro-rx"></block>。</block>
   <block id="8feb6c8d13e912657481adbe0cafebb3" category="paragraph">Workload Factory 藉由結合後續評估與建議洞察和修復，將最佳實務做法應用於大型儲存設備、資料庫和 VMware 環境。自動化修復可減少人為錯誤，確保統一管理，並維護工作負載基礎架構的效能和可靠性。</block>
   <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
@@ -2852,7 +2832,6 @@
   <block id="ca512a483bb26b1b253abc6b2cc463bd" category="list-text">*Snapshot 原則*</block>
   <block id="6c9fff12a469dffc950e974a95a7b4a4" category="paragraph">排程本機 Snapshot 快照技術，以實現高效備份和快速還原。Snapshot 快照技術是 Volume 的即時時間點映像。此建議不適用於資料庫環境。</block>
   <block id="4e3fbfcdffe2becd73a5b796de048459" category="list-text">*應用程式一致性快照*</block>
-  <block id="8f1e17436bf3a87fccd5f9e6d1ed851e" category="paragraph">對於資料庫環境，請搭配 NetApp SnapCenter 使用應用程式一致性快照，以在特定時間點為您的 Volume 資料建立準確、可靠的快照。這可確保應用程式流暢運作並保障資料安全。SnapCenter 可簡化備份，並協助您快速正確地還原資料，進而減少停機並保護您最重要的工作負載。</block>
   <block id="b34347ddf6e48f7eb5aee09d6f7b92a6" category="list-text">* 跨區域複寫 *</block>
   <block id="fb0db5246d7e15caadfb931bef38413c" category="paragraph">跨區域複寫可確保您的資料複寫到另一個 AWS 區域，從而增強資料持久性和可用度。設定跨區域複寫以支援災難恢復和法規遵循。</block>
   <block id="e5cdf4f9c0dda596826a91093d4f69f4" category="list-text">*SSD 容量餘裕*</block>
@@ -2898,7 +2877,6 @@
   <block id="c359614024935abd3712075452782fa3" category="list-text">*非作用中區塊裝置*</block>
   <block id="0be251ac51e901583999154779926c3b" category="paragraph">在區塊裝置七天未使用後，請歸檔區塊裝置資料或刪除未使用的區塊裝置，以降低成本。</block>
   <block id="8611faa768b220ecb3795c6fda54fdaa" category="list-text">*超額配置的固態硬碟容量*</block>
-  <block id="baae99faf5c3e54a1e7e85346ab5de9b" category="paragraph">過剩的 SSD 容量會增加不必要的成本。減少 SSD 分層，同時維持 20% 的可用空間緩衝區。此操作可能需要數小時到數天，在此期間不支援其他檔案系統操作。</block>
   <block id="934fd3399568391e103ee0d773bf954d" category="list-text">*非使用中的 NAS Volume*</block>
   <block id="72d8d7f27cf31b02bb7df1a01b23ab49" category="paragraph">組態分析會識別出未經常使用的 NAS Volume，並建議刪除或歸檔這些 Volume 以降低成本。</block>
   <block id="8722112d28d6eea0aff9478fb61c5de7" category="section-title">效能效率</block>
@@ -3678,7 +3656,6 @@
   <block id="4db5604b0bc72aea1fe7399b332f28cb" category="list-text">*資料分層*：將存取頻率較低的資料從主要、高效能的 SSD 儲存層移至次要的容量資源池儲存層，可降低儲存設備成本。</block>
   <block id="83e08612242214ecb1e7db2eb93df5dc" category="section-title">Workload Factory 的其他功能</block>
   <block id="384c5c520d0877aaaaed76d75d973d99" category="list-text">*儲存成本比較計算器*：將您的 Amazon Elastic Block Store (EBS)、Elastic File System (EFS) 和 FSx for Windows File Server 儲存設備成本與 FSx for ONTAP 進行比較。透過此計算器，您可以檢視 FSx for ONTAP 儲存設備組態如何提供潛力節約效益，並規劃您向 FSx for ONTAP 儲存設備的移轉。</block>
-  <block id="f6858e5eadd0ed940450d85121838545" category="list-text">*Workload Factory 使用者介面*：提供 _快速建立_ 和 _進階建立_ 部署模式選項。快速建立包含 AWS 、 NetApp 和產業標準最佳實務做法，可用於您的儲存設備組態。</block>
   <block id="a5a980f3518b6bdf573ccca8b4570aaa" category="list-text">*Codebox*：為開發人員提供適用於 FSx for ONTAP 操作的程式碼檢視器、用於複本和下載的程式碼範本，以及用於程式碼重複使用的自動化目錄。</block>
   <block id="2f00f54e8e91e47bd247b06a51824fb0" category="inline-link-macro">Amazon FSx for NetApp ONTAP 的定價</block>
   <block id="f779a02b6ead6147136f74bc7ce29eaa" category="paragraph">AWS 維護您的 FSx for ONTAP 帳戶，而不是 Workload Factory。請參閱 <block ref="d466c04e3dc9277f23f307f5afe7df62" category="inline-link-macro-rx"></block>。</block>
@@ -3858,7 +3835,6 @@
   <block id="c4201ee0fd07b804ee782357c70d2e27" category="list-text">若要放棄變更，請按一下 *還原到先前版本*。規則將恢復到其原始定義並退出編輯模式。</block>
   <block id="c5ef40517475cde4aa83a5451658e49f" category="summary">隨時新增、更新或移除檔案系統的 FSx for ONTAP 檔案系統標籤。</block>
   <block id="3dd4ca2c61c588825f3e69d7851510b5" category="doc">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統設定</block>
-  <block id="b24c16fd1abe8154a92346f6dd1baf6b" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的設定。您可以管理檔案系統的標籤，在必要時重設 fsxadmin 密碼，並根據需要更新處理量容量。</block>
   <block id="f120bfb32fdc034593c753c46a030312" category="section-title">管理 FSx for ONTAP 檔案系統標籤</block>
   <block id="46512aa67048f4a43e843b7f1767367e" category="paragraph">標籤可以幫助您對資源進行分類。在 NetApp Workload Factory 中，您可以隨時為檔案系統新增、編輯和移除標籤。</block>
   <block id="d54726e20094db4246fecbd64718cb16" category="list-text">在 *庫存* 中，選取要更新的檔案系統的動作功能表，然後選取 *管理檔案系統標籤*。</block>
@@ -4217,7 +4193,6 @@
   <block id="dacae3a3d22c24a7e5e2a28664e1043d" category="paragraph">Volume 重新平衡作業停止，且作用中 Volume 移動中止。</block>
   <block id="3d7b2807e22b58e985dfcb21a31b176e" category="summary">標籤可以幫助您對資源進行分類。您可以隨時為 FSx for ONTAP Volume 新增、編輯和移除 Volume 標籤。</block>
   <block id="2e4be9b0e28ca3065b74b93bd25ca696" category="doc">在 NetApp Workload Factory 中管理 Volume 設定</block>
-  <block id="e541b8bee1897be0fb1272397166c050" category="paragraph">在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以滿足您組織的需求。您可以管理 Volume 標籤以對資源進行分類，更新儲存效率設定以最佳化空間和成本節約效益，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。</block>
   <block id="d151342d67a639e871ca8c57524ca7f8" category="section-title">管理 Volume 標籤</block>
   <block id="693a8f663c39ae53134101e5d974fda8" category="paragraph">標籤可以幫助您對資源進行分類。您可以隨時在 NetApp Workload Factory 中為 FSx for ONTAP Volume 新增、編輯和移除 Volume 標籤。</block>
   <block id="1111cc43d23839eef53ada84488c133d" category="list-text">選擇要修改標籤的 Volume 的動作選單。</block>
@@ -4980,19 +4955,11 @@
   <block id="70d5997237e2a666a80612de57a49652" category="paragraph">Volume 複製已分割，並顯示在 Volumes 標籤中。</block>
   <block id="56df9b1084a1d8fbfcb5630d52db4560" category="summary">在 NetApp Workload Factory 中追蹤 FSx for ONTAP 檔案系統資源的成本並產生報表。</block>
   <block id="e34daec9a99e5e16cdd75dd4637d156b" category="doc">在 NetApp Workload Factory 中追蹤資源成本並取得報告</block>
-  <block id="5585a04aef8ebc87e1cda202d7e2a439" category="paragraph">在 NetApp Workload Factory 控制台中，以整合檢視追蹤 FSx for ONTAP 檔案系統的成本和使用情況。成本資料有助於您有效管理預算並優化資源。Workload Factory 也會為您的 FSx for ONTAP 檔案系統資源產生成本報告，您可以與利害關係人共用這些報告。</block>
   <block id="132c7cd068e9c3c95296d05738c81a90" category="paragraph">Workload Factory 透過從 AWS Cost Explorer 取得成本資料來追蹤 FSx for ONTAP 檔案系統的成本和使用情況。追蹤的成本詳情包括：使用類型、使用 SKU、部署類型、使用量和總成本。</block>
-  <block id="759dd0f8e7a28f421f2c25ba15aca0e1" category="paragraph">對於獨特的資源，Workload Factory 透過結合實際效能分層使用量、分配給已配置但未使用空間的效能分層成本的比例共享、按容量分佈的效能分配，以及容量資源池使用量來計算成本。每個組成部分均乘以其在該維度上的單位價格，再將結果加總，以確定每個資源的總成本。</block>
-  <block id="0ed1a26b65398b8b99cc7180f0f958ba" category="paragraph">在「成本」儀表板中，您可以按 AWS 帳戶、認證資料、一個或多個區域以及時間範圍篩選成本和使用情況資料，以便了解您的 Amazon FSx for NetApp ONTAP 檔案系統消耗情況。資料一律以每月費率顯示。</block>
-  <block id="88a0a8f5a8b6a8f15a5f8938008d3945" category="paragraph">我們使用下列權限從 AWS Cost Explorer 取得您的 FSx for ONTAP 檔案系統資源的成本和使用情況資料：<block ref="bba6542a0e46014b21a818003b1e41d2" prefix=" " category="inline-code"></block> 和 <block ref="f74e5982a82afd7d2755b24355dd08c6" prefix=" " category="inline-code"></block>。我們使用 AWS Cost Explorer API 和我們的估算值來計算總成本。</block>
   <block id="80e92f578bcc9bc76e7904c0736e30b0" category="inline-link-macro">深入瞭解 AWS 成本分配標籤。</block>
-  <block id="30aa9e3df2319b487f228fe2955abbb2" category="paragraph">AWS 分配標籤鍵和標籤鍵值增加了一層額外的篩選功能，可以更精確地定位特定成本。一個標籤由一個鍵和一個值組成。若要按標籤鍵和標籤鍵值進行篩選，請為您的 Amazon FSx for NetApp ONTAP 檔案系統指派標籤。<block ref="8ea95efe0fef689337ea8960e5c1861f" category="inline-link-macro-rx"></block></block>
-  <block id="0b0bedbf9ddde3e3d54ab1a3b6a5f9a6" category="paragraph">除了成本儀表板中顯示的成本資料外，您還可以產生 FSx for ONTAP 檔案系統資源的成本報告。成本報告中的資料包含特定檔案系統和磁碟區的資訊。該報告為可下載的 PDF 檔案，您可以與利害關係人共享。</block>
   <block id="258ef99c8c6162f96d39f58575b891c4" category="section-title">追蹤成本</block>
   <block id="4eb4c996873463b028b9c244954294a7" category="paragraph">Workload Factory 控制台成本儀表板中顯示的成本是基於 AWS Cost Explorer 的資料，該資料每 24 小時更新一次。</block>
-  <block id="d33d3fec0d0cc42bf9722d3406ba5aa2" category="paragraph">請確保您符合以下要求：</block>
   <block id="2f019e00d19e9fc00fa1b2973a3e1766" category="list-text">您必須<block ref="fe3fbe2a123d988769e068d3001a8bd3" category="inline-link-macro-rx"></block>在 Workload Factory 中追蹤 FSx for ONTAP 成本。</block>
-  <block id="cbdceaa837454b037267d62ad01fe349" category="list-text">若要按 AWS 配置標籤進行篩選，請確保您的 FSx for ONTAP 檔案系統已指派標籤。</block>
   <block id="4c55de1297173a3ebed41397bb8aaa06" category="list-text">從 *FSx for ONTAP* 選單中選擇 *成本*。</block>
   <block id="0920742e44f6fc32f644b1fa4ba9f2ee" category="list-text">在「成本」儀表板中，透過提供以下資訊來篩選 FSx for ONTAP 資源的成本和容量資料：</block>
   <block id="f4654cadb5477c95a6a0e93a5be01b7b" category="list-text">*AWS 帳戶*：選擇要檢視成本資料的帳戶。</block>
@@ -5008,7 +4975,6 @@
   <block id="766eb30a1e5bad36f68174d269e44581" category="list-text">在「報告」畫面中，提供以下資訊：</block>
   <block id="6d28ef4b6f4c3cf90653ef05bfe35523" category="list-text">*檔案系統*：選擇一個或多個要包含在報表中的 FSx for ONTAP 檔案系統。</block>
   <block id="a7bd0905e600528204e4269535f4130f" category="list-text">*Volume*：（可選）選擇一個或多個 Volume 以納入報告中。</block>
-  <block id="9eedf15c88882820c71be2457a0407b4" category="paragraph">系統將產生PDF報告，可供下載。</block>
   <block id="753f0ef1207693ec3d5a5341ae8e6a92" category="summary">啟用追蹤功能，監控您帳戶中所有複製關係的延遲情況。</block>
   <block id="b9ceeddf626c03ee2118a4917ae8c38b" category="doc">在 NetApp Workload Factory 中追蹤複寫延遲</block>
   <block id="4fd22cd0c1b62f84962ef1e8ffd9c966" category="paragraph">啟用追蹤功能，即可監控整個帳戶的複製延遲。Workload Factory 會在延遲超過設定閾值時發出警報。預設情況下，閾值為複製間隔的 150%，以確保正常的傳輸時間並減少誤報。您可以調整閾值以符合您的恢復點目標 （RPO），並在延遲超過閾值時收到通知。您也可以將資料匯出至 CSV 檔案，以進行進一步分析。</block>
@@ -6795,4 +6761,54 @@
   <block id="f6400c3e909c93ba53f8281302a7ffef" category="paragraph">在這兩種情況下，您都會在首次登入時註冊 Console。</block>
   <block id="adbbbb6561b05ff5263526309e842926" category="inline-link-macro">了解如何聯絡組織系統管理員。</block>
   <block id="172584f9c60790ff1f0e0a5fce827ebd" category="list-text">如果系統提示您建立組織，請結案對話方塊並告知 Console 系統管理員，以便他們可以將您新增至 Console 組織並授予您存取。<block ref="b322cd1c319c783c8c76cc03c56dbbda" category="inline-link-macro-rx"></block></block>
+  <block id="309e95695e9929bae28088a2259c1445" category="paragraph">您可以使用 NetApp Console 設定 Workload Factory 通知。</block>
+  <block id="4ecef83a6c0c3ac1ae349c42700f3f4d" category="paragraph">以下是可用的通知選項：* *通知*：設定 Workload Factory 以傳送顯示在 NetApp Console 鈴鐺圖示下的通知。* *電子郵件*：在 NetApp Console 中啟用電子郵件通知，即可接收發送至與該帳戶關聯的任何電子郵件地址的通知，而無需組態 Amazon SNS。* *Amazon SNS*：設定 Workload Factory 以將通知傳送至 Amazon SNS 主題。</block>
+  <block id="3dba14348891216cbb525a2715282a3a" category="paragraph">設定 NetApp Console 向某個主題發送通知後，請依照 Amazon SNS 文件中的<block ref="88c7b6108316e02c36e39863bedc2019" category="inline-link-rx"></block>訂閱該主題，以便接收來自 Workload Factory 的通知。</block>
+  <block id="78b6013fa1972ce59794d77815cf0e84" category="paragraph">當有更新的連結版本可用時，使用者介面會自動通知您並提供升級說明。</block>
+  <block id="a1072b42afa8dbdd2e60149176ed2b12" category="paragraph">若要啟用通知，請參閱<block ref="60e31a43dca9b03e9f576d31c623d89d" category="inline-link-macro-rx"></block>。</block>
+  <block id="f065a2ea22107a252e472f97258693a7" category="summary">NetApp Workload Factory 會定期分析 Amazon FSx for NetApp ONTAP 檔案系統組態，以判斷是否有任何組態問題。</block>
+  <block id="92f07513b1875b2b1e256306d4e74e27" category="paragraph">NetApp Workload Factory 會定期分析 Amazon FSx for NetApp ONTAP 檔案系統組態，以判斷是否有任何組態問題。發現問題時，Workload Factory 會向您顯示問題所在，並說明需要變更的內容，讓您的檔案系統儲存設備達到最高效能、成本效率，並法規遵循最佳實務做法。</block>
+  <block id="686258893afc7cbc33af9d0c32b54312" category="paragraph">Workload Factory 每天都會對支援的雲端儲存部署上的工作負載進行分析。分析結果提供架構完善的狀態資訊、洞察與建議。</block>
+  <block id="d7ee1f6067100032c0f40e0241fe9a6e" category="paragraph">每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以在這裡找到按類別組織的組態問題以及相應的建議。Workload Factory 可以自動修復一些問題；對於需要手冊干預的問題， Workload Factory 會提供詳細說明，幫助您實作建議的變更。</block>
+  <block id="f967a65feeea9a5eb224969af17f10c0" category="admonition">目前，Workload Factory 並未針對所有組態提供特定工作負載的建議。請根據特定的工作負載需求自訂您的組態。</block>
+  <block id="b5ca8aeb1728c55a82632de4d573b0d2" category="paragraph">對於資料庫環境，請搭配 NetApp SnapCenter 使用應用程式一致性快照，以在特定時間點為您的 Volume 資料建立準確、可靠的快照。這有助於讓您的應用程式順暢運作，並保護您的資料。SnapCenter 可簡化備份，並協助您快速正確地還原資料，進而減少停機並保護您最重要的工作負載。</block>
+  <block id="e2119ef621c437914ee4e29d6fb63c5a" category="list-text">*AWS MGN 組態*</block>
+  <block id="21f27afbe2e059e4ff2e37035ed04387" category="paragraph">在將 FSx for ONTAP 檔案系統與 AWS MGN 一起使用之前，請先設定所需的 AWS Transform MGN （MGN）連線和 API 驗證設定。</block>
+  <block id="bed459e6df93ff6f9fe5d1a77eb803e3" category="paragraph">過剩的 SSD 容量會增加不必要的成本。減少 SSD 分層，同時維持 20% 的可用空間緩衝區。此操作可能需要數小時到數天的時間，在此期間不支援其他檔案系統操作。</block>
+  <block id="4301ccf5ac142a1dbaeb981182ce69d5" category="list-text">*Volume 空間管理*</block>
+  <block id="7009643ac9a2e671892c7d150d41bfd9" category="paragraph">啟用協調的 Volume 空間管理，以降低 Volume 空間不足的風險。否則，意外的資料或快照成長可能會填滿 Volume，導致寫入失敗並影響應用程式。</block>
+  <block id="cb56b487346d236a0f8aa8d9bee96a32" category="list-text">*工作負載*：選擇與 Volume 關聯的工作負載。</block>
+  <block id="5027902eb321e29c02f1b29693c38975" category="list-text">*Console 使用者介面*：提供 _快速建立_ 和 _進階建立_ 部署模式選項。快速建立包含 AWS、NetApp 和產業標準最佳實務做法，適用於您的儲存設備組態。此介面也會顯示 SSD 儲存容量和處理量使用趨勢、工作負載摘要，以及您可以擴充的詳細組態設定。</block>
+  <block id="4add18b12df10bcbce425a63ffca5e83" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的設定，以確保您的檔案系統井然有序、安全的，且大小適合您的工作負載。您可以隨時新增或編輯標籤、管理 ONTAP 認證資料、重設 fsxadmin 密碼，以及更新處理量容量。</block>
+  <block id="e5887c2efb1d1c33ac1d1a94c80a271f" category="section-title">管理 ONTAP 認證資料</block>
+  <block id="cb024049d5ea2ff7afa317a6714dc5e2" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的 ONTAP 認證資料。Workload Factory 有兩種類型的認證資料：主要和受限。預設情況下，檔案系統使用主要的 ONTAP 認證資料。受限認證資料僅用於 AI 作業（AIOps），例如 Ask Me、規則建構者和自訂儀表板。您可以選擇新增受限認證資料集，並且可以隨時更新任一認證資料集。</block>
+  <block id="8d1d531715a92e9a9357a3f3a1c54f69" category="paragraph">您可以執行以下工作：</block>
+  <block id="fa4aa5fb5750ccbf7f29962d66653d6a" category="list-text">選擇新增受限認證資料集，可以使用使用者名稱和密碼或秘密 ARN。</block>
+  <block id="1f6972d3f9f44512acd184a7af564248" category="list-text">更改現有認證資料，包括使用者名稱和密碼、僅密碼或 secret ARN。</block>
+  <block id="b0eba0716b32b9e0d471543aca11caf3" category="paragraph">Workload Factory 支援在 Workload Factory 認證資料服務（使用者名稱和密碼）與 AWS Secrets Manager 之間進行轉換。</block>
+  <block id="90d7592f5d4256c52e645ce7955c7f4f" category="paragraph">Workload Factory 處理受限認證資料的方式如下：</block>
+  <block id="04ef7c827068e612d0f1327e980be8b3" category="list-text">如果您沒有為檔案系統提供受限認證資料，然後建立自訂規則或儀表板，或提出 Ask Me 問題，Workload Factory 會建立唯讀 ONTAP 認證資料，以做為受限認證資料集。</block>
+  <block id="61110a65f48af136e292786872d9f8d0" category="list-text">如果您已經為檔案系統提供了受限認證資料，則這些認證資料將用於 AIOps。</block>
+  <block id="72c8b62dc4527a52bace0bee76899e26" category="paragraph">您必須關聯一個連結才能管理 ONTAP 認證資料。<block ref="3d8b5f4a54daf7fc368470fe5a7ec250" category="inline-link-macro-rx"></block>。連結關聯後，請返回此操作。</block>
+  <block id="a1212720bff481df667e432e87fd3f32" category="list-text">從 FSx for ONTAP 選單中，選擇 *庫存*。</block>
+  <block id="552aaa62e5f9c440e967a13585126f27" category="list-text">在 *清單* 中，選擇要管理憑證的檔案系統的操作選單，然後選擇 *管理*。</block>
+  <block id="85d885bc9803c37bc40f8df41305e5e7" category="paragraph"><block ref="85d885bc9803c37bc40f8df41305e5e7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="82643209e079706944263aa4ac7fa0ec" category="list-text">選擇 *管理 ONTAP 認證資料*。</block>
+  <block id="5baa98427cdf9e7fa18b25794f917fd6" category="list-text">更新主要或受限的 ONTAP 認證資料。</block>
+  <block id="1cb58d6b9aaeab21f9af6c3012269014" category="paragraph">在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以滿足您組織的需求。您可以管理 Volume 標籤來對資源進行分類（例如設定 Volume 工作負載），更新儲存效率設定以最佳化空間和成本節約效益，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。</block>
+  <block id="3f723254bac88a4b39c3650549be282a" category="section-title">變更 Volume 工作負載</block>
+  <block id="87ab4fb0ad018565836567d164671f73" category="paragraph">更新 Volume 的工作負載，使其與預期用途相符。</block>
+  <block id="757a7ffb20a279d7239febb013141ad5" category="list-text">選擇選單 <block ref="d1917ed039a7bd34b3d1373e5ffc5ece" category="inline-image-macro-rx" type="image"></block>，然後選擇 *Storage*。</block>
+  <block id="48392de7f44d75a05d38a8c1a399d8ac" category="list-text">從「Storage」功能表中，選取「Volumes explorer」。</block>
+  <block id="17ec06b9eaa321300fab59fd56971e66" category="list-text">選擇要更新工作負載的 Volume 的操作選單。</block>
+  <block id="ed2541738b61ca0c7584cd62bf74b27d" category="list-text">選取 *進階操作*，然後選取 *變更工作負載*。</block>
+  <block id="cd9e2d546766552cd75de00b7717f0cf" category="list-text">在「變更工作負載」對話方塊中，為 Volume 選擇正確的工作負載。</block>
+  <block id="8137b647e9c277bf5504be0415118937" category="paragraph">NetApp Workload Factory 提供 FSx for ONTAP 檔案系統成本和使用情況的統一檢視，協助您有效管理預算並最佳化資源。您也可以產生 FSx for ONTAP 檔案系統資源的成本報告，並與利害關係人共享。</block>
+  <block id="0ecf72bcc13fb55d0aa28c82a90ab6f4" category="paragraph">對於獨特的資源，Workload Factory 透過結合實際效能分層使用量、分配給已配置但未使用空間的效能分層成本的比例共享、按容量分佈的效能分配，以及容量資源池使用量來計算成本。Workload Factory 將每個組成部分乘以該維度的單位價格，並將結果相加，以決定每個資源的總成本。</block>
+  <block id="4e1be2d2764b1091c173258f7eff8d9c" category="paragraph">在「成本」儀表板中，您可以按 AWS 帳戶、認證資料、一個或多個區域以及時間範圍篩選成本和使用情況資料，以便了解您的 Amazon FSx for NetApp ONTAP 檔案系統消耗情況。NetApp Workload Factory 始終以每月費率顯示資料。您也可以按一個或多個檔案系統以及檔案系統中的一個或多個 Volume 進行篩選。AWS 成本分配標籤鍵和標籤鍵值提供了額外的篩選階層，可以精確定位特定成本。一個標籤由一個鍵和一個值組成。若要按標籤鍵和標籤鍵值進行篩選，請為您的 Amazon FSx for NetApp ONTAP 檔案系統指派標籤。<block ref="8ea95efe0fef689337ea8960e5c1861f" category="inline-link-macro-rx"></block></block>
+  <block id="ecec373dbe2f05b3a3b863fd07d13592" category="paragraph">Workload Factory 使用下列權限從 AWS Cost Explorer 取得 FSx for ONTAP 檔案系統資源的成本和使用情況資料：<block ref="bba6542a0e46014b21a818003b1e41d2" prefix=" " category="inline-code"></block> 和 <block ref="f74e5982a82afd7d2755b24355dd08c6" prefix=" " category="inline-code"></block>。我們使用 AWS cost API 和我們自己的估算來計算總成本。</block>
+  <block id="552ae61b34399969ed0ea2c7955fd9ef" category="paragraph">除了成本儀表板中的成本資料外，成本總結還顯示了您的 FSx for ONTAP 檔案系統成本以及您組織的支出模式。您也可以產生 FSx for ONTAP 檔案系統資源的成本報告。該報告為可下載的 CSV 檔案，您可以與利害關係人共享。</block>
+  <block id="e291c5603b49506d01779471f77ce7c8" category="paragraph">請確認您符合以下要求：</block>
+  <block id="53c306e93da69caff455d3eaa34a6b5c" category="list-text">若要按 AWS 分配標籤進行篩選，請驗證您的 FSx for ONTAP 檔案系統是否已指派標籤。</block>
+  <block id="22818134e299296b864b78dc4cca4c88" category="paragraph">系統將產生CSV報告，可供下載。</block>
 </blocks>

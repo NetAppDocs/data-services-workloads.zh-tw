@@ -87,6 +87,7 @@ NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏
 . 在「建立 Volume」頁面的「一般詳細資料」下，提供下列詳細資料：
 +
 .. *Volume 名稱*：輸入 Volume 的名稱。
+.. *工作負載*：選擇與 Volume 關聯的工作負載。
 .. *Storage VM 名稱*：視需要輸入 Storage VM 名稱。
 .. *Volume 樣式*：選擇 *FlexVol* 或 *FlexGroup* Volume。
 +

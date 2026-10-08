@@ -114,7 +114,7 @@ NOTE: 如果受影響的磁碟區超過 10 個，電子郵件將顯示前 10 個
 * *Amazon SNS*：發佈到您配置的 SNS 主題，以便與其他系統整合
 
 
-若要啟用通知，請參閱link:../admin/configure-notifications.html#wf-console-email-notifications["設定通知設定"]。
+若要啟用通知，請參閱link:../admin/configure-notifications.html["設定通知設定"]。
 
 
 

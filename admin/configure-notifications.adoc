@@ -18,31 +18,9 @@ summary: 您可以設定 NetApp Workload Factory，使其在發生某些類型�
 [[configure-workload-factory-notifications]]
 == 設定 Workload Factory 通知
 
-您可以使用 NetApp Console 或 Workload Factory 主控台來設定 Workload Factory 通知。
+您可以使用 NetApp Console 設定 Workload Factory 通知。
 
-接收通知的選項包括：
-
-
-
-[[netapp-console]]
-=== NetApp Console
-
-* *通知*：設定 Workload Factory 以傳送顯示在 NetApp Console 鈴鐺圖示下的通知。
-* *電子郵件*：在 NetApp Console 啟用電子郵件通知，無需設定 Amazon SNS，即可將通知發送到與帳戶關聯的任何電子郵件地址。
-* *Amazon SNS*：設定 Workload Factory 以傳送通知至 Amazon SNS 主題。
-
-
-
-
-[[workload-factory-console]]
-=== Workload Factory 控制台
-
-* *電子郵件*：在 Workload Factory Console 中啟用電子郵件通知，即可接收傳送至與該帳戶關聯的任何電子郵件地址的通知，而無需設定 Amazon SNS。
-* *Amazon SNS*：使用 Workload Factory 主控台設定 Workload Factory 以向 Amazon SNS 主題發送通知。
-
-
-
-IMPORTANT: 當你在 NetApp Console 中設定通知時，NetApp Console 會接管通知傳送的管理權限，並且 Workload Factory console 的通知選項會被停用並以唯讀模式顯示。工具提示會顯示通知是由 NetApp Console 管理。之後你只能從 NetApp Console 管理通知。
+以下是可用的通知選項：* *通知*：設定 Workload Factory 以傳送顯示在 NetApp Console 鈴鐺圖示下的通知。* *電子郵件*：在 NetApp Console 中啟用電子郵件通知，即可接收發送至與該帳戶關聯的任何電子郵件地址的通知，而無需組態 Amazon SNS。* *Amazon SNS*：設定 Workload Factory 以將通知傳送至 Amazon SNS 主題。
 
 .開始之前
 以下先決條件僅適用於設定 Amazon SNS 通知時：
@@ -51,10 +29,6 @@ IMPORTANT: 當你在 NetApp Console 中設定通知時，NetApp Console 會接�
 * 請注意，Workload Factory 支援 *標準* 主題類型。此類主題無法保證通知會按照接收順序發送給訂閱者，因此如果您有關鍵或緊急通知，請將此納入考量。
 
 
-[role="tabbed-block"]
-====
-.從 NetApp Console 設定通知
---
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
 . 從 NetApp Console 選單中，選擇 *工作負載*、*管理*，然後選擇 *通知設定*。
@@ -71,32 +45,12 @@ IMPORTANT: 當你在 NetApp Console 中設定通知時，NetApp Console 會接�
 . 傳送測試通知以驗證組態後，選取 *套用*。
 
 
---
-[[wf-console-email-notifications]]
-.設定來自 Workload Factory 主控台的通知
---
-.步驟
-. 登入 link:https://console.workloads.netapp.com["Workload Factory 控制台"^]。
-. 從 Workload Factory 控制台選單中，選取 *工作負載*、*管理*，然後選取 *通知設定*。
-. 啟用以下一種或多種通知類型：
-+
-** *電子郵件通知*：選取 *啟用電子郵件通知*。與該帳戶相關聯的任何電子郵件地址都會以唯讀模式顯示。
-** *Amazon SNS 通知*：選取*啟用 SNS 通知*，然後依照指示從 Amazon SNS 主控台設定 Amazon SNS。
-+
-傳送測試通知以驗證組態後，選取 *套用*。
-
-
-
-
-
---
-====
 
 
 [[subscribe-to-the-amazon-sns-topic]]
 == 訂閱 Amazon SNS 主題
 
-設定 Workload Factory 向主題傳送通知後，請按照 Amazon SNS 文件中的 https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html["指示"]訂閱主題，以便接收來自 Workload Factory 的通知。
+設定 NetApp Console 向某個主題發送通知後，請依照 Amazon SNS 文件中的 https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html["指示"]訂閱該主題，以便接收來自 Workload Factory 的通知。
 
 
 
