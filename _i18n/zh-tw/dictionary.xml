@@ -6911,4 +6911,6 @@
   <block id="737f86fc6a3bb3563670dac4c0b49585" category="sidebar">Workload Factory AIOps</block>
   <block id="ff2cb9e669640d8f287be7fc339c4d78" category="sidebar">了解人工智慧代理程式</block>
   <block id="64f2f595f7dd037774e1dbd99cb2ab7b" category="sidebar">管理 AI 代理程式設定</block>
+  <block id="3fba0171e458258e875a2f8013e395b8" category="cell">SQL Server 2025</block>
+  <block id="9e5f96378bed43aac0d5d94368775263" category="cell">Windows Server 2025</block>
 </blocks>
