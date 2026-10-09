@@ -2816,7 +2816,6 @@
   <block id="0be251ac51e901583999154779926c3b" category="paragraph">在區塊裝置七天未使用後，請歸檔區塊裝置資料或刪除未使用的區塊裝置，以降低成本。</block>
   <block id="8611faa768b220ecb3795c6fda54fdaa" category="list-text">*超額配置的固態硬碟容量*</block>
   <block id="934fd3399568391e103ee0d773bf954d" category="list-text">*非使用中的 NAS Volume*</block>
-  <block id="72d8d7f27cf31b02bb7df1a01b23ab49" category="paragraph">組態分析會識別出未經常使用的 NAS Volume，並建議刪除或歸檔這些 Volume 以降低成本。</block>
   <block id="8722112d28d6eea0aff9478fb61c5de7" category="section-title">效能效率</block>
   <block id="62d0d3849cddbcf3cccae74f05719854" category="paragraph">效能效率有助於確保有效利用儲存資源，並使工作負載以最佳狀態運作。</block>
   <block id="fbb48f4d1a3f9488b40b10d1cb8a50bd" category="list-text">*FlexGroup Volume 重新平衡*</block>
@@ -3108,7 +3107,6 @@
   <block id="0abde7f01f46e5ae295493bf4b280687" category="list-text">切換操作不會將所有儲存 VM 組態設定遷移到目標儲存 VM。例如，iSCSI、廣播網域 MTU 和 DNS 設定不會遷移。切換後，請在目標儲存 VM 上手動更新這些設定。如需更多詳細資料，請參閱 <block ref="af05d35e02c20d22f4e6b1df9b57e0a2" category="inline-xref-macro-rx"></block> 章節。</block>
   <block id="893700039eb02078c7602e997d7f9922" category="list-text">如果您的儲存 VM 使用網域通道驗證，請在開始移轉之前在目標檔案系統上設定並啟用網域通道。</block>
   <block id="dddf91d5ccee3135470e6089b62618ba" category="list-text">*複製磁碟區*：複製磁碟區將作為獨立磁碟區進行遷移，因此會佔用目標 FSx for ONTAP 檔案系統的更多空間。建議在切換之前刪除複製磁碟區，以避免目標系統容量增加。</block>
-  <block id="233115f3ed74b7b4516b8f0a1efbaedf" category="list-text">*快取磁碟區*：適用於 ONTAP FlexCache 9.17.x 或更低版本。包含快取磁碟區的來源儲存 VM 不支援轉換。轉換前請移除 ONTAP FlexCache 關係，以避免移轉失敗。</block>
   <block id="03c85e91696d00a533c3da3b08434532" category="list-text">*AWS S3 存取點*：對於包含 S3 存取點的磁碟區，不支援遷移使用案例的轉換複寫。請從來源磁碟區中刪除 S3 存取點，以避免遷移失敗。</block>
   <block id="849ee629a3b8f33b04a9b242a47e3d59" category="list-text">*ONTAP S3 組態*：具有 ONTAP S3 組態的 vserver 不支援移轉使用案例的完全移轉複寫。請移除 vserver 上的 ONTAP S3 組態，包括 object-store-server、bucket、使用者、群組或原則，以避免移轉失敗。</block>
   <block id="ab3171de62100468c23112d3fda9227b" category="list-text">*LUN 序號和 iSCSI 目標 IQN*：LUN 序號和 iSCSI 目標 IQN 會在轉換期間變更。</block>
@@ -6830,18 +6828,15 @@
   <block id="8bc0878ae35d7f3c225b4bac0e907504" category="paragraph"><block ref="8bc0878ae35d7f3c225b4bac0e907504" category="inline-link-macro-rx"></block></block>
   <block id="0ef70b60892b97d12c2eebf7686872ca" category="paragraph">自訂規則可讓您在架構完善的儀表板中設定、檢查及強制執行您自己的架構標準，以及 NetApp 最佳實務。</block>
   <block id="91b90f08c0d07c5aa66b502a1d12c868" category="paragraph">規則建構者可讓您使用一般語言建立自訂規則。這些規則會針對您的所有資源進行檢查。自訂規則有助於您強制執行組織的標準、風險限制和營運要求，而這些可能是預設規則無法涵蓋的。</block>
-  <block id="60a625f073158b990bcf2ad232af27aa" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。<block ref="fb4375aa776b206d4ba3c7bbae1bcfb2" category="inline-link-macro-rx"></block>。</block>
   <block id="4edc72502b9f9929e41bae938a7490c1" category="paragraph">自訂規則利用人工智慧將簡單的語言指示轉換為清晰、結構化的規則。人工智慧會轉譯您的要求，建議一項規則，解釋它如何理解您的指示，並在儲存或排程規則之前要求核准。此程序有助於確保：</block>
   <block id="0465277e228b6cf7f37c1fab3872f9cd" category="list-text">此規則定義明確，並經過錯誤檢查</block>
   <block id="f2b92cb195f44b1f57205f66b9c1c992" category="list-text">未執行任何自訂程式碼</block>
   <block id="f6b50ace5a7da2eb893c9a1a1c3971be" category="list-text">在批准規則之前，您可以審查具體評估內容</block>
   <block id="110a917dc178ad706edce62d767a4196" category="list-text">每個自訂規則都包含要評估的資源類型、條件邏輯、嚴重性、評估排程和補救指南。</block>
-  <block id="5eb43201405d6bbeac74bcd01d61e2e1" category="list-text">對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。<block ref="1db25aada4bff8233b24c1d7b39230cd" category="inline-link-macro-rx"></block>。</block>
   <block id="823a6e1d7fe661be55dd3af05f972b11" category="list-text">ONTAP 憑證</block>
   <block id="559e5220d6130b1d9f3af60fa24ff138" category="list-text">具有唯讀權限的 FSx 檢視器使用者。如果尚不存在，Workload Factory 會在每個 FSx for ONTAP 檔案系統上建立一個唯讀使用者，以便執行評估。</block>
   <block id="04d1424a4b58f665f6537d166f4f9750" category="list-text">連結或代理程式</block>
   <block id="b68341d527b58582cc7cb537c3230cd8" category="inline-link-macro">透過連結連接到 FSx for ONTAP 檔案系統</block>
-  <block id="d358f748048c3fa0487b8cd6d6410fb2" category="list-text">僅當規則必須直接連線至 ONTAP 以檢查 AWS API 無法存取的設定時才需要。<block ref="4c7cc50e5133efc728aaa88011208eda" category="inline-link-macro-rx"></block>。</block>
   <block id="00d54cb4ae79a42990f001ca7b1eafd2" category="list-text">規則無法自動解決問題。您必須按照提供的指南自行更正不合規的資源。</block>
   <block id="e0ff3e32dbc4b668a800d5b59c47613b" category="list-text">每條規則只檢查一種類型的資源，但可以應用於多種資源。例如，一條規則可以評估多個區域、所有區域或多個帳戶中的 Volume。若要評估不同的資源類型，請建立分隔的規則。</block>
   <block id="3f84490332db2de49bed3d46ab452bb0" category="list-text">為防止過度掃描，規則最多每小時執行一次。</block>
@@ -6863,7 +6858,6 @@
   <block id="cc36425e424f4c30e5d1dd8b4cf78a69" category="list-text">生產 Volume 保護</block>
   <block id="9beacae88b6d84f519d92cf003a30d57" category="list-text">歸檔 Volume 分層</block>
   <block id="ccf414cfce06645c55d0bcfd5f41608b" category="list-text">檔案系統命名標準</block>
-  <block id="9b4ad9b41b7f7f63bf3258fc3894691a" category="paragraph"><block ref="a9a97108e6fef351f8c6a7a2af6f4937" category="inline-link-macro-rx"></block> <block ref="8bc0878ae35d7f3c225b4bac0e907504" category="inline-link-macro-rx"></block></block>
   <block id="71d671c8e1cf2aa5cf976dd7ff9d340b" category="summary">從規則目錄中檢視、編輯、啟用、停用和刪除自訂架構規則。</block>
   <block id="1cf051440b9604c5c57c4c6cab344202" category="doc">在 NetApp Console 中管理 Workload Factory 的自訂規則</block>
   <block id="8ef292d4be46fbc351d35b26b3ce8720" category="paragraph">規則目錄是管理所有自訂規則的單一位置。您可以審查規則詳細資料、編輯規則、檢查結果，以及控制規則是否依排程執行。</block>
@@ -6913,4 +6907,10 @@
   <block id="64f2f595f7dd037774e1dbd99cb2ab7b" category="sidebar">管理 AI 代理程式設定</block>
   <block id="3fba0171e458258e875a2f8013e395b8" category="cell">SQL Server 2025</block>
   <block id="9e5f96378bed43aac0d5d94368775263" category="cell">Windows Server 2025</block>
+  <block id="084b022f1511ba8dda542f70832d22e4" category="paragraph">在 NAS Volume 連續 31 天未使用後，歸檔或刪除未使用的 NAS Volume 以降低成本。</block>
+  <block id="6d4d9f3d79904b627f6aca8246717bca" category="list-text">*快取磁碟區*：包含快取磁碟區的來源儲存設備虛擬機器不支援切換。切換前請移除 ONTAP FlexCache 關係，以避免移轉失敗。</block>
+  <block id="179ab629584266b78c7a691ade72de63" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。<block ref="646cadbb9cfc9d23560c447c51098225" category="inline-link-macro-rx"></block>。</block>
+  <block id="22941004ec8c49f5d8a764461a973801" category="list-text">對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。<block ref="8e1e3c879b9dae9bf3456eb51959b906" category="inline-link-macro-rx"></block>。</block>
+  <block id="8af9128504255d95219d06192a7427f2" category="list-text">僅當規則必須直接連線至 ONTAP 以檢查 AWS API 無法存取的設定時才需要。<block ref="c8334f2cb013f0b691325d2b949f8312" category="inline-link-macro-rx"></block>。</block>
+  <block id="ef517711d9a5dee55f2bb56046d3fd70" category="paragraph"><block ref="385442535e80145b437f6d2ceb94114a" category="inline-link-macro-rx"></block> <block ref="f571cd95e32f7c421382198bc0dd0eae" category="inline-link-macro-rx"></block></block>
 </blocks>

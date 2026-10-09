@@ -24,7 +24,7 @@ summary: 學習如何定義和管理您自己的架構規則，以強制執行�
 規則建構者可讓您使用一般語言建立自訂規則。這些規則會針對您的所有資源進行檢查。自訂規則有助於您強制執行組織的標準、風險限制和營運要求，而這些可能是預設規則無法涵蓋的。
 
 
-NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。link:../admin/manage-genai-features.html.["了解如何管理人工智慧功能"^]。
+NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。link:../admin/manage-genai-features.html["了解如何管理人工智慧功能"]。
 
 
 
@@ -46,9 +46,9 @@ NOTE: 如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立�
 
 在建立和執行自訂規則之前，請確保您已具備以下條件：
 
-AWS 憑證:: 對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html["將 AWS 憑證新增至 Workload Factory"^]。
+AWS 憑證:: 對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。link:add-credentials.html["將 AWS 憑證新增至 Workload Factory"]。
 ONTAP 憑證:: 具有唯讀權限的 FSx 檢視器使用者。如果尚不存在，Workload Factory 會在每個 FSx for ONTAP 檔案系統上建立一個唯讀使用者，以便執行評估。
-連結或代理程式:: 僅當規則必須直接連線至 ONTAP 以檢查 AWS API 無法存取的設定時才需要。link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html["透過連結連接到 FSx for ONTAP 檔案系統"^]。
+連結或代理程式:: 僅當規則必須直接連線至 ONTAP 以檢查 AWS API 無法存取的設定時才需要。link:create-link.html["透過連結連接到 FSx for ONTAP 檔案系統"]。
 
 
 
@@ -110,4 +110,4 @@ ONTAP 憑證:: 具有唯讀權限的 FSx 檢視器使用者。如果尚不存在
 [[what-to-do-next]]
 == 接下來該做什麼
 
-link:../fsx-storage/create-custom-rule.html["建立自訂規則"] link:../fsx-storage/manage-custom-rules.html["管理自訂規則"]
+link:create-custom-rule.html["建立自訂規則"] link:manage-custom-rules.html["管理自訂規則"]
