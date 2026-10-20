@@ -15,7 +15,7 @@ summary: 透過設定環境、啟用監控儀表板和設定延遲分析，即�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] 登入 Workload Factory
 [role="quick-margin-para"]
-您需要link:../setup/sign-up-and-log-in.html["註冊並登入"]登入 NetApp Console。
+您需要link:https://console.netapp.com["登入 NetApp Console"^]。如果您沒有帳戶，請先link:https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["註冊"^]至 NetApp Console，然後再登入。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 為 EDA 工作負載新增憑證和權限
 [role="quick-margin-para"]

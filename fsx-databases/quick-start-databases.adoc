@@ -11,7 +11,7 @@ summary: 開始使用 NetApp Workload Factory for Databases 來使用基礎架�
 
 
 [role="lead"]
-使用 NetApp Workload Factory for Databases，您可以立即以 _檢視、規劃與分析_ 權限開始使用。如果您想使用 Workload Factory 來探索主機、管理資源等，只需幾個步驟即可開始使用。
+使用 NetApp Workload Factory for Databases，您無需任何權限即可立即開始使用。如果您想使用 Workload Factory 來探索主機、管理資源等，只需幾個步驟即可開始使用。
 
 您必須擁有 AWS 帳戶才能使用資料庫。
 
@@ -19,7 +19,7 @@ summary: 開始使用 NetApp Workload Factory for Databases 來使用基礎架�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"]登入 NetApp Workload Factory
 [role="quick-margin-para"]
-您需要link:../setup/sign-up-and-log-in.html["註冊"^]並登入 NetApp Console。
+您需要link:https://console.netapp.com["登入 NetApp Console"^]。如果您沒有帳戶，請先link:https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["註冊"^]至 NetApp Console，然後再登入。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["二"] 為資料庫工作負載新增憑證和權限
 [role="quick-margin-para"]

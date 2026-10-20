@@ -186,6 +186,12 @@ NOTE: 增加區塊裝置的大小後，請遵循主機作業系統提供的程�
 
 不再對應到客戶端或連續七天未使用的區塊裝置將被歸類為非活動區塊裝置。您可以將非活動區塊裝置的資料歸檔到容量池層，以回收 SSD 容量。
 
+
+NOTE: 必須先刪除所有子複製或將其分離成獨立的 Volume，才能刪除具有子複製的 Volume。
+
+.開始之前
+在歸檔資料之前，請確保同一 Volume 上的所有區塊裝置（LUN）均處於非活動狀態。
+
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
 . 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
@@ -207,7 +213,7 @@ NOTE: 增加區塊裝置的大小後，請遵循主機作業系統提供的程�
 . 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *FSx for ONTAP*。
 . 從 *FSx for ONTAP* 中，選取 *區塊裝置* 索引標籤。
 . 在孤立裝置下，選取 *檢視與回收容量*。
-. 在「回收未使用的區塊裝置空間」畫面上，選取一或多個區塊裝置來歸檔資料並回收容量。
+. 在「回收未使用的區塊裝置空間」畫面上，選取一個或多個區塊裝置以回收容量。
 . 選擇 *Delete*。
 
 

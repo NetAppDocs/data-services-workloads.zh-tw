@@ -75,7 +75,7 @@ Workload Factory 包括透過 SaaS 階層提供的網路型控制台、帳戶、
 
 若要使用 NetApp Console，您需要使用 NetApp 支援網站憑證註冊，或建立 NetApp Console 登入。第一個使用者將成為組織系統管理員，並管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。
 
-* link:sign-up-and-log-in.html["了解如何註冊並登入 NetApp Console"]
+* link:https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["註冊"^] 至 NetApp Console。
 * link:https://docs.netapp.com/us-en/console-setup-admin/concept-identity-and-access-management.html["了解 NetApp Console 身分存取管理"^]
 
 

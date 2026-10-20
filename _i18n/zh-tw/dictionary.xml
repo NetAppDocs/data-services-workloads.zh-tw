@@ -1638,13 +1638,11 @@
   <block id="a42023de78ebfc0b813130624c220f36" category="paragraph">您將重新導向至 NetApp Console 中的 Backup and Recovery，您可以在該處修改保護原則或排程。</block>
   <block id="d05a91a23b39b2ef83c7f917a0c9c7e5" category="summary">開始使用 NetApp Workload Factory for Databases 來使用基礎架構即程式碼片段、探索主機、管理資源等等。</block>
   <block id="91494b330cfa4716e9d4103109705d0c" category="doc">NetApp Workload Factory for Databases 快速入門</block>
-  <block id="32a768a4494b46700624f156e8a8d294" category="paragraph">使用 NetApp Workload Factory for Databases，您可以立即以 _檢視、規劃與分析_ 權限開始使用。如果您想使用 Workload Factory 來探索主機、管理資源等，只需幾個步驟即可開始使用。</block>
   <block id="eb7ed5d3b1a2ff72006245ad37f9817b" category="paragraph">您必須擁有 AWS 帳戶才能使用資料庫。</block>
   <block id="c37e590e9c50960a15f3292676cc0c18" category="paragraph">請依照以下步驟開始。</block>
   <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">一</block>
   <block id="ddd0dc114cff37632f8d5d916455e0c4" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block>登入 NetApp Workload Factory</block>
   <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link-macro">註冊</block>
-  <block id="a93f09a9fbe67e564e4ea4ed4468689c" category="paragraph">您需要<block ref="88397380b49fccdb6c6bb520250fef48" category="inline-link-macro-rx"></block>並登入 NetApp Console。</block>
   <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">二</block>
   <block id="6c14141954ea3609b0ca84567ff7b1d8" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 為資料庫工作負載新增憑證和權限</block>
   <block id="3e704746794b6c6da13402ca9df54660" category="inline-link-macro">手動向帳戶新增憑證</block>
@@ -2060,8 +2058,6 @@
   <block id="2edaf9b54abbf5ae956607d1cce3419f" category="doc">Workload Factory for EDA 快速入門</block>
   <block id="0595b103e9174c24b7fffa0491687cc5" category="paragraph">透過設定環境、啟用監控儀表板和設定延遲分析來開始使用 Workload Factory for EDA，從而最佳化 FSx for ONTAP 的效能，以滿足 EDA 工作負載的需求。</block>
   <block id="3d784fb83da69a092542ad97e84229a1" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> 登入 Workload Factory</block>
-  <block id="ca5cacfa292d41c429bff08c8d7690dc" category="inline-link-macro">註冊並登入</block>
-  <block id="2b65dc1fa5bc4ea06844dd06cfbc7774" category="paragraph">您需要<block ref="fb7d3ecda2cc192b57653cabe8dbab51" category="inline-link-macro-rx"></block>登入 NetApp Console。</block>
   <block id="1283af7cc983573ed4713cdd57866991" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 為 EDA 工作負載新增憑證和權限</block>
   <block id="ccfaa839e768aad68d8df43945f3981f" category="inline-link-macro">建立所需權限的 IAM 原則</block>
   <block id="c4f56d16dd663e4eddc3092f24840c99" category="paragraph"><block ref="ba3df41527d282ff668fde47559ede13" category="inline-link-macro-rx"></block> 其中包括選擇 EDA 工作負載功能，以及 <block ref="130ddacc98dcbb955ac32d7d05051cd1" category="inline-link-macro-rx"></block>。</block>
@@ -2098,8 +2094,6 @@
   <block id="b888e1d990c199d358b31e27c7359f42" category="doc">EDA 需求的 Workload Factory</block>
   <block id="d2d53646427e24681e315985224607de" category="paragraph">在使用 NetApp Workload Factory 進行 EDA 之前，請確保 NetApp Workload Factory 和 AWS 已正確設定。這包括準備好您的 AWS 登入憑證、已部署的 FSx for ONTAP 檔案系統等等。</block>
   <block id="55df1ea48b09b075b4b7dd39f32b38ee" category="list-text">Workload Factory 登入和帳戶</block>
-  <block id="dabcc89e48ed40f90d46a458bf37e5b0" category="inline-link-macro">註冊並登入 NetApp Console。</block>
-  <block id="85efebbb37402ada1347c4bc17a2384b" category="list-text">您需要<block ref="71451e2b8c58e5c7388bfcb10516e575" category="inline-link-macro-rx"></block></block>
   <block id="42f4fbe9bc96b7b414265e0b938084d8" category="list-text">您需要在 Workload Factory 中新增具有讀寫權限的 AWS 憑證，這表示您將以 _讀寫_ 模式使用 Workload Factory 進行 EDA。</block>
   <block id="92b8944386b41a864c3b42d0a5f178da" category="paragraph">目前不支援 _Basic_ 模式和 _Read-only_ 模式權限。</block>
   <block id="4e63edb8bda7c519ba5aff97d0f43dc4" category="admonition">使用延遲監控功能也需要 AWS 憑證，該功能會收集 CloudWatch 計量以進行 Volume 效能分析。若要接收延遲事件通知，請在 Workload Factory 設定中設定通知偏好設定。啟用 NetApp 代管 AI 分析後，即可針對複雜延遲情境使用選用的 AI 分析。<block ref="9a573596af789d1f770a6210c953bdc7" category="inline-link-macro-rx"></block>。</block>
@@ -5530,8 +5524,6 @@
   <block id="97735cf08bc8cd1817cf2dbadd06154d" category="doc">使用 VMware 工作負載移轉顧問移轉至 Amazon EVS 的快速入門</block>
   <block id="546393155194873f3731142e84a340fd" category="inline-link-macro">NetApp Workload Factory 的權限</block>
   <block id="3c32ee37a43b7a6669516fbe2facf360" category="paragraph">在開始之前，您應該先了解<block ref="eacf1b6c3c9c77b3898392ba00c514e5" category="inline-link-macro-rx"></block>。</block>
-  <block id="e3f4d5b3a0d16b68c0f95c7031bbab0f" category="inline-link-macro">在 Workload Factory 設定帳戶</block>
-  <block id="e33655393b1233c30223f14cc97369ae" category="paragraph">您需要<block ref="d5f88bdd528bbedf165d7f1b0ea62185" category="inline-link-macro-rx"></block>並登入 NetApp Console。</block>
   <block id="27c19be9febabd1e2fb82d7a39784f2d" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 新增憑證和權限</block>
   <block id="e9efaa1e513d13bcfdc3a89da8fdd1f5" category="paragraph">選擇 <block ref="2e888142bf71f7498740798faa35edcf" category="inline-link-macro-rx"></block> 以滿足您的需求。</block>
   <block id="2c786a1fb129957422c7b03afe2c9e97" category="paragraph">如果您選擇不授予權限，您可以開始使用 Workload Factory for Databases 從 <block ref="3ad155911ed8e0aa87bea22dfd1f9dea" category="inline-link-macro-rx"></block> 複製部分完成的程式碼範例。</block>
@@ -6336,8 +6328,6 @@
   <block id="0b2f9e9a00a5dacc2b038c269cb56497" category="paragraph">可透過 <block ref="7532dfde8c533672ea63a5b546224a97" category="inline-link-macro-rx"></block> 存取 Workload Factory。此 SaaS 體驗可讓您自動存取最新發布的功能，並在您的 Workload Factory 帳戶和連結之間輕鬆進行交換器。</block>
   <block id="69989491ca997ec4e156f1dec632e52c" category="section-title">註冊和存取管理</block>
   <block id="f24427e667a0fadb0da6c11099e099d9" category="paragraph">若要使用 NetApp Console，您需要使用 NetApp 支援網站憑證註冊，或建立 NetApp Console 登入。第一個使用者將成為組織系統管理員，並管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。</block>
-  <block id="4083085de104c6eb7f6b02c9d3911a87" category="inline-link-macro">了解如何註冊並登入 NetApp Console</block>
-  <block id="4b024ecd880487bbee4fa5734affe09d" category="list-text"><block ref="4b024ecd880487bbee4fa5734affe09d" category="inline-link-macro-rx"></block></block>
   <block id="01d3439f45ec98069c1e0ae140ab3de0" category="inline-link-macro">了解 NetApp Console 身分存取管理</block>
   <block id="2f3706222de3054edfb52b48d669b7bb" category="list-text"><block ref="2f3706222de3054edfb52b48d669b7bb" category="inline-link-macro-rx"></block></block>
   <block id="d08ccf52b4cdd08e41cfb99ec42e0b29" category="section-title">權限</block>
@@ -6409,9 +6399,6 @@
   <block id="efaef01a8d4ed991197fd08168fbfd81" category="doc">NetApp Workload Factory 快速入門</block>
   <block id="32e93a25540f979c60b3b622506c2b83" category="paragraph">使用者可從 NetApp Console 以雲端資料服務的形式存取 NetApp Workload Factory。若要開始使用 Workload Factory，請在 NetApp Console 中註冊並建立帳戶，並新增雲端供應商認證資料，以便 Workload Factory 可以直接管理您的資源並最佳化您的工作負載。</block>
   <block id="22e5a7336ebe77138f0282cedcb069ab" category="inline-link-macro">Workload Factory</block>
-  <block id="1927d1929476da1fd85f330219747da8" category="paragraph">在開始之前，您應該要了解<block ref="64c9dffcd52d81154557ee623279261c" category="inline-link-macro-rx"></block>。</block>
-  <block id="d33f3e6aa75064a42fd24bc7cd68207c" category="section-title">從 NetApp Console 註冊並登入 Workload Factory</block>
-  <block id="eb35e0ad2267a3e378e80904d60c13db" category="paragraph"><block ref="eb35e0ad2267a3e378e80904d60c13db" category="inline-link-macro-rx"></block></block>
   <block id="70b96a1bd8d5adb4ba241cb5b9fd8489" category="paragraph">接下來，選擇雲端供應商的 *快速入門* 連結即可開始使用。</block>
   <block id="13c485f3dc852b05615bdb465dc35bb0" category="section-title">開始使用 Amazon FSx for NetApp ONTAP</block>
   <block id="c2ca61cdaafcad548af5836df039fcb3" category="inline-link-macro">Amazon FSx for NetApp ONTAP 快速入門</block>
@@ -6421,9 +6408,6 @@
   <block id="fd71ccec8830da3d36bd19531c1dffdc" category="paragraph"><block ref="fd71ccec8830da3d36bd19531c1dffdc" category="inline-link-macro-rx"></block></block>
   <block id="e66b3e97aedecd30709f87314c5ccf87" category="section-title">開始使用 Google Cloud NetApp Volumes</block>
   <block id="6c98e127eb9f894ba57b9bfc2d5dab1f" category="paragraph"><block ref="6c98e127eb9f894ba57b9bfc2d5dab1f" category="inline-link-macro-rx"></block></block>
-  <block id="2f4902a24a062f32e6a6cfa57616c831" category="summary">您可以透過 NetApp Console 存取 Workload Factory。開始使用 Workload Factory 時，第一步是使用您現有的 NetApp 支援網站認證資料註冊，或建立 NetApp 雲端登入。</block>
-  <block id="ae09b16571bb5c1b5c1fccf487b44ea7" category="paragraph">可從 NetApp Console 存取 NetApp Workload Factory。若要使用 Console，請使用您的 NetApp 支援網站認證資料註冊或登入，或建立 NetApp Console 登入。如果您是公司第一位註冊的人員，您會以系統管理員身分建立新組織。如果您的公司已有組織，請使用您現有的 NetApp 支援網站認證資料或公司單一登入（SSO）註冊或登入。</block>
-  <block id="9b2e339c9639747e25e597bf41706151" category="paragraph">您現在已登入，可以開始使用 Workload Factory 管理您的儲存系統和工作負載。若要前往 Workload Factory，請從主選單中選取 *工作負載*。</block>
   <block id="cd1196d5845aaf259540d322ace00ee9" category="summary">在 NetApp Console 中了解 Workload Factory 的新增功能，例如工作負載管理、服務管理、儲存設備功能、權限等方面的更新和增強功能。</block>
   <block id="83006b8c743f417478830e1d83e1bb41" category="doc">NetApp Console 中的 Workload Factory 新功能</block>
   <block id="74bc5d714652a3ae18c64ee93e4ba085" category="section-title">2026 年 9 月 30 日</block>
@@ -6432,7 +6416,6 @@
   <block id="a25d1f48f8818e91526df295a63c6a37" category="sidebar">開始使用 NetApp Workload Factory，讓您充分利用雲端儲存工作負載。設定完成後，您可以建立、最佳化及管理工作負載的儲存系統，探索成本節約效益，使用內建的基礎架構即程式碼協同工具來實現跨平台自動化，並在 Workload Factory 中管理您的工作負載。</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">版本資訊</block>
-  <block id="6f63a12bf8b1e666c30303fbc446e01c" category="sidebar">註冊並登入</block>
   <block id="90cd2289d496647e57ae167a4e1ded38" category="sidebar">Amazon FSx for NetApp ONTAP 的權限</block>
   <block id="a85fa12e8eb81e521af50e170260f365" category="sidebar">針對您的雲端供應商使用 Workload Factory</block>
   <block id="bec1e3daee54f5a9410751eb03bd867e" category="sidebar">管理 Workload Factory</block>
@@ -6450,7 +6433,6 @@
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
   <block id="4fae35446edac8369786b24141d0a4e4" category="sidebar">Workload Factory 中 FSx for ONTAP 的已知限制</block>
   <block id="18d2e40048280edf4f45b62918292d82" category="sidebar">了解 NetApp Console 中的 Workload Factory</block>
-  <block id="d73e9a49c2210d74fef5ec0e42ad4292" category="sidebar">註冊並登入 Workload Factory</block>
   <block id="78f8c00f462b0fbe742eab283e3fdf7a" category="sidebar">了解連結</block>
   <block id="b0e4d816716f19944afffa8c9affdccb" category="sidebar">了解權限</block>
   <block id="955740a91ca876bc1046f09e7108188e" category="sidebar">使用 FSx for ONTAP 處理儲存設備工作負載</block>
@@ -6563,29 +6545,6 @@
   <block id="4ab00ae468588a563b956d814954695d" category="sidebar">使用 CloudShell</block>
   <block id="25f033e226552b2f5ae002edb8e5fd2f" category="sidebar">移除憑證</block>
   <block id="24974380365a2e3e3af1d901b4f56526" category="paragraph"><block ref="8e78b98d3ec3e8310cb1961b36d417e0" category="inline-link-macro-rx"></block>。這包括選擇工作負載功能和建立所需權限的 IAM 原則。</block>
-  <block id="0946433107c0141c86e12d9acfc94eb5" category="section-title">以初始組織系統管理員身分註冊 NetApp Console</block>
-  <block id="826401015c53957df701460dc5fefb05" category="paragraph">如果您的公司還沒有 NetApp Console 組織，請註冊建立一個。第一個使用者將成為組織系統管理員，負責管理使用者帳戶和權限。您可以稍後更新角色並新增更多系統管理員。</block>
-  <block id="6c479e362a71650f0ec9bfca93ce7f12" category="list-text">開啟網頁瀏覽器並前往<block ref="9fa63571706fcef6edc9d423212e6d10" category="inline-link-rx"></block>。</block>
-  <block id="dc346f53e29026800c3b9274294105f6" category="list-text">如果您有 NetApp 支援網站帳戶，請直接在 *登入* 頁面上輸入與您帳戶關聯的電子郵件地址。</block>
-  <block id="b1c0e39fde6fd83a65dd3bd95142165f" category="paragraph">控制台會在您首次登入時使用您的 NetApp 支援網站憑證為您註冊。</block>
-  <block id="bf093decf90516c940874ca448e5647c" category="list-text">如果您想透過建立 Console 登入來註冊，請選擇 *註冊*。</block>
-  <block id="dafbc60d299b7ecf7d1bf490a178f77f" category="list-text">在 *註冊* 頁面上，輸入所需資訊，然後選取 *下一步*。</block>
-  <block id="95f99a60f019f663b3b74472e57bd99b" category="admonition">註冊表格中只允許使用英文字元。</block>
-  <block id="422588021a93cfdaa26ce8d7d46dfeda" category="list-text">請檢查您的收件匣，查看是否有來自 NetApp 的電子郵件，其中包含驗證您電子郵件地址的說明。</block>
-  <block id="745229ae5b2bced3482332829ac60c32" category="paragraph">請驗證您的電子郵件地址以完成註冊。</block>
-  <block id="9e8f3a5627d6a315be184e88407a8e4b" category="list-text">登入後，審查並接受最終用戶許可協議。</block>
-  <block id="4c93133d0f71016860e62cd5febc8888" category="list-text">在 *歡迎* 頁面上，建立組織。</block>
-  <block id="16a6acfaa9478d613f4568fcc7f798b9" category="list-text">選擇 *開始*。</block>
-  <block id="d7398f410905989b0cfbd7c8949dea25" category="inline-link-macro">了解如何使用 Console Assistant。</block>
-  <block id="d3c4045cc716512dce22d4f648f90c3d" category="paragraph">+ 身為首次使用者和組織系統管理員，您可以按照引導流程新增儲存資源、建立 Console 代理程式等等。<block ref="8411fcab28bea2c0f0cc571757b43362" category="inline-link-macro-rx"></block></block>
-  <block id="11fd5297be439890aa7909ed6b065791" category="inline-link-macro">了解 NetApp Console 的身分與存取管理</block>
-  <block id="01d4731d174643f3b86d001a74ec91d4" category="paragraph">身為系統管理員，在完成 Console Assistant 中包含的步驟後，您應該規劃身分與存取策略，將使用者新增至您的組織，並指派角色。<block ref="e8cd337a181a13b2fbfafad53132bafb" category="inline-link-macro-rx"></block></block>
-  <block id="347778e3054043c713d65df7f9e10e01" category="section-title">當組織已存在時，註冊或登入 NetApp Console</block>
-  <block id="5acfd694e6aaca7505fcdbc950ee0e38" category="paragraph">如果貴公司已有 NetApp Console 組織，請註冊或登入以存取。您的註冊或登入方式取決於貴公司是否使用身分聯盟或擁有 NetApp 支援網站憑證。否則，請建立 NetApp Console 登入。</block>
-  <block id="7db903b190082d22d5def424cfdf8da1" category="list-text">如果您擁有 NetApp 支援網站帳戶，或您的公司已設定單一登入（SSO），請在 *登入* 頁面輸入您關聯的電子郵件地址或 SSO 憑證。依照提示完成登入。</block>
-  <block id="f6400c3e909c93ba53f8281302a7ffef" category="paragraph">在這兩種情況下，您都會在首次登入時註冊 Console。</block>
-  <block id="adbbbb6561b05ff5263526309e842926" category="inline-link-macro">了解如何聯絡組織系統管理員。</block>
-  <block id="172584f9c60790ff1f0e0a5fce827ebd" category="list-text">如果系統提示您建立組織，請結案對話方塊並告知 Console 系統管理員，以便他們可以將您新增至 Console 組織並授予您存取。<block ref="b322cd1c319c783c8c76cc03c56dbbda" category="inline-link-macro-rx"></block></block>
   <block id="309e95695e9929bae28088a2259c1445" category="paragraph">您可以使用 NetApp Console 設定 Workload Factory 通知。</block>
   <block id="4ecef83a6c0c3ac1ae349c42700f3f4d" category="paragraph">以下是可用的通知選項：* *通知*：設定 Workload Factory 以傳送顯示在 NetApp Console 鈴鐺圖示下的通知。* *電子郵件*：在 NetApp Console 中啟用電子郵件通知，即可接收發送至與該帳戶關聯的任何電子郵件地址的通知，而無需組態 Amazon SNS。* *Amazon SNS*：設定 Workload Factory 以將通知傳送至 Amazon SNS 主題。</block>
   <block id="3dba14348891216cbb525a2715282a3a" category="paragraph">設定 NetApp Console 向某個主題發送通知後，請依照 Amazon SNS 文件中的<block ref="88c7b6108316e02c36e39863bedc2019" category="inline-link-rx"></block>訂閱該主題，以便接收來自 Workload Factory 的通知。</block>
@@ -6922,4 +6881,15 @@
   <block id="5a79cccf92e71cd2b96cbbe67a02e898" category="paragraph">Workload Factory 會顯示通知，指示連線是否成功或失敗</block>
   <block id="43d91f7086bfc8e0d64b9a83a049c1f0" category="list-text">*關閉 GenAI 功能*：關閉所有 AI 功能。</block>
   <block id="5853c70be1c7abb4619f6f0a6696316e" category="paragraph"><block ref="5853c70be1c7abb4619f6f0a6696316e" category="inline-link-rx"></block></block>
+  <block id="f0ae5dab2d6ea2ffbd20c9563519edf2" category="paragraph">使用 NetApp Workload Factory for Databases，您無需任何權限即可立即開始使用。如果您想使用 Workload Factory 來探索主機、管理資源等，只需幾個步驟即可開始使用。</block>
+  <block id="e8fa42224c1549b42b010324f9a01216" category="inline-link-macro">登入 NetApp Console</block>
+  <block id="d230a33ac93525f8dedc1d4d45abbfab" category="paragraph">您需要<block ref="534b2604f29302955349bba67822cd62" category="inline-link-macro-rx"></block>。如果您沒有帳戶，請先<block ref="65487489906fbce15e307f471fda380c" category="inline-link-macro-rx"></block>至 NetApp Console，然後再登入。</block>
+  <block id="9090c842809d5b87ef87f89f32e9670b" category="admonition">必須先刪除所有子複製或將其分離成獨立的 Volume，才能刪除具有子複製的 Volume。</block>
+  <block id="98929bc2ec4e4b6c1fb3d202f0a1c02d" category="paragraph">在歸檔資料之前，請確保同一 Volume 上的所有區塊裝置（LUN）均處於非活動狀態。</block>
+  <block id="a12fbd750c270e54cd66855e6a9c0d66" category="list-text">在「回收未使用的區塊裝置空間」畫面上，選取一個或多個區塊裝置以回收容量。</block>
+  <block id="d9776f0775997b2e698c6975420b5c5d" category="inline-link-macro">註冊</block>
+  <block id="e573c47809f6acfd1d17e1e175b2815d" category="list-text"><block ref="ae5fdce2a4a121cca2d9cfd9dfdd27a9" category="inline-link-macro-rx"></block> 至 NetApp Console。</block>
+  <block id="bbd3bc24a9cc71ad8a2822b80bf70ff9" category="paragraph">在開始之前，您應該對 <block ref="64c9dffcd52d81154557ee623279261c" category="inline-link-macro-rx"></block> 有所了解。您也應該 <block ref="65487489906fbce15e307f471fda380c" category="inline-link-macro-rx"></block> 至 NetApp Console。</block>
+  <block id="80655929466b53d4ebd339eb11bdf59d" category="section-title">從 NetApp Console 登入 Workload Factory</block>
+  <block id="12f44e4fd5c579fdafc7776b94e934d6" category="list-text">登入 <block ref="9fa63571706fcef6edc9d423212e6d10" category="inline-link-rx"></block>。</block>
 </blocks>

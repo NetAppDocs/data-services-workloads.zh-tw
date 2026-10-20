@@ -13,7 +13,7 @@ summary: 在開始使用 NetApp Workload Factory 進行 EDA 之前，請確保 N
 [role="lead"]
 在使用 NetApp Workload Factory 進行 EDA 之前，請確保 NetApp Workload Factory 和 AWS 已正確設定。這包括準備好您的 AWS 登入憑證、已部署的 FSx for ONTAP 檔案系統等等。
 
-Workload Factory 登入和帳戶:: 您需要link:../setup/sign-up-and-log-in.html["註冊並登入 NetApp Console。"]
+Workload Factory 登入和帳戶:: 您需要link:https://console.netapp.com["登入 NetApp Console"^]。如果您沒有帳戶，請先link:https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html["註冊"^]至 NetApp Console，然後再登入。
 AWS 憑證和權限:: 您需要在 Workload Factory 中新增具有讀寫權限的 AWS 憑證，這表示您將以 _讀寫_ 模式使用 Workload Factory 進行 EDA。
 
 
