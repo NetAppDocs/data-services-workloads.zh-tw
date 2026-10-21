@@ -4,7 +4,7 @@ permalink: fsx-vmware/launch-onboarding-advisor.html
 keywords: overview, concepts, features, use case, workloads, how Workload Factory works 
 summary: 登入 NetApp Workload Factory 以存取 VMware 移轉顧問。您將按照精靈中的步驟，建立針對您需求自訂的部署計畫或移轉計畫。 
 ---
-= 使用 VMware 工作負載移轉顧問建立 VMware Cloud on AWS 的部署計劃
+= 為 VMware Cloud on AWS 建立部署計畫
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

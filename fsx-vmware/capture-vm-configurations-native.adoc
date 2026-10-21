@@ -4,7 +4,7 @@ permalink: fsx-vmware/capture-vm-configurations-native.html
 keywords: vm workloads, capture vm details 
 summary: 您可以使用移轉顧問虛擬機器收集器指令碼或 RVTools 來擷取目前的虛擬機器組態。我們建議您使用移轉顧問虛擬機器收集器指令碼，因為它能同時收集虛擬機器組態和效能資料，以提供最準確的規劃。 
 ---
-= 在將 VMware 工作負載移轉到 Amazon EC2 之前，請擷取您的 VM 組態
+= 擷取 Amazon EC2 的虛擬機器組態
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

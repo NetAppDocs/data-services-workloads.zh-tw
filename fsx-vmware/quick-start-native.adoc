@@ -4,7 +4,7 @@ permalink: fsx-vmware/quick-start-native.html
 keywords: quick start 
 summary: 開始使用 VMware 移轉顧問，將您目前的基礎架構移轉到 Amazon EC2，並使用 Amazon FSx for ONTAP 作為外部 NFS 資料儲存區。 
 ---
-= 使用 VMware 工作負載移轉顧問移轉至 Amazon EC2 的快速入門
+= Amazon EC2 移轉快速入門
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

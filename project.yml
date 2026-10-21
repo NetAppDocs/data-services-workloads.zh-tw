@@ -239,13 +239,13 @@ sidebar:
       entries:
       - title: 了解 NetApp Workload Factory for VMware
         url: "/fsx-vmware/learn-about-vmware-workloads.html"
-      - title: 移轉到 Amazon EVS 的快速入門
+      - title: Amazon EVS 移轉快速入門
         url: "/fsx-vmware/quick-start-evs.html"
-      - title: 移轉到 Amazon EC2 的快速入門
+      - title: Amazon EC2 移轉快速入門
         url: "/fsx-vmware/quick-start-native.html"
-      - title: 移轉至 VMware Cloud on AWS 快速入門
+      - title: VMware Cloud on AWS 移轉快速入門
         url: "/fsx-vmware/quick-start-vmware.html"
-      - title: 遷移至 Google Cloud VMware Engine 的快速入門
+      - title: Google Cloud VMware Engine 移轉快速入門
         url: "/fsx-vmware/quick-start-gcve.html"
       - title: 探索 VMware 規劃中心
         url: "/fsx-vmware/explore-planning-center.html"
