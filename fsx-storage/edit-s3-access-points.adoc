@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: fsx-storage/edit-s3-access-points.html 
+keywords: S3, s3, access points, manage access points, change access points, update access points, modify access points 
+summary: 在 FSx for ONTAP 中更新 Volume 的 S3 存取點詳細資料、管理標籤，以及啟用或停用庫存表。 
+---
+= 在 NetApp Console 中編輯 FSx for ONTAP Volume 的 S3 存取點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 NetApp Console 中更新 S3 存取點詳細資訊並管理 FSx for ONTAP Volume 的標籤。
+
+您也可以啟用或停用存取點的 *Inventory table* 。Inventory table 會為所有可透過 S3 存取點存取的物件產生中繼資料，並產生 AWS S3 請求費用。如需詳細資訊，請參閱 link:https://aws.amazon.com/s3/pricing/["Amazon S3 定價文件"^]。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要編輯 S3 存取點的 Volume 的動作選單，然後選取 *進階動作*，然後選取 *管理 S3 存取點*。
+. 從 *Manage S3 access points* 畫面中，選擇操作選單，然後選擇 *Edit access point* 。
+. 進行更新，然後選取 *Apply* 。
++
+若要設定 journal table 功能的基礎架構，您必須選擇 *Internet* 作為 S3 存取點的網路設定。link:setup-journal-table.html["了解如何設定日誌表基礎架構"]。
+
+

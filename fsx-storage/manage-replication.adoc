@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/manage-replication.html 
 keywords: replication management, manage replication, pause replication, stop replication, break replication, delete replication, track replication, change replication schedule, limit replication transfer rate, reverse replication 
-summary: 在 NetApp Workload Factory 中管理複製關係。 
+summary: 在 NetApp Workload Factory 中暫停、繼續、反轉、停止與刪除複寫關係，變更複寫排程，並限制傳輸率。 
 ---
 = 在 NetApp Workload Factory 中管理您的複寫關係
 :allow-uri-read: 
@@ -20,7 +20,7 @@ summary: 在 NetApp Workload Factory 中管理複製關係。
 
 在 NetApp Workload Factory 的複寫關係中，變更來源 Volume 的複寫排程。
 
-選擇從來源 Volume 將快照傳輸至複寫 Volume 的頻率，以符合您所需的復原點目標（RPO）。
+選擇將快照從來源 Volume 傳輸至複寫 Volume 的頻率，以符合您的恢復點目標（RPO）。
 
 當內部部署 ONTAP 叢集是複寫關係的目標時，不支援變更複寫排程。
 
@@ -32,7 +32,7 @@ summary: 在 NetApp Workload Factory 中管理複製關係。
 . 從檔案系統概覽中，選取 *複寫關係* 標籤。
 . 在「複寫關係」標籤中，選取要變更的複寫關係排程的動作選單。
 . 選擇 *編輯複寫間隔*。
-. 在「編輯複寫間隔」對話方塊中，選擇從來源 Volume 傳送快照的頻率。您可以從以下頻率中進行選擇：
+. 在「編輯複寫間隔」對話方塊中，選擇從來源 Volume 傳送快照的頻率。選擇下列頻率之一：
 +
 ** 每隔 5 分鐘
 ** 按小時
@@ -51,7 +51,7 @@ summary: 在 NetApp Workload Factory 中管理複製關係。
 
 限制最大傳輸率為選用，但建議設定。若不限制，網路與應用程式效能可能會下降。
 
-或者，我們建議對 FSx for ONTAP 檔案系統採用無限傳輸率，以用於關鍵工作負載，例如主要用於災難恢復的工作負載。
+對於關鍵工作負載，例如主要用於災難恢復的 FSx for ONTAP 檔案系統，建議使用無限制的傳輸率。
 
 .開始之前
 考慮為複寫分配多少頻寬。
@@ -118,7 +118,7 @@ summary: 在 NetApp Workload Factory 中管理複製關係。
 [[resume-a-paused-replication-relationship]]
 == 恢復已暫停的複寫關係
 
-恢復複製關係後，複製停止期間對目標磁碟區所做的任何變更都將被刪除。目標磁碟區將從讀寫狀態轉換為唯讀狀態，並再次依照計畫的複製間隔接收來自來源磁碟區的更新。
+恢復複寫關係後，目標 Volume 在複寫停止期間所做的任何變更都將被刪除。目標 Volume 將從讀寫轉換為唯讀模式，並再次依照計畫的複寫間隔接收來自來源 Volume 的更新。
 
 
 NOTE: 在上次資料複寫和來源 Volume 停用之間寫入原始來源 Volume 的任何資料都不會保留。
@@ -152,7 +152,7 @@ NOTE: 在上次資料複寫和來源 Volume 停用之間寫入原始來源 Volum
 
 停止複寫並對目標 Volume 進行變更後，您可以將這些變更複寫回來源 Volume。此過程常見於災難恢復情境中，您會在目標 Volume 上操作一段時間，然後想要切換 Volume 的角色。
 
-當您反向並恢復複寫時，它會切換 Volume 的來源和目標角色；目標 Volume 會變成新的來源 Volume，而來源 Volume 會變成新的目標 Volume。反向操作也會以新來源 Volume 的內容覆寫新目標 Volume 的內容。如果您將複寫反向兩次，則會重新建立原始的複寫方向。
+當您反轉並恢復複寫時，Volume 的來源和目標角色會互換；目標 Volume 會成為新的來源 Volume，而來源 Volume 會成為新的目標 Volume。反轉作業也會以新來源 Volume 的內容覆寫新目標 Volume 的內容。如果您將複寫反轉兩次，將會重新建立原始的複寫方向。
 
 []
 ====
@@ -203,7 +203,7 @@ Volume 的複寫狀態變為 *已損壞*。目標 Volume 變為可寫入的。
 [[delete-a-replication-relationship]]
 == 刪除複寫關係
 
-在 NetApp Workload Factory 中刪除複寫關係。刪除複寫關係時，會移除來源和目標 Volume 之間的複寫關係。複寫關係刪除後，兩個 Volume 將繼續獨立存在，並保留其目前的資料。
+在 NetApp Workload Factory 中刪除複寫關係。當您刪除複寫關係時，來源與目標 Volume 之間的關係將被移除。刪除關係後，兩個 Volume 將繼續獨立存在，並包含其目前的資料。
 
 刪除複寫關係時，FSx for ONTAP 也會刪除來源和目標 Volume 的通用複寫快照。
 

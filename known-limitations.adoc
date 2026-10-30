@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: known-limitations.html 
 keywords: limitations, fsx, ontap 
-summary: 已知限制是指本產品版本不支援或無法與之正確互通的平台、設備或功能。 
+summary: 檢閱 Workload Factory 中 Amazon FSx for NetApp ONTAP 的已知限制，包括區域支援、容量管理、iSCSI、資料保護和儲存設備 VM 移轉。 
 ---
 = NetApp Workload Factory 中 FSx for ONTAP 工作負載的已知限制
 :allow-uri-read: 

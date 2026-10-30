@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/manage-cifs-share.html 
 keywords: cifs, smb, SMB, CIFS, cifs share, change, update, modify, delete, create 
-summary: 在 Workload Factory 中管理磁碟區的 SMB 或 CIFS 共用包括建立、確定使用者和群組存取權以及刪除。 
+summary: 在 Workload Factory 中建立、變更或刪除 Volume 的 SMB/CIFS 共用區，並控制哪些使用者和群組可以存取。 
 ---
 = 在 NetApp Workload Factory 中管理 Volume 的 SMB/CIFS 共用區
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 在 Workload Factory 中管理磁碟區的 SMB 或 CIFS 共用包括建
 
 
 [role="lead"]
-在 Workload Factory 中管理 Volume 的 SMB/CIFS 共用區包括建立 SMB/CIFS 共用區、決定要授予存取的使用者和群組以及要授予他們的權限層級，以及刪除 SMB/CIFS 共用區。
+在 Workload Factory 中建立、變更或刪除 Volume 的 SMB/CIFS 共用區。控制哪些使用者和群組可以存取該共享以及他們擁有的權限層級。
 
 .開始之前
 開始之前，請執行以下操作：
@@ -25,7 +25,7 @@ summary: 在 Workload Factory 中管理磁碟區的 SMB 或 CIFS 共用包括建
 [[create-an-smbcifs-share-for-a-volume]]
 == 為 Volume 建立 SMB/CIFS 共用區
 
-請依照下列步驟為 Volume 建立 SMB/CIFS 共用區。
+為 Volume 建立 SMB/CIFS 共用區。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
@@ -36,7 +36,7 @@ summary: 在 Workload Factory 中管理磁碟區的 SMB 或 CIFS 共用包括建
 . 在「建立 SMB/CIFS 共用區」對話方塊中，提供以下資訊：
 +
 .. *名稱*：輸入 SMB/CIFS 共用區的名稱。
-.. *路徑*：使用預設 Volume 名稱定義路徑，或提供指向內部目錄的共享。
+.. *路徑*：使用預設 Volume 名稱定義路徑，或提供內部目錄的共享。
 +
 Volume 名稱的有效路徑輸入（例如 "avocado"）如下：
 
@@ -64,7 +64,7 @@ Volume 名稱的有效路徑輸入（例如 "avocado"）如下：
 [[change-an-smbcifs-share-for-a-volume]]
 == 變更 Volume 的 SMB/CIFS 共用區
 
-請依照下列步驟變更 Volume 的 SMB/CIFS 共用區設定。
+變更 Volume 的 SMB/CIFS 共用區設定。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。

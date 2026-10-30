@@ -47,11 +47,11 @@
 使用 Workload Factory 主控台建立 Volume 時，預設分層原則為 _Balanced (Auto)_。如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html#data-tiering-policy["Volume 儲存容量"^]。請注意，Workload Factory 在 Workload Factory 主控台中針對分層原則使用以使用案例為基礎的名稱，並將 FSx for ONTAP 分層原則名稱包含在括號中。
 
 +
-如果您選擇了移轉使用案例，Workload Factory 會自動選擇將來源 Volume 的分層原則建立複本到目標 Volume。您可以取消選擇為分層原則建立複本，並選擇適用於所選複寫 Volume 的分層原則。
+如果您選擇了移轉使用案例，Workload Factory 會自動選擇將來源 Volume 的分層原則複製到目標 Volume。您可以取消選擇複製分層原則，並選擇適用於所選複寫 Volume 的分層原則。
 
 . *最大傳輸率*：選擇*有限制*並輸入最大傳輸限制（單位為 MB/s）。或者，選擇*無限制*。
 +
-如果沒有限制，網路和應用程式效能可能會下降。或者，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
+如果沒有限制，網路和應用程式效能可能會下降。但是，我們建議對 FSx for ONTAP 檔案系統的關鍵工作負載（例如主要用於災難恢復的工作負載）設定無限的傳輸率。
 
 +
 .. 在複寫設定中，提供以下內容：
@@ -84,7 +84,7 @@ NOTE: 為了確保長期資料保留，來源標籤和目標標籤必須相符�
 ** *Snapshot 快照技術原則*：在表格中，選擇 Snapshot 快照技術原則頻率和要保留的複本數。您可以選擇多個 Snapshot 快照技術原則。
 
 
-. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。提供以下詳細資訊：
+. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。請提供以下詳細資訊：
 +
 ** *S3 存取點名稱*：輸入 S3 存取點的名稱。
 ** *User*：選擇具有磁碟區存取權限的現有使用者或建立新使用者。

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/manage-snapshot-policy.html 
 keywords: manage snapshot policy, change snapshot policy, assign snapshot policy, remove snapshot policy, snapshot policies, snapshot schedule, update, snapshot long-term retention, enable long-term retention 
-summary: 在 Workload Factory 中管理 FSx for ONTAP Volume 的 Snapshot 原則。Snapshot 原則定義系統如何為 Volume 建立快照。 
+summary: 在 Workload Factory 中為 FSx for ONTAP Volume 指派、變更、移除和刪除快照原則，並啟用不可變快照和長期保留。 
 ---
 = 在 NetApp Workload Factory 中管理 Volume 的快照原則
 :allow-uri-read: 
@@ -27,7 +27,7 @@ summary: 在 Workload Factory 中管理 FSx for ONTAP Volume 的 Snapshot 原則
 您可以為單一 Volume 指派 Snapshot 原則，以便為該 Volume 建立排程的 Snapshot。
 
 .開始之前
-您必須關聯一個連結才能指派快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+您必須關聯一個連結才能指派快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
@@ -39,7 +39,7 @@ summary: 在 Workload Factory 中管理 FSx for ONTAP Volume 的 Snapshot 原則
 . 在 Snapshot 原則管理頁面上，選取 Snapshot 原則的動作選單，然後選取 *將原則指派給 Volume*。
 . 在「指派 Snapshot 原則」對話方塊中，選擇要指派給 Volume 的 Snapshot 原則並審查原則排程。
 +
-如果原則包含不可變的 Snapshot 快照技術，且您想要使用它，請接受該聲明。
+如果該原則包含不可變快照並且您想要使用它，請接受該聲明。
 
 . 選擇 *分配*。
 
@@ -52,10 +52,10 @@ Snapshot 原則已指派給該 Volume。
 [[change-a-snapshot-policy]]
 == 更改 Snapshot 原則
 
-您可以變更 Snapshot 原則名稱、排程和要保留的副本數，以及啟用或停用不可變的 Snapshot 快照技術。無法啟用或停用跨儲存設備虛擬機器的原則共享。此選項僅在建立 Snapshot 原則時可用。
+您可以變更快照原則名稱、排程和要保留的複本數，以及啟用或停用不可變的快照。您無法啟用或停用跨儲存設備虛擬機器的原則共享。您只能在建立快照原則時設定此選項。
 
 .開始之前
-若要顯示現有快照原則，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+若要顯示現有快照原則，您必須關聯連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
@@ -80,7 +80,7 @@ Snapshot 原則已更新。
 鎖定快照，防止其在保留期間被刪除。
 
 .開始之前
-您必須關聯連結才能啟用不可變的快照。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+您必須關聯連結才能啟用不可變的快照。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
@@ -148,7 +148,7 @@ NOTE: 複製儲存 VM 資料和組態設定時，無法編輯長期保留。
 您可以從 Volume 移除 Snapshot 原則，原因可能是您不再需要該 Volume 的 Snapshot，或是您想要刪除已指派給多個 Volume 的 Snapshot 原則。若要<<刪除 Snapshot 原則,刪除 Snapshot 原則>>已指派給多個 Volume 的 Snapshot 原則，您必須手動將其從所有 Volume 中移除。
 
 .開始之前
-您必須關聯連結才能移除快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+您必須關聯連結才能移除快照原則。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。

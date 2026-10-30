@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/learn-fsx-ontap.html 
 keywords: Amazon FSx for NetApp ONTAP, FSx, storage, aws 
-summary: Amazon FSx for NetApp ONTAP 是一項完全代管服務，可讓客戶在 Workload Factory 中產品發表和執行檔案系統，作為您工作負載的儲存設備後端。 
+summary: 了解 Amazon FSx for NetApp ONTAP，這是一項完全代管服務，可讓您在 Workload Factory 中產品發表和執行檔案系統，作為工作負載的儲存設備後端。 
 ---
 = 了解 Amazon FSx for NetApp ONTAP 在 NetApp Workload Factory 中的相關資訊
 :allow-uri-read: 
@@ -24,9 +24,9 @@ FSx for ONTAP 是 Workload Factory 中的 _儲存設備_ 元件。
 
 FSx for ONTAP 提供以下功能：
 
-* *完全代管服務*：提供與 Workload Factory 控制台整合的完全代管服務。
+* *完全代管服務*：提供與 Workload Factory 主控台整合的完全代管服務。
 * *高可用度*：為每個 FSx for ONTAP 檔案系統提供高可用度，支援單一可用區和多可用區部署。
-* *自動 Snapshot 快照技術*：透過自動、高效的 Snapshot 快照技術來保護資料，這些是檔案系統或 Volume 近乎即時、節省空間的時間點唯讀複本。
+* *自動快照*：透過自動、高效率的快照來保護資料，這些快照是檔案系統或 Volume 的近乎即時、極具空間效率的時間點唯讀複本。
 * *Volume 複寫*：透過 Amazon Web Services 提供跨區域複寫的災難恢復。
 * *有效率的備份*：在另一個區域保留資料複本以備不時之需，藉此增加額外的保護階層。
 * *快速複製*：透過快速複製加速應用程式開發。
@@ -35,7 +35,7 @@ FSx for ONTAP 提供以下功能：
 * *記憶體快取和 NVMe 快取*：包含獨特的記憶體快取和 NVMe 快取，可提高頻繁存取資料的效能。
 * *數十萬 IOPS*：採用 SSD 磁碟，提供數十萬 IOPS，確保您的儲存設備和工作負載能及時獲得結果。
 * *精簡配置*：允許預先配置容量，從而節省成本，直到需要更多容量時才進行配置。
-* *資料重複資料刪除與壓縮*：移除複製資料並壓縮資料，以減少 FSx for ONTAP 檔案系統所需的實體儲存設備，進而帶來成本節約效益。
+* *資料重複刪除與壓縮*：移除複製資料並壓縮資料，以減少 FSx for ONTAP 檔案系統所需的實體儲存設備，進而帶來成本節約效益。
 * *資料分層*：將存取頻率較低的資料從主要、高效能的 SSD 儲存層移至次要的容量資源池儲存層，可降低儲存設備成本。
 
 
@@ -46,7 +46,7 @@ FSx for ONTAP 提供以下功能：
 
 * *儲存成本比較計算器*：將您的 Amazon Elastic Block Store (EBS)、Elastic File System (EFS) 和 FSx for Windows File Server 儲存設備成本與 FSx for ONTAP 進行比較。透過此計算器，您可以檢視 FSx for ONTAP 儲存設備組態如何提供潛力節約效益，並規劃您向 FSx for ONTAP 儲存設備的移轉。
 * *Console 使用者介面*：提供 _快速建立_ 和 _進階建立_ 部署模式選項。快速建立包含 AWS、NetApp 和產業標準最佳實務做法，適用於您的儲存設備組態。此介面也會顯示 SSD 儲存容量和處理量使用趨勢、工作負載摘要，以及您可以擴充的詳細組態設定。
-* *Codebox*：為開發人員提供適用於 FSx for ONTAP 操作的程式碼檢視器、用於複本和下載的程式碼範本，以及用於程式碼重複使用的自動化目錄。
+* *Codebox*：為開發人員提供用於 FSx for ONTAP 操作的程式碼檢視器、用於複本和下載的程式碼範本，以及用於重複使用程式碼的自動化目錄。
 
 
 
@@ -77,7 +77,7 @@ AWS 維護您的 FSx for ONTAP 帳戶，而不是 Workload Factory。請參閱 l
 [[regions]]
 == 地區
 
-在所有支援 FSx for ONTAP 的商業區域中，皆支援 Workload factory。link:https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["檢視支援的 Amazon 區域。"^]
+Workload Factory 在所有支援 FSx for ONTAP 的商業區域均受支援。link:https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/["檢視支援的 Amazon 區域。"^]
 
 以下 AWS 區域不受支援：
 

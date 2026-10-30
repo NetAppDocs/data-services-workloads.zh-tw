@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/access-data.html 
 keywords: access data, mount point, mount volumes, mount clients, on-premises 
-summary: 您可以從內部部署存取您的 FSx for ONTAP 檔案系統，方法是為 NAS 用戶端裝載 Volume，以及為 SAN 用戶端裝載 iSCSI LUN。 
+summary: 在 Workload Factory 中取得 FSx for ONTAP Volume 的安裝點，並尋找在 NAS 和 SAN 用戶端上裝載 Volume 和 iSCSI LUN 的連結。 
 ---
 = 存取您的 FSx for ONTAP 檔案系統資料
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: 您可以從內部部署存取您的 FSx for ONTAP 檔案系統，方�
 [role="lead"]
 您可以從內部部署存取您的 FSx for ONTAP 檔案系統，方法是為 NAS 用戶端裝載 Volume，以及為 SAN 用戶端裝載 iSCSI LUN。
 
-link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html["存取資料"^] Amazon FSx for NetApp ONTAP 文件提供了有關如何存取資料的主題，供您參考。
+Amazon FSx for NetApp ONTAP 文件中的 link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html["存取資料"^] 提供有關如何存取資料的資訊。
 
 您也可以在 NetApp Workload Factory 中取得 Volume 的安裝點。
 
@@ -22,7 +22,7 @@ link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.htm
 [[get-mount-point-for-volumes-in-netapp-workload-factory]]
 == 取得 NetApp Workload Factory 中 Volume 的安裝點
 
-取得 Volume 的安裝點，以便在 CIFS 共用區或 NFS 用戶端上裝載共享。
+取得 Volume 的安裝點，以便將 Volume 裝載為 CIFS 共用區或在 NFS 用戶端上。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。

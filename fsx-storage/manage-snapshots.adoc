@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: fsx-storage/manage-snapshots.html 
 keywords: snapshot, snapshots, manage snapshots, edit snapshots, access snapshots, delete snapshots, remove snapshots 
-summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workload Factory 中管理您的快照和資料保護。 
+summary: 編輯快照名稱、標籤和保留期間，使快照不可變，啟用快照目錄存取，並刪除 FSx for ONTAP Volume 的快照。 
 ---
 = 管理 FSx for ONTAP Volume 的快照
 :allow-uri-read: 
@@ -26,7 +26,7 @@ summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workloa
 . 選擇要編輯快照之 Volume 的動作選單。
 . 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
 . 在「管理快照」頁面中，選擇要編輯的快照的操作選單，然後選擇 *編輯*。
-. 在「編輯 Snapshot 快照技術」對話方塊中，您可以編輯以下內容：
+. 在「編輯快照」對話方塊中，編輯以下設定：
 +
 .. 更改名稱。
 .. 更改標籤。
@@ -48,7 +48,7 @@ summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workloa
 [[access-a-snapshot]]
 == 存取 Snapshot 快照技術
 
-啟用快照目錄存取，讓使用者能夠自主存取快照。
+啟用快照目錄存取，以便使用者可以自主存取快照。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
@@ -56,7 +56,7 @@ summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workloa
 . 選擇要存取的快照所在 Volume 的動作選單。
 . 選擇 *資料保護操作*，然後選擇 *管理 Snapshot 快照技術*。
 . 在「管理快照」頁面中，選擇要存取之快照的操作選單，然後選擇 *存取*。
-. 在「存取快照」對話方塊中，選擇 *啟用快照目錄存取* 以存取此 Volume 快照和該 Volume 的所有快照。
+. 在「存取快照」對話方塊中，選取 *啟用快照目錄存取* 以存取此 Volume 快照和該 Volume 的所有快照。
 +
 ** 對於 NFS Volume：選擇 *NFS 存取路徑* 以檢視快照的 NFS 路徑。
 ** 對於 SMB/CIFS Volume：選擇 *SMB 存取路徑* 以檢視快照的 SMB 路徑。
@@ -71,7 +71,7 @@ summary: 編輯快照設定、啟用目錄存取和刪除快照，以在 Workloa
 [[restore-data-from-a-snapshot]]
 == 從 Snapshot 快照技術還原資料
 
-您可以選擇將快照中的資料還原到現有 Volume 或新 Volume。
+您可以將快照中的資料還原到現有 Volume 或新 Volume。
 
 link:use-snapshots.html["從快照還原 Volume"]
 
@@ -82,7 +82,7 @@ link:use-snapshots.html["從快照還原 Volume"]
 
 刪除快照以釋放空間。
 
-不可變的 Snapshot 快照技術在保留期間結束前無法刪除。
+在保留期間結束之前，您無法刪除不可變快照。
 
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。

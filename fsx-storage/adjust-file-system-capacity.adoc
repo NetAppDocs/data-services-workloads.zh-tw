@@ -50,7 +50,7 @@ NOTE: 僅第二代檔案系統支援降低 SSD 儲存容量。
 [[enable-automatic-capacity-and-inode-management]]
 == 啟用自動容量和 inode 管理
 
-啟用容量和 inode 管理，即可讓 NetApp Workload Factory 隨著時間的推移，根據容量需求的變化，自動為 FSx for ONTAP 檔案系統新增遞增式儲存設備，並為 Volume 新增 inode（檔案）。這些功能可移除手動監控容量和 inode 的需求。
+啟用容量和 inode 管理，即可讓 NetApp Workload Factory 根據容量需求的變化，自動為 FSx for ONTAP 檔案系統新增遞增式儲存設備，並在 Volume 中新增 inode（檔案）。這些功能可移除手動監控容量和 inode 的需求。
 
 只有一個帳戶可以管理這些功能。
 

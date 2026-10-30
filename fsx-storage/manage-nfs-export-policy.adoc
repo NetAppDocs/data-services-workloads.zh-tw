@@ -11,7 +11,7 @@ summary: 在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類
 
 
 [role="lead"]
-在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類型的 Volume 的 NFS 匯出原則。
+在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類型的 Volume 的 NFS 匯出原則，以控制哪些用戶端可以存取該 Volume 以及它們擁有哪些存取權限。
 
 .關於此任務
 管理 Volume 的匯出原則包括新增匯出原則規則，這些規則詳細說明用戶端規格、存取控制、超級使用者存取和 NFS 版本。您可以新增多個匯出原則並設定它們的優先順序。
@@ -30,7 +30,7 @@ summary: 在 NetApp Workload Factory 中管理使用 NFSv3 或 NFSv4.1 協定類
 .步驟
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
 . 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
-. 選擇要變更 NFS 匯出原則的 Volume 的動作選單。
+. 選擇要變更其 NFS 匯出原則的 Volume 的操作選單。
 . 選擇 *進階操作*，然後選擇 *編輯 NFS 匯出原則*。
 . 在「編輯 NFS 匯出原則」頁面上，提供以下資訊：
 +

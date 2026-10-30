@@ -18,17 +18,17 @@ summary: 將 Clone FlexVol Volume 從其父 Volume 中分割，使該 Clone 成�
 .關於此任務
 Clone 分割作業包括以下步驟：
 
-* 在分割作業期間，無法建立 FlexClone Volume 的新快照複本。
-* 如果 FlexClone Volume 屬於資料保護關係，則無法將其從父 Volume 分割。
-* 如果您在分割進行中將 FlexClone Volume 設為離線，分割作業將會暫停；當您將 FlexClone Volume 重新設為線上時，分割作業將會恢復。
+* 在分割作業期間，您無法建立 FlexClone Volume 的新快照複本。
+* 如果 FlexClone Volume 屬於資料保護關係，您無法將其從父 Volume 分割。
+* 如果您在分割期間將 FlexClone Volume 設為離線，分割作業將會暫停。當您將 FlexClone Volume 重新設為線上時，分割作業將會恢復。
 * 分割後，父 FlexVol Volume 和 Clone 都需要根據其 Volume 保證確定的全部空間分配。
-* FlexClone Volume 從父分割後，兩者無法重新合併。
+* 將 FlexClone Volume 從其父 Volume 分割後，您無法將它們重新結合。
 
 
 .開始之前
 在分割 Clone Volume 之前，請考慮以下事項：
 
-* 若要分割複製的 Volume，必須關聯一個連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
+* 若要分割複製的 Volume，必須關聯一個連結。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。關聯連結後，請返回此操作。
 * 分割作業開始時，FlexClone Volume 必須處於線上。
 * 父 Volume 必須線上才能成功進行分割。
 

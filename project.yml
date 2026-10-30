@@ -130,7 +130,7 @@ sidebar:
           - title: 建立並連接 S3 存取點
             url: "/fsx-storage/create-s3-access-points.html"
           - title: 管理 S3 存取點
-            url: "/fsx-storage/manage-s3-access-points.html"
+            url: "/fsx-storage/edit-s3-access-points.html"
           - title: 設定日誌表基礎架構
             url: "/fsx-storage/setup-journal-table.html"
         - title: 分割 Clone Volume

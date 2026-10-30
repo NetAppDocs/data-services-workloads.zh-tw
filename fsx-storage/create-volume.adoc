@@ -20,7 +20,7 @@ summary: 設定好 FSx for ONTAP 檔案系統後，在 Workload Factory 中建�
 
 FSx for ONTAP Volume 以虛擬方式將資料分組，決定資料的儲存方式以及資料的存取類型。Volume 不使用檔案系統儲存容量。儲存在 Volume 中的資料主要使用 SSD 儲存設備。根據 Volume 的分層原則，資料也可能使用容量資源池儲存設備。您可以在建立 Volume 時設定其大小，之後也可以變更其大小。
 
-下列傳輸協定可能會用於您的 Volume：
+您可以對 Volume 使用以下協定：
 
 * SMB/CIFS：Windows 作業系統的檔案儲存設備傳輸協定
 * NFS：Unix 作業系統的檔案儲存設備傳輸協定
@@ -39,7 +39,7 @@ FSx for ONTAP Volume 以虛擬方式將資料分組，決定資料的儲存方�
 
 * *保留模式*：您可以從兩種保留模式中選擇 - _Enterprise_ 或 _Compliance_。
 +
-** 在 _Enterprise_ 模式下，不可變檔案或 SnapLock 系統管理員可以在檔案的保留期間內刪除檔案。
+** 在 _企業_ 模式下，SnapLock 系統管理員可以在檔案保留期間刪除檔案。
 ** 在「合規」模式下，WORM 檔案在其保留期間到期前無法刪除。同樣地，不可變 Volume 必須等到 Volume 內所有檔案的保留期間到期後才能刪除。
 
 
@@ -48,9 +48,9 @@ FSx for ONTAP Volume 以虛擬方式將資料分組，決定資料的儲存方�
 
 NOTE: 即使保留期間已過，您也無法修改 WORM 檔案。您只能將其刪除，或設定新的保留期間以再次啟用 WORM 保護。
 
-* *自動提交*：您可以選擇啟用自動提交功能。如果檔案在自動提交期間內未發生變更，自動提交功能會將檔案提交至 SnapLock Volume 上的 WORM 狀態。自動提交功能預設為停用。您必須確保要自動提交的檔案位於 SnapLock Volume 上。
+* *自動提交*：您可以啟用自動提交功能。如果檔案在自動提交期間內未發生變更，自動提交功能會將 SnapLock Volume 上的檔案提交為 WORM 狀態。自動提交功能預設為停用。您必須確保要自動提交的檔案位於 SnapLock Volume 上。
 * *特權刪除*：SnapLock 系統管理員可以對 SnapLock Enterprise Volume 啟用特權刪除，允許在檔案的保留期間到期前刪除檔案。此功能預設為停用。
-* *Volume 附加模式*：您無法修改受 WORM 保護檔案中的現有資料。不過，不可變的檔案可讓您使用 WORM 可附加檔案來維持現有資料的保護。例如，您可以在增量寫入資料的同時，產生日誌檔案或保留音訊或視訊串流資料。link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append["進一步瞭解 Volume 附加模式"^] 請參閱 Amazon FSx for NetApp ONTAP 文件。
+* *Volume 附加模式*：您無法修改受 WORM 保護的檔案中的現有資料。不過，不可變的檔案可讓您使用可附加 WORM 的檔案來維持現有資料的保護。例如，您可以在遞增式寫入資料的同時，產生日誌檔案或保留音訊或視訊串流資料。link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append["進一步瞭解 Volume 附加模式"^] 請參閱 Amazon FSx for NetApp ONTAP 文件。
 
 
 
@@ -104,7 +104,7 @@ NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏
 
 .. *Volume 自動擴充*：您可以選擇啟用 Volume 自動擴充，以自動擴充 Volume 容量，直到 Volume 達到最大容量。此功能可應對不斷增長的資料使用量，確保系統不間斷運作。
 +
-指定最大 Volume 增長大小與單位。您無法將最大增長大小設定為小於目前的 Volume 大小
+指定最大 Volume 增長大小與單位。您無法將最大增長大小設定為小於目前的 Volume 大小。
 
 .. *標籤*：您可以選擇新增最多 50 個標籤。
 
@@ -119,7 +119,7 @@ NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏
 
 
 
-.. *NFS 匯出原則*：請提供下列詳細資訊以提供 NFS 存取：
+.. *NFS 匯出原則*：請提供以下詳細資訊以設定 NFS 存取：
 +
 ... *存取控制*：從下拉式選單中選擇*自訂匯出原則*、*現有匯出原則*或*禁止存取 Volume*。
 ... *匯出原則名稱*：
@@ -157,7 +157,7 @@ NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏
 
 
 
-.. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。提供以下詳細資訊：
+.. *S3 存取點*：您可以選擇性地附加一個 S3 存取點，以便透過 AWS S3 API 存取駐留在 NFS 或 SMB/CIFS 磁碟區上的 FSx for ONTAP 檔案系統資料。僅支援檔案存取類型。請提供以下詳細資訊：
 +
 *** *S3 存取點名稱*：輸入 S3 存取點的名稱。
 *** *User*：選擇具有磁碟區存取權限的現有使用者或建立新使用者。
@@ -230,7 +230,7 @@ NOTE: Snapshot 快照技術時間基於檔案系統的時區，預設為協調�
 
 .. *ARP/AI*：當連結與檔案系統關聯時，預設會啟用 NetApp 基於人工智慧的自主勒索軟體防護（ARP/AI）。link:ransomware-protection.html["進一步了解 ARP/AI"]。接受此聲明以繼續。
 +
-如果該功能不可用，則可能是由於以下原因之一：
+此功能可能由於以下原因之一而無法使用：
 
 +
 *** 連結尚未與檔案系統關聯。link:create-link.html["了解如何關聯現有連結或建立並關聯新連結"^]。連結關聯後，請返回此操作。
