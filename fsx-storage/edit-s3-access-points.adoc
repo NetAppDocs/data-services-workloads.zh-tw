@@ -7,7 +7,7 @@ summary: 在 FSx for ONTAP 中更新 Volume 的 S3 存取點詳細資料、管�
 = 在 NetApp Console 中編輯 FSx for ONTAP Volume 的 S3 存取點
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

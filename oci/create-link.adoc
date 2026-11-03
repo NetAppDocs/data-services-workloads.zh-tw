@@ -4,7 +4,7 @@ permalink: oci/create-link.html
 keywords: connect, connection, link, associate link, create link, authenticate link, oci nss 
 summary: 您可以建立和關聯連結，以在 NetApp Workload Factory 帳戶和 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統之間提供信任關係和連線。 
 ---
-= 透過連結連接至 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統
+= 透過連結連接至 OCI NetApp 儲存服務儲存系統
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

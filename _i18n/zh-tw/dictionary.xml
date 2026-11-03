@@ -105,7 +105,6 @@
   <block id="292198e01fad7795066f40b6fec350fd" category="list-text">從 *FSx for ONTAP* 中、選取包含要複寫之磁碟區的檔案系統。</block>
   <block id="bc9c958c3279391522e702151359608b" category="list-text">選擇 *Replication relationships* 標籤。</block>
   <block id="23c1b911bea8dc9e9cdd65d07a7745ca" category="list-text">在複製關係表中、選取要切換的複製關係、然後選取 *Cut over replication* 。</block>
-  <block id="e4d846e7cde6ab6686b9817d81bc55f6" category="list-text">查看「切換複製」對話方塊中的資訊，然後輸入 _cut over_ 進行確認。</block>
   <block id="03fbb06beb5ba7043334c9f7b18e1f16" category="list-text">從 *FSx for ONTAP* 中，選擇要更新的檔案系統的動作功能表，然後選擇 *管理* 。</block>
   <block id="eb38ae8021803ad1eb467650a72c6ca2" category="list-text">從檔案系統概覽中，選取 *複寫關係* 標籤。</block>
   <block id="e7fac383dedc147790819a6b6ec1ca87" category="list-text">在「複寫關係」索引標籤中、選取要初始化的複寫關係的動作功能表。</block>
@@ -268,7 +267,6 @@
   <block id="43d2bb31c641fd8b871b835572bc7441" category="paragraph">用簡單易懂的語言描述您想要監控的內容，即可建立自訂儀表板。AI 會引導您完成設定，確保您的儀表板與您的工作負載和優先順序相符。</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">關於此任務</block>
   <block id="463a1f1058198f82800c115a2a913de5" category="paragraph">自訂儀錶板利用人工智慧引導的對話來理解您想要視覺化的內容。您可以用自然語言描述您的監控需求，系統會提出一些澄清問題，以確保儀錶板符合您的要求。</block>
-  <block id="5af1607522ddad534f7fc3e5976684e5" category="paragraph">建立完成後，您可以重新整理儀表板以查看更新後的資料。</block>
   <block id="a8f8e9b8eb3f376a4b560c169094087e" category="paragraph">請記住，自訂儀表板在設計上為唯讀，無法變更您的儲存或工作負載組態。</block>
   <block id="21b694dc2503eab08ab245a8bcfe9f1c" category="inline-link-macro">了解 AI 管理</block>
   <block id="1490f3908001d2cdf7587ba480973340" category="section-title">建立儀表板</block>
@@ -288,9 +286,7 @@
   <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">接下來</block>
   <block id="fb3b6f147b0a44a08f4c961dc053571e" category="paragraph">建立完成後，您可以：</block>
   <block id="86d47ec5cc124c99638dc3c2f21c96e0" category="list-text">更改儀表板可見度，以便與您的團隊共享</block>
-  <block id="a5c04615d2baa4c3104d2afbb5b85c59" category="list-text">重新整理儀表板資料以查看最新資訊</block>
   <block id="7bff2130a08698224667671d85a34ed4" category="list-text">刪除不再需要的儀表板</block>
-  <block id="ed5184af3d39b3e314759db5b95ba675" category="list-text">檢視儀表板詳細資訊，包括建立者及上次更新時間。</block>
   <block id="d10995cac5dfc264a5da7f4abec9025d" category="inline-link-macro">管理您的自訂儀表板</block>
   <block id="1703fc0755f2533bd9d727fa0298c500" category="inline-link-macro">疑難排解自訂儀表板</block>
   <block id="b765164d0d63341925efe41eda98a9b0" category="summary">建立由 AI 驅動的儀表板，根據您的工作負載和優先順序進行個人化設定，從而提升營運可見性，不受預定義檢視的限制。</block>
@@ -366,7 +362,6 @@
   <block id="939742a8d44add9f4ad62a0fc3824a6e" category="list-text">*Change to private dashboard* - 僅您可見儀表板</block>
   <block id="7e3cce2609a225eafd019dfc30a9437a" category="paragraph">儀表板會立即更新。儀表板卡片上的可見度標籤會顯示目前狀態。</block>
   <block id="9e3f16aef1d22400bdae48c5cb77b00f" category="section-title">重新整理儀表板資料</block>
-  <block id="4e424a1ad37782627141d4d50f79b586" category="paragraph">開啟儀表板後，儀表板資料就會載入。您可以重新整理儀表板以查看最新資訊。</block>
   <block id="74ee9feffcb1603b7eeb47c099c0e5a5" category="section-title">刪除儀表板</block>
   <block id="e54360b7371199d6607f76cd1ae6ad17" category="paragraph">刪除不再需要的儀表板。此操作為永久性操作，無法復原。</block>
   <block id="3325f3a5c13a73bb87ed2dabebb0b6a3" category="list-text">在「自訂儀表板」頁面中，找到要刪除的儀表板。</block>
@@ -3011,7 +3006,6 @@
   <block id="38adbad92c37166c4ce64da1eb51513b" category="inline-link-macro">建立磁碟區</block>
   <block id="75ba895a2e374208ae80d98ebcf116ba" category="paragraph">如果複製的來源磁碟區包含不可變檔案，則目標磁碟區和檔案系統將保持鎖定狀態，直到來源磁碟區的保留期結束。當您<block ref="40da211f809bc6c9e6163aa605349c18" category="inline-link-macro-rx"></block> FSx for ONTAP 檔案系統時，不可變檔案功能可用。</block>
   <block id="db02b80a9dd5a7c959ec87fdf41baa91" category="inline-link-macro">級聯複寫</block>
-  <block id="e9df00e078102fb55394d13dad9115a4" category="paragraph">您可以複製一個來源（讀 / 寫）磁碟區或一個資料保護（DP）磁碟區。支援級聯複製，但不支援第三跳。深入瞭解<block ref="a7ce0f55df6d6b86426266d8a7eeb328" category="inline-link-macro-rx"></block>。</block>
   <block id="ed5b7e4aa04c57efe98d70f7ef15379d" category="section-title">遷移使用案例</block>
   <block id="3ff25ab258de4c80bbe3f420e00a3c7e" category="paragraph">遷移時，您可以選擇複製單一儲存 VM 的資料和組態設定。如果同時遷移資料和組態設定，請確保磁碟區的最後一次複寫在過去 24 小時內完成。若要使用此功能，您必須選取同一儲存 VM 中的所有磁碟區。所有磁碟區的分層原則預設為來源磁碟區的分層原則，建議用於遷移使用案例。</block>
   <block id="a4b076b073df12f01e734ba016dbebd2" category="paragraph">Workload Factory 支援在下列儲存系統之間對儲存 VM 進行移轉複寫。</block>
@@ -3021,12 +3015,6 @@
   <block id="811a8960cadc3b9f9379096dc8b6b831" category="list-text">第一代到第一代</block>
   <block id="9b03bdd83a5017b3aa998f32e7ad219f" category="list-text">第二代至第二代</block>
   <block id="e148ba55e71be246708dafe4293a314f" category="paragraph">若要遷移儲存 VM 資料和組態設定，必須完成以下三個操作。</block>
-  <block id="c6b6c5bfe5708feb9348282cee3701d5" category="inline-xref">建立複寫關係</block>
-  <block id="3297677183a67f243b8c6abf28b4fb81" category="list-text"><block ref="d3f4ef0dd3d11e1cc504390affbdef58" category="inline-xref-macro-rx"></block>，選擇 *Migration* 作為使用案例，然後選擇 *Replicate storage VM configuration*。</block>
-  <block id="4578208e79d59d2ad53f30812b33d008" category="inline-xref">初始化複寫關係</block>
-  <block id="ee673c79e2fee1e050f07ed104f6188d" category="list-text"><block ref="1876753e18c7b524394b3d041c7ca2f6" category="inline-xref-macro-rx"></block> 將資料從來源儲存系統傳輸到目標儲存系統。</block>
-  <block id="f2ce5ba0f770aa8ae822f79404813d99" category="inline-xref">切換複寫以適應移轉使用案例</block>
-  <block id="23dd3a896e2b24326fa839ac0c555b13" category="list-text"><block ref="78c2faa9b52f24796e9c82977a0d449a" category="inline-xref-macro-rx"></block> 將資料和組態設定從來源檔案系統永久遷移到目標 FSx for ONTAP 檔案系統。</block>
   <block id="34ed3d0886446fdce0ca12aba8d0a847" category="section-title">步驟 1：建立複寫關係</block>
   <block id="388c14942d26a5119b21a74fab9025a3" category="paragraph">在兩個 FSx for ONTAP 檔案系統之間、內部部署 ONTAP 系統和 FSx for ONTAP 檔案系統之間，或在 Cloud Volumes ONTAP 和 FSx for ONTAP 檔案系統之間複寫資料。</block>
   <block id="0aa7d11dc16260c47faf9d5b0b642366" category="paragraph">開始之前、請先檢閱這些需求。</block>
@@ -3049,13 +3037,10 @@
   <block id="938304b34ce3517fe01a2000f5b9d7df" category="paragraph">當複寫狀態顯示為 *Idle* 時，資料傳輸已完成。</block>
   <block id="d0d09a499e6cdf9f1d34c4e5929c7f4d" category="section-title">步驟 3：針對移轉使用案例切換複寫</block>
   <block id="ed57615365ad2815423480008d91d450" category="section-title">規劃轉換作業</block>
-  <block id="fa425772bf4dc1e54c8368c2b99d4b1b" category="paragraph">在規劃遷移使用案例的轉換作業時，請考慮以下事項。</block>
   <block id="eeb77472aa3a83d51f0873ec83e22572" category="list-text">*儲存 VM 組態設定*：</block>
   <block id="d77811034f737ab45ed7ddebe9c096fd" category="inline-xref">切換後更新組態設定</block>
-  <block id="0abde7f01f46e5ae295493bf4b280687" category="list-text">切換操作不會將所有儲存 VM 組態設定遷移到目標儲存 VM。例如，iSCSI、廣播網域 MTU 和 DNS 設定不會遷移。切換後，請在目標儲存 VM 上手動更新這些設定。如需更多詳細資料，請參閱 <block ref="af05d35e02c20d22f4e6b1df9b57e0a2" category="inline-xref-macro-rx"></block> 章節。</block>
   <block id="893700039eb02078c7602e997d7f9922" category="list-text">如果您的儲存 VM 使用網域通道驗證，請在開始移轉之前在目標檔案系統上設定並啟用網域通道。</block>
   <block id="03c85e91696d00a533c3da3b08434532" category="list-text">*AWS S3 存取點*：對於包含 S3 存取點的磁碟區，不支援遷移使用案例的轉換複寫。請從來源磁碟區中刪除 S3 存取點，以避免遷移失敗。</block>
-  <block id="849ee629a3b8f33b04a9b242a47e3d59" category="list-text">*ONTAP S3 組態*：具有 ONTAP S3 組態的 vserver 不支援移轉使用案例的完全移轉複寫。請移除 vserver 上的 ONTAP S3 組態，包括 object-store-server、bucket、使用者、群組或原則，以避免移轉失敗。</block>
   <block id="ab3171de62100468c23112d3fda9227b" category="list-text">*LUN 序號和 iSCSI 目標 IQN*：LUN 序號和 iSCSI 目標 IQN 會在轉換期間變更。</block>
   <block id="aed0e194718db8e0128d88b14756819e" category="list-text">在切換複寫之前，請停止所有用戶端對儲存 VM 的存取。</block>
   <block id="3021805b6a1038ca60c0a0b6321eeb81" category="list-text">若要實現連結連線，與 FSx for ONTAP 檔案系統關聯的安全性群組中必須開啟下列連接埠：連接埠 443（HTTPS）和連接埠 22（SSH）。</block>
@@ -3065,7 +3050,6 @@
   <block id="2a6f3123e92916a549d4843b0432ee15" category="list-text">對於 iSCSI：</block>
   <block id="6620d06a6f36ee92ee8c0b9c206e5932" category="list-text">重新建立 igroup</block>
   <block id="1d215d1d64ff0e5459b1b60c4e0f0ba2" category="list-text">更新 LUN 對應</block>
-  <block id="22c26e33ed22192caefb59eb41da6dd7" category="list-text">登入每個 SAN 用戶端，更新新目標的 iSCSI/MPIO 設定，並移除舊的 vserver 目標 IP</block>
   <block id="add6659449d7aeb40a4dd48b3f75db00" category="list-text">驗證廣播網域 MTU 設定是否符合預期</block>
   <block id="cd823c1632b612f3a00bc9cf049ef97b" category="list-text">驗證 DNS 設定是否符合預期</block>
   <block id="b33f176ae89f054db5b204e18e50bedb" category="list-text">如果來源儲存 VM 中存在快取磁碟區，請重新建立快取關係（ONTAP FlexCache 關係）。</block>
@@ -3426,7 +3410,6 @@
   <block id="408a4f348f40acee70fae7c43f89e8ac" category="inline-link-macro">取得適用於 Workload Factory 的 FSx for ONTAP 協助</block>
   <block id="79b8403eb51e9eb841884de955a99f16" category="paragraph">有關 Workload Factory 或 Workload Factory 應用程式和服務的一般問題，請參閱<block ref="84e1270a3cfabd4fd60afbaf552cfd80" category="inline-link-macro-rx"></block>。</block>
   <block id="201a18ac1c906df6358f39af33c244de" category="summary">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的區塊儲存。</block>
-  <block id="373d40a556613e20661d6c89ac8751a6" category="paragraph">使用 NetApp Workload Factory 簡化區塊儲存資源（包括 igroup 和區塊裝置）的管理，並控制客戶端對 FSx for ONTAP 區塊裝置的存取，以提供最佳效能並最大限度地降低成本。</block>
   <block id="eb65a539cb451b6fbdc221ea311b28d4" category="paragraph">從 Workload Factory 主控台，您可以管理啟動器群組（igroup）以控制用戶端對區塊裝置的存取。您也可以檢視區塊裝置詳細資料、增加容量、建立複本、管理用戶端存取、歸檔非作用中區塊裝置的資料，以及刪除區塊裝置。</block>
   <block id="30f276b848a0c37c6c54368f5714fc72" category="list-text">用戶端連線</block>
   <block id="e7963aa68819cfe7f854ea292af57bb0" category="list-text">區塊裝置狀態</block>
@@ -4601,8 +4584,6 @@
   <block id="ee58955cf84a9682824159e8019bdbef" category="list-text">選擇 *資料保護動作*，然後選擇 *分割 Clone 的 Volume*。</block>
   <block id="d774297729b342ccb9c4096a5382bba3" category="list-text">在「分割 Volume」對話方塊中，選擇 *刪除*。</block>
   <block id="70d5997237e2a666a80612de57a49652" category="paragraph">Volume 複製已分割，並顯示在 Volumes 標籤中。</block>
-  <block id="56df9b1084a1d8fbfcb5630d52db4560" category="summary">在 NetApp Workload Factory 中追蹤 FSx for ONTAP 檔案系統資源的成本並產生報表。</block>
-  <block id="132c7cd068e9c3c95296d05738c81a90" category="paragraph">Workload Factory 透過從 AWS Cost Explorer 取得成本資料來追蹤 FSx for ONTAP 檔案系統的成本和使用情況。追蹤的成本詳情包括：使用類型、使用 SKU、部署類型、使用量和總成本。</block>
   <block id="80e92f578bcc9bc76e7904c0736e30b0" category="inline-link-macro">深入瞭解 AWS 成本分配標籤。</block>
   <block id="258ef99c8c6162f96d39f58575b891c4" category="section-title">追蹤成本</block>
   <block id="4eb4c996873463b028b9c244954294a7" category="paragraph">Workload Factory 控制台成本儀表板中顯示的成本是基於 AWS Cost Explorer 的資料，該資料每 24 小時更新一次。</block>
@@ -5886,7 +5867,6 @@
   <block id="8080238bef7e394ebde429d0b0350f39" category="paragraph">探索 Oracle Cloud Infrastructure NetApp Storage Service（OCI NSS）系統，並從 NetApp Console 管理磁碟區與其他資料服務。</block>
   <block id="426e924adb2bfc6580aff49868fd2947" category="paragraph">請在 Workload Factory 中提供您的 OCI NSS 環境憑證。</block>
   <block id="baf2ffbfd6df3e3088d4ec4d0fe6469c" category="summary">您可以建立和關聯連結，以在 NetApp Workload Factory 帳戶和 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統之間提供信任關係和連線。</block>
-  <block id="0bab62dd41264a0da561a8aee755e228" category="doc">透過連結連接至 Oracle Cloud Infrastructure NetApp Storage Service 儲存系統</block>
   <block id="6cda5fe2dd00c5f3962f980ab197b568" category="paragraph">若要執行進階儲存管理操作，請在您的 NetApp Workload Factory 帳戶與 Oracle Cloud Infrastructure NetApp Storage Service（OCI NSS）系統之間建立連線。此程序涉及建立連結並將其與您的儲存系統建立關聯。連結關聯可讓您直接從 OCI NSS 系統監控和管理某些無法透過 OCI API 使用的功能。</block>
   <block id="8bdf8aef803a863146011061e2efad7c" category="paragraph">Workload Factory 中的 _連結_ 是您租用戶中的 OCI Functions 應用程式。Workload Factory 使用它與 OCI NSS 儲存資源池上的 ONTAP 系統進行通訊（HTTPS 443 和 SSH 22）。</block>
   <block id="c81313fa2caeb789b074d24d89129caa" category="paragraph">連結使用 OCI Functions 來回應事件執行程式碼，並自動管理該程式碼所需的運算資源。您建立的連結是您 NetApp 帳戶的一部分，並且與 Oracle Cloud Infrastructure 帳戶相關聯。</block>
@@ -6376,10 +6356,7 @@
   <block id="17ec06b9eaa321300fab59fd56971e66" category="list-text">選擇要更新工作負載的 Volume 的操作選單。</block>
   <block id="ed2541738b61ca0c7584cd62bf74b27d" category="list-text">選取 *進階操作*，然後選取 *變更工作負載*。</block>
   <block id="cd9e2d546766552cd75de00b7717f0cf" category="list-text">在「變更工作負載」對話方塊中，為 Volume 選擇正確的工作負載。</block>
-  <block id="8137b647e9c277bf5504be0415118937" category="paragraph">NetApp Workload Factory 提供 FSx for ONTAP 檔案系統成本和使用情況的統一檢視，協助您有效管理預算並最佳化資源。您也可以產生 FSx for ONTAP 檔案系統資源的成本報告，並與利害關係人共享。</block>
   <block id="0ecf72bcc13fb55d0aa28c82a90ab6f4" category="paragraph">對於獨特的資源，Workload Factory 透過結合實際效能分層使用量、分配給已配置但未使用空間的效能分層成本的比例共享、按容量分佈的效能分配，以及容量資源池使用量來計算成本。Workload Factory 將每個組成部分乘以該維度的單位價格，並將結果相加，以決定每個資源的總成本。</block>
-  <block id="ecec373dbe2f05b3a3b863fd07d13592" category="paragraph">Workload Factory 使用下列權限從 AWS Cost Explorer 取得 FSx for ONTAP 檔案系統資源的成本和使用情況資料：<block ref="bba6542a0e46014b21a818003b1e41d2" prefix=" " category="inline-code"></block> 和 <block ref="f74e5982a82afd7d2755b24355dd08c6" prefix=" " category="inline-code"></block>。我們使用 AWS cost API 和我們自己的估算來計算總成本。</block>
-  <block id="552ae61b34399969ed0ea2c7955fd9ef" category="paragraph">除了成本儀表板中的成本資料外，成本總結還顯示了您的 FSx for ONTAP 檔案系統成本以及您組織的支出模式。您也可以產生 FSx for ONTAP 檔案系統資源的成本報告。該報告為可下載的 CSV 檔案，您可以與利害關係人共享。</block>
   <block id="e291c5603b49506d01779471f77ce7c8" category="paragraph">請確認您符合以下要求：</block>
   <block id="53c306e93da69caff455d3eaa34a6b5c" category="list-text">若要按 AWS 分配標籤進行篩選，請驗證您的 FSx for ONTAP 檔案系統是否已指派標籤。</block>
   <block id="9a90fd93ba397d5f48de07251acc1808" category="list-text">延遲事件的元件細目</block>
@@ -6490,7 +6467,6 @@
   <block id="5af9190832e86a39b32955d77e972b2e" category="list-text">選擇要啟用的詳細程度選項。</block>
   <block id="6ef261950960e68b5c274dbb2ad858c2" category="paragraph">您可以從儀表板目錄檢視和管理自訂儀表板。私人儀表板僅您可見，而公用儀表板對您 Workload Factory 帳戶中的所有使用者可見。每個儀表板都會顯示基本詳細資料，例如建立者姓名、建立日期和可見度標籤（私人或公用）。</block>
   <block id="94ab7238c8d6eb39314e6dc172cba073" category="list-text">從選單中選擇 *Workloads Overview*，然後選擇 *Custom dashboards*。</block>
-  <block id="09716803bbab78d4545cc7210ae61d90" category="paragraph">儀表板會重新載入工作負載中的資料。</block>
   <block id="d2258a9653c6a977efeeb955b27c66e9" category="section-title">編輯儀表板</block>
   <block id="4e2f12e496523d85bae4a969657d45aa" category="paragraph">您可以編輯儀表板來變更其顯示的內容，包括計量、圖表和時間範圍。</block>
   <block id="b13bad0dcb6df4e403e8e2af9058dfe5" category="list-text">在「自訂儀表板」頁面中，找到要編輯的儀表板。</block>
@@ -6882,8 +6858,6 @@
   <block id="c22c40952e764e45b7df2a64900275c1" category="list-text">如果您在分割期間將 FlexClone Volume 設為離線，分割作業將會暫停。當您將 FlexClone Volume 重新設為線上時，分割作業將會恢復。</block>
   <block id="a27e74c36d4d969817e56da6fc886e29" category="list-text">將 FlexClone Volume 從其父 Volume 分割後，您無法將它們重新結合。</block>
   <block id="641dbf8afdab8b23e51c29e452cbd5dc" category="list-text">若要分割複製的 Volume，必須關聯一個連結。<block ref="3d8b5f4a54daf7fc368470fe5a7ec250" category="inline-link-macro-rx"></block>。關聯連結後，請返回此操作。</block>
-  <block id="79ccfc8de982194cab3acf19277d4a57" category="doc">在 NetApp Workload Factory 中追蹤 FSx for ONTAP 成本並取得報告</block>
-  <block id="9fa871dac57d54d520eddd6e7c2bc7e4" category="paragraph">在「成本」儀表板中，您可以按 AWS 帳戶、認證資料、一個或多個區域以及時間範圍篩選成本和使用情況資料，以了解您的 FSx for ONTAP 檔案系統使用情況。Workload Factory 始終以每月費率顯示資料。您也可以按一個或多個檔案系統以及檔案系統中的一個或多個 Volume 進行篩選。AWS 成本分配標籤鍵和標籤鍵值增加了階層篩選功能，可以精確定位特定成本。一個 _標籤_ 由一個鍵和一個值組成。若要按標籤鍵和標籤鍵值進行篩選，請為您的 FSx for ONTAP 檔案系統指派標籤。<block ref="8ea95efe0fef689337ea8960e5c1861f" category="inline-link-macro-rx"></block></block>
   <block id="904e5c7e4bec4fed64fcbb6a83a967f6" category="paragraph">Workload Factory 會產生您可以下載的 CSV 報告。</block>
   <block id="d50ebccae5983a46539e57c6cafdeafa" category="list-text">（選用）選取 *啟用延遲時間通知* 以在複寫延遲超過臨界值時接收通知。</block>
   <block id="57aa08723363676e08889a7debcc7fae" category="paragraph">Volume 備份是遞增的，這表示僅儲存自上次備份以來 Volume 上發生變更的資料。這可將建立備份所需的時間和備份所需的儲存設備降至最低，並透過不重複資料來節省儲存設備成本。</block>
@@ -6894,4 +6868,208 @@
   <block id="5cc3a2f957608c982418e6d81db9bcb5" category="paragraph">如需 Volume 分層原則的詳細資訊，請參閱 AWS FSx for NetApp ONTAP 文件中的 <block ref="de51d392f5d252a956349995f441f55c" category="inline-link-macro-rx"></block>。</block>
   <block id="ed03428f07f32f6a071fde8ad3ae828e" category="list-text">建立快照原則後，無法修改其與儲存設備 VM 的關聯，但您隨時可以為 Volume 新增或移除該原則。</block>
   <block id="0e700b0865ff6014ea0ab70b0131914e" category="summary">檢閱 Workload Factory 中 Amazon FSx for NetApp ONTAP 的已知限制，包括區域支援、容量管理、iSCSI、資料保護和儲存設備 VM 移轉。</block>
+  <block id="4db89734d848869d20c5c98a44e7de1b" category="list-text">完成切換測試步驟，然後執行實際切換。</block>
+  <block id="fa0ab2f86cd05046110c737fd5ce84b8" category="paragraph">如果您在程序中結案對話方塊，您可以從 *複寫關係* 索引標籤檢查 *SVM 移轉狀態*，並在準備就緒時繼續切換作業。</block>
+  <block id="981cf06d12c9b4f422a2927885d64c6f" category="list-text">檢閱「切換複寫」對話方塊中的資訊，然後鍵入 _cut over_ 以完成程序。</block>
+  <block id="f5740048ddae6de6c98d146bef8a05eb" category="doc">Workload Factory 管理增強功能</block>
+  <block id="d5700d6fbdfdaa11c8c6dcbd565d8446" category="section-title">檢查並重新整理自訂儀表板資料</block>
+  <block id="a2ace9589bb1ff3e1b64e40ba9982721" category="paragraph">現在您可以查看自訂儀表板計量的最後更新時間，並手動重新整理它們。將滑鼠停留在 *重新整理資料* 上即可檢視最後更新的日期和時間。</block>
+  <block id="6497706c70a607634590a156941b4e50" category="paragraph">選擇 *重新整理資料* 來開始新的掃描。橫幅會確認掃描已開始，且按鈕在掃描完成前將處於停用狀態。</block>
+  <block id="2895998bd3d7c5fdb39e7fddc2bd608a" category="paragraph">當有新資料可用時，請在通知橫幅中選取 *立即載入* 以更新儀表板。</block>
+  <block id="f418ba29e821ca3da1b907e6156d2db5" category="paragraph">*重新整理資料* 和 *立即載入* 都會在 Tracker 中建立資料收集事件。</block>
+  <block id="0b62b5947fe6e091e6c0c1e387e32e69" category="inline-link-macro">了解如何重新整理自訂儀表板資料</block>
+  <block id="d6592fddba6a07bb0a917566a4081fc5" category="paragraph"><block ref="d6592fddba6a07bb0a917566a4081fc5" category="inline-link-macro-rx"></block></block>
+  <block id="524f9b4ee818c419ee1585959e10855c" category="section-title">為自訂儀表板指定區域</block>
+  <block id="9aca8419896ce9b5d75b523be971bafb" category="paragraph">如果您的要求中未包含某些區域，自訂儀表板現在會要求您選擇一個或多個區域。儀表板資料僅限於您選擇的區域。</block>
+  <block id="35a63836682befdc98086e583b61298a" category="inline-link-macro">了解如何建立自訂儀表板</block>
+  <block id="265c60992e7c3b3f876f80926a9c3a65" category="paragraph"><block ref="265c60992e7c3b3f876f80926a9c3a65" category="inline-link-macro-rx"></block></block>
+  <block id="639dc972d056a14ca9535d40d9ba48bb" category="section-title">用於建立 FSx for ONTAP 連結的 IAM 原則</block>
+  <block id="20721709cc5df2882070722a30cc34c3" category="paragraph">用於建立連結的 CloudFormation 範本和 Terraform 程式碼現在使用 IAM 原則，而不是即時 Lambda 權限。</block>
+  <block id="2f101cc9d5d0dd23089ae6fca31ac27f" category="paragraph"><block ref="2f101cc9d5d0dd23089ae6fca31ac27f" category="inline-link-macro-rx"></block></block>
+  <block id="b3e7d6d7f8501adc86f1a7337ebfb531" category="section-title">AI 代理程式行為的稽核與追蹤</block>
+  <block id="5aecb2747daa4a62ad221d70aaf568df" category="paragraph">現在您可以使用 Tracker 審查 AI 代理程式設定的變更，並且在讀寫模式下，還可以查看每個核准要求，包括代理程式的問題和使用者的答案。</block>
+  <block id="25d50a8630b3c335d684f59cca6d3ace" category="paragraph">透過 Workload Factory API 進行的資源變更由執行該操作的 Workload Factory 服務記錄。</block>
+  <block id="db0781c4ffb5f26ba7ad4f2ffe3dfdbd" category="inline-link-macro">了解代理程式操作的稽核和追蹤</block>
+  <block id="d280606d2d970fea6313288893352119" category="paragraph"><block ref="d280606d2d970fea6313288893352119" category="inline-link-macro-rx"></block></block>
+  <block id="9e81dbda2a0d084e31f85eea0c371131" category="section-title">Amazon FSx for NetApp ONTAP 增強功能</block>
+  <block id="230227ce1631475a082d9f0865ea84b2" category="section-title">啟動器群組圖表增強</block>
+  <block id="9312a185b7f4389cd2dc1b61172e5f20" category="paragraph">「管理用戶端存取」頁面上用於顯示區塊裝置啟動器群組的圖表現在包含更多主機詳細資訊。將滑鼠懸停在圖表中的主機上時，將顯示主機詳細資訊，包括主機名稱、執行個體 ID、工作負載類型、區域和 iSCSI 限定名稱（IQN）。</block>
+  <block id="40a8a1ceba59de4101cf77a14d6fb2d5" category="section-title">針對架構完善的問題進行電子郵件增強</block>
+  <block id="954ae82c2d96e9bd8c7d4e143bf3c187" category="paragraph">新的電子郵件設計針對 Workload Factory 偵測到的組態問題，提供更多詳細資料與背景資訊。電子郵件包含已分析的資源數量、有多少資源發生警告或關鍵問題，以及這些問題是什麼。電子郵件也會連結至 FSx for ONTAP 完善架構儀表板，讓您可以立即解決問題。</block>
+  <block id="1854fdec65dd4a2dd839c666aba07186" category="section-title">精心設計的儀表板增強功能</block>
+  <block id="4640bfbf90e44f31ffe06c764207a151" category="section-title">支援選定的組態檢查</block>
+  <block id="4baa1879436d89821519b031a9b29e1d" category="paragraph">您可以手動對選定的組態執行分析，以便只分析您感興趣的組態，從而減少等待時間。</block>
+  <block id="9864fa88fc3747e67b6fc38c9b938677" category="section-title">架構良好的分析中的新建議</block>
+  <block id="a38b9a0af0de5e85c5e64a158079deb5" category="paragraph">Workload Factory 現在在針對 FSx for ONTAP 檔案系統的完善架構分析中加入了以下配置：</block>
+  <block id="696836fc5f2a32266d0ffc0fb5047e3b" category="paragraph">對於儲存設備工作負載：</block>
+  <block id="c244576dbf541429d6bef056ce769d1b" category="list-text">*將主機連線至容錯移轉節點*：檢查主機是否已連線至主動被動式 FSx for ONTAP 檔案系統中的容錯移轉節點，以確保可靠性。</block>
+  <block id="6ebacaf65862325841aba88bf388a132" category="list-text">*將主機連接至首選節點*：檢查主機是否使用首選節點連接至其區塊裝置，以提升效能與效率。</block>
+  <block id="b25392745f1a47aaf9f1983cd8b1eff5" category="list-text">*ARP/AI 多裝置偵測漏洞*：當一個 Volume 僅連接一個區塊裝置時，ARP/AI 可提供全面的保護。如果一個 Volume 連接了多個區塊裝置，Workload Factory 會將這些區塊裝置移至新的 Volume，以確保每個 Volume 僅連接一個區塊裝置。</block>
+  <block id="034f9073833298cb75f90f7455203432" category="list-text">*複製清理*：檢查是否有超過 30 天的 Volume 複製可以刪除，以最佳化儲存設備使用並降低成本。</block>
+  <block id="8e5f97675e6b58e2c142d4e3623f4e20" category="list-text">*將 igroup 作業系統與主機配對*：檢查啟動器群組（igroup）的作業系統是否與主機的作業系統相符，以防止 I/O 或效能問題。</block>
+  <block id="68545ea02d5d413d5558618d4f250fed" category="paragraph">對於 Kubernetes 工作負載：</block>
+  <block id="92ea527417ca1a6f10e672dd5dc590fb" category="list-text">*QoS 組態*：檢查 Kubernetes 持久性 Volume 是否受到 ONTAP QoS 原則的保護，以確保效能與效率。</block>
+  <block id="a48d1b9cc2b4fca01a8c056a0f21ca0b" category="list-text">*專用 Kubernetes 儲存設備 VM*：檢查檔案系統是否使用專用儲存設備 VM 來處理 Kubernetes 工作負載，以提高隔離並簡化儲存管理。</block>
+  <block id="e8b78d1ad4445d483c25f605f3dcd508" category="list-text">*專用 Kubernetes 匯出原則*：檢查每個 Kubernetes 持久性 Volume 是否具有專用的匯出原則，該原則僅允許從叢集的工作節點進行存取。</block>
+  <block id="15c94f3b03de47c250527326d660fabe" category="list-text">*Kubernetes iSCSI 後端的雙向 CHAP*：檢查 Trident iSCSI 後端是否已啟用相互 CHAP 驗證以確保安全性。</block>
+  <block id="a9f15f720c325ed93ec2ae6e8f017053" category="list-text">*在應用程式儲存設備 VM 上停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>*：檢查在應用程式儲存設備 VM 上是否已停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>，以防止用戶端列出其無法存取的匯出。</block>
+  <block id="8c491145be7052ead6caabd40f13d8d8" category="paragraph">對於資料庫工作負載：</block>
+  <block id="109086be5976370a05137d1276790c52" category="list-text">*SAP HANA 快照原則*：檢查 SAP HANA Volume 的快照原則是否設定為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="f516997bc5858804907fffead3bf17bc" category="list-text">*MySQL 快照原則*：檢查 MySQL Volume 的快照原則是否設定為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="326acdfcec515bde261a6c24416222fc" category="list-text">*PostgreSQL 快照原則*：檢查 PostgreSQL Volume 的快照原則是否設定為「None」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="b37f9a2971bf4d3f39ba06b420da1cf6" category="section-title">組態的目前和建議值</block>
+  <block id="da748e56834f287fe9b9c164de80a667" category="paragraph">您可以在設計完善的儀表板中檢視某些未最佳化組態的目前值和建議值。這可讓您在修復之前了解建議值為何。</block>
+  <block id="0ab265b548fdc40b21483e61ffde3aba" category="list-text">冷資料分層</block>
+  <block id="4c0abf2d4c54820b8d33061abaf30759" category="list-text">Snapshot 原則</block>
+  <block id="6f5cf50fa90f8d99bf50f65e676c6cba" category="list-text">SSD 容量餘裕</block>
+  <block id="4c3fd0f1c4be65a2279b728897c84838" category="section-title">成本改進</block>
+  <block id="7d9291e210fb85e5195b3fd168c5441e" category="section-title">成本預測與洞察</block>
+  <block id="abc7b1907c0e0856759e4d13b2c516f0" category="paragraph">現在，您可以使用成本預測功能來預測 FSx for ONTAP 檔案系統的成本。這有助於您有效地規劃預算並最佳化資源。您也可以檢視有關成本和使用模式的深入分析，以找出成本最佳化的機會。</block>
+  <block id="0e1d8ca59fdf60970c2d4a8bbabe2e5b" category="section-title">AWS 成本和使用情況報告（CUR）</block>
+  <block id="133a30124f90912db7b6e93321823906" category="paragraph">Workload Factory 現在使用 AWS 成本和使用情況報告（CUR）而非 AWS Cost Explorer 來提供詳細的帳單記錄，並將這些記錄傳送到客戶擁有的 S3 儲存桶。CUR 提供更佳的成本精細度，並為進階 FinOps、退款和成本分配使用案例奠定基礎。</block>
+  <block id="9744964a1ca6fbce3b75a4f5042f9597" category="section-title">儲存虛擬機器移轉改進</block>
+  <block id="e6567f9c034c2cedd4efbe2f207f9b2a" category="paragraph">Workload Factory 在使用者介面中提供了增強的儲存設備虛擬機器移轉指導。這包括逐步說明和在將移轉提交到生產環境之前進行的測試執行。</block>
+  <block id="5d9883007f4bc5361c0311ad3ad7cfd1" category="inline-link-macro">了解更多關於儲存設備 VM 移轉</block>
+  <block id="f9aacc67b23285dcf36836993d0a0240" category="paragraph"><block ref="f9aacc67b23285dcf36836993d0a0240" category="inline-link-macro-rx"></block></block>
+  <block id="f96336c52a88a7b30c68866854b7e3f2" category="section-title">複寫延遲電子郵件通知改善</block>
+  <block id="1e403f6a94558e4fb3362faed8f74a9b" category="paragraph">當發生大量相關的複寫延遲事件時，Workload Factory 會自動將它們合併到單一電子郵件通知中，這樣您就不會被通知淹沒。</block>
+  <block id="f45963c176c2d5c66e1ddbfab6e6a59e" category="section-title">自動容量管理增強</block>
+  <block id="cc7093a020c173b1abf32b6436684cd2" category="paragraph">現在您可以啟用自動容量管理通知功能，以便在要求 Workload Factory 自動管理容量之前先體驗該功能。當您的檔案系統容量不足時，您將收到通知。</block>
+  <block id="b3ae445fa637203f0dc17550b5c4a56c" category="section-title">包含在架構良好儀表板中的資料庫組態</block>
+  <block id="17d52f36b5492e8aeada41d949434243" category="paragraph">精心設計的儀表板現在包含資料庫配置建議，方便您根據最佳實踐評估和優化您的設定。儀表板中包含的首批配置如下：</block>
+  <block id="935aff9bc7bcf43dd1fe5825226b72c1" category="list-text">將區塊設備作業系統類型與主機匹配</block>
+  <block id="868e9efce60d04bdf51fc2494a73a9ce" category="list-text">非作用中區塊裝置（LUN）</block>
+  <block id="797a6fe95ffc7bef7107556bac722567" category="list-text">資料檔（.mdf）放置</block>
+  <block id="27c70398ced593abb96a3c33b5e1072b" category="list-text">日誌檔（.ldf）放置</block>
+  <block id="346c87aaab415cd5adb218f88181ede8" category="list-text">多路徑 I/O 狀態</block>
+  <block id="92a6dbd219f1455bd74f5d666b1b27c5" category="list-text">多路徑 I/O 逾時</block>
+  <block id="33bf723377efe51bc70f70bbb5efa8a4" category="paragraph">在 Workload Factory 控制台中選擇主選單，然後選擇 *架構完善* 以尋找架構完善的儀表板。</block>
+  <block id="2d647234501319107057acb4d3f8dfaf" category="inline-image-macro">Workload Factory 控制台中設計良好的選單選項</block>
+  <block id="353cc99df6b21e74c805e74bdab4b8aa" category="paragraph"><block ref="353cc99df6b21e74c805e74bdab4b8aa" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="84ae0158deb3f95e6027fdf8d5ff467d" category="section-title">處理量決策點</block>
+  <block id="b9b80cf2e741a86ab9f6e9dd0b8f44ac" category="paragraph">現在您可以查看用戶端處理量建議和自動化決策點。將滑鼠懸停在決策點上即可檢視詳細資訊，例如目前和建議的 SKU 或時間範圍內的超標計量（%）。</block>
+  <block id="490c092a516d299c8fbfc8f3e4bca146" category="section-title">Google Cloud NetApp Volumes 功能增強</block>
+  <block id="6d3b86d67ca631d6e7b36cd36908e1a9" category="section-title">檢視 Google Cloud NetApp Volumes 儲存資源池</block>
+  <block id="655c266ebeabfc3d2b4a982b26cfc3a8" category="paragraph">您現在可以在 NetApp Workload Factory 中檢視您的 Google Cloud NetApp Volumes 儲存資源池。依專案、憑證和地區進行篩選，並選取儲存資源池的名稱以檢視其完整詳細資料，包括可用區、複本可用區、處理量、執行摘要和標籤。</block>
+  <block id="d96dd657e1823dcd531c1900f529272e" category="section-title">OCI NetApp 儲存服務增強功能</block>
+  <block id="3fbce80cc4c6eedf8f73c5f9b6c3f793" category="section-title">針對 OCI NSS 系統的架構良好的分析</block>
+  <block id="9f5fa839697eb430476ab0306b2d577b" category="paragraph">NetApp Workload Factory 包含針對 OCI NSS 系統精心設計的評估。此評估提供洞察分析、建議和解決方案，幫助您實現卓越營運績效。</block>
+  <block id="d7662b370716819187607c075f76f667" category="paragraph">OCI Well-Architected Framework 的下列支柱可提供組態評估：</block>
+  <block id="9d065ca994a324833e03b9b5b5ed7cd9" category="list-text">可靠性：檔案物件容量、Snapshot 快照技術原則和 SSD 容量餘裕</block>
+  <block id="4ddeff02856cd810ad47ff7e36c7b39c" category="list-text">卓越營運績效：主機可見的容量報告和 Volume 容量餘裕</block>
+  <block id="7dc11e8b104c8a8c4a3b0a79dfe90760" category="list-text">成本最佳化：冷資料分層、快照清理與儲存設備效率</block>
+  <block id="4c08f7b0400f82cb6607401bcdf078f1" category="inline-link-macro">針對 OCI NSS 系統的架構完善分析</block>
+  <block id="5514a97cb8286872cf232b29c81405be" category="inline-link-macro">實作架構良好的組態</block>
+  <block id="6c5cb49a519e4001a13828cd8f9f28ab" category="paragraph">了解更多關於 <block ref="026b7813287d66b370ca6b12a499c052" category="inline-link-macro-rx"></block> 與 <block ref="503539a9757057d0d19762cf2dfced52" category="inline-link-macro-rx"></block> 的資訊。</block>
+  <block id="0e43f192242267f4b6ae5962e9f5b38c" category="inline-link-macro">了解如何重新整理儀表板資料</block>
+  <block id="375aa345c9d070c5d5cbb33fd17abdf9" category="paragraph">建立完成後，您可以查看儀表板計量上次重新整理的時間，並要求依需求更新。<block ref="8d1eeddf54e1415c46105e0180873b4f" category="inline-link-macro-rx"></block>。</block>
+  <block id="a0029b147e3a4c22ba57efcbb020c23e" category="list-text">檢查 *上次更新* 時間戳記，然後選取 *重新整理資料* 以要求更新的計量</block>
+  <block id="b70a9e9de689b4f17365d6060076d3b8" category="section-title">代理程式動作的稽核與追蹤</block>
+  <block id="774a23889a059a060f089bac423f3b00" category="paragraph">在讀寫模式下，Tracker 會記錄每個審核請求，包括代理程式的問題和使用者的回答。透過 Workload Factory API 進行的資源變更由執行該操作的 Workload Factory 服務記錄。例如，透過 Workload Factory 建立的 Volume 會出現在 *Storage* 服務標籤下，而不是 *Agent* 服務標籤下。</block>
+  <block id="13ab1a7b5cd6ff60fb50525984ba6258" category="inline-link-macro">了解如何使用 Tracker 監控作業</block>
+  <block id="ce1e81713ecf4df9a934306eea668257" category="paragraph"><block ref="3451659cf3ed6290294c6cb6aa2fa232" category="inline-link-macro-rx"></block>。</block>
+  <block id="1c25d10ad7fe7b9def7bd90be9bb63ac" category="section-title">檢查資料是否為最新狀態</block>
+  <block id="40d839f036c0870ce0f44a810dc01fd9" category="paragraph">您可以查看儀表板資料的最後更新時間，並隨時要求重新整理。工具提示會顯示最後更新的日期和時間。</block>
+  <block id="3943baa01d778cb77042aa99b8829491" category="paragraph">選擇 *重新整理資料* 來開始新的掃描。掃描進行期間，該按鈕無法使用。新資料準備就緒後，會出現一個橫幅，提供更新儀表板的選項。</block>
+  <block id="d3d3c2c161c272f6861e216f8ab84982" category="paragraph"><block ref="8d1eeddf54e1415c46105e0180873b4f" category="inline-link-macro-rx"></block>。</block>
+  <block id="4561b6d16c60561c7dfef3363842359b" category="paragraph">查看您的儀表板上次重新整理的時間，並在需要最新資料時要求隨選掃描。</block>
+  <block id="cb19e9f8b4fdf3bf166690f03f0888ff" category="paragraph">*重新整理資料*工具提示會顯示*上次更新*時間戳記，其中包含儀表板上次重新整理的日期和時間。此時間戳記指的是收集的資料，而不是儀表板組態上次變更的時間。</block>
+  <block id="34839e5b2cbe60267b78999786be488f" category="paragraph">選擇 *重新整理資料* 將啟動新的掃描。掃描進行期間，該按鈕將處於停用狀態，其工具提示會指示掃描正在進行中。</block>
+  <block id="3f80dcb08a2a2d2b7e2915dd88cfbff4" category="paragraph">當您選擇 *重新整理資料* 或 *立即載入* 時，Workload Factory 會在 Tracker 中記錄事件<block ref="3451659cf3ed6290294c6cb6aa2fa232" category="inline-link-macro-rx"></block>。</block>
+  <block id="b2f99e18989e76354ebba4fd4d399227" category="list-text">從儀表板目錄中，開啟您想要檢視的儀表板。</block>
+  <block id="b01e2768b9cf649d978bf4ea1879ea19" category="list-text">將滑鼠停留在 *重新整理資料* 上，即可查看 *上次更新* 日期和時間。</block>
+  <block id="669bf0e2d3a5223b736f207a1738dcea" category="list-text">若要要求更新的計量，請選擇 *重新整理資料*。</block>
+  <block id="2c40fb628cd47c18fe14a2939979ebf9" category="paragraph">橫幅顯示掃描已開始。請等待掃描完成。</block>
+  <block id="dd2142eca6bec99aaba2fbc5a1fef1f5" category="list-text">當有新資料可用時，橫幅會顯示此訊息：「有新資料可用。立即載入，或隨時按一下『重新整理資料』以更新檢視。」</block>
+  <block id="f5f7ef3c1692aa4447b9fb26ad98940c" category="list-text">在橫幅中選擇 *立即載入* 以將可用資料載入到儀表板中。或者，選擇 *重新整理資料* 來更新檢視。</block>
+  <block id="abff96b75117f320254f372b6518244b" category="paragraph">儀表板顯示更新後的計量。</block>
+  <block id="6347309ad07af7266241819bb2af76d1" category="list-text">*將主機連線至容錯移轉節點*</block>
+  <block id="e89cb70f69260bd0359dad1d58cb94de" category="paragraph">Workload Factory 建議將主機連線至容錯移轉節點，以維持連線並避免在容錯移轉期間發生中斷。</block>
+  <block id="d8f7d6931c10571f6b09ab824fb1eb68" category="list-text">*SAP HANA Snapshot 快照技術原則*</block>
+  <block id="5430bb473a033ac7ca3cf168ada8eef0" category="paragraph">將 SAP HANA Volume 的快照原則設為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="bed53786c7f97a0d4610c92e2155c179" category="list-text">*MySQL 快照原則*</block>
+  <block id="2cfa406a51ef73bbf2e8700e3f414fba" category="paragraph">將 MySQL Volume 的快照原則設為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="277b9300260dd55ca64290333450ba59" category="list-text">*PostgreSQL 快照原則*</block>
+  <block id="2a902e0c93222642481e7829b61f6885" category="paragraph">將 PostgreSQL Volume 的快照原則設為 "None"，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="f6713ad974e1c45e6ae6f336e05e1acb" category="list-text">*ARP/AI 多裝置偵測差距*</block>
+  <block id="99585e92af9e1ad2380aa522d6753d7a" category="paragraph">當 Volume 僅連接一個區塊裝置時，ARP/AI 可提供全面的保護。如果 Volume 連接了多個區塊裝置，Workload Factory 會將這些區塊裝置移至新的 Volume，以確保每個 Volume 僅連接一個區塊裝置。</block>
+  <block id="94252ec3a780f58314c91e97ef4e34dd" category="list-text">*Kubernetes iSCSI 後端雙向 CHAP*</block>
+  <block id="33abb23bb89c7fd6e6403f57410fd19d" category="paragraph">對 Trident iSCSI 後端使用雙向 CHAP 驗證，以確保 iSCSI 啟動器和目標相互驗證。這可防止未經授權的主機與儲存設備虛擬機器建立 iSCSI 工作階段。</block>
+  <block id="6afaedca049edca8b26b3afcc63112c5" category="list-text">*在應用程式儲存設備虛擬機器上停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>*</block>
+  <block id="bfd8d5ee3b60e71cb8f894bb8d7d7f01" category="paragraph">在應用程式儲存設備 VM 上停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>，以防止用戶端列出其無法存取的匯出。</block>
+  <block id="17a183ee5c2a455937989091c69ca48d" category="list-text">*專用 Kubernetes 儲存設備 VM*</block>
+  <block id="aeb9ac6a931deb0972004e13a0b50cbd" category="paragraph">為 Kubernetes 工作負載使用專用儲存設備虛擬機器。將 Kubernetes 儲存設備保持分隔可簡化管理、簡化原則設定，並有助於確保一致的儲存設定。</block>
+  <block id="dd54a6cc471e0bb15a8807c9b04d608a" category="list-text">*使 igroup 作業系統與主機相符*</block>
+  <block id="9b4b32350b17fe80d09c863ee9493bc1" category="paragraph">使啟動器群組（igroup）的作業系統與主機的作業系統相符，以防止 I/O 或效能問題。</block>
+  <block id="e2521a2a2f696d450620b08167cf1c24" category="list-text">*複製清理*</block>
+  <block id="25c12f9fc894aee637d81a1bb835e475" category="paragraph">刪除任何超過 30 天的 Volume 複本，以最佳化儲存設備使用並降低成本。</block>
+  <block id="32e2568abf1f06db9af3e7c8594aae66" category="paragraph">您可以複製一個來源（讀 / 寫）磁碟區或一個資料保護（DP）磁碟區。支援級聯複製，但不支援第三跳。深入瞭解 <block ref="b43da9c23395dea7a8657c3dcd68f92f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="99975dc4e0b5174f74f44270f9c4bb79" category="list-text"><block ref="c333b1c4d501da5c597263cb02a86bf0" category="inline-xref-macro-rx"></block>，選擇 *Migration* 作為使用案例，然後選擇 *Replicate storage VM configuration*。</block>
+  <block id="439799af583df4008d7b4f10d93c939a" category="list-text"><block ref="86056281cff85f2bf6f7be28510fe95d" category="inline-xref-macro-rx"></block> 將資料從來源儲存系統傳輸到目標儲存系統。</block>
+  <block id="48a79c23389fad3919124aa678f218c9" category="list-text"><block ref="8e0c7083554029f9517e717da960b953" category="inline-xref-macro-rx"></block> 測試移轉，然後將資料和組態設定從來源檔案系統永久移轉到目標 FSx for ONTAP 檔案系統。</block>
+  <block id="d69fbbb711f8ff18ddfdec1f828d8dde" category="paragraph">在進行測試和切換之前，請考慮以下事項。</block>
+  <block id="f54dbcea12e59e12722877876b169b60" category="inline-xref">手動更新這些設定</block>
+  <block id="773c27512e59c2c2dbd6e6ff8964b7d4" category="list-text">切換作業不會將所有儲存設備虛擬機器組態設定移轉至目標儲存設備虛擬機器。例如，iSCSI、廣播網域 MTU 和 DNS 設定不會移轉。<block ref="e8bd260fbd2f342593da7654c0529249" category="inline-xref-macro-rx"></block> 於切換後的目標儲存設備虛擬機器上。</block>
+  <block id="e618f0853e36806a08addf80f080aa17" category="list-text">*ONTAP S3 組態*：對於具有 ONTAP S3 組態的儲存設備虛擬機器，不支援移轉使用案例的切換複寫。請移除儲存設備虛擬機器上的 ONTAP S3 組態，包括 object-store-server、儲存桶、使用者、群組或原則，以避免移轉失敗。</block>
+  <block id="24cce11f73b548e9176ae1c180b0e7c1" category="list-text">在 Workload Factory 的檔案系統中，檢查複寫關係表中的 *SVM 移轉狀態* 是否為 *已啟用 | 準備測試切換*。</block>
+  <block id="6685d526488e756ed5738a4874c4bccb" category="section-title">切換複寫</block>
+  <block id="12dabbf4de087e3801b25bebe491cfe6" category="paragraph">Workload Factory 可協助您管理移轉案例中的複寫切換流程。首先，它會測試您的環境，以確認切換可以順利進行。其次，它會執行到目標檔案系統的實際切換。</block>
+  <block id="641a5b87ae1a6b3f69a51cbf9d3327e7" category="paragraph">在完成移轉測試之前，請確保您可以存取目標儲存設備 VM 上的所有資料。</block>
+  <block id="e710e21634c08d4bb9e43d51a67a87eb" category="paragraph">請按照指示切換複寫以進行移轉使用案例。使用者介面將引導您逐步完成切換程序。</block>
+  <block id="d4db5cd7a78570802f5cc12157792523" category="list-text">登入每個 SAN 用戶端，更新新目標的 iSCSI/MPIO 設定，並移除舊的儲存設備 VM 目標 IP</block>
+  <block id="78727553c283af369070757e652c05cc" category="paragraph">使用 NetApp Workload Factory 簡化區塊儲存資源（包括 igroup 和區塊裝置）的管理，並控制用戶端對 FSx for ONTAP 區塊裝置的存取，以提供最佳效能並將成本降至最低。請參閱區塊裝置 igroup 圖，以最佳化用戶端連線並快速解決問題。</block>
+  <block id="356b28bbbd0d4021c21f75e7c065f091" category="list-text">主機詳細資訊，包括主機名稱、執行個體 ID、工作負載類型、區域和 iSCSI 限定名稱（IQN）</block>
+  <block id="01fae763ec208cbe8aba55abc3b09866" category="summary">在 NetApp Workload Factory 中追蹤 FSx for ONTAP 檔案系統資源的成本。</block>
+  <block id="3f9d767840a18ac75b11c7dd9ba87a88" category="doc">在 NetApp Workload Factory 中追蹤資源成本</block>
+  <block id="bfb6f1b412cd95d58b271e3d69547dda" category="paragraph">使用 NetApp Workload Factory 追蹤您的 FSx for ONTAP 檔案系統成本和使用情況，以便有效管理預算並最佳化資源。我們使用 AWS Cost Explorer 提供整體成本資料，且所需權限極少。依資源（檔案系統或 Volume）計算的成本是基於 Workload Factory 的計算結果，提供 AWS Cost Explorer 無法提供的獨特見解。</block>
+  <block id="c3f094be203d9270a67844e5fa353013" category="paragraph">Workload Factory 使用下列權限從 AWS Cost Explorer 取得 FSx for ONTAP 檔案系統資源的成本和使用情況資料：<block ref="bba6542a0e46014b21a818003b1e41d2" prefix=" " category="inline-code"></block> 和 <block ref="f74e5982a82afd7d2755b24355dd08c6" prefix=" " category="inline-code"></block>。追蹤的成本詳情包括：使用類型、使用 SKU、部署類型、使用量和總成本。</block>
+  <block id="0044e1f3a22c6d9ef97c0d6e8c1fdb03" category="paragraph">在成本儀表板中，有兩個索引標籤分別提供總成本和依資源劃分的成本。</block>
+  <block id="65ab1b7df4df327df8504998be956f5b" category="list-text">總成本是基於直接從 AWS Cost Explorer API 取得的資料。</block>
+  <block id="9b98495d5e24798622609ac8cda337e1" category="list-text">按資源計算成本顯示按檔案系統和/或 Volume 劃分的成本估算。</block>
+  <block id="512a8b4930f422b87988b36e61c761d2" category="paragraph">Workload Factory 始終以每月費率顯示資料。</block>
+  <block id="03bb428183665b2d297f7a2b126ada64" category="paragraph">您可以依 AWS 帳戶、憑證、一個或多個區域以及時間範圍來篩選成本與使用量資料，以便了解您的 FSx for ONTAP 檔案系統使用情況。您也可以依一個或多個檔案系統，以及檔案系統中的一個或多個 Volume 進行篩選。</block>
+  <block id="2564431d5eb8e6c2a5e05b3cf2258f0b" category="paragraph">AWS 成本分配標籤鍵和標籤鍵值提供了額外的篩選階層，可以精確定位特定成本。一個 _標籤_ 由一個鍵和一個值組成。若要按標籤鍵和標籤鍵值進行篩選，請為您的 FSx for ONTAP 檔案系統指派標籤。<block ref="8ea95efe0fef689337ea8960e5c1861f" category="inline-link-macro-rx"></block></block>
+  <block id="00785d0f1296ca2a8d0846890b38a469" category="paragraph">除了成本儀表板中的成本資料外，AI 產生的成本總結還會顯示您的 FSx for ONTAP 檔案系統成本以及您組織的支出模式。您可以產生 FSx for ONTAP 檔案系統資源的 CSV 檔案，以便與您的團隊和利害關係人共享。</block>
+  <block id="2921ec21e61178e9d5c3b00b52cdcc7f" category="summary">檢視您的 Google Cloud NetApp Volumes 儲存資源池及其在 NetApp Workload Factory 中的詳細資訊。</block>
+  <block id="24a255fcd6a980ea654569c0aed96684" category="doc">在 NetApp Workload Factory 中檢視 Google Cloud NetApp Volumes 儲存資源池</block>
+  <block id="24fbf973ac266841a1d1950057044a86" category="list-text">選擇選單 <block ref="d0893c56792da060977c8f5dd5abb05a" category="inline-image-macro-rx" type="image"></block>，*儲存設備* &gt; *Google Cloud NetApp Volumes*。</block>
+  <block id="df8082635850b98b5c044dc4b51ba0fb" category="list-text">使用 *專案*、*憑證* 和 *區域* 篩選器來限定顯示的儲存資源池範圍。</block>
+  <block id="2ccd3603ab54ceda81ae72e3db7d5b45" category="list-text">審查儲存資源池表格，其中顯示名稱、狀態、服務層級和容量等詳細資訊。</block>
+  <block id="2c52de43be722390ea5df253b5dbd317" category="paragraph">儲存資源池的服務層級為標準、進階、極致、Flex 檔案或 Flex 統一。對於 Flex 統一儲存資源池，模式會顯示為預設或 ONTAP，對於所有其他服務層級，則顯示為預設。</block>
+  <block id="0a7d44a25a513ebc54a0e4e95b7b3145" category="list-text">選擇儲存資源池的名稱以開啟其詳細資料，包括處理量和執行摘要。</block>
+  <block id="daae87d6d4b7a65960223391e99b2bf1" category="summary">NetApp Workload Factory 會定期分析 OCI NSS 系統組態，以判斷是否有任何組態問題。</block>
+  <block id="8075bafeb6baaa23a8b24e6f5b983e9e" category="doc">OCI NSS 系統的組態分析</block>
+  <block id="b22355dc2933d3eb629a9b60fe9c24d0" category="paragraph">NetApp Workload Factory 會定期分析 OCI NSS 系統組態，以判斷是否有任何組態問題。發現問題時，Workload Factory 會向您顯示問題所在，並說明需要變更的內容，讓您的儲存環境達到最佳效能、成本效率，並法規遵循最佳實務做法。</block>
+  <block id="fbef8b32b5268cdc762132c3c8e01b74" category="list-text">OCI 架構完善框架顧問</block>
+  <block id="a6b85fac6d120c7bd544dcd1f30b35de" category="paragraph">每日分析完成後，部署的「架構完善」儀表板會將組態顯示為「最佳化的」或「未最佳化的」。您可以在這裡找到按類別組織的組態問題以及相應的建議。Workload Factory 會提供詳細說明，幫助您實作建議的變更。</block>
+  <block id="8848ef7c96763d3f08995681ffc004b6" category="list-text">關聯連結。連結連線可讓 Workload Factory 分析所有 OCI NSS 系統組態，例如資料保護和效能。</block>
+  <block id="3e04fbf67b56db9461ae97dc846ca167" category="paragraph"><block ref="e9af2ce98076e9a8dd007f2845e4e70f" category="inline-link-macro-rx"></block>。</block>
+  <block id="b29f71885ba2ce4a16c86126f52804ae" category="list-text">在您的 OCI 帳戶中授予 _view、planning 和 analysis_ 權限。</block>
+  <block id="ef844ede64315307dee0704956d6aee5" category="inline-link-macro">了解如何授予 OCI 帳戶權限</block>
+  <block id="f25bd2346ab8a5951bd835fdf0f0d7f0" category="paragraph"><block ref="9ca8440835f5980ea2202b41ccc271e7" category="inline-link-macro-rx"></block>。</block>
+  <block id="9782f948325708f7c9a12b48ab18675e" category="paragraph">應提高檔案容量臨界值，以避免達到 Volume 容量限制。檔案容量（inode）過低會導致無法將額外資料寫入 Volume。Workload Factory 建議將檔案容量使用率保持在 80% 以下，以允許建立新檔案。</block>
+  <block id="85328d3db8fe5d1da969e2eaeb0023e1" category="paragraph">卓越營運績效確保工作負載得到有效運作和監控，並能支援使用者的需求。</block>
+  <block id="7b95c4e901138e8f666b33e68bc581db" category="paragraph">Volume 容量餘裕應設定為 10%，以因應成長並防止發生意外的容量問題。</block>
+  <block id="f63ddee9cc0c3851457909a9a862bac0" category="list-text">*冷資料分層* 使用僅快照分層原則，該原則僅將快照資料移至容量分層，而將作用中資料保留在 SSD 分層。這種方法既能保持資料庫工作負載的低延遲效能，又能降低儲存設備成本。在 7 天冷卻期後將快照資料分層。</block>
+  <block id="2607d748d53e53355cf341ff59fd61ac" category="list-text">*Snapshot 快照技術清理*</block>
+  <block id="08f59202d2946c1aac674509e0161a4c" category="inline-link-macro">實作架構良好的 OCI NSS 組態</block>
+  <block id="7c3e2dcf300bf174055ca214ab29ff09" category="paragraph"><block ref="7c3e2dcf300bf174055ca214ab29ff09" category="inline-link-macro-rx"></block></block>
+  <block id="d2f04c6606827834c212813ba8530a53" category="doc">透過連結連接至 OCI NetApp 儲存服務儲存系統</block>
+  <block id="e3a12eeb93ddbad9936f64a12bb2990b" category="summary">Workload Factory 掃描 Amazon FSx for NetApp ONTAP 組態，提供見解和建議，協助您實現卓越營運績效。</block>
+  <block id="e56101005a7ed45119ff48406091e6d4" category="doc">實作架構良好的 OCI NSS 系統組態</block>
+  <block id="22979194f7eaddbd9fca2e1fe039b759" category="paragraph">使用 Workload Factory 為您的 Oracle Cloud Infrastructure NetApp Storage Service (OCI NSS) 系統實作最佳實務。您可以輕鬆審查架構良好的狀態、了解組態中的問題，並修復問題，以改善任何未針對可靠性、安全性、效率、效能和成本進行最佳化的系統架構。</block>
+  <block id="9ff22ac64e3119cfabeca4129d444a57" category="paragraph">Workload Factory 每日分析 OCI NSS 系統部署組態。</block>
+  <block id="aac3b2ff7e39f3ad99e62a7c110f404d" category="inline-link-macro">使用連結連接到 OCI NSS 系統</block>
+  <block id="dfce4fb4ba7e38f099f7cc10188568ff" category="paragraph">連結連線可讓 Workload Factory 掃描效能、資料保護與組態方面的問題。<block ref="f7e59cb445429b5d2153bcbc58bac6c3" category="inline-link-macro-rx"></block> 以對您的檔案系統資源進行最全面的分析。</block>
+  <block id="86441bb8ed65cedfe101ba30b31d8c3b" category="paragraph">Workload Factory 分析以下 OCI NSS 系統組態的架構良好狀態：</block>
+  <block id="127dbf246c89a2aeb37b444598d9f619" category="list-text">您必須在 OCI 帳戶中<block ref="1e9440ab1b64d47ef319a569b579363c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b53c73ee77148a4ebba4c99fab72e627" category="list-text"><block ref="f7e59cb445429b5d2153bcbc58bac6c3" category="inline-link-macro-rx"></block> 以對您的檔案系統資源進行最全面的分析。</block>
+  <block id="2ac738cf4c15d21f16261387602209ec" category="paragraph">您可以修復 OCI NSS 系統或檔案系統中選定 Volume 的組態問題。您可以選擇一個或多個組態進行修復。</block>
+  <block id="f888e88e3e3041557d311ea4519422b1" category="list-text">選擇選單 <block ref="d0893c56792da060977c8f5dd5abb05a" category="inline-image-macro-rx" type="image"></block>，*工作負載* &gt; *架構良好* &gt; *OCI NSS 系統*。</block>
+  <block id="3efa1f5617c52b1aa6c34c67d5726abd" category="list-text">針對任何組態選擇 *檢視並修復*。請務必仔細審查建議。</block>
+  <block id="388720070126c9456cfb2f5019b9abcd" category="paragraph">關閉以停止對一個或多個 OCI NSS 系統或 Volume 的組態分析。您可以隨時重新啟動分析。</block>
+  <block id="ed39d7e152de2ada740ccd3a78afc0bb" category="list-text">在 OCI NSS 系統架構良好的儀表板中，在「組態」下，選擇不適用於您環境的組態。</block>
+  <block id="8b253c1d4259c21c8314fc85adcb31d6" category="section-title">2026年11月1日</block>
+  <block id="b6109a32079ec6b1674d08deef3b061a" category="sidebar">OCI NetApp 儲存服務的組態分析</block>
+  <block id="ccffb8af48fec4f0b06bcd53e8686fea" category="sidebar">改善 OCI NetApp 儲存服務組態</block>
 </blocks>

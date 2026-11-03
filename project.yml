@@ -307,6 +307,8 @@ sidebar:
       url: "/gcnv/add-roles.html"
     - title: 新增 Google Cloud NetApp Volumes 憑證
       url: "/gcnv/add-credentials.html"
+    - title: 檢視 Google Cloud NetApp Volumes 儲存資源池
+      url: "/gcnv/view-storage-pools.html"
     - title: Google Cloud NetApp Volumes 組態分析
       url: "/gcnv/configuration-analysis.html"
     - title: 改善儲存資源池組態
@@ -323,6 +325,10 @@ sidebar:
       url: "/oci/create-discover-systems.html"
     - title: 連接到 OCI 儲存系統
       url: "/oci/create-link.html"
+    - title: OCI NetApp 儲存服務的組態分析
+      url: "/oci/configuration-analysis.html"
+    - title: 改善 OCI NetApp 儲存服務組態
+      url: "/oci/improve-configurations.html"
     - title: OCI NetApp 儲存服務的權限參考
       url: "/oci/permissions-oci.html"
   - title: 管理 Workload Factory
