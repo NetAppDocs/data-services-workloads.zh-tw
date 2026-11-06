@@ -61,7 +61,7 @@ Journal 表功能可擷取受監控 FSx for ONTAP S3 存取點的 S3 資料平�
 若要啟用 Journal 表功能，請完成下列步驟：
 
 * 已存在一個有 S3 存取點的磁碟區。link:create-volume.html["使用 S3 存取點建立磁碟區"]
-* 將網路設定設為 *Internet* 以用於 S3 存取端點。link:manage-s3-access-points.html["編輯 S3 存取點的網路組態"]。
+* 將網路設定設為 *Internet* 以用於 S3 存取端點。link:edit-s3-access-points.html["編輯 S3 存取點的網路組態"]。
 * link:add-credentials.html["授予 _operations and remediation_ 權限"^] 至您的 Workload Factory 認證資料。
 * 將下列 IAM 政策權限新增至用於執行 CloudFormation 部署以設定 Journal 表的 AWS 帳戶。
 +

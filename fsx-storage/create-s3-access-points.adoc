@@ -52,4 +52,4 @@ Amazon FSx for NetApp ONTAP 允許 NFS 和 SMB 檔案系統存取 S3 資料，�
 
 其他相關主題：
 
-link:manage-s3-access-points.html["在 NetApp Workload Factory 中編輯或刪除 Volume 的 S3 存取點"]
+link:edit-s3-access-points.html["在 NetApp Workload Factory 中編輯或刪除 Volume 的 S3 存取點"]

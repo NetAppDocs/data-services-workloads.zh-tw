@@ -35,7 +35,7 @@ summary: 在 NetApp Console 中了解 Workload Factory 的新增功能，例如�
 
 *重新整理資料* 和 *立即載入* 都會在 Tracker 中建立資料收集事件。
 
-link:admin/manage-custom-dashboards-fsx.html#refresh-dashboard-data["了解如何重新整理自訂儀表板資料"]
+link:https://docs.netapp.com/us-en/data-services-workloads/admin/manage-custom-dashboards-fsx.html#refresh-dashboard-data["了解如何重新整理自訂儀表板資料"]
 
 
 
@@ -43,7 +43,7 @@ link:admin/manage-custom-dashboards-fsx.html#refresh-dashboard-data["了解如�
 
 如果您的要求中未包含某些區域，自訂儀表板現在會要求您選擇一個或多個區域。儀表板資料僅限於您選擇的區域。
 
-link:admin/create-custom-dashboard-fsx.html["了解如何建立自訂儀表板"]
+link:https://docs.netapp.com/us-en/data-services-workloads/admin/create-custom-dashboard-fsx.html["了解如何建立自訂儀表板"]
 
 
 
@@ -51,7 +51,7 @@ link:admin/create-custom-dashboard-fsx.html["了解如何建立自訂儀表板"]
 
 用於建立連結的 CloudFormation 範本和 Terraform 程式碼現在使用 IAM 原則，而不是即時 Lambda 權限。
 
-link:fsx-storage/create-link.html["學習如何建立連結"]
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-storage/create-link.html["學習如何建立連結"]
 
 
 
@@ -61,7 +61,7 @@ link:fsx-storage/create-link.html["學習如何建立連結"]
 
 透過 Workload Factory API 進行的資源變更由執行該操作的 Workload Factory 服務記錄。
 
-link:admin/learn-agent.html#audit-and-tracking-for-agent-actions["了解代理程式操作的稽核和追蹤"]
+link:https://docs.netapp.com/us-en/data-services-workloads/admin/learn-agent.html["了解代理程式操作的稽核和追蹤"]
 
 
 
@@ -229,7 +229,7 @@ OCI Well-Architected Framework 的下列支柱可提供組態評估：
 * 成本最佳化：冷資料分層、快照清理與儲存設備效率
 
 
-了解更多關於 link:oci/configuration-analysis.html["針對 OCI NSS 系統的架構完善分析"] 與 link:oci/improve-configurations.html["實作架構良好的組態"] 的資訊。
+了解更多關於 link:https://docs.netapp.com/us-en/data-services-workloads/oci/add-credentials-oci.html["針對 OCI NSS 系統的架構完善分析"] 與 link:https://docs.netapp.com/us-en/data-services-workloads/oci/improve-configurations.html["實作架構良好的組態"] 的資訊。
 
 
 

@@ -254,5 +254,5 @@ NOTE: Snapshot 快照技術時間基於檔案系統的時區，預設為協調�
 .相關資訊
 * link:manage-volume-capacity.html["調整 Workload Factory 中的 Volume 容量"]
 * link:change-tiering-policy.html["在 Workload Factory 中變更 Volume 分層原則"]
-* link:manage-s3-access-points.html["在 Workload Factory 中管理 S3 存取點"]
+* link:edit-s3-access-points.html["在 Workload Factory 中管理 S3 存取點"]
 

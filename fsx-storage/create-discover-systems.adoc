@@ -21,7 +21,7 @@ summary: 建立或發現 FSx for ONTAP 檔案系統，以便從 NetApp Console �
 [[create-a-storage-system]]
 == 建立儲存系統
 
-第一步是建立儲存系統。如果您已經在雲端供應商的控制台中建立了儲存系統，則可以<<探索現有的雲端儲存系統,使用 NetApp Console 探索它>>。
+第一步是建立儲存系統。如果您已經在雲端供應商的控制台中建立了儲存系統，則可以<<discover-system,使用 NetApp Console 探索它>>。
 
 .關於此任務
 建立檔案系統時會建立儲存設備 VM。
@@ -246,6 +246,7 @@ NOTE: 從 Codebox 使用 Terraform 時，您複製或下載的程式碼會隱藏
 
 
 [[discover-an-existing-fsx-for-ontap-file-system]]
+[[discover-system]]
 == 探索現有的 FSx for ONTAP 檔案系統
 
 如果您先前已在 Workload Factory 中提供了雲端儲存供應商的憑證，則可以從「Discoverable systems」頁面自動發現您的 FSx for ONTAP 檔案系統。您也可以審查可用的資料服務。

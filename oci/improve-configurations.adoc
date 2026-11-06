@@ -39,7 +39,7 @@ Workload Factory 分析以下 OCI NSS 系統組態的架構良好狀態：
 [[before-you-begin]]
 == 開始之前
 
-* 您必須在 OCI 帳戶中link:add-credentials.html["授予 _operations and remediation_ 權限"]。
+* 您必須在 OCI 帳戶中link:add-credentials-oci.html["授予 _operations and remediation_ 權限"]。
 * link:create-link.html["使用連結連接到 OCI NSS 系統"] 以對您的檔案系統資源進行最全面的分析。
 
 
