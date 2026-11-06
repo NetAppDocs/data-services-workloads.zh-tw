@@ -2875,7 +2875,6 @@
   <block id="75ef547803457d883c1ab7eec9dd8c12" category="paragraph">支援將 Amazon FSx for NetApp ONTAP 作為網路保存庫的來源和目標。</block>
   <block id="b672f52ade975e864ae6b58722c03689" category="paragraph-title">實作</block>
   <block id="e8e8dcbe97676a6fe5760aae822c6e61" category="paragraph">Workload Factory 提供建立網路安全保存庫架構的協助。在您聯絡 NetApp 表達實作網路安全保存庫的意願後，NetApp 專家會與您聯絡，討論您的需求。</block>
-  <block id="9577a31ea32e2c5b58950150698f2a07" category="paragraph">請傳送電子郵件至 ng-FSx-CyberVault@netapp.com 以開始使用。</block>
   <block id="a9541230016fd9f6de7895f1a32b75fb" category="inline-link-macro">ONTAP 網路保存庫文件</block>
   <block id="9241eb0a9aab7657dc2b300da8931da7" category="paragraph">如需網路保存庫以及如何設定此架構的詳細資訊，請參閱<block ref="5ee11ce3f9bfc218d47e808a1ac01a55" category="inline-link-macro-rx"></block>。</block>
   <block id="21b32a5531b6213c6f49c70cd4ba55c2" category="summary">從 NetApp Console 建立或探索雲端儲存系統，以新增和管理 Volume 及其他資料服務。</block>
@@ -7072,4 +7071,12 @@
   <block id="8b253c1d4259c21c8314fc85adcb31d6" category="section-title">2026年11月1日</block>
   <block id="b6109a32079ec6b1674d08deef3b061a" category="sidebar">OCI NetApp 儲存服務的組態分析</block>
   <block id="ccffb8af48fec4f0b06bcd53e8686fea" category="sidebar">改善 OCI NetApp 儲存服務組態</block>
+  <block id="a2e83c1dd25f125287b17739cb38fd88" category="paragraph">SSD 儲存層的容量使用率不得超過 80%。超過此臨界值可能會影響容量資源池儲存層的資料讀寫操作，並降低檔案系統的處理量。當容量耗盡時，資料卷將變為唯讀。嘗試寫入新資料的服務也會失敗。</block>
+  <block id="1e1ba6e3e89c5c46a8b08f6bb7ca5b1e" category="paragraph">請傳送電子郵件至 ng-CyberVault@netapp.com 以開始使用。</block>
+  <block id="377ba154ccba26a0c8629b61ddb6ed8e" category="doc">使用網路安全保存庫保護您的 OCI NetApp 儲存服務資料</block>
+  <block id="065ce2bbd0b2c80480729cc2db24ecf0" category="section-title">OCI NetApp 儲存服務網路保存庫</block>
+  <block id="1d36752b389e26db7ea175cfa8c55520" category="paragraph">OCI NetApp 儲存服務支援作為網路安全保存庫的來源和目標。</block>
+  <block id="aef8b94004154212084538bcd066fcd4" category="sidebar">FSx for ONTAP 的權限</block>
+  <block id="84dd6c967c118d2d788a5e553796a8d0" category="sidebar">在 Workload Factory 中使用 OCI NetApp 儲存服務</block>
+  <block id="ce58205871372f591193549c18437f34" category="sidebar">管理 OCI NetApp 儲存服務資源</block>
 </blocks>
