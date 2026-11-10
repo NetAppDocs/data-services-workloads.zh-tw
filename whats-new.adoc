@@ -202,6 +202,23 @@ image:well-architected-menu-option.png["Workload Factory 控制台中設計良�
 
 
 
+[[workload-factory-for-vmware-enhancements]]
+=== Workload Factory for VMware 增強功能
+
+這些增強功能涵蓋了 VMware 遷移的 EVS TCO 計算器。
+
+
+
+==== EVS TCO 計算器支援 i7i.metal-24xl 和 i7i.metal-48xl 執行個體
+
+EVS TCO 計算器現在支援將 AWS i7i.metal-24xl 和 i7i.metal-48xl EC2 執行個體作為叢集主機。與 i4i.metal 配置相比，i7i.metal-24xl 執行個體可將 EVS 的運算初始成本降低約 33%，vSAN 儲存設備初始成本降低約 25%。
+
+此計算器會比較所有執行個體類型，並自動選擇成本最低的方案。新增的比較部分並排顯示 EVS 主機配置，方便您根據自身需求選擇最佳設定。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-vmware/calculate-evs-savings.html["計算 EVS 的預計節省量"]
+
+
+
 [[workload-factory-for-eda-enhancements]]
 === Workload Factory for EDA 增強功能
 

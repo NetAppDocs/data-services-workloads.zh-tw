@@ -7105,4 +7105,11 @@
   <block id="38e979158d55ae25a36aba4d97b0a8b4" category="list-text">根據成長趨勢規劃未來的容量需求</block>
   <block id="2814ccd9bf1ef1faffa5931e29ee7f74" category="list-text">疑難排解失敗的自動化嘗試</block>
   <block id="f2abe5914eba19478c3b813d9def8548" category="sidebar">FSx for ONTAP 延遲分析</block>
+  <block id="e9f11fc9d91bec322284ec741f87191d" category="section-title">Workload Factory for VMware 增強功能</block>
+  <block id="2296d077680e104e6519a9745c173ece" category="paragraph">這些增強功能涵蓋了 VMware 遷移的 EVS TCO 計算器。</block>
+  <block id="37460924712e1c37dc5ad9be085001ad" category="section-title">EVS TCO 計算器支援 i7i.metal-24xl 和 i7i.metal-48xl 執行個體</block>
+  <block id="b6c3bb340d0b13e009a53c6c8a2b9219" category="paragraph">EVS TCO 計算器現在支援將 AWS i7i.metal-24xl 和 i7i.metal-48xl EC2 執行個體作為叢集主機。與 i4i.metal 配置相比，i7i.metal-24xl 執行個體可將 EVS 的運算初始成本降低約 33%，vSAN 儲存設備初始成本降低約 25%。</block>
+  <block id="e50148793a31ae443693925cfda40d91" category="paragraph">此計算器會比較所有執行個體類型，並自動選擇成本最低的方案。新增的比較部分並排顯示 EVS 主機配置，方便您根據自身需求選擇最佳設定。</block>
+  <block id="0665cdd8950328e06e0db9b1e16938d3" category="inline-link-macro">計算 EVS 的預計節省量</block>
+  <block id="536315c4cd9e40b477f48fcc8b1863a7" category="paragraph"><block ref="536315c4cd9e40b477f48fcc8b1863a7" category="inline-link-macro-rx"></block></block>
 </blocks>
