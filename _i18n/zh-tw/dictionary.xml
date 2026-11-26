@@ -6897,7 +6897,6 @@
   <block id="9744964a1ca6fbce3b75a4f5042f9597" category="section-title">儲存虛擬機器移轉改進</block>
   <block id="e6567f9c034c2cedd4efbe2f207f9b2a" category="paragraph">Workload Factory 在使用者介面中提供了增強的儲存設備虛擬機器移轉指導。這包括逐步說明和在將移轉提交到生產環境之前進行的測試執行。</block>
   <block id="5d9883007f4bc5361c0311ad3ad7cfd1" category="inline-link-macro">了解更多關於儲存設備 VM 移轉</block>
-  <block id="f9aacc67b23285dcf36836993d0a0240" category="paragraph"><block ref="f9aacc67b23285dcf36836993d0a0240" category="inline-link-macro-rx"></block></block>
   <block id="f96336c52a88a7b30c68866854b7e3f2" category="section-title">複寫延遲電子郵件通知改善</block>
   <block id="1e403f6a94558e4fb3362faed8f74a9b" category="paragraph">當發生大量相關的複寫延遲事件時，Workload Factory 會自動將它們合併到單一電子郵件通知中，這樣您就不會被通知淹沒。</block>
   <block id="f45963c176c2d5c66e1ddbfab6e6a59e" category="section-title">自動容量管理增強</block>
@@ -7112,4 +7111,5 @@
   <block id="e50148793a31ae443693925cfda40d91" category="paragraph">此計算器會比較所有執行個體類型，並自動選擇成本最低的方案。新增的比較部分並排顯示 EVS 主機配置，方便您根據自身需求選擇最佳設定。</block>
   <block id="0665cdd8950328e06e0db9b1e16938d3" category="inline-link-macro">計算 EVS 的預計節省量</block>
   <block id="536315c4cd9e40b477f48fcc8b1863a7" category="paragraph"><block ref="536315c4cd9e40b477f48fcc8b1863a7" category="inline-link-macro-rx"></block></block>
+  <block id="d708ba996885d5ea1c1b9727bc557415" category="paragraph"><block ref="d708ba996885d5ea1c1b9727bc557415" category="inline-link-macro-rx"></block></block>
 </blocks>

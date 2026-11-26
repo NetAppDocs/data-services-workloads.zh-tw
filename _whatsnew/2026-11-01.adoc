@@ -138,7 +138,7 @@ Workload Factory 現在使用 AWS 成本和使用情況報告（CUR）而非 AWS
 
 Workload Factory 在使用者介面中提供了增強的儲存設備虛擬機器移轉指導。這包括逐步說明和在將移轉提交到生產環境之前進行的測試執行。
 
-link:fsx-storage/create-replication.html["了解更多關於儲存設備 VM 移轉"]
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-storage/create-replication.html["了解更多關於儲存設備 VM 移轉"]
 
 
 
