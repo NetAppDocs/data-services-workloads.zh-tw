@@ -7,7 +7,7 @@ summary: 在向 NetApp 技術支援部門開啟支援案例之前，您需要在
 = 註冊以取得 NetApp Console 支援
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: https://docs.netapp.com/us-en/console-family/media/
 
 
 [role="lead"]
@@ -94,7 +94,7 @@ summary: 在向 NetApp 技術支援部門開啟支援案例之前，您需要在
 . 在 Console 右上角，選取「說明」圖示，然後選取 * 支援 *。
 . 從支援註冊頁面找到您的帳戶 ID 序號。
 +
-image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/screenshot-serial-number.png["說明選單的快照，其中「支援」是列出的第一個選項。"]
+image:screenshot-serial-number.png["說明選單的快照，其中「支援」是列出的第一個選項。"]
 
 . 導航至  https://register.netapp.com["NetApp 的支援註冊網站"^] 並選取 *我不是已註冊的 NetApp 客戶*。
 . 請填寫必填項目（標有紅色星號的欄位）。
@@ -149,7 +149,7 @@ NetApp 將在此過程中與您聯繫。這是針對新使用者的一次性引�
 .步驟
 . 在 Console 右上角，選取「說明」圖示，然後選取 * 支援 *。
 +
-image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/screenshot-help-support.png["說明選單的快照，其中「支援」是列出的第一個選項。"]
+image:screenshot-help-support.png["說明選單的快照，其中「支援」是列出的第一個選項。"]
 
 . 選擇 *NSS Management > Add NSS Account*。
 . 當系統提示時，選擇 *Continue* 以重新導向至 Microsoft 登入頁面。
@@ -174,9 +174,9 @@ NetApp 使用 Microsoft Entra ID 作為驗證服務的身分識別供應商，�
 
 ** 登入成功後，NetApp 將儲存 NSS 使用者名稱。
 +
-這是系統產生的與您的電子郵件地址對應的 ID。您可以在 *NSS Management* 頁面的 image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-nss-menu.png["三個水平點組成的圖標"] 選單中找到您的電子郵件地址。
+這是系統產生的與您的電子郵件地址對應的 ID。您可以在 *NSS Management* 頁面的 image:icon-nss-menu.png["三個水平點組成的圖標"] 選單中找到您的電子郵件地址。
 
-** 如果您需要刷新登入憑證令牌，image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-nss-menu.png["三個水平點組成的圖標"] 選單中還有一個「更新憑證」選項。
+** 如果您需要刷新登入憑證令牌，image:icon-nss-menu.png["三個水平點組成的圖標"] 選單中還有一個「更新憑證」選項。
 +
 使用此選項將提示您重新登入。請注意，這些帳戶的 token 將在 90 天後過期。屆時將發布通知提醒您。
 

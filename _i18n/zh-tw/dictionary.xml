@@ -5648,7 +5648,6 @@
   <block id="c7f5c1a75acc58c6f004efc0ce1eba09" category="list-text">*附件（選購）*：一次最多可上傳五個附件。</block>
   <block id="bfa80e7aaad6da353b431bff3a0e12d6" category="paragraph">每個檔案的大小限制為 25 MB。支援的檔案副檔名有：txt、log、pdf、jpg/jpeg、rtf、doc/docx、xls/xlsx 和 csv。</block>
   <block id="baaf0e61add7d12cf8d12e023d5aef18" category="inline-image-macro">這是「建立案例」表單的快照，您可以透過該表單向 NetApp 支援部門建立案例。</block>
-  <block id="77c89527ec8a9f89b24c5579d19b3b4b" category="paragraph"><block ref="77c89527ec8a9f89b24c5579d19b3b4b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完成後</block>
   <block id="18f487556417bb6d9721a7005ae097c9" category="paragraph">螢幕上會彈出一個窗口，顯示您的支援案例編號。NetApp 支援專員將審查您的案例，並儘快與您聯繫。</block>
   <block id="0ff9b4b8684b9e03c9c1e1320935eae3" category="paragraph">若要查看您的支援案例歷史記錄，您可以選擇 *Settings &gt; Timeline*，然後尋找名為「create support case」的行動。最右側的按鈕可讓您展開該行動以查看詳細資訊。</block>
@@ -5674,9 +5673,7 @@
   <block id="059e856250b59be3069246887b74a23c" category="list-text">您可以選擇確切的日期範圍或選擇不同的時間範圍來修改日期範圍。</block>
   <block id="a1bb576be9e5a356290f231efb51b3f5" category="list-text">篩選各列的內容。</block>
   <block id="1c6ea5ef583389e18e7d7bda70beaa71" category="inline-image-macro">表格中出現的加號圖示</block>
-  <block id="8ac6be88c1aa79062825a147fb263b0e" category="list-text">選取 <block ref="500a336e7ba1c54bcffba4e27bda4eb6" category="inline-image-macro-rx" type="image"></block>，然後選擇要顯示的欄，即可變更表格中顯示的欄。</block>
   <block id="ad0ae9ea1f2e8d973a9a0f6bb169f494" category="inline-image-macro">表格最後一列出現的一個有三個點的圖示</block>
-  <block id="049b7b9fab1242f5e715952973c9474d" category="list-text">透過選取 <block ref="7381d9baeaf62eb099ce84f1a21ed5ca" category="inline-image-macro-rx" type="image"></block> 並選取其中一個可用選項來管理現有案例：</block>
   <block id="6d9dd74e7709ef802d299966f7898f6b" category="list-text">*檢視案例*：檢視特定案例的完整詳細資訊。</block>
   <block id="8e6b52a532a4fbbfc98dca3ebfa5f1e6" category="list-text">*更新案例記錄*：提供有關您問題的更多詳細資料，或選擇 *Upload files* 以附加最多五個檔案。</block>
   <block id="bb6d5d351525342dd6b3cf4d15b6f298" category="list-text">*結案*：提供有關您結案原因的詳細資訊，然後選擇 *結案*。</block>
@@ -5985,7 +5982,6 @@
   <block id="e7e9f49f4584c68b9d97c578e73b7583" category="list-text">在 Console 右上角，選取「說明」圖示，然後選取 * 支援 *。</block>
   <block id="2974170a8b1b5b4a2ac69aacd4c1c9c3" category="list-text">從支援註冊頁面找到您的帳戶 ID 序號。</block>
   <block id="b50f0a46135bcb7083b1f2f82032fc26" category="inline-image-macro">說明選單的快照，其中「支援」是列出的第一個選項。</block>
-  <block id="38fc1b337c0ea26463916fc2913205c1" category="paragraph"><block ref="38fc1b337c0ea26463916fc2913205c1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dd50e314c18933734174c1156dd9237f" category="inline-link">NetApp 的支援註冊網站</block>
   <block id="78f94e749b89d69dcbf3baff21ccb958" category="list-text">導航至 <block ref="e1c4be66250fd76d5c52bfe2cb7daee2" category="inline-link-rx"></block> 並選取 *我不是已註冊的 NetApp 客戶*。</block>
   <block id="d4f633ef130727b2776fa7f45024ca7d" category="list-text">請填寫必填項目（標有紅色星號的欄位）。</block>
@@ -6008,7 +6004,6 @@
   <block id="5bc1315a63455544e7a917a7cc968939" category="paragraph">這些 NSS 認證資料與您的特定 Console 帳戶 ID 相關聯。屬於 Console 組織的使用者可以從 *Support &gt; NSS Management* 存取這些認證資料。</block>
   <block id="328a2c1e7778e9edaf79d90c51409ac4" category="list-text">如果您擁有客戶級帳戶，則可以新增一個或多個 NSS 帳戶。</block>
   <block id="e3cd99e4aa330ae6bdfb3754d83ae962" category="list-text">如果您擁有合作夥伴或經銷商帳戶，您可以新增一個或多個 NSS 帳戶，但不能與客戶級帳戶同時新增。</block>
-  <block id="7019a39846e9a2c7f7a80eaba91e4a41" category="paragraph"><block ref="7019a39846e9a2c7f7a80eaba91e4a41" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c0e0b7ff0de9558404e9b77ece42948a" category="list-text">選擇 *NSS Management &gt; Add NSS Account*。</block>
   <block id="85b9386ed443776127e099931d73448a" category="list-text">當系統提示時，選擇 *Continue* 以重新導向至 Microsoft 登入頁面。</block>
   <block id="d59e0b46782e48a01966e5c7ccc38d17" category="paragraph">NetApp 使用 Microsoft Entra ID 作為驗證服務的身分識別供應商，專門用於支援和授權。</block>
@@ -6020,8 +6015,6 @@
   <block id="a04a3a5322782e8c18d0d64be7e1ccbc" category="paragraph">如果您已有客戶等級的 NSS 帳戶，並嘗試新增合作夥伴等級的帳戶，則情況也是如此。</block>
   <block id="1afe8a81cfddc9fa9559e272bb6b9496" category="list-text">登入成功後，NetApp 將儲存 NSS 使用者名稱。</block>
   <block id="1dcb63fd55c4d22e87cb32275b8cc808" category="inline-image-macro">三個水平點組成的圖標</block>
-  <block id="1d593c3f7480ada9580d93cd753c3f93" category="paragraph">這是系統產生的與您的電子郵件地址對應的 ID。您可以在 *NSS Management* 頁面的 <block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block> 選單中找到您的電子郵件地址。</block>
-  <block id="872eaae7deb6035c20f9bfe6deefd03d" category="list-text">如果您需要刷新登入憑證令牌，<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block> 選單中還有一個「更新憑證」選項。</block>
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">使用此選項將提示您重新登入。請注意，這些帳戶的 token 將在 90 天後過期。屆時將發布通知提醒您。</block>
   <block id="32acdb91b398fe68c473d385b28af9c3" category="doc">NetApp Workload Factory 的權限</block>
   <block id="700a021d89dc2381c64a3ed9192ee53f" category="section-title">為什麼要使用權限</block>
@@ -7224,4 +7217,11 @@
   <block id="764f20ec2dd6a78505eaec1ab08fa0fb" category="section-title">DP Volume 的延遲細分</block>
   <block id="45d5d8eb50bda01c3e493da6cbdf9431" category="paragraph">基本延遲分析中的元件細分不適用於資料保護（DP）Volume。</block>
   <block id="5fd02484bbe1124b48ec6e3c36e522cb" category="section-title">2026 年 11 月 26 日</block>
+  <block id="6a01d74a3f012349cadafc7f0c97c86d" category="paragraph"><block ref="6a01d74a3f012349cadafc7f0c97c86d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e461a14ef18284f75a2b6063d614da64" category="list-text">選取 <block ref="561341289de713dd5ea2cd49d1743cab" category="inline-image-macro-rx" type="image"></block>，然後選擇要顯示的欄，即可變更表格中顯示的欄。</block>
+  <block id="cb70a108f4a6413201209cb4b6024938" category="list-text">透過選取 <block ref="babe7781192bcd33c63a8532a0937e8b" category="inline-image-macro-rx" type="image"></block> 並選取其中一個可用選項來管理現有案例：</block>
+  <block id="9c0825883c050c64e9b59af470120939" category="paragraph"><block ref="9c0825883c050c64e9b59af470120939" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="357be4e47fe6e7132dca092006062510" category="paragraph"><block ref="357be4e47fe6e7132dca092006062510" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="848755f433bd66788db4d5c6e554252d" category="paragraph">這是系統產生的與您的電子郵件地址對應的 ID。您可以在 *NSS Management* 頁面的 <block ref="6a3f89871d33c6cbc194f4f6a8275a65" category="inline-image-macro-rx" type="image"></block> 選單中找到您的電子郵件地址。</block>
+  <block id="5c680c883d2069f8039766ada41f7c1f" category="list-text">如果您需要刷新登入憑證令牌，<block ref="6a3f89871d33c6cbc194f4f6a8275a65" category="inline-image-macro-rx" type="image"></block> 選單中還有一個「更新憑證」選項。</block>
 </blocks>
