@@ -319,3 +319,10 @@ ONTAP 組態和作業系統組態不支援對多個 SQL Server 執行個體進�
 === 需要操作員權限
 
 適用於 EDA 的 NetApp Workload Factory 需要操作員權限才能正常運作。
+
+
+
+[[latency-breakdown-for-dp-volumes]]
+=== DP Volume 的延遲細分
+
+基本延遲分析中的元件細分不適用於資料保護（DP）Volume。

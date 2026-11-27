@@ -1,17 +1,17 @@
 ---
 sidebar: sidebar 
 permalink: fsx-storage/manage-volume-settings.html 
-keywords: volume tags, edit volume tags, edit tags, enable immutable files, disable immutable files, lock files, unlock files, storage efficiency change, update storage efficiency 
-summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume 工作負載、編輯 Volume 標籤、更新儲存效率，以及管理不可變檔案設定。 
+keywords: volume tags, edit volume tags, edit tags, manage mount points, mount points, junction paths, enable immutable files, disable immutable files, lock files, unlock files, storage efficiency change, update storage efficiency 
+summary: 在 NetApp Workload Factory 中變更 Volume 工作負載、管理安裝點、編輯 Volume 標籤、更新儲存效率，以及管理 FSx for ONTAP Volume 的不可變檔案設定。 
 ---
-= 在 NetApp Workload Factory 中管理 Volume 設定
+= 在 NetApp Workload Factory 中管理 FSx for ONTAP Volume 設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以符合您組織的需求。您可以設定 Volume 工作負載和標籤來對資源進行分類，更新儲存效率設定以最佳化空間和成本節約效益，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。
+在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以滿足您組織的需求。您可以設定 Volume 工作負載和標籤來對資源進行分類，更新儲存效率設定以最佳化空間和成本節約效益，管理安裝點（交會路徑）以控制 Volume 的裝載位置，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。
 
 
 
@@ -21,13 +21,27 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 更新 Volume 的工作負載，使其與預期用途相符。
 
 .步驟
-. 使用以下任一方式登入link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html["主控台體驗"^]。
-. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至儲存、EDA、AI、資料庫、VMware 和管理等工作負載。"]，然後選擇 *Storage*。
-. 從「Storage」功能表中，選取「Volumes explorer」。
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
 . 選擇要更新工作負載的 Volume 的操作選單。
-. 選取 *進階操作*，然後選取 *變更工作負載*。
+. 選取 *進階動作*，然後選取 *變更工作負載*。
 . 在「變更工作負載」對話方塊中，為 Volume 選擇正確的工作負載。
 . 選取 *套用* 以儲存變更。
+
+
+
+
+[[manage-mount-points-junction-paths]]
+== 管理安裝點（交會路徑）
+
+管理儲存設備 VM 命名空間中 Volume 的裝載位置。Workload Factory 在取下 Volume 之前會檢查相依性。您無法取下已裝載其他 Volume 的 Volume，且如果 Volume 包含 SMB 共用，系統會發出警告。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
+. 選擇要管理安裝點的 Volume 的操作選單。
+. 選擇 *進階操作*，然後選擇 *管理安裝點*。
+. 在「管理安裝點」頁面上，裝載、取下或變更 Volume 的安裝點（交會路徑）。
 
 
 
@@ -41,7 +55,7 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 . 登入 link:https://console.netapp.com["NetApp Console"^]。
 . 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
 . 選擇要修改標籤的 Volume 的動作選單。
-. 選擇 *基本操作*，然後選擇 *編輯 Volume 標籤*。
+. 選擇 *基本操作* ，然後選擇 *編輯 Volume 標籤* 。
 . 在「編輯 Volume 標籤」頁面上，新增、編輯或移除標籤。
 +
 一個 Volume 最多可以套用 50 個標籤。
@@ -56,7 +70,7 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 
 在建立 Volume 後更新儲存效率設定。
 
-儲存效率功能包括重複資料刪除、資料壓縮和資料精簡，以在 FlexVol Volume 上達到最佳的空間節約效益。重複資料刪除可消除複製的資料區塊。資料壓縮可壓縮資料區塊，以減少所需的實體儲存設備。資料精簡可在更少的空間內儲存更多資料，以提高儲存效率。
+儲存效率功能包括重複資料刪除、資料壓縮與資料精簡，以在 FlexVol Volume 上達到最佳的空間節約效益。重複資料刪除可消除複製的資料區塊。資料壓縮會壓縮資料區塊，以減少所需的實體儲存設備量。資料精簡可在較少的空間內儲存更多資料，以提高儲存效率。
 
 如果您在建立 Volume 時選擇不啟用儲存效率，您可以隨時啟用該設定，以獲得潛力空間和成本節約效益。
 
@@ -76,7 +90,7 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 [[manage-immutable-files-for-a-volume-in-netapp-workload-factory]]
 == 在 NetApp Workload Factory 中管理 Volume 的不可變檔案
 
-啟用功能後，您可以更新 Volume 的某些不可變檔案設定，例如保留政策和期間、自動提交期間和 Volume 追加模式。
+當為 Volume 啟用不可變檔案功能時，您可以更新保留政策和期限、自動提交期限和 Volume 追加模式等設定。
 
 您只能在link:create-volume.html["Volume 建立"]期間啟用不可變檔案。
 
@@ -85,12 +99,12 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 . 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *Volume 資源管理器*。
 . 選擇要更新的 Volume 的動作選單。
 . 選擇 *資料保護動作*，然後選擇 *管理不可變檔案*。
-. 在「管理不可變檔案」頁面上，您可以更新以下內容：
+. 在「管理不可變檔案」頁面上，更新以下內容：
 +
-** *保留期間*：選擇*未指定*或*指定期間*。
+** *保留期限*：選擇*未指定*或*指定期限*。
 +
 *** *未指定*：預設最短期限為 0 年，預設最長期限為 30 年。
-*** *指定期間*：定義保留政策、最短和最長期間、自動提交功能，以及 Volume 追加模式功能的選項。請提供以下詳細資訊：
+*** *指定保留期限*：定義保留政策、最小和最大保留期限、自動提交功能以及 Volume 追加模式功能。請提供以下詳細資訊：
 +
 **** *保留政策*：此期限必須大於或等於最短保留期間，且小於或等於最長保留期間。
 **** *最小和最大週期*：設定將此 Volume 中的檔案提交到不可變 WORM 狀態的最小和最大週期。
@@ -98,9 +112,9 @@ summary: 在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume �
 
 
 
-** *自動提交*：啟用或停用自動將未在自動提交期間修改的檔案提交至 WORM 的功能。
+** *自動提交*：啟用或停用此功能，以便在自動提交期間檔案未被修改時，自動將檔案提交至 WORM。
 ** *特權刪除*：啟用或停用此功能。啟用此功能可讓 SnapLock 系統管理員刪除未過期的 WORM Volume。此功能僅在企業保留模式下支援。
-** *Volume 追加模式*：啟用或停用此功能。啟用 Volume 追加模式可讓您將新內容新增至 WORM 檔案。
+** *Volume 追加模式*：啟用或停用此功能。啟用 Volume 追加模式後，您可以為 WORM 檔案新增內容。
 
 
 . 選擇 *Apply*。

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: gcnv/create-discover-systems.html 
-keywords: Google Cloud NetApp Volumes, gcnv, volumes, create system, delete system, access key, secret key, region, availability zones, discover, storage capacity, iops, throughput, security group, security, NetApp Console 
-summary: 從 NetApp Console 建立或探索雲端儲存系統，以新增和管理 Volume 及其他資料服務。 
+keywords: Google Cloud NetApp Volumes, gcnv, add system, system name, credentials, region, NetApp Console 
+summary: 將 Google Cloud NetApp Volumes 系統新增至 NetApp Console，以管理其儲存資源池、Volume 和資料服務。 
 ---
-= 在 NetApp Console 中建立或探索 Google Cloud NetApp Volumes 系統
+= 在 NetApp Console 中新增 Google Cloud NetApp Volumes 系統
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,33 +14,30 @@ summary: 從 NetApp Console 建立或探索雲端儲存系統，以新增和管�
 
 
 [role="lead"]
-探索 Google Cloud NetApp Volumes 系統，並從 NetApp Console 管理 Volume 和其他資料服務。
+新增 Google Cloud NetApp Volumes 系統，以便您可以從 NetApp Console 管理其儲存資源池和 Volume。
 
 
 
-[[discover-an-existing-cloud-storage-system]]
-== 探索現有的雲端儲存系統
+[[add-a-system]]
+== 新增系統
 
-從「Discoverable systems」頁面探索您的儲存設備系統。
+註冊您要管理的專案，以便 Workload Factory 將其儲存資源池包含在每個區域中。
 
 .開始之前
-在 Workload Factory 中提供您的 Google Cloud NetApp Volumes 憑證。
-
-.關於此任務
-您在一個帳戶內只能探索一次雲端儲存系統，並將其附加至一個工作區。之後可以移除該儲存系統，並將其重新關聯至不同的工作區。
+在 Workload Factory 中新增 Google Cloud NetApp Volumes 專案的憑證link:add-credentials.html["了解如何新增憑證"]。
 
 .步驟
-. 從 NetApp Console 選單中，選取 *儲存設備*，然後選取 *管理*，接著選取 *Discoverable systems*。
-. 顯示已探索的雲端儲存系統數量。選擇 *探索*。
-. 選擇一個或多個儲存系統，然後選擇 *探索* 將其新增至「系統」頁面。
+. 從 NetApp Console 選單中，選取 *儲存設備* > *管理* > 系統，然後選取 *新增系統* > *Google Cloud Platform*。
+. 在 *Google Cloud NetApp Volumes* 下，選取 *探索*。
+. 請輸入系統名稱。
+. 選擇系統憑證。
+. （可選）選擇一個區域。如果您不選擇區域，系統將涵蓋所有區域。
++
+
+NOTE: 區域不會限制探索。Workload Factory 會探索該憑證在每個區域中的儲存資源池。您選擇的區域會設定系統在畫布上顯示的內容，以及合規性與 DRaaS 所使用的內容。
+
+. 點選 *探索*。
 
 
-[NOTE]
-====
-* 如果您選擇未命名的儲存系統，系統會提示您輸入系統名稱。
-* 如果您選擇的儲存系統沒有從 Console 管理它所需的憑證，系統會提示您選擇具有所需權限的憑證。
-
-
-====
 .結果
-Console 會在「系統」頁面上顯示您探索到的系統。您可以透過多種方式管理儲存系統，例如從 NetApp Console 中的「工作負載」、使用 ONTAP System Manager，或是使用雲端供應商的儲存管理工具。
+NetApp Console 會在「系統」頁面上顯示系統。您可以使用相同的憑證來新增任意數量的系統。

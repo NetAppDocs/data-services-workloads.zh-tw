@@ -2134,7 +2134,6 @@
   <block id="38eacd6054dad756b607d4c8329eee03" category="section-title">延遲分析面板</block>
   <block id="0665519f24690502dfcb8f5913d6b056" category="paragraph">在 *Severity* 欄位中選取延遲事件，即可開啟該事件的延遲分析面板。此面板包含多個索引標籤，可提供延遲事件的不同檢視。</block>
   <block id="d4aa2b3d15c42ad4fd480c90a0dd2ff0" category="paragraph">AI 分析可用度取決於您的帳戶設定。如果 NetApp 代管 AI 已啟用，則無需設定 Bedrock 即可執行 AI 分析。如果達到每月信用額度上限或系統管理員停用 AI 功能，則 AI 分析將無法使用。</block>
-  <block id="749a48c0317fe3f2ef0a45565b6d5eaa" category="list-text">*基本*：顯示自動分析結果。如果已連結到檔案系統，則會顯示組件分解訊息，並指出導致延遲的組件。如果未連結到檔案系統，系統會提示您新增連結。</block>
   <block id="15cd7052e1d93c893bde34b56ad0d78f" category="paragraph">畫面會顯示受影響 Volume 的 CloudWatch 計量互動式延遲圖。根據觸發事件的警示，該圖會顯示讀取或寫入計量。您可以選擇不同的時間範圍，並使用篩選器檢視全部、讀取、寫入或元資料操作。</block>
   <block id="56dacd4284bdced92c0b004472a11758" category="list-text">*AI 分析*：顯示更深入的調查，以確定具體的根本原因和潛在的補救步驟。</block>
   <block id="633009349fd0d4ddd69254b14ddb614b" category="list-text">*詳細延遲分析*：顯示受影響 Volume 的 CloudWatch 計量互動式圖表。圖表顯示延遲、IOPS 和處理量隨時間的變化。根據觸發事件的警示類型，圖表會顯示讀取或寫入計量。您可以選擇不同的時間範圍，並使用篩選器檢視全部、讀取、寫入或元資料操作。</block>
@@ -2144,7 +2143,6 @@
   <block id="b40f6683a1eb1ae3afa3737db2b06397" category="list-text">審查 *Basic* 索引標籤。如果已連接連結，請開啟組件分解圖，查看延遲來源。如果未連接任何連結，請選擇提示以連結一個連結，以便分析各個組件。</block>
   <block id="d8f181efec7f7692ea2986c04f76ad86" category="list-text">在「AI 分析」標籤中，選擇「分析」（如有）以檢視更深入的調查結果，例如可能的資料或叢集問題。這有助於確定具體的根本原因和潛在的補救步驟。</block>
   <block id="988f6f9e1ca459bc23b17e74878baf18" category="paragraph">查看結果，包括：</block>
-  <block id="d5f97a1cb8e0382743f28559f0c6ace7" category="list-text">潛在根本原因說明</block>
   <block id="a9e75b44526a7c3342bd86bfb6079dcc" category="list-text">受影響的 EC2 用戶端清單</block>
   <block id="0a3d11a9c21fb1f2a4dc021dc4a83aad" category="list-text">建議的補救步驟</block>
   <block id="92ffa2df9924192cd277aff197d336a5" category="list-text">選擇 *View full analysis* 以檢視 AI 分析的完整結果，包括效能圖表，這些圖表顯示所選時間段內來自 CloudWatch 計量的 Volume 延遲、IOPS 和處理量。</block>
@@ -2690,7 +2688,6 @@
   <block id="3583e4a3e4e2e122cff65b8ad9045348" category="list-text">主動可觀測性</block>
   <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">洞察化為行動</block>
   <block id="7a3fc3cf12e9da54628c7311398bee5c" category="list-text">AWS 架構完善框架顧問</block>
-  <block id="8779c6393df05e1705b311d9e0f13958" category="paragraph">您也可以使用純文字語言建立自訂規則，以根據組織的標準和 NetApp 最佳實務來驗證您的環境。先進行模擬執行測試規則，然後排程在您的環境中執行。<block ref="02fcf2ffb8ce0690b17b03c9491ef999" category="inline-link-macro-rx"></block>。</block>
   <block id="8feb6c8d13e912657481adbe0cafebb3" category="paragraph">Workload Factory 藉由結合後續評估與建議洞察和修復，將最佳實務做法應用於大型儲存設備、資料庫和 VMware 環境。自動化修復可減少人為錯誤，確保統一管理，並維護工作負載基礎架構的效能和可靠性。</block>
   <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
   <block id="ccfc2060f8f316d0ccd33b0289111a38" category="paragraph">要進行完整的檔案系統分析，必須執行以下操作：</block>
@@ -2742,7 +2739,6 @@
   <block id="a39ae09f8be4327fc176cfeb76a0e366" category="section-title">成本最佳化</block>
   <block id="394c926099d3d2cf7e0d7477f17faf38" category="paragraph">成本優化可協助您在保持低成本的同時，為企業創造最大價值。</block>
   <block id="01fd10a8e7ac161e328da4eaf6292046" category="list-text">*冷資料分層*</block>
-  <block id="fdc181efad43392a7f4edba311fccf94" category="paragraph">啟用冷資料分層以降低 SSD 儲存層的使用率。將分層原則套用至每個著重於一般資料儲存設備的 Volume。對於資料庫 Volume，請在適當情況下啟用冷資料分層。FSx for ONTAP 會持續掃描資料以尋找冷資料，並將其移至容量資源池層，而不會造成中斷。</block>
   <block id="1642a3ac22d754ea2e3215648c2ca8a7" category="list-text">*儲存效率*</block>
   <block id="a97dffed0cf7eab28dd24e64546425b8" category="paragraph">啟用儲存設備效率提升（資料精簡、壓縮和重複資料刪除），以最佳化儲存使用率並降低 SSD 分層成本。</block>
   <block id="4839729f2857a14e606b9472d85de0c1" category="list-text">*備份到期*</block>
@@ -2823,7 +2819,6 @@
   <block id="aa5bf59269969e22f1e91f0116790d69" category="paragraph">在建立和執行自訂規則之前，請確保您已具備以下條件：</block>
   <block id="fadf874162a190084750a51220f07180" category="list-text">您了解自訂規則建立使用 NetApp 的 Bedrock AI 服務。</block>
   <block id="536d32f8526dd0faea40f78af4cad034" category="section-title">建立規則</block>
-  <block id="3f87c61ee7c070ec896e14d55b132e25" category="paragraph">開啟規則建構者後，它會顯示範例提示，幫助您寫入自訂規則。您可以選擇 *Copy prompt* 將範例提示複製到 AI 對話方塊文字方塊中。</block>
   <block id="ab99baf0da39867076eea6e470865275" category="list-text">在「建立規則」欄位中，以自然語言輸入規則執行摘要。請盡可能具體地描述以下內容：</block>
   <block id="d8eefaf38d3f8455541df01bc5d6831b" category="list-text">您正在檢查哪種資源類型（檔案系統、Volume 或快取）。</block>
   <block id="4e86c5f58eeed68b966c1b5f2cf16853" category="list-text">您要驗證的條件。</block>
@@ -2833,7 +2828,6 @@
   <block id="448a77fdd0ab1119d70eda7dfad65fa7" category="list-text">選擇 <block ref="9bf5747e0eee12d0fcc488bd415a8bc3" category="inline-image-macro-rx" type="image"></block>。</block>
   <block id="15fc6fdd1dd9d66889237c7e8a75d290" category="paragraph">AI 會分析您的提示並產生規則定義。</block>
   <block id="1c88936123899b4423b51efeb098f008" category="section-title">審查 AI 解釋</block>
-  <block id="28ea3f4811ef4cb7fc2b7f08d6fce5a7" category="paragraph">規則建構者顯示：</block>
   <block id="f89784f298e9f6255c6acd2f32b4051a" category="list-text">審查解釋結果，確保其符合您的預期。</block>
   <block id="f7dd96479a94850934674d003fe54f52" category="list-text">回答完所有問題後，選擇 *Continue* 以建立規則。</block>
   <block id="66178252f08edeeeeda7bfc5ebf5227b" category="section-title">測試規則</block>
@@ -3519,9 +3513,7 @@
   <block id="dc782d3e46ef3bd4b9ae294af16366b0" category="paragraph">刪除 SMB/CIFS 共用區會使其無法使用，任何想要裝載它的使用者都無法存取。</block>
   <block id="73d6e57b628ed920f4ce69e52d8df9d7" category="list-text">在「刪除 SMB/CIFS 共用區」對話方塊中，選取 *刪除* 以確認刪除。</block>
   <block id="d8bb2214730133a5475bf68bf933cdeb" category="section-title">檢視規則目錄</block>
-  <block id="12dc6c12cd959eea202fab9d01a2ef04" category="paragraph">規則目錄顯示您建立的所有規則、其狀態、排程和最新結果。</block>
   <block id="e1cf2ece0db166d8b4c6b87f20794e11" category="inline-image-macro">漢堡選單圖示</block>
-  <block id="dd5177b4ae0935729bdc02652d8232ff" category="list-text">選擇選單 <block ref="438b712f6e6afc173ce78a756adc207c" category="inline-image-macro-rx" type="image"></block>，然後選擇 *Rule builder*。</block>
   <block id="2dbbd81185e2ce12dca0c0137a343a42" category="list-text">點選「檢視您的規則」開啟規則目錄。</block>
   <block id="5890f83979745a0ed0d6d680fbcc1638" category="section-title">檢視規則結果</block>
   <block id="eeed19c5f7da7509abad8a01045710dc" category="paragraph">結果顯示哪些資源符合您的規則，哪些不符合。</block>
@@ -3831,16 +3823,13 @@
   <block id="9e37c13416b5ae00943c0a3e0a5515e1" category="list-text">開始重新平衡作業後，從 Volume 平衡頁面中，選取 *停止重新平衡*。</block>
   <block id="e1c8bb61c19d6ae0db6ae5e69616299c" category="list-text">在「停止重新平衡」對話方塊中，選取 *停止*。</block>
   <block id="dacae3a3d22c24a7e5e2a28664e1043d" category="paragraph">Volume 重新平衡作業停止，且作用中 Volume 移動中止。</block>
-  <block id="2e4be9b0e28ca3065b74b93bd25ca696" category="doc">在 NetApp Workload Factory 中管理 Volume 設定</block>
   <block id="d151342d67a639e871ca8c57524ca7f8" category="section-title">管理 Volume 標籤</block>
   <block id="693a8f663c39ae53134101e5d974fda8" category="paragraph">標籤可以幫助您對資源進行分類。您可以隨時在 NetApp Workload Factory 中為 FSx for ONTAP Volume 新增、編輯和移除 Volume 標籤。</block>
   <block id="1111cc43d23839eef53ada84488c133d" category="list-text">選擇要修改標籤的 Volume 的動作選單。</block>
-  <block id="c966edae1d484c4f3e557d47709e08a1" category="list-text">選擇 *基本操作*，然後選擇 *編輯 Volume 標籤*。</block>
   <block id="9724e2d67a8b8dacb5f774fbf0309b44" category="list-text">在「編輯 Volume 標籤」頁面上，新增、編輯或移除標籤。</block>
   <block id="88ba83269635947653a5d84b3d1da8be" category="paragraph">一個 Volume 最多可以套用 50 個標籤。</block>
   <block id="70db812201935aaccc5a6c48663fbbd9" category="section-title">更新 Volume 儲存效率</block>
   <block id="5315e58af0e826259e6ff3250a45d68c" category="paragraph">在建立 Volume 後更新儲存效率設定。</block>
-  <block id="07834469705cb1cae603dc37fac50539" category="paragraph">儲存效率功能包括重複資料刪除、資料壓縮和資料精簡，以在 FlexVol Volume 上達到最佳的空間節約效益。重複資料刪除可消除複製的資料區塊。資料壓縮可壓縮資料區塊，以減少所需的實體儲存設備。資料精簡可在更少的空間內儲存更多資料，以提高儲存效率。</block>
   <block id="6949ed855da826654fa3e3a2e2a18279" category="paragraph">如果您在建立 Volume 時選擇不啟用儲存效率，您可以隨時啟用該設定，以獲得潛力空間和成本節約效益。</block>
   <block id="3561512c31eaec9705db4d98de971d93" category="paragraph">無論啟用或停用儲存效率， Volume 都會使用資源隨需配置。</block>
   <block id="3b4ba83afa209df4541afdb1c96a15f9" category="list-text">選擇要更新儲存效率設定的 Volume 的動作選單。</block>
@@ -3848,17 +3837,11 @@
   <block id="fc86913f9636c03cbcbb4e3e03d4b332" category="list-text">選擇啟用或停用 Volume 儲存效率。</block>
   <block id="b755b7c9e5db773b9578d24d7b40b61d" category="list-text">選取 *套用* 以儲存變更。</block>
   <block id="0b83e178116e79ce2a76377c2fe4e4ed" category="section-title">在 NetApp Workload Factory 中管理 Volume 的不可變檔案</block>
-  <block id="64a89a3651290ba9a03fd440b6a0ebf1" category="paragraph">啟用功能後，您可以更新 Volume 的某些不可變檔案設定，例如保留政策和期間、自動提交期間和 Volume 追加模式。</block>
   <block id="b492e06a3b3ad8340a18b513da6d700b" category="inline-link-macro">Volume 建立</block>
   <block id="0178234ce599b2e6182625dc7a986f96" category="list-text">選擇要更新的 Volume 的動作選單。</block>
   <block id="93e46e1a97b77571f38fbf3e149f1774" category="list-text">選擇 *資料保護動作*，然後選擇 *管理不可變檔案*。</block>
-  <block id="ad020fe684b765118a2055b344aee93d" category="list-text">在「管理不可變檔案」頁面上，您可以更新以下內容：</block>
-  <block id="41aead073b18e72c83b214fa747bdba7" category="list-text">*保留期間*：選擇*未指定*或*指定期間*。</block>
-  <block id="bdc86b1b59114d960fddc6510ce5b5aa" category="list-text">*指定期間*：定義保留政策、最短和最長期間、自動提交功能，以及 Volume 追加模式功能的選項。請提供以下詳細資訊：</block>
   <block id="f8acb56e7fdfc40573cdcf902933cf6b" category="list-text">*保留政策*：此期限必須大於或等於最短保留期間，且小於或等於最長保留期間。</block>
   <block id="5e014a6c33a86633de2b837f04c25093" category="list-text">*最小和最大週期*：設定將此 Volume 中的檔案提交到不可變 WORM 狀態的最小和最大週期。</block>
-  <block id="25c4d2e22e431bb231ebfacb000ad26c" category="list-text">*自動提交*：啟用或停用自動將未在自動提交期間修改的檔案提交至 WORM 的功能。</block>
-  <block id="6dc7abcdf6f4b84a36a87f40f2787a33" category="list-text">*特權刪除*：啟用或停用此功能。啟用此功能可讓 SnapLock 系統管理員刪除未過期的 WORM Volume。此功能僅在企業保留模式下支援。</block>
   <block id="866b1ecefa63336519b427710ec4d496" category="inline-link-macro">在 Workload Factory 中建立 Volume</block>
   <block id="f2b9c933540bfeebed06160c6e39c4ba" category="list-text"><block ref="f2b9c933540bfeebed06160c6e39c4ba" category="inline-link-macro-rx"></block></block>
   <block id="db99231f6dff7de5950fdeb11214939f" category="inline-link-macro">在 Workload Factory 中管理 Volume 容量</block>
@@ -5519,10 +5502,7 @@
   <block id="7ac5667c1b90b6524fde9817118effea" category="paragraph">Workload Factory 建議將 Volume 使用率保持在 80% 以下，以降低空間不足的風險。如果 Volume 增長速度超出預期，您可能需要快速擴充它。這可能會增加應用程式受到影響的風險，尤其是在突然或高峰增長的情況下。使用資源隨需配置和自動容量管理可以降低此風險。您可以針對一個或多個 Volume 將其關閉，並在需要時重新啟用。</block>
   <block id="f793fba5432b14d544dc9553f3dba075" category="inline-link-macro">實作架構良好的 Google Cloud NetApp Volumes 組態</block>
   <block id="97b454b609a0aa059f0ee5086b4e833b" category="paragraph"><block ref="97b454b609a0aa059f0ee5086b4e833b" category="inline-link-macro-rx"></block></block>
-  <block id="e59d726fcfb88c6055be1c3faacbdade" category="doc">在 NetApp Console 中建立或探索 Google Cloud NetApp Volumes 系統</block>
-  <block id="50ee01defb15abd93bc6b3404bcb087d" category="paragraph">探索 Google Cloud NetApp Volumes 系統，並從 NetApp Console 管理 Volume 和其他資料服務。</block>
   <block id="8145d004afbc2327122adddf556de278" category="paragraph">從「Discoverable systems」頁面探索您的儲存設備系統。</block>
-  <block id="932a709702b0fabe39c59febfaaa5b36" category="paragraph">在 Workload Factory 中提供您的 Google Cloud NetApp Volumes 憑證。</block>
   <block id="1fbc6d00faf337e60116deb7a9436737" category="summary">Workload Factory 掃描 Google Cloud NetApp Volumes 組態，提供見解和建議，協助您實現卓越營運績效。</block>
   <block id="5bf39b6df69484117b7a94f73c047bec" category="paragraph">利用組態分析洞察和建議，運用 NetApp 為在 Google Cloud 儲存設備上執行的 Google Cloud NetApp Volumes 儲存資源池實作最佳實務。您可以輕鬆審查架構完善的狀態、了解組態中存在的問題，並獲得改善建議，以最佳化任何在可靠性、安全性、效能和成本方面尚未最佳化的儲存資源池架構。</block>
   <block id="7d1ff00602d5a32748c6468a1bf8908e" category="paragraph">NetApp 每日分析 Google Cloud NetApp Volumes 儲存資源池在 Google Cloud 的部署。每日分析提供架構完善的狀態，以及深入見解與建議，協助您了解組態問題，讓您的儲存資源池符合最佳實務。</block>
@@ -6310,7 +6290,6 @@
   <block id="5027902eb321e29c02f1b29693c38975" category="list-text">*Console 使用者介面*：提供 _快速建立_ 和 _進階建立_ 部署模式選項。快速建立包含 AWS、NetApp 和產業標準最佳實務做法，適用於您的儲存設備組態。此介面也會顯示 SSD 儲存容量和處理量使用趨勢、工作負載摘要，以及您可以擴充的詳細組態設定。</block>
   <block id="4add18b12df10bcbce425a63ffca5e83" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的設定，以確保您的檔案系統井然有序、安全的，且大小適合您的工作負載。您可以隨時新增或編輯標籤、管理 ONTAP 認證資料、重設 fsxadmin 密碼，以及更新處理量容量。</block>
   <block id="e5887c2efb1d1c33ac1d1a94c80a271f" category="section-title">管理 ONTAP 認證資料</block>
-  <block id="cb024049d5ea2ff7afa317a6714dc5e2" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的 ONTAP 認證資料。Workload Factory 有兩種類型的認證資料：主要和受限。預設情況下，檔案系統使用主要的 ONTAP 認證資料。受限認證資料僅用於 AI 作業（AIOps），例如 Ask Me、規則建構者和自訂儀表板。您可以選擇新增受限認證資料集，並且可以隨時更新任一認證資料集。</block>
   <block id="8d1d531715a92e9a9357a3f3a1c54f69" category="paragraph">您可以執行以下工作：</block>
   <block id="fa4aa5fb5750ccbf7f29962d66653d6a" category="list-text">選擇新增受限認證資料集，可以使用使用者名稱和密碼或秘密 ARN。</block>
   <block id="1f6972d3f9f44512acd184a7af564248" category="list-text">更改現有認證資料，包括使用者名稱和密碼、僅密碼或 secret ARN。</block>
@@ -6325,10 +6304,7 @@
   <block id="5baa98427cdf9e7fa18b25794f917fd6" category="list-text">更新主要或受限的 ONTAP 認證資料。</block>
   <block id="3f723254bac88a4b39c3650549be282a" category="section-title">變更 Volume 工作負載</block>
   <block id="87ab4fb0ad018565836567d164671f73" category="paragraph">更新 Volume 的工作負載，使其與預期用途相符。</block>
-  <block id="757a7ffb20a279d7239febb013141ad5" category="list-text">選擇選單 <block ref="d1917ed039a7bd34b3d1373e5ffc5ece" category="inline-image-macro-rx" type="image"></block>，然後選擇 *Storage*。</block>
-  <block id="48392de7f44d75a05d38a8c1a399d8ac" category="list-text">從「Storage」功能表中，選取「Volumes explorer」。</block>
   <block id="17ec06b9eaa321300fab59fd56971e66" category="list-text">選擇要更新工作負載的 Volume 的操作選單。</block>
-  <block id="ed2541738b61ca0c7584cd62bf74b27d" category="list-text">選取 *進階操作*，然後選取 *變更工作負載*。</block>
   <block id="cd9e2d546766552cd75de00b7717f0cf" category="list-text">在「變更工作負載」對話方塊中，為 Volume 選擇正確的工作負載。</block>
   <block id="0ecf72bcc13fb55d0aa28c82a90ab6f4" category="paragraph">對於獨特的資源，Workload Factory 透過結合實際效能分層使用量、分配給已配置但未使用空間的效能分層成本的比例共享、按容量分佈的效能分配，以及容量資源池使用量來計算成本。Workload Factory 將每個組成部分乘以該維度的單位價格，並將結果相加，以決定每個資源的總成本。</block>
   <block id="e291c5603b49506d01779471f77ce7c8" category="paragraph">請確認您符合以下要求：</block>
@@ -6451,8 +6427,6 @@
   <block id="89806ea6a9ed9b0bb6cb322f912aff65" category="paragraph">儀錶板會根據您的變更進行更新。最後修改日期也會更新。</block>
   <block id="665b56adc96ec0ae170583f2c939549f" category="list-text"><block ref="665b56adc96ec0ae170583f2c939549f" category="inline-link-macro-rx"></block></block>
   <block id="dbc831d32bec483a9698bd8ffbae773b" category="doc">在 NetApp Workload Factory 中管理 AI 功能</block>
-  <block id="17f306dd010c4f9182635b5f5e336fa1" category="paragraph">Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、Rule 建構者，以及 EMS、資料庫日誌和延遲分析器。</block>
-  <block id="cbdbc1bacc2d0ff55d93219e225f857a" category="list-text">關閉所有 AI 功能。使用者將無法再使用 Ask Me、AI 代理程式、分析器、自訂儀表板、規則建構者或其他 AI 工具。</block>
   <block id="d558bf5c801444e8a41fb205b6481939" category="list-text"><block ref="d558bf5c801444e8a41fb205b6481939" category="inline-link-macro-rx"></block></block>
   <block id="7822184101da98dc9a2f973bcc0b1e57" category="list-text">從 <block ref="e353446964aabeb4012c8f3074fb20a4" category="inline-link-macro-rx"></block> 中的其中一個範例提示開始。</block>
   <block id="1d66ae30886d42b24d56159b752d6ad9" category="inline-link-macro">權限要求</block>
@@ -6482,13 +6456,11 @@
   <block id="3784e1d30d90c571998c16706c434e4f" category="list-text"><block ref="3784e1d30d90c571998c16706c434e4f" category="inline-link-macro-rx"></block></block>
   <block id="274d09f174202ef30839bc1b86c8644b" category="list-text"><block ref="274d09f174202ef30839bc1b86c8644b" category="inline-link-macro-rx"></block></block>
   <block id="a8f76ad42c3df15f6fbe9addd47ffe36" category="doc">在 NetApp Console 中為 Workload Factory 建立自訂規則</block>
-  <block id="f4014ae984242fefc2f0569e68611a2e" category="paragraph">在 Workload Factory 中建立自訂規則，以檢查您的 FSx for ONTAP 資源。用簡單易懂的語言描述規則，AI 規則建構者會將您的請求轉換為已驗證的規則。</block>
   <block id="4995e76cedbca110dbb7cefe85e61d77" category="paragraph">規則設定流程會引導您完成每個步驟：建立規則、審查 AI 如何理解該規則，以及在安排定期審查之前檢查結果。在整個過程中，您始終保持控制。系統會根據您的提示建議一項規則，但在您核准之前不會執行任何動作。</block>
   <block id="d87385efd143a7a589ef7be597c50809" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將看到一則訊息，並且無法建立或編輯自訂規則。請聯絡您的系統管理員或<block ref="ba4e701e567767978f2b4fc32c409de8" category="inline-link-macro-rx"></block>。</block>
   <block id="5d9b02c1296ee6f0b859a2db7ccf523b" category="list-text">您已設定具有唯讀存取權的 AWS 認證資料。</block>
   <block id="0876642abf2aedd4eb3ae76dd87f7586" category="list-text">您擁有具有檢視器權限的 ONTAP 認證資料。</block>
   <block id="0e8e25fe832310f010ce2950b2110974" category="list-text">您已為 FSx for ONTAP 連線設定連結或代理程式。</block>
-  <block id="be31b56e3ba8f8ceee6d9deed7f5c112" category="list-text">選擇選單 <block ref="438b712f6e6afc173ce78a756adc207c" category="inline-image-macro-rx" type="image"></block>，然後選擇工作負載 &gt; 架構良好 &gt; 規則建構者。</block>
   <block id="0cd216375fd6782b45d9f84efb6f3e84" category="list-text">解析解釋</block>
   <block id="9d009657b96c5aad9fa21f1828b73bcf" category="list-text">人工智慧如何以淺顯易懂的語言理解您的提示。</block>
   <block id="e35d59c335e26445eed5e3cf4fc88047" category="list-text">規則定義</block>
@@ -6510,10 +6482,8 @@
   <block id="39a7241c7fb2f38f3a304dc5a7ddd33e" category="list-text">若要排程定期評估，請設定評估頻率並選取 *Schedule*。規則已啟用，並依定義的排程執行。</block>
   <block id="9c85906f54c1b8a93d6470f07300ddfa" category="list-text">若要在驗證後儲存而不排程，請選取 *儲存為草稿*。系統會儲存規則，但在您排程之前不會進行評估。</block>
   <block id="4a5aaf656967e8a439bf519ae6b59880" category="list-text">若要刪除規則，請選擇 *刪除*。</block>
-  <block id="ac896c02d18100750fc4d290b272e808" category="paragraph">您的自訂規則已建立並列於規則目錄中。如果您設定了排程，它將以指定的頻率檢查您的 FSx for ONTAP 資源。如果您稍後編輯規則，系統將指南您完成相同的步驟——聊天、審查、核准和驗證——然後您才能儲存更新的版本。</block>
   <block id="8bc0878ae35d7f3c225b4bac0e907504" category="paragraph"><block ref="8bc0878ae35d7f3c225b4bac0e907504" category="inline-link-macro-rx"></block></block>
   <block id="0ef70b60892b97d12c2eebf7686872ca" category="paragraph">自訂規則可讓您在架構完善的儀表板中設定、檢查及強制執行您自己的架構標準，以及 NetApp 最佳實務。</block>
-  <block id="91b90f08c0d07c5aa66b502a1d12c868" category="paragraph">規則建構者可讓您使用一般語言建立自訂規則。這些規則會針對您的所有資源進行檢查。自訂規則有助於您強制執行組織的標準、風險限制和營運要求，而這些可能是預設規則無法涵蓋的。</block>
   <block id="4edc72502b9f9929e41bae938a7490c1" category="paragraph">自訂規則利用人工智慧將簡單的語言指示轉換為清晰、結構化的規則。人工智慧會轉譯您的要求，建議一項規則，解釋它如何理解您的指示，並在儲存或排程規則之前要求核准。此程序有助於確保：</block>
   <block id="0465277e228b6cf7f37c1fab3872f9cd" category="list-text">此規則定義明確，並經過錯誤檢查</block>
   <block id="f2b92cb195f44b1f57205f66b9c1c992" category="list-text">未執行任何自訂程式碼</block>
@@ -6546,7 +6516,6 @@
   <block id="ccf414cfce06645c55d0bcfd5f41608b" category="list-text">檔案系統命名標準</block>
   <block id="71d671c8e1cf2aa5cf976dd7ff9d340b" category="summary">從規則目錄中檢視、編輯、啟用、停用和刪除自訂架構規則。</block>
   <block id="1cf051440b9604c5c57c4c6cab344202" category="doc">在 NetApp Console 中管理 Workload Factory 的自訂規則</block>
-  <block id="8ef292d4be46fbc351d35b26b3ce8720" category="paragraph">規則目錄是管理所有自訂規則的單一位置。您可以審查規則詳細資料、編輯規則、檢查結果，以及控制規則是否依排程執行。</block>
   <block id="dbea8da43ac90f4152565d880d18e30e" category="paragraph">您可以隨時重新命名規則。您也可以編輯規則的執行摘要、資源類型、排程、嚴重性、條件邏輯、評估範圍與補救指南。</block>
   <block id="8473633d69dc94d27429c2a37902fe75" category="paragraph">您可以從「規則」目錄或規則詳情卡中重新命名規則。若要編輯任何其他規則設定，請從「規則」目錄開始。</block>
   <block id="2dc19156fac0f6096a2db17a78fe0da8" category="list-text">若要重新命名規則，請從目錄或規則詳細資料卡中更新規則名稱。</block>
@@ -6559,9 +6528,7 @@
   <block id="023ad31a6b18fc538747a36ab488e65c" category="list-text">如果規則處於草稿模式，請選擇 *驗證規則* 來測試更新後的邏輯。</block>
   <block id="58b17236d18d0245f7322e360753f322" category="list-text">若要保留變更，請按一下 *儲存* 以取代目前的規則。如果您變更了排程，請儲存更新的排程。如果您沒有變更排程，排程將保持不變。</block>
   <block id="a91166998826b450f2fb807ba450dbc4" category="list-text">若要放棄更改，請按一下 *放棄更改*。規則將恢復到先前的版本並退出編輯模式。</block>
-  <block id="053ebf33b65f60110cd8e776b413ed79" category="paragraph">當您編輯規則時，該規則會對您顯示為 *編輯中*。其他使用者仍然可以看到目前已排程的規則，而且排程的執行會正常繼續，直到您儲存變更為止。</block>
   <block id="8c5fb02c595607ff2d6a7bffe64be464" category="section-title">暫停規則</block>
-  <block id="ad91e5fff3b8c62296713afbb3628a85" category="paragraph">暫停規則可以停止評估，但不會刪除該規則。暫停的規則會保留在目錄中，可以隨時重新啟動。</block>
   <block id="6128c344ce68ca2256885ace5b47ff93" category="list-text">在規則目錄中，按一下要暫停的規則。</block>
   <block id="082d380473aced66fdfe341c99cda5a8" category="list-text">若要暫停已排程的規則，請按一下 *Pause*，然後確認。該規則將停止按排程執行。</block>
   <block id="45967b1be5307f4c7a1110294cadcd04" category="list-text">若要恢復已暫停的規則，請按一下 *Resume*，然後確認。規則將恢復定期評估。</block>
@@ -6572,28 +6539,23 @@
   <block id="a611c28af3d155e736c074bd926dc51b" category="list-text">確認是否要永久刪除該規則。</block>
   <block id="f36dd1b2731552458a4d8983a8bec074" category="paragraph">該規則已從目錄中移除。所有評估歷史記錄均已刪除。</block>
   <block id="ee46de54fef48d3ea00b2c8fc06cb58b" category="section-title">執行快速測試</block>
-  <block id="bd472ca28321d77d062059272b456804" category="paragraph">隨時執行快速測試，檢查目前法規遵循狀態，無需等待下次排程執行。</block>
   <block id="5edd65680f750fa6f32b6e445f24fd27" category="list-text">在規則目錄中，按一下要評估的規則。</block>
   <block id="ae7b417afa23cb538530e43e4b08cfff" category="list-text">點選 *Validate* 。</block>
   <block id="b4b7ad5dbb1a5d746e0ac8936e3f4798" category="paragraph">系統會根據規則邏輯評估範圍內的所有資源。</block>
   <block id="5cb57852939f164731c4f61fcca33dac" category="list-text">查看結果以了解目前的法規遵循狀態。</block>
   <block id="2cc894218e78a9699920859cc698e5d7" category="paragraph">測試結果會經過審核，並記錄在規則的評估歷史記錄中。</block>
   <block id="26a1c27f638f5372654511db0a450638" category="paragraph"><block ref="26a1c27f638f5372654511db0a450638" category="inline-link-macro-rx"></block></block>
-  <block id="9a8fccbd850aa8643a89826b7a8fb208" category="summary">透過指派 NetApp Console 角色、新增憑證與探索系統，開始使用 Google Cloud NetApp Volumes。</block>
-  <block id="2999755d1730c0395dc6d69c2e4175da" category="paragraph">透過指派您的 NetApp Console 角色、新增憑證並探索系統，開始使用 Google Cloud NetApp Volumes。</block>
   <block id="aa0b2ca9fbe37ff46d33ea907e58b677" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> <block ref="4db55a1c8076378b257ee9e0511dd2d4" category="inline-link-macro-rx"></block></block>
   <block id="0f391d5482822722d86585c248878517" category="inline-link-macro">新增憑證</block>
   <block id="6f2763cd3e02476cb119778797369b0f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> <block ref="2fd3a5be9d6b1b1b584f1ac1aa0e2f8e" category="inline-link-macro-rx"></block></block>
   <block id="77d5ddb0fb660aaf755b6ed1f614b0c5" category="paragraph">在 NetApp Console 中，新增 Google Cloud NetApp Volumes 憑證。</block>
   <block id="66db479b9f5558108a119367246238d1" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> <block ref="8b88ff7d74af8bb26ccc5fa950b51632" category="inline-link-macro-rx"></block></block>
-  <block id="3d5dcea171c7a77f7cb0efa8c9a0cd1a" category="paragraph">在 NetApp Console 中，使用憑證、Google Cloud 專案和受支援的區域探索系統。</block>
   <block id="c04236280596e42d063458cddb934506" category="sidebar">AI 代理程式</block>
   <block id="737f86fc6a3bb3563670dac4c0b49585" category="sidebar">Workload Factory AIOps</block>
   <block id="ff2cb9e669640d8f287be7fc339c4d78" category="sidebar">了解人工智慧代理程式</block>
   <block id="64f2f595f7dd037774e1dbd99cb2ab7b" category="sidebar">管理 AI 代理程式設定</block>
   <block id="3fba0171e458258e875a2f8013e395b8" category="cell">SQL Server 2025</block>
   <block id="9e5f96378bed43aac0d5d94368775263" category="cell">Windows Server 2025</block>
-  <block id="084b022f1511ba8dda542f70832d22e4" category="paragraph">在 NAS Volume 連續 31 天未使用後，歸檔或刪除未使用的 NAS Volume 以降低成本。</block>
   <block id="6d4d9f3d79904b627f6aca8246717bca" category="list-text">*快取磁碟區*：包含快取磁碟區的來源儲存設備虛擬機器不支援切換。切換前請移除 ONTAP FlexCache 關係，以避免移轉失敗。</block>
   <block id="179ab629584266b78c7a691ade72de63" category="admonition">如果您的帳戶系統管理員已關閉 AI 功能，您將無法建立新規則或編輯現有規則。任何已排程的規則將繼續執行。<block ref="646cadbb9cfc9d23560c447c51098225" category="inline-link-macro-rx"></block>。</block>
   <block id="22941004ec8c49f5d8a764461a973801" category="list-text">對您的 AWS 環境擁有唯讀存取。自訂規則要求使用唯讀權限作為安全性邊界。<block ref="8e1e3c879b9dae9bf3456eb51959b906" category="inline-link-macro-rx"></block>。</block>
@@ -6603,7 +6565,6 @@
   <block id="fdb1959aef23285e43fe2cdcd4f28fee" category="paragraph">在 Workload Factory 中控制對 AI 功能的存取。您可以關閉 AI 功能，或使用由 NetApp 或您的組織代管的 AWS Bedrock。</block>
   <block id="6f5403c75b81b8b52cd43cae97fcf772" category="list-text">客戶代管的 Bedrock</block>
   <block id="c18ad30e2ef4050c256483f9a51ad2de" category="list-text">使用您自己的 AWS Bedrock 組態。</block>
-  <block id="edf60b9bc6b08bdb2aa52c67c9ff0924" category="list-text">為獲得最佳效果，NetApp 建議將 Anthropic Claude Sonnet 4.5 或 4.6 與您的 Amazon Bedrock 組態一起使用</block>
   <block id="4580e55cbed2076f7b001c4793810627" category="list-text">如果您使用客戶代管的 Bedrock，請更新與 Workload Factory IAM 角色關聯的憑證的 AWS 原則。</block>
   <block id="42f8e0cc53973b95fb8c5ab1b1940d45" category="admonition">將所需權限新增至與 Workload Factory IAM 角色關聯之憑證的 AWS 原則中。</block>
   <block id="d8180f5e900b1f6f9e24a34bcc5df784" category="list-text">從選單中選擇 *管理* &gt; *設定* &gt; *AI 工具*。</block>
@@ -6792,11 +6753,8 @@
   <block id="060a56ccfbd9aaaf478d6c32ef40a68c" category="paragraph">檢查 FlexGroup Volume 容量的平衡包括評估目前組成組件的佈局。當您重新平衡 Volume 的容量時，NetApp Workload Factory 會設計一個新的組成組件佈局，其中包含偶數個組成組件，以便將資料均勻分佈到所有 HA 配對上。此服務會執行重新平衡計畫，進而改善讀寫作業。</block>
   <block id="574713587eaf140dc0962f46a1bb8717" category="list-text">您重新平衡的 Volume 上的現有快照會變得不完整，無法用於還原 Volume 資料，但重新平衡後拍攝的新快照可用於還原 Volume 資料。</block>
   <block id="7629ffb115c5fb010968b91584235adb" category="paragraph">在 FSx for ONTAP 檔案系統中的一個節點內，可以相對於其他 FlexVol Volume 來平衡某個 FlexVol Volume。當檔案系統每個節點有多個 FlexVol Volume，並且選定了單一 FlexVol Volume 時，該 FlexVol Volume 會在所有 FlexVols 的環境下進行平衡，但只允許移動所選的 Volume。</block>
-  <block id="289d7f526b2620360ec3a8225eff44c1" category="summary">在 NetApp Workload Factory 中變更 FSx for ONTAP Volume 的 Volume 工作負載、編輯 Volume 標籤、更新儲存效率，以及管理不可變檔案設定。</block>
-  <block id="2c2e0e41bc65a4d0ede842474cb0f079" category="paragraph">在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以符合您組織的需求。您可以設定 Volume 工作負載和標籤來對資源進行分類，更新儲存效率設定以最佳化空間和成本節約效益，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。</block>
   <block id="ba6f9ccf967e3f23548f30ca0ff52a0e" category="paragraph">您只能在<block ref="c2ed7675c4babbb461c62976097c066d" category="inline-link-macro-rx"></block>期間啟用不可變檔案。</block>
   <block id="8e3414aa969732768a412e56c4c391ae" category="list-text">*未指定*：預設最短期限為 0 年，預設最長期限為 30 年。</block>
-  <block id="67c59fac0ecc7a902fc194915c0bf14a" category="list-text">*Volume 追加模式*：啟用或停用此功能。啟用 Volume 追加模式可讓您將新內容新增至 WORM 檔案。</block>
   <block id="9e1079689569db62524b04b9ccafce93" category="summary">查看 NetApp Workload Factory 中 FSx for ONTAP 檔案系統的效能參考資訊，包括 AWS 效能文件的連結。</block>
   <block id="69530f7b3bdbd4ad588c0c148d8e48b7" category="paragraph">請查閱<block ref="a572b0e55a3a15b7b3460602e8714ba1" category="inline-link-macro-rx"></block>文件以了解 FSx for ONTAP 檔案系統的效能。</block>
   <block id="ebeea727f6d2829701bdab0749b8b789" category="summary">在 Workload Factory 中為 FSx for ONTAP 檔案系統啟用自動 SSD IOPS 資源配置，或設定使用者資源配置的 IOPS 值。</block>
@@ -6950,20 +6908,10 @@
   <block id="abff96b75117f320254f372b6518244b" category="paragraph">儀表板顯示更新後的計量。</block>
   <block id="6347309ad07af7266241819bb2af76d1" category="list-text">*將主機連線至容錯移轉節點*</block>
   <block id="e89cb70f69260bd0359dad1d58cb94de" category="paragraph">Workload Factory 建議將主機連線至容錯移轉節點，以維持連線並避免在容錯移轉期間發生中斷。</block>
-  <block id="d8f7d6931c10571f6b09ab824fb1eb68" category="list-text">*SAP HANA Snapshot 快照技術原則*</block>
-  <block id="5430bb473a033ac7ca3cf168ada8eef0" category="paragraph">將 SAP HANA Volume 的快照原則設為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
-  <block id="bed53786c7f97a0d4610c92e2155c179" category="list-text">*MySQL 快照原則*</block>
-  <block id="2cfa406a51ef73bbf2e8700e3f414fba" category="paragraph">將 MySQL Volume 的快照原則設為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
-  <block id="277b9300260dd55ca64290333450ba59" category="list-text">*PostgreSQL 快照原則*</block>
-  <block id="2a902e0c93222642481e7829b61f6885" category="paragraph">將 PostgreSQL Volume 的快照原則設為 "None"，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
   <block id="f6713ad974e1c45e6ae6f336e05e1acb" category="list-text">*ARP/AI 多裝置偵測差距*</block>
   <block id="99585e92af9e1ad2380aa522d6753d7a" category="paragraph">當 Volume 僅連接一個區塊裝置時，ARP/AI 可提供全面的保護。如果 Volume 連接了多個區塊裝置，Workload Factory 會將這些區塊裝置移至新的 Volume，以確保每個 Volume 僅連接一個區塊裝置。</block>
-  <block id="94252ec3a780f58314c91e97ef4e34dd" category="list-text">*Kubernetes iSCSI 後端雙向 CHAP*</block>
-  <block id="33abb23bb89c7fd6e6403f57410fd19d" category="paragraph">對 Trident iSCSI 後端使用雙向 CHAP 驗證，以確保 iSCSI 啟動器和目標相互驗證。這可防止未經授權的主機與儲存設備虛擬機器建立 iSCSI 工作階段。</block>
   <block id="6afaedca049edca8b26b3afcc63112c5" category="list-text">*在應用程式儲存設備虛擬機器上停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>*</block>
   <block id="bfd8d5ee3b60e71cb8f894bb8d7d7f01" category="paragraph">在應用程式儲存設備 VM 上停用<block ref="d51321f13693d09d4a9cbb2758b42d12" prefix=" " category="inline-code"></block>，以防止用戶端列出其無法存取的匯出。</block>
-  <block id="17a183ee5c2a455937989091c69ca48d" category="list-text">*專用 Kubernetes 儲存設備 VM*</block>
-  <block id="aeb9ac6a931deb0972004e13a0b50cbd" category="paragraph">為 Kubernetes 工作負載使用專用儲存設備虛擬機器。將 Kubernetes 儲存設備保持分隔可簡化管理、簡化原則設定，並有助於確保一致的儲存設定。</block>
   <block id="dd54a6cc471e0bb15a8807c9b04d608a" category="list-text">*使 igroup 作業系統與主機相符*</block>
   <block id="9b4b32350b17fe80d09c863ee9493bc1" category="paragraph">使啟動器群組（igroup）的作業系統與主機的作業系統相符，以防止 I/O 或效能問題。</block>
   <block id="e2521a2a2f696d450620b08167cf1c24" category="list-text">*複製清理*</block>
@@ -7112,4 +7060,168 @@
   <block id="0665cdd8950328e06e0db9b1e16938d3" category="inline-link-macro">計算 EVS 的預計節省量</block>
   <block id="536315c4cd9e40b477f48fcc8b1863a7" category="paragraph"><block ref="536315c4cd9e40b477f48fcc8b1863a7" category="inline-link-macro-rx"></block></block>
   <block id="d708ba996885d5ea1c1b9727bc557415" category="paragraph"><block ref="d708ba996885d5ea1c1b9727bc557415" category="inline-link-macro-rx"></block></block>
+  <block id="e84199af3f0a22cf508c7275319c9d81" category="section-title">將多個 FSx for ONTAP 檔案系統與連結建立關聯</block>
+  <block id="9618a351b6032a7e1eee8e331d0dc5d5" category="paragraph">現在，您可以在一個工作流程中將多個 FSx for ONTAP 檔案系統與新的或現有的連結建立關聯，而無需為每個檔案系統重複關聯。您可以透過為每個檔案系統輸入 ONTAP 憑證，或將相同的憑證套用至多個檔案系統來驗證連結。</block>
+  <block id="e726e73c171e193dfab137a6f5ae9729" category="paragraph"><block ref="e726e73c171e193dfab137a6f5ae9729" category="inline-link-macro-rx"></block></block>
+  <block id="3ccacb3236a6f36f11b2ec0009544b17" category="section-title">儲存設備 VM 名稱服務的新建議</block>
+  <block id="fbdd6100f23f5a660b5abe28fcb2b09f" category="paragraph">Workload Factory 現在在架構完善的分析中，針對儲存設備 VM 名稱服務提出了以下建議：</block>
+  <block id="d64be06adb6d10ab66b9f6b94ca50fcf" category="paragraph">*DNS 和 LDAP 伺服器備援*：建議在使用 DNS 的儲存設備虛擬機器上至少配置兩個 DNS 伺服器，在使用 LDAP 的儲存設備虛擬機器上至少配置兩個 LDAP 伺服器。單一伺服器故障可能會導致名稱解析、網域驗證或 NFS 存取區塊。</block>
+  <block id="7f937176bc96624307a21211c6e363b9" category="section-title">Volume 資源管理器增強功能</block>
+  <block id="82f9746d20f9c112b999254d96f68c35" category="section-title">新的 Volume 總管表格欄位</block>
+  <block id="429fbe2106af89a7f2c8096eed7d6005" category="paragraph">Volume 資源管理器表格包含下列新欄位：</block>
+  <block id="4bfa3a7e5aa20511dfdbd772b20d7cad" category="list-text">*邏輯已用大小*：顯示用戶端看到的已使用空間，未計入儲存效率節約效益。此欄預設會顯示。</block>
+  <block id="1ebe3707797c8e132ba981865e779a06" category="list-text">*交會路徑*：顯示 Volume 的交會路徑。</block>
+  <block id="2313bb4965c4cdefc333eae5dc9f873b" category="section-title">管理裝載點</block>
+  <block id="c8974a5aa184bb4bdb929cece2bd9485" category="paragraph">現在，您可以直接從 Volumes explorer 管理 Volume 在儲存設備 VM 命名空間中的裝載位置。從 Volume 的 *進階* 選單中選取 *管理裝載點*，以樹狀結構檢視儲存設備 VM 命名空間，然後裝載、取下或變更 Volume 的交會路徑。Workload Factory 會在取下 Volume 之前檢查相依性。您無法取下其下已裝載其他 Volume 的 Volume，且當 Volume 具有 SMB 共享時，您會收到警告。</block>
+  <block id="fc67722d0e110f79ff44ed37368e589c" category="section-title">新 Volume 的巢狀交會路徑</block>
+  <block id="69fc90af1c9281568bdf45e9799d57d6" category="paragraph">建立 Volume 時，您現在可以在 *進階組態* 區段中輸入巢狀交會路徑，例如<block ref="6ec7d50bc22104cd5628a14f3ea325a4" prefix=" " category="inline-code"></block>。</block>
+  <block id="7fbf47e0030156e11689a191784df599" category="inline-link-macro">學習如何建立 Volume</block>
+  <block id="456a99e04a7966867f92671f26d5cae0" category="paragraph"><block ref="456a99e04a7966867f92671f26d5cae0" category="inline-link-macro-rx"></block></block>
+  <block id="5faee5c8e33b5f0b156646e83f976d83" category="section-title">將架構完善的組態自訂為自訂規則</block>
+  <block id="995825c99ed4c299f1660557f6451c42" category="paragraph">您可以從精心設計的組態中建立自訂規則，這樣您就可以應用自己的臨界值或範圍，同時保留原有的最佳實務做法。Workload Factory 會根據此組態開啟自訂規則，並提供可編輯的提示。規則最初以草稿形式存在，其執行摘要會說明它基於哪個組態。</block>
+  <block id="257f9926a8593f0cf9caa117626fcd6f" category="inline-link-macro">瞭解如何自訂架構完善的組態</block>
+  <block id="0a6fec7ae9e3a960c14178276b4396d1" category="paragraph"><block ref="0a6fec7ae9e3a960c14178276b4396d1" category="inline-link-macro-rx"></block></block>
+  <block id="4fa9c0bce2f1b45a04656d29fbfbb564" category="section-title">接收已排程自訂規則執行的通知</block>
+  <block id="2235dc711ef4c2f3e5167506ffcef41c" category="paragraph">啟用排程自訂規則的通知功能，即可在無需登入 Workload Factory 的情況下取得結果。您可以在每次排程執行後接收通知，或僅在執行失敗或部分成功時接收通知。通知將透過您已設定的管道發送。手動測試不會傳送通知。</block>
+  <block id="a57798fee8a8f5fabef775d76f9c1531" category="inline-link-macro">了解如何接收已排程自訂規則的通知</block>
+  <block id="1aefdba9453f7e3a411594f57b9b7cef" category="paragraph"><block ref="1aefdba9453f7e3a411594f57b9b7cef" category="inline-link-macro-rx"></block></block>
+  <block id="1d5dc0231f3cc52e6923384e6e4e293e" category="paragraph">這些增強功能涵蓋了 Workload Factory 中的自訂儀表板和其他管理任務。</block>
+  <block id="81a9f96e5c919c4cddd5e8baf33bc31f" category="section-title">編輯自訂儀表板標題和執行摘要</block>
+  <block id="e2c2437b93fb3b379ae799b9c5ec87b7" category="paragraph">您可以從儀表板目錄或儀表板檢視編輯自訂儀表板的標題和執行摘要，以確保其資訊在儀表板變更時保持準確。這兩個欄位均為必填項，並且兩個儀表板可以擁有相同的標題。</block>
+  <block id="d030448981400ac2939566a8b11f10ec" category="inline-link-macro">了解如何管理自訂儀表板</block>
+  <block id="db4eac5f22ce7e5cbfc31bd6ca4ed7e8" category="paragraph"><block ref="db4eac5f22ce7e5cbfc31bd6ca4ed7e8" category="inline-link-macro-rx"></block></block>
+  <block id="dda69a53945d5e78eb0be6205ad77948" category="paragraph">這些增強功能包括對追蹤的 Volume 進行自動 AI 分析、在 AI 分析中提供更清晰的根目錄原因解釋，以及延遲分析結果的保留時間。</block>
+  <block id="d27242d4c09d8c87514da12ce13686cf" category="section-title">追蹤 Volume 以進行自動 AI 分析</block>
+  <block id="68eb2bcf977ad1777848c2763968bf76" category="paragraph">您可以標記 Volume，以便在偵測到延遲問題時進行自動 AI 分析。分析結果將儲存 72 小時，並包含在通知電子郵件中，因此您無需自行執行分析即可審查原因。</block>
+  <block id="1e2beb43d53ce6e7e78ce598ad680f34" category="inline-link-macro">了解如何分析延遲問題</block>
+  <block id="7ab17ff19aa466bc8531cc7568dea5a6" category="paragraph"><block ref="13291cb64cb4778475d22fb041bce2e0" category="inline-link-macro-rx"></block>。</block>
+  <block id="7c957c99db335692d391818317e98469" category="section-title">AI 分析中根目錄原因的更清晰解釋</block>
+  <block id="5d5ae6579cd363d7050ca9ed9dc36998" category="paragraph">利用 AI 分析，可以更清楚地了解導致延遲事件的原因。此分析會檢查與 FlexCache 容量資源池和檔案系統相關的問題，以及處理量和 IOPS 限制、SSD 使用率過高、寫入飽和，以及其他使用相同資源的 Volume。</block>
+  <block id="d8b3a98e16ebd6e698fb6c48570112ff" category="section-title">延遲分析結果保留 72 小時</block>
+  <block id="d880e6876de7da75b637df83143f9c3e" category="paragraph">延遲分析結果現在可在介面中查看 72 小時而不是 24 小時，因此您可以審查先前對某個 Volume 的分析。</block>
+  <block id="8c93aeeae4ab46e42ef19364a7dbaa6c" category="paragraph">這些增強功能包括刪除儲存資源池、從系統開啟儲存資源池清單、跨區域新增系統以及從右側面板管理系統。</block>
+  <block id="69e1bc44aa452878b78f550b1157f17f" category="section-title">刪除儲存池</block>
+  <block id="8f7df204e470ff814e16ada222cfd4fa" category="paragraph">您可以刪除沒有 Volume 且狀態為「就緒」或「錯誤」的 Google Cloud NetApp Volumes 儲存資源池。刪除操作無法復原。如果刪除失敗，則該資源池將保留在清單中，並且錯誤訊息會記錄在 Tracker 中。</block>
+  <block id="cf1fecfd25a257b4ef20c0ed95f07e3c" category="inline-link-macro">了解如何刪除儲存資源池</block>
+  <block id="9398f8b40217b965231fdcd4332786c7" category="paragraph"><block ref="9398f8b40217b965231fdcd4332786c7" category="inline-link-macro-rx"></block></block>
+  <block id="f414c370e39e4064ccb2c0276e677ef1" category="section-title">從系統中開啟儲存資源池清單</block>
+  <block id="fb042f4fef17c0635a4ffba674613c27" category="paragraph">在 Google Cloud NetApp Volumes 系統上的 *進入系統* 會在 Workload Factory 中開啟儲存資源池清單，並已選取該系統的專案、憑證和區域。涵蓋所有區域的系統會在開啟時選取每個區域。</block>
+  <block id="4462344106e22700fb8a40d1f2d42478" category="inline-link-macro">了解如何檢視儲存資源池</block>
+  <block id="87d8c8b6b1b6d61f129dd9175c8964a9" category="paragraph"><block ref="87d8c8b6b1b6d61f129dd9175c8964a9" category="inline-link-macro-rx"></block></block>
+  <block id="9dc46a144f1a0e6482d6121e2e30f08d" category="section-title">在所有區域新增一個系統</block>
+  <block id="faa635f68227860e333316c339d2a5c6" category="paragraph">當您新增 Google Cloud NetApp Volumes 系統時，區域是選用的，預設為所有區域。Workload Factory 會針對您選取的憑證，探索每個區域中的儲存資源池。選取的區域會設定系統在畫布上顯示的內容，以及合規性與 DRaaS 所使用的內容。它不會限制探索。</block>
+  <block id="0dd4224dfebbf9a0e09ca374f38a0ee8" category="inline-link-macro">了解如何新增系統</block>
+  <block id="8192d65972817c5c908ef9d3d21cee6f" category="paragraph"><block ref="8192d65972817c5c908ef9d3d21cee6f" category="inline-link-macro-rx"></block></block>
+  <block id="31e995fabcf8533b601702a3403d2a1c" category="section-title">從右側面板管理系統</block>
+  <block id="ae836161166cd65fe60409dc6cb172a7" category="paragraph">Google Cloud NetApp Volumes 系統的右側面板可讓您檢視其 Volume，並從 NetApp Console 進入系統。</block>
+  <block id="4a9f7350b8d8500b00182c8cc25bdd54" category="paragraph">Workload Factory 包含多項 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、自訂規則，以及針對 EMS、資料庫日誌和延遲的分析器。</block>
+  <block id="6347580b91437dcd5e409f814f3c41b2" category="list-text">為獲得最佳效果，NetApp 建議將最新的 Anthropic Claude Sonnet 模型與您的 Amazon Bedrock 組態搭配使用</block>
+  <block id="d9b0d76580a14f1511949cb896fee3b9" category="list-text">關閉所有人工智慧功能。使用者將無法再使用 Ask Me、AI Agent、分析器、自訂儀表板、自訂規則或其他人工智慧工具。</block>
+  <block id="fbf7c59bcc60e696e716c2a2edf9aa79" category="list-text">*基本*：顯示自動分析的結果。如果已連結到檔案系統，則會顯示元件細分，並指出哪個元件導致了延遲。如果沒有連結，系統會提示您新增連結。對於資料保護（DP）Volume，無法使用元件細分。</block>
+  <block id="c6c30df2997883eea8c8f301f7a599ac" category="list-text">潛在根目錄原因解釋，檢查 FlexCache®、容量資源池和檔案系統原因、處理量和 IOPS 限制、高 SSD 使用率、寫入飽和，以及使用相同資源的其他 Volume。</block>
+  <block id="f28679041ebdc639726306886c3536d4" category="section-title">追蹤 Volume 以進行自動分析</block>
+  <block id="5cc00eaaa4ee3f52f70cedfb04df2a66" category="paragraph">當偵測到延遲事件時，追蹤的 Volume 會自動進行 AI 分析，因此您可以審查原因而無需啟動分析。</block>
+  <block id="be8385142d03432caa2702e8fa2ff77d" category="list-text">若要追蹤 Volume，請選擇一個或多個 Volume 並將其標記為已追蹤。若要停止追蹤，請取消選擇它們。</block>
+  <block id="2d589364448aa47e5d0c3915699388c3" category="list-text">追蹤的 Volume 會在 AI 分析指標旁顯示追蹤指標。您可以篩選表格，僅顯示追蹤的 Volume。</block>
+  <block id="65263ccaebb6988b3467ecddae578d0d" category="list-text">分析結果將保留 72 小時，包括手冊分析。自動分析結果會顯示時間戳記，並出現在右側面板的 *AI 分析* 區段以及詳細分析頁面上。</block>
+  <block id="6729823054470da17caf1edccc7bd348" category="list-text">只有當發生新的延遲事件或自上次分析以來已過 24 小時時，才會再次執行自動分析。</block>
+  <block id="0ce9ecf0ee56adb4193e9b9818ce529c" category="list-text">如果手動執行分析，則會取代目前結果。</block>
+  <block id="9d421cf9cf97c7b1555ec3673f553a82" category="list-text">追蹤的 Volume 將在 30 天後自動取消選取。</block>
+  <block id="c555be87e5b227321ac7fe2dedfa27aa" category="list-text">通知郵件中包含自動分析結果。</block>
+  <block id="024fa8efda81fb5efac8ac629e905d49" category="paragraph">您也可以使用純文字語言建立自訂規則，以根據組織的標準與 NetApp 最佳實務做法來驗證您的環境。您可以從支援的架構良好組態開始建立規則，或是寫入您自己的提示。透過模擬執行來測試規則，然後排程在您的環境中執行。<block ref="02fcf2ffb8ce0690b17b03c9491ef999" category="inline-link-macro-rx"></block>。</block>
+  <block id="d53c6928d91e05727a68237a23178943" category="list-text">*資料庫快照原則*</block>
+  <block id="258c750e44ac929e2d433849160bcaa4" category="paragraph">將 SAP HANA、MySQL 和 PostgreSQL Volume 的快照原則設為「無」，以降低儲存設備成本並提高作用中資料庫資料的效能。</block>
+  <block id="6eff047f2b112eb2738cd183d41bd8cb" category="paragraph">啟用冷資料分層以降低 SSD 儲存層使用率。將分層原則套用至每個專注於一般資料儲存設備的 Volume。對於 SAP HANA 主要 Volume 以外的資料庫 Volume，請在適當情況下啟用冷資料分層。FSx for ONTAP 會持續掃描資料以找出冷資料，並在不中斷的情況下將其移至容量資源池層。</block>
+  <block id="e3cbbd9e3a19a7a63306cf078173c55e" category="paragraph">如果 NAS Volume 連續 31 天未使用，請將資料歸檔至容量資源池分層，或刪除未使用的 NAS Volume 以降低成本。</block>
+  <block id="acbf2aa964e3e50f3723295891ba8528" category="paragraph">在 Workload Factory 中建立自訂規則，以檢查您的 FSx for ONTAP 資源。用簡單易懂的語言描述規則，Workload Factory 會將您的要求轉換為已驗證的規則。</block>
+  <block id="3b428fb12c8fcf790f776e900ea4e763" category="paragraph">請描述您想要進行的檢查，以便您可以在規則對您的資源執行之前進行審查。</block>
+  <block id="72293eecdb4ed34791f93e4595a99b82" category="list-text">選擇選單<block ref="438b712f6e6afc173ce78a756adc207c" category="inline-image-macro-rx" type="image"></block>，然後選擇工作負載 &gt; 架構良好 &gt; 自訂規則。</block>
+  <block id="281068ca5fe3f31e0714c68d7ab15edf" category="paragraph">開啟「自訂規則」時，會顯示範例提示，幫助您寫入自訂規則。您可以選擇 *複製提示* 將範例提示複製到 AI 對話文字方塊中。</block>
+  <block id="0109f2f11bde34f5f95d6375af5b565d" category="paragraph">如果您從架構良好的組態開啟自訂規則，則提示已填寫且尚未提交。請在繼續之前編輯提示。</block>
+  <block id="3d56eda2da1dcba2001b730ff7b47463" category="paragraph">頁面顯示：</block>
+  <block id="89ed58bdee6f83ea45c59b698295bd76" category="paragraph">您的自訂規則已建立並列於規則目錄中。如果您設定了排程，它將以指定的頻率檢查您的 FSx for ONTAP 資源。如果您從架構完善的組態開始，規則執行摘要會說明該規則是基於該組態。原始組態不會變更或移除。如果您稍後編輯規則，系統將指南您完成相同的步驟——聊天、審查、核准和驗證——然後您才能儲存更新的版本。</block>
+  <block id="6548d80fe8acb07c5119f468a30cd2b1" category="section-title">將組態自訂為自訂規則</block>
+  <block id="65ffa589e19def1b77341b26414218b3" category="paragraph">將架構檢查與貴組織的標準相匹配，以便保留原始建議。</block>
+  <block id="06662f11a4d517ed4c43dff59de4377f" category="paragraph">如果 *自訂為規則* 可用，您可以根據該組態建立自訂規則。提示會根據組態預先填入，在您傳送之前不會提交。</block>
+  <block id="397312d35d189b1ca8dd9c5e781db1d7" category="list-text">選擇要調整的組態。</block>
+  <block id="77cdd33e121f416984cfff47fa017003" category="list-text">如果 *自訂為規則* 可用，請選擇它。</block>
+  <block id="ce41b5656479e047228c34d4c08a6491" category="paragraph">自訂規則會根據您的組態顯示提示。該提示不會提交。編輯提示以使用不同的資源、臨界值或檢查。</block>
+  <block id="a0fcf6704fe8fb215938bb9bc5569f71" category="list-text">完成步驟以審查提示、驗證規則，並儲存或排程。規則將保持在草稿狀態，直到您將其排程為止。</block>
+  <block id="385442535e80145b437f6d2ceb94114a" category="paragraph"><block ref="385442535e80145b437f6d2ceb94114a" category="inline-link-macro-rx"></block></block>
+  <block id="cdd8029c485f2576c1ad77aef7b775ac" category="paragraph">原始組態將保留在架構完善的儀表板中，不會移除。規則執行摘要會說明該規則基於此組態。自訂規則僅讀取您的環境。若要套用此建議，請在儀表板中更新組態。</block>
+  <block id="be755af1154fd568af3ecda71d9f19cd" category="paragraph">自訂規則可讓您以淺顯易懂的語言建立檢查項目。這些規則會在您的所有資源中進行檢查。自訂規則有助於您強制執行組織的標準、風險限制和營運要求，而這些可能是預設規則無法涵蓋的。您可以從支援的架構完善組態開始建立自訂規則。原始組態將保持不變，而新規則會以草稿形式開始，直到您為其排程。當排程的規則完成時，您可以收到通知。 <block ref="f571cd95e32f7c421382198bc0dd0eae" category="inline-link-macro-rx"></block></block>
+  <block id="10c0ca1430e4a23a3776a347bb89c301" category="list-text">根據精心設計的組態建立的自訂規則不會更改或忽略該組態。</block>
+  <block id="f0f0722cab25b84bbc45bdfb9ac3e3f9" category="paragraph">規則目錄是管理所有自訂規則的單一位置。您可以審查規則詳細資料、編輯規則、查看結果、開啟排程執行的通知，以及控制規則是否依排程執行。</block>
+  <block id="dc0328108097de375d63033fb6ad9299" category="paragraph">規則目錄顯示您建立的所有規則、其狀態、排程、最新結果以及是否開啟通知。</block>
+  <block id="5ccce28fe65cf17b314491d667074b11" category="list-text">選擇選單 <block ref="438b712f6e6afc173ce78a756adc207c" category="inline-image-macro-rx" type="image"></block>，然後選擇 *架構完善* &gt; *自訂規則*。</block>
+  <block id="a7f39d6a61d28a05a69517eea5d21afa" category="section-title">接收已排程自訂規則的通知</block>
+  <block id="8890f52a94249930a08e1261acbcdcd9" category="paragraph">當排程的自訂規則完成時，您將收到通知，以便無需登入即可審查結果。</block>
+  <block id="e219f1f5b3109521d68cf6df03bd46a7" category="paragraph">通知預設為關閉，必須為每個規則開啟。每次排程執行後，Workload Factory 會使用已為帳戶設定的管道傳送一則通知。帳戶中的任何使用者都可以開啟或關閉通知。手動測試不會傳送通知。</block>
+  <block id="279d9f1187f318e1ad59faa5af465a27" category="paragraph">確認該規則可以依排程執行，並且您的帳戶可以發送通知。</block>
+  <block id="57ec21795cfab00ff87c73b22767762b" category="list-text">只有在規則已排程時，才能變更此設定。</block>
+  <block id="3c02a9446ece23038345c900f0bc775a" category="inline-link-macro">在 Workload Factory 中設定通知</block>
+  <block id="aba7d6e728a37bdce74d692d5d6df340" category="list-text">Workload Factory 通知服務已啟用。<block ref="9268d07bd0991b2d1d3e66266d6d2bc8" category="inline-link-macro-rx"></block>。</block>
+  <block id="700b5359baa639c4c843f6dd44c28f93" category="list-text">在規則目錄中，選擇規則。</block>
+  <block id="32e1b2d68d805112c1234e6706614b38" category="list-text">如果因為規則未排程而無法使用 *通知我*，請排程該規則並重新開啟。</block>
+  <block id="8a029fee577177f5fbc4ddd6bd0c34dc" category="list-text">如果因為未設定通知而無法使用 *通知我* ，請為帳戶設定通知，然後再次開啟規則。</block>
+  <block id="8e908dde0685fe63d1f8f6cf7072015f" category="list-text">開啟 *通知我*，並選擇每次排程執行，或僅選擇失敗或部分成功的執行。</block>
+  <block id="7380189d27cdf2604f8f82438bb46fa8" category="paragraph">編輯規則時，該規則會對您顯示為 *編輯中*。其他使用者仍然可以看到目前排程的規則，且排程的執行會繼續正常進行，直到您儲存變更為止。編輯規則不會開啟或關閉其通知。</block>
+  <block id="6997a56fa011d6a492ccb057a62c0e06" category="paragraph">暫停規則可停止評估，但不會刪除該規則。暫停的規則會保留在目錄中，可以隨時重新啟動。暫停規則不會啟用或停用其通知功能。</block>
+  <block id="25e4e83ab80d16b8437ac0964a2bf891" category="paragraph">您可以隨時執行快速測試來檢查目前的法規遵循，而無需等待下一次排程的執行。快速測試不會傳送通知。</block>
+  <block id="4806727e3496e0c57e2084f24f41da75" category="paragraph">在 NetApp Workload Factory 中管理 FSx for ONTAP 檔案系統的 ONTAP 認證資料。Workload Factory 有兩種類型的認證資料：主要和受限。預設情況下，檔案系統會使用主要 ONTAP 認證資料。受限認證資料僅用於 AI 作業（AIOps），例如 Ask Me、自訂規則和自訂儀表板。您可以選擇新增受限認證資料集，並且可以隨時更新任一認證資料集。</block>
+  <block id="5de3a26d1928fa2d7566c2b1b6c48dec" category="summary">在 NetApp Workload Factory 中變更 Volume 工作負載、管理安裝點、編輯 Volume 標籤、更新儲存效率，以及管理 FSx for ONTAP Volume 的不可變檔案設定。</block>
+  <block id="7b087eeecae864e2c9d9d93db2a48db0" category="doc">在 NetApp Workload Factory 中管理 FSx for ONTAP Volume 設定</block>
+  <block id="4b2b58ee39226862707af9b9e7a481de" category="paragraph">在 NetApp Workload Factory 中自訂 FSx for ONTAP Volume 設定，以滿足您組織的需求。您可以設定 Volume 工作負載和標籤來對資源進行分類，更新儲存效率設定以最佳化空間和成本節約效益，管理安裝點（交會路徑）以控制 Volume 的裝載位置，以及管理不可變檔案設定以控制資料保留並防止未經授權的變更。</block>
+  <block id="b66bce0291b5350e67b733af8e8dfeea" category="list-text">選取 *進階動作*，然後選取 *變更工作負載*。</block>
+  <block id="ec2af5efe7b0693062973380659bfb01" category="section-title">管理安裝點（交會路徑）</block>
+  <block id="3b8aace37fda8495ba1d97e86b4933b8" category="paragraph">管理儲存設備 VM 命名空間中 Volume 的裝載位置。Workload Factory 在取下 Volume 之前會檢查相依性。您無法取下已裝載其他 Volume 的 Volume，且如果 Volume 包含 SMB 共用，系統會發出警告。</block>
+  <block id="7e207070dba32bc2d9db91d9a3decdb5" category="list-text">選擇要管理安裝點的 Volume 的操作選單。</block>
+  <block id="21babbf03bfdb4d3555d622a4a317326" category="list-text">選擇 *進階操作*，然後選擇 *管理安裝點*。</block>
+  <block id="869ef23c31ab0b150a1fbe65bb87f9af" category="list-text">在「管理安裝點」頁面上，裝載、取下或變更 Volume 的安裝點（交會路徑）。</block>
+  <block id="254644a810bbe7a3fb027082524206ee" category="list-text">選擇 *基本操作* ，然後選擇 *編輯 Volume 標籤* 。</block>
+  <block id="d7e929397f13e43caeab387a1498a691" category="paragraph">儲存效率功能包括重複資料刪除、資料壓縮與資料精簡，以在 FlexVol Volume 上達到最佳的空間節約效益。重複資料刪除可消除複製的資料區塊。資料壓縮會壓縮資料區塊，以減少所需的實體儲存設備量。資料精簡可在較少的空間內儲存更多資料，以提高儲存效率。</block>
+  <block id="10ec8702d6349905e781244561a65beb" category="paragraph">當為 Volume 啟用不可變檔案功能時，您可以更新保留政策和期限、自動提交期限和 Volume 追加模式等設定。</block>
+  <block id="bcfbe24418aa1748995a29c2c1e3d3a4" category="list-text">在「管理不可變檔案」頁面上，更新以下內容：</block>
+  <block id="23528654d11ac6810e0b45a50ee6ccdb" category="list-text">*保留期限*：選擇*未指定*或*指定期限*。</block>
+  <block id="10800b7f5af598341a73b31f9c89b023" category="list-text">*指定保留期限*：定義保留政策、最小和最大保留期限、自動提交功能以及 Volume 追加模式功能。請提供以下詳細資訊：</block>
+  <block id="3fff6881c6375df52a3382a1c28d3c27" category="list-text">*自動提交*：啟用或停用此功能，以便在自動提交期間檔案未被修改時，自動將檔案提交至 WORM。</block>
+  <block id="b96145a118f5f22d5671016368e91049" category="list-text">*特權刪除*：啟用或停用此功能。啟用此功能可讓 SnapLock 系統管理員刪除未過期的 WORM Volume。此功能僅在企業保留模式下支援。</block>
+  <block id="984d3b6784a4e9d6d1595f3476df9311" category="list-text">*Volume 追加模式*：啟用或停用此功能。啟用 Volume 追加模式後，您可以為 WORM 檔案新增內容。</block>
+  <block id="1bdf57aea148d81edd2bba7f717f7726" category="summary">將 Google Cloud NetApp Volumes 系統新增至 NetApp Console，以管理其儲存資源池、Volume 和資料服務。</block>
+  <block id="7d6959b89f1b504bb8feffa93dff49d7" category="doc">在 NetApp Console 中新增 Google Cloud NetApp Volumes 系統</block>
+  <block id="90b218b74f4eb42f58f0cf2011b356c5" category="paragraph">新增 Google Cloud NetApp Volumes 系統，以便您可以從 NetApp Console 管理其儲存資源池和 Volume。</block>
+  <block id="b8bd5dd6c6cb9c8f4b2f1917925ab04e" category="paragraph">註冊您要管理的專案，以便 Workload Factory 將其儲存資源池包含在每個區域中。</block>
+  <block id="544654a10596f8a1a75cb081d4b60b46" category="inline-link-macro">了解如何新增憑證</block>
+  <block id="92143231ffb5666fffaac5dee5d91ab7" category="paragraph">在 Workload Factory 中新增 Google Cloud NetApp Volumes 專案的憑證<block ref="02f2c5c794dcb1bc0222a011490fa860" category="inline-link-macro-rx"></block>。</block>
+  <block id="737d29543235a85b94d028ef2fe47af0" category="list-text">從 NetApp Console 選單中，選取 *儲存設備* &gt; *管理* &gt; 系統，然後選取 *新增系統* &gt; *Google Cloud Platform*。</block>
+  <block id="45cc41325177f091be5fe2c08b4283d6" category="list-text">在 *Google Cloud NetApp Volumes* 下，選取 *探索*。</block>
+  <block id="d80e79c3d96dec3b7d4daf9305412777" category="list-text">請輸入系統名稱。</block>
+  <block id="3b96f7be18015d6eb28b81a5e4fe3011" category="list-text">選擇系統憑證。</block>
+  <block id="9ff38a3896cd59c63238d6ebad0fbdf4" category="list-text">（可選）選擇一個區域。如果您不選擇區域，系統將涵蓋所有區域。</block>
+  <block id="283089d8b3fbe7d80fa3658cf708a1b1" category="admonition">區域不會限制探索。Workload Factory 會探索該憑證在每個區域中的儲存資源池。您選擇的區域會設定系統在畫布上顯示的內容，以及合規性與 DRaaS 所使用的內容。</block>
+  <block id="6c2553b6253cdbd6f6d77a23211e2497" category="list-text">點選 *探索*。</block>
+  <block id="54cb892471079a0559f5197cecb21d04" category="paragraph">NetApp Console 會在「系統」頁面上顯示系統。您可以使用相同的憑證來新增任意數量的系統。</block>
+  <block id="a820d58512782f28ed155fb55f65456f" category="summary">刪除 Google Cloud NetApp Volumes 儲存資源池，該資源池在 NetApp Workload Factory 中沒有 Volume。</block>
+  <block id="29161ad1721b01c469fab0acbc5ac9e9" category="doc">在 NetApp Workload Factory 中刪除 Google Cloud NetApp Volumes 儲存資源池</block>
+  <block id="be50237e09ecde3d0293f8e6677f9bb0" category="paragraph">無需使用 Google Cloud 控制台，即可刪除不再包含 Volume 的儲存資源池。</block>
+  <block id="9398d57b13ebdc353024e43464ac9694" category="paragraph">請確保您的儲存資源池和使用者角色允許刪除操作，以便在需要時可以使用刪除選項。</block>
+  <block id="1b9c9bf8c217196cbf0fe2b8745c540d" category="list-text">儲存資源池不能包含任何 Volume。</block>
+  <block id="bb1364c0adb1d0f5e8918749a5ecbffa" category="list-text">儲存資源池必須處於就緒或錯誤狀態。</block>
+  <block id="af88331e9964964dbe442b366d1ac6df" category="list-text">您必須擁有 Google Cloud NetApp Volumes 管理員角色。</block>
+  <block id="bed2ca610fb69910bb8ef4c1b5a550f4" category="paragraph">只有當您確定沒有任何項目依賴儲存資源池時，才能刪除儲存資源池，因為您無法復原此行動。</block>
+  <block id="ac2979c112aec90afc57be9ad357080d" category="list-text">選擇選單 <block ref="d0893c56792da060977c8f5dd5abb05a" category="inline-image-macro-rx" type="image"></block>，*工作負載* &gt; *儲存設備* &gt; *Google Cloud NetApp Volumes*。</block>
+  <block id="0be02c4c2c6d230d37294eca91cac32d" category="list-text">在儲存資源池表格中，選擇該儲存資源池的 <block ref="8891ca04a345a35bd7da25d57718d9b7" category="inline-image-macro-rx" type="image"></block>，然後選擇 *刪除*。</block>
+  <block id="bdc007d762f0dce7de79c538c125f8c0" category="list-text">在確認對話方塊中，輸入文字 *delete* 進行確認，然後選擇 *Delete*。</block>
+  <block id="26b8a5f8cbb692e906c8eed4b88cc0bd" category="inline-link-macro">追蹤器</block>
+  <block id="aa4403b6cc8cfa5753950f959d4825e3" category="paragraph">儲存資源池狀態變成「正在刪除」。刪除完成後， Workload Factory 會將儲存資源池從表格中移除。如果刪除失敗，儲存資源池會保留在表格中，且錯誤訊息會顯示在 <block ref="16f5b5bf9289e709fc587a71b063a7a8" category="inline-link-macro-rx"></block> 中。</block>
+  <block id="56d12594a8f59f797fe17a169b45a221" category="list-text">選用：使用 *專案*、*憑證* 和 *區域* 篩選器來限定儀表板的範圍。</block>
+  <block id="e601170e9f18e3a7a1c1539a873f8c52" category="summary">透過指派 NetApp Console 角色、新增憑證和新增系統，開始使用 Google Cloud NetApp Volumes。</block>
+  <block id="21872b477ae43407e3cd40c0caefeb02" category="paragraph">若要開始使用 Google Cloud NetApp Volumes，請指派您的 NetApp Console 角色、新增憑證並新增系統。</block>
+  <block id="8246a129fc774e2bd3e763ef58d63658" category="paragraph">在 NetApp Console 中，使用憑證新增系統。（選用）選取區域。</block>
+  <block id="a9a45188b1b57b3832dc903c15823c34" category="paragraph">如果您在 Google Cloud NetApp Volumes 系統上選取 *Enter system* 來開啟此頁面，篩選器已經顯示該系統的專案、憑證和區域。涵蓋所有區域的系統會在選取每個區域的情況下開啟。</block>
+  <block id="4545f3dbdf2159a2d30925d5ee8a966f" category="inline-link-macro">刪除 Google Cloud NetApp Volumes 儲存資源池</block>
+  <block id="18a7028c6cbce600b01de653195a4e1f" category="list-text"><block ref="18a7028c6cbce600b01de653195a4e1f" category="inline-link-macro-rx"></block></block>
+  <block id="764f20ec2dd6a78505eaec1ab08fa0fb" category="section-title">DP Volume 的延遲細分</block>
+  <block id="45d5d8eb50bda01c3e493da6cbdf9431" category="paragraph">基本延遲分析中的元件細分不適用於資料保護（DP）Volume。</block>
+  <block id="5fd02484bbe1124b48ec6e3c36e522cb" category="section-title">2026 年 11 月 26 日</block>
 </blocks>

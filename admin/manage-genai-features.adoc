@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: admin/manage-genai-features.html 
-keywords: gen ai, generative ai, bedrock, ask me, custom dashboards, rules builder, cloudshell ai, ems analyzer, db log analyzer, latency analyzer, byom, bring your own model, administration 
+keywords: gen ai, generative ai, bedrock, ask me, custom dashboards, custom rules, cloudshell ai, ems analyzer, db log analyzer, latency analyzer, byom, bring your own model, administration 
 summary: 在 Workload Factory 中控制對基於 Bedrock 的 AI 功能的存取。您可以關閉 AI 功能，或使用 NetApp 代管或客戶代管的 Bedrock。 
 ---
 = 在 NetApp Workload Factory 中管理 AI 功能
@@ -21,7 +21,7 @@ summary: 在 Workload Factory 中控制對基於 Bedrock 的 AI 功能的存取�
 [[about-ai-features]]
 == 關於 AI 功能
 
-Workload Factory 包含多個 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、Rule 建構者，以及 EMS、資料庫日誌和延遲分析器。
+Workload Factory 包含多項 AI 驅動的功能，可增強您的體驗，例如 Ask Me、AI 代理程式、自訂儀表板、自訂規則，以及針對 EMS、資料庫日誌和延遲的分析器。
 
 身為 Workload Factory 系統管理員，您可以在 AI 設定頁面上控制這些功能如何使用 AI。
 
@@ -44,11 +44,11 @@ NetApp 代管的 Bedrock （建議）:: 使用 NetApp 代管的 AWS Bedrock 服�
 客戶代管的 Bedrock:: 使用您自己的 AWS Bedrock 組態。
 +
 --
-* 為獲得最佳效果，NetApp 建議將 Anthropic Claude Sonnet 4.5 或 4.6 與您的 Amazon Bedrock 組態一起使用
+* 為獲得最佳效果，NetApp 建議將最新的 Anthropic Claude Sonnet 模型與您的 Amazon Bedrock 組態搭配使用
 
 
 --
-GenAI 功能關閉:: 關閉所有 AI 功能。使用者將無法再使用 Ask Me、AI 代理程式、分析器、自訂儀表板、規則建構者或其他 AI 工具。
+GenAI 功能關閉:: 關閉所有人工智慧功能。使用者將無法再使用 Ask Me、AI Agent、分析器、自訂儀表板、自訂規則或其他人工智慧工具。
 
 
 

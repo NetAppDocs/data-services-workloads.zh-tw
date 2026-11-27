@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: gcnv/quick-start-gcnv.html 
 keywords: set up google cloud netapp volumes, quick start,system 
-summary: 透過指派 NetApp Console 角色、新增憑證與探索系統，開始使用 Google Cloud NetApp Volumes。 
+summary: 透過指派 NetApp Console 角色、新增憑證和新增系統，開始使用 Google Cloud NetApp Volumes。 
 ---
 = Google Cloud NetApp Volumes 快速入門
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 透過指派 NetApp Console 角色、新增憑證與探索系統，開�
 
 
 [role="lead"]
-透過指派您的 NetApp Console 角色、新增憑證並探索系統，開始使用 Google Cloud NetApp Volumes。
+若要開始使用 Google Cloud NetApp Volumes，請指派您的 NetApp Console 角色、新增憑證並新增系統。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一"] link:../gcnv/add-roles.html["指派角色"]
 [role="quick-margin-para"]
@@ -26,4 +26,4 @@ summary: 透過指派 NetApp Console 角色、新增憑證與探索系統，開�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] link:../gcnv/create-discover-systems.html["新增系統"]
 [role="quick-margin-para"]
-在 NetApp Console 中，使用憑證、Google Cloud 專案和受支援的區域探索系統。
+在 NetApp Console 中，使用憑證新增系統。（選用）選取區域。

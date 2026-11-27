@@ -15,6 +15,161 @@ summary: 在 NetApp Console 中了解 Workload Factory 的新增功能，例如�
 
 
 
+[[26-november-2026]]
+== 2026 年 11 月 26 日
+
+
+
+[[amazon-fsx-for-netapp-ontap-enhancements]]
+=== Amazon FSx for NetApp ONTAP 增強功能
+
+
+
+==== 將多個 FSx for ONTAP 檔案系統與連結建立關聯
+
+現在，您可以在一個工作流程中將多個 FSx for ONTAP 檔案系統與新的或現有的連結建立關聯，而無需為每個檔案系統重複關聯。您可以透過為每個檔案系統輸入 ONTAP 憑證，或將相同的憑證套用至多個檔案系統來驗證連結。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/setup/links-overview.html["深入瞭解連結"]
+
+
+
+==== 儲存設備 VM 名稱服務的新建議
+
+Workload Factory 現在在架構完善的分析中，針對儲存設備 VM 名稱服務提出了以下建議：
+
+*DNS 和 LDAP 伺服器備援*：建議在使用 DNS 的儲存設備虛擬機器上至少配置兩個 DNS 伺服器，在使用 LDAP 的儲存設備虛擬機器上至少配置兩個 LDAP 伺服器。單一伺服器故障可能會導致名稱解析、網域驗證或 NFS 存取區塊。
+
+
+
+==== Volume 資源管理器增強功能
+
+
+
+===== 新的 Volume 總管表格欄位
+
+Volume 資源管理器表格包含下列新欄位：
+
+* *邏輯已用大小*：顯示用戶端看到的已使用空間，未計入儲存效率節約效益。此欄預設會顯示。
+* *交會路徑*：顯示 Volume 的交會路徑。
+
+
+
+
+===== 管理裝載點
+
+現在，您可以直接從 Volumes explorer 管理 Volume 在儲存設備 VM 命名空間中的裝載位置。從 Volume 的 *進階* 選單中選取 *管理裝載點*，以樹狀結構檢視儲存設備 VM 命名空間，然後裝載、取下或變更 Volume 的交會路徑。Workload Factory 會在取下 Volume 之前檢查相依性。您無法取下其下已裝載其他 Volume 的 Volume，且當 Volume 具有 SMB 共享時，您會收到警告。
+
+
+
+===== 新 Volume 的巢狀交會路徑
+
+建立 Volume 時，您現在可以在 *進階組態* 區段中輸入巢狀交會路徑，例如 `/test1/test2`。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-storage/create-volume.html["學習如何建立 Volume"]
+
+
+
+==== 將架構完善的組態自訂為自訂規則
+
+您可以從精心設計的組態中建立自訂規則，這樣您就可以應用自己的臨界值或範圍，同時保留原有的最佳實務做法。Workload Factory 會根據此組態開啟自訂規則，並提供可編輯的提示。規則最初以草稿形式存在，其執行摘要會說明它基於哪個組態。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-storage/improve-configurations.html["瞭解如何自訂架構完善的組態"]
+
+
+
+==== 接收已排程自訂規則執行的通知
+
+啟用排程自訂規則的通知功能，即可在無需登入 Workload Factory 的情況下取得結果。您可以在每次排程執行後接收通知，或僅在執行失敗或部分成功時接收通知。通知將透過您已設定的管道發送。手動測試不會傳送通知。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/fsx-storage/manage-custom-rules.html["了解如何接收已排程自訂規則的通知"]
+
+
+
+[[workload-factory-administration-enhancements]]
+=== Workload Factory 管理增強功能
+
+這些增強功能涵蓋了 Workload Factory 中的自訂儀表板和其他管理任務。
+
+
+
+==== 編輯自訂儀表板標題和執行摘要
+
+您可以從儀表板目錄或儀表板檢視編輯自訂儀表板的標題和執行摘要，以確保其資訊在儀表板變更時保持準確。這兩個欄位均為必填項，並且兩個儀表板可以擁有相同的標題。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/admin/manage-custom-dashboards-fsx.html["了解如何管理自訂儀表板"]
+
+
+
+[[workload-factory-for-eda-enhancements]]
+=== Workload Factory for EDA 增強功能
+
+這些增強功能包括對追蹤的 Volume 進行自動 AI 分析、在 AI 分析中提供更清晰的根目錄原因解釋，以及延遲分析結果的保留時間。
+
+
+
+==== 追蹤 Volume 以進行自動 AI 分析
+
+您可以標記 Volume，以便在偵測到延遲問題時進行自動 AI 分析。分析結果將儲存 72 小時，並包含在通知電子郵件中，因此您無需自行執行分析即可審查原因。
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html["了解如何分析延遲問題"^]。
+
+
+
+==== AI 分析中根目錄原因的更清晰解釋
+
+利用 AI 分析，可以更清楚地了解導致延遲事件的原因。此分析會檢查與 FlexCache 容量資源池和檔案系統相關的問題，以及處理量和 IOPS 限制、SSD 使用率過高、寫入飽和，以及其他使用相同資源的 Volume。
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html["了解如何分析延遲問題"^]。
+
+
+
+==== 延遲分析結果保留 72 小時
+
+延遲分析結果現在可在介面中查看 72 小時而不是 24 小時，因此您可以審查先前對某個 Volume 的分析。
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html["了解如何分析延遲問題"^]。
+
+
+
+[[google-cloud-netapp-volumes-enhancements]]
+=== Google Cloud NetApp Volumes 功能增強
+
+這些增強功能包括刪除儲存資源池、從系統開啟儲存資源池清單、跨區域新增系統以及從右側面板管理系統。
+
+
+
+==== 刪除儲存池
+
+您可以刪除沒有 Volume 且狀態為「就緒」或「錯誤」的 Google Cloud NetApp Volumes 儲存資源池。刪除操作無法復原。如果刪除失敗，則該資源池將保留在清單中，並且錯誤訊息會記錄在 Tracker 中。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/gcnv/delete-storage-pool.html["了解如何刪除儲存資源池"]
+
+
+
+==== 從系統中開啟儲存資源池清單
+
+在 Google Cloud NetApp Volumes 系統上的 *進入系統* 會在 Workload Factory 中開啟儲存資源池清單，並已選取該系統的專案、憑證和區域。涵蓋所有區域的系統會在開啟時選取每個區域。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/gcnv/view-storage-pools.html["了解如何檢視儲存資源池"]
+
+
+
+==== 在所有區域新增一個系統
+
+當您新增 Google Cloud NetApp Volumes 系統時，區域是選用的，預設為所有區域。Workload Factory 會針對您選取的憑證，探索每個區域中的儲存資源池。選取的區域會設定系統在畫布上顯示的內容，以及合規性與 DRaaS 所使用的內容。它不會限制探索。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/gcnv/create-discover-systems.html["了解如何新增系統"]
+
+
+
+==== 從右側面板管理系統
+
+Google Cloud NetApp Volumes 系統的右側面板可讓您檢視其 Volume，並從 NetApp Console 進入系統。
+
+link:https://docs.netapp.com/us-en/data-services-workloads/gcnv/view-storage-pools.html["了解如何檢視儲存資源池"]
+
+
+
 [[01-november-2026]]
 == 2026年11月1日
 

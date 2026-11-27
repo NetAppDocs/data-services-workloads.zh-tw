@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: gcnv/delete-storage-pool.html 
+keywords: delete storage pool, remove storage pool, storage pool 
+summary: 刪除 Google Cloud NetApp Volumes 儲存資源池，該資源池在 NetApp Workload Factory 中沒有 Volume。 
+---
+= 在 NetApp Workload Factory 中刪除 Google Cloud NetApp Volumes 儲存資源池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+無需使用 Google Cloud 控制台，即可刪除不再包含 Volume 的儲存資源池。
+
+
+
+[[before-you-begin]]
+== 開始之前
+
+請確保您的儲存資源池和使用者角色允許刪除操作，以便在需要時可以使用刪除選項。
+
+* 儲存資源池不能包含任何 Volume。
+* 儲存資源池必須處於就緒或錯誤狀態。
+* 您必須擁有 Google Cloud NetApp Volumes 管理員角色。
+
+
+
+
+[[delete-a-storage-pool]]
+== 刪除儲存池
+
+只有當您確定沒有任何項目依賴儲存資源池時，才能刪除儲存資源池，因為您無法復原此行動。
+
+.步驟
+. 登入 link:https://console.netapp.com["NetApp Console"^]。
+. 選擇選單 image:workloads-menu-icon.png["漢堡選單圖示用於導覽至 Workloads ，這是 Workload Factory 的選單項目"]，*工作負載* > *儲存設備* > *Google Cloud NetApp Volumes*。
+. 在儲存資源池表格中，選擇該儲存資源池的 image:screenshot_gallery_options.gif["一個有三個點的圖示。"]，然後選擇 *刪除*。
+. 在確認對話方塊中，輸入文字 *delete* 進行確認，然後選擇 *Delete*。
+
+
+.結果
+儲存資源池狀態變成「正在刪除」。刪除完成後， Workload Factory 會將儲存資源池從表格中移除。如果刪除失敗，儲存資源池會保留在表格中，且錯誤訊息會顯示在 link:../admin/monitor-operations.html["追蹤器"] 中。

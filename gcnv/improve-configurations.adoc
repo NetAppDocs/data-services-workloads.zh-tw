@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: gcnv/improve-configurations.html 
-keywords: improve configurations, optimize configurations, implement best practices, well-architected storage pool, Google Cloud NetApp Volumes, GCNV 
+keywords: improve configurations, optimize configurations, implement best practices, well-architected storage pool, Google Cloud NetApp Volumes 
 summary: Workload Factory 掃描 Google Cloud NetApp Volumes 組態，提供見解和建議，協助您實現卓越營運績效。 
 ---
 = 實作架構良好的 Google Cloud NetApp Volumes 組態
@@ -42,6 +42,7 @@ NetApp 每日分析 Google Cloud NetApp Volumes 儲存資源池在 Google Cloud 
 .步驟
 . 登入 link:https://console.netapp.com/home["NetApp Console"^]。
 . 從 NetApp Console 選單中，選取 *工作負載*，然後選取 *架構良好*。
+. 選用：使用 *專案*、*憑證* 和 *區域* 篩選器來限定儀表板的範圍。
 . 從「架構完善的儀表板」中，選取任何組態的 *檢視*。
 +
 （可選）下載包含所有設定建議的 CSV 檔案。
